@@ -1,0 +1,113 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  --color-primary: #26268c;
+  --color-secondary: #4462d8;
+
+  --color-text-primary: #1a1a50;
+  --color-text-secondary: #26268c;
+  --color-text-muted-primary: #434363;
+
+  --color-bg-primary: #fcfdff;
+  --color-bg-secondary: #ecf1fd;
+
+  color-scheme: light;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  position: relative;
+}
+a.active {
+  text-decoration: underline var(--color-secondary) 2px;
+  text-underline-offset: 6px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: var(--color-text-secondary);
+}
+
+p {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+span {
+  font-weight: 300;
+  color: var(--color-text-muted-primary);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.4em;
+  margin: 1.5em 0.1em;
+  font-size: 1.1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-secondary);
+}
+
+.btn-primary-light {
+  background-color: var(--color-secondary);
+  color: var(--color-bg-primary);
+}
+.btn-primary-light:hover {
+  background-color: #5a6edf;
+}
+
+.btn-secondary {
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.btn-secondary-light {
+  border: 1.5px solid var(--color-bg-primary);
+  color: var(--color-bg-primary);
+}
+.btn-secondary-light:hover {
+  background-color: color-mix(in srgb, var(--color-secondary) 50%, transparent);
+}
