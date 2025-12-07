@@ -1,108 +1,17 @@
-{/* Features */}
-
-          <div className="space-y-6">
-            <Collapsible
-              header="Do I need an account with Trustly to use the service?"
-              answer="No, you don’t need an existing Trustly account. You simply select your bank, log in securely, and confirm the payment."
-            />
-
-            <Collapsible
-              header="Are there any fees for using Trustly?"
-              answer="We don’t charge you a fee for using Trustly, though your bank or merchant may have their own fees."
-            />
-          </div>
-
-          <div>
-            <h1 className="my-8 text-5xl">Key features</h1>
-            <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-              {/* 1 */}
-              <div className="grid lg:grid-cols-2 gap-16 bg-bg-secondary rounded-2xl p-8 content-center">
-                <div className="bg-bg-primary rounded-xl grid place-items-center size-auto text-text-primary"></div>
-                <div>
-                  <h2 className="mb-6">Real-Time Security Monitoring</h2>
-                  <p className="text-xl my-8">
-                    <strong>• Threat Detection:</strong> Our systems are
-                    monitored continuously to help identify unusual or
-                    suspicious behaviour on your account.
-                  </p>
-                  <p className="text-xl">
-                    <strong>• Automated Alerts:</strong> If something doesn’t
-                    look right, our systems can flag it for review to help keep
-                    your account safe.
-                  </p>
-                </div>
-              </div>
-
-              {/* 2 */}
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-                <h2 className="mb-6">1. Real-Time Security Monitoring</h2>
-                <p className="text-xl my-2">
-                  <strong>• Encrypted Data:</strong> All sensitive information
-                  is encrypted during transmission and storage using
-                  industry-standard security protocols.
-                </p>
-                <p className="text-xl">
-                  <strong>• Secure Access Controls:</strong> Only authorised
-                  team members — under strict compliance requirements — can
-                  access essential operational systems.
-                </p>
-              </div>
-
-              {/* 3 */}
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-                <h2 className="mb-6">3. Bank-Grade Verification</h2>
-                <p className="text-xl my-2">
-                  <strong>• Secure Bank Connection:</strong> When you connect
-                  your bank for verification, we use accredited third-party
-                  technology designed for safety and privacy.
-                </p>
-                <p className="text-xl">
-                  <strong>• Read-Only Access:</strong> We cannot move, touch or
-                  manage your money — your connection is strictly
-                  information-only.
-                </p>
-              </div>
-
-              {/* 4 */}
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-                <h2 className="mb-6">4. Cloud-Based Security</h2>
-                <p className="text-xl my-2">
-                  <strong>• Protected Infrastructure:</strong> We operate on
-                  trusted cloud platforms with built-in compliance, automated
-                  patching, and strong physical security protections.
-                </p>
-                <p className="text-xl">
-                  <strong>• Scalable Technology:</strong> Our systems grow with
-                  demand while maintaining security, uptime and reliability.
-                </p>
-              </div>
-
-              {/* 5 */}
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-                <h2 className="mb-6">5. Incident Response & Compliance</h2>
-                <p className="text-xl my-2">
-                  <strong>• Continuous Monitoring:</strong> We follow strict
-                  processes designed to identify and respond to potential
-                  security risks.
-                </p>
-                <p className="text-xl">
-                  <strong>• Regulatory Alignment:</strong> Our platform is
-                  developed in line with Australian financial regulations and
-                  privacy requirements.
-                </p>
-              </div>
-
-              {/* 6 */}
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-                <h2 className="mb-6">6. Customer Safety & Education</h2>
-                <p className="text-xl my-2">
-                  <strong>• Account Protection Guidance:</strong> We provide
-                  simple steps to help you keep your Faster account secure.
-                </p>
-                <p className="text-xl">
-                  <strong>• Proactive Communication:</strong> We’ll always
-                  contact you through official Faster channels if we need to
-                  verify something about your account.
-                </p>
-              </div>
-            </div>
+<span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="size-8 inline mb-1 mr-3 text-primary"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </span>
+            <Link to="testimonials" className={smLinkClass}>
+              1M+ people trusted our services
+            </Link>

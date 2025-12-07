@@ -3,15 +3,15 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --color-primary: #26268c;
-  --color-secondary: #4462d8;
+  --color-primary: #1c41e6;
+  --color-secondary: #161630;
+  --color-accent: #00e7f5;
 
-  --color-text-primary: #1a1a50;
-  --color-text-secondary: #26268c;
+  --color-text-primary: #161630;
   --color-text-muted-primary: #434363;
 
   --color-bg-primary: #fcfdff;
-  --color-bg-secondary: #ecf1fd;
+  --color-bg-secondary: #eaedf5;
 
   color-scheme: light;
   color: var(--color-text-primary);
@@ -30,7 +30,7 @@ a {
   position: relative;
 }
 a.active {
-  text-decoration: underline var(--color-secondary) 2px;
+  text-decoration: underline var(--color-primary) 2px;
   text-underline-offset: 6px;
 }
 
@@ -54,7 +54,7 @@ h2 {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 10px;
-  color: var(--color-text-secondary);
+  color: var(--color-secondary);
 }
 
 p {
@@ -93,7 +93,7 @@ button {
   color: var(--color-bg-primary);
 }
 .btn-primary-light:hover {
-  background-color: #5a6edf;
+  background-color: color-mix(in srgb, var(--color-secondary) 60%, transparent);
 }
 
 .btn-secondary {
@@ -109,5 +109,5 @@ button {
   color: var(--color-bg-primary);
 }
 .btn-secondary-light:hover {
-  background-color: color-mix(in srgb, var(--color-secondary) 50%, transparent);
+  background-color: color-mix(in srgb, var(--color-secondary) 40%, transparent);
 }

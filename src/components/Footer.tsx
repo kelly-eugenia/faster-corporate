@@ -5,7 +5,7 @@ import Logo from "../assets/logo-blue.svg";
 const linkClass =
   "relative font-semibold text-text-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
-    after:h-[2px] after:w-0 after:bg-primary \
+    after:h-[2px] after:w-0 after:bg-secondary \
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0";
 
@@ -104,7 +104,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-start gap-3 md:items-end">
-            <span className="text-lg font-medium text-primary">
+            <span className="text-lg font-medium text-text-primary">
               Contact us:
             </span>
             <div className="flex gap-3">

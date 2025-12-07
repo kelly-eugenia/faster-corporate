@@ -6,7 +6,7 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
   [
     "relative text-lg font-semibold text-text-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
-    after:h-[2px] after:w-0 after:bg-primary \
+    after:h-[2px] after:w-0 after:bg-secondary \
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0",
     isActive ? "active" : "",

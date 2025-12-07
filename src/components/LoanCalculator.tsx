@@ -67,7 +67,7 @@ const LoanCalculator: React.FC = () => {
   const perPayment = totalRepayable / numberOfPayments;
 
   return (
-    <div className="relative w-full rounded-2xl border border-4 border-primary bg-bg-primary px-6 pt-6 pb-8 shadow-sm sm:px-10 sm:pt-2 sm:pb-10">
+    <div className="relative w-full rounded-2xl border border-4 border-secondary bg-bg-primary px-6 pt-6 pb-8 shadow-sm sm:px-10 sm:pt-2 sm:pb-10">
       <div className="mt-6 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex-1">
           <Pill text="Loan calculator" color="bg-secondary" />
@@ -149,14 +149,14 @@ const LoanCalculator: React.FC = () => {
 
         {/* Frequency tabs */}
         <div className="text-center">
-          <div className="mt-3 inline-flex rounded-full border border-2 border-primary text-xs">
+          <div className="mt-3 inline-flex rounded-full border border-2 border-secondary text-xs">
             <button
               type="button"
               onClick={() => setFrequency("weekly")}
               className={`m-0 rounded-full px-4 py-4 font-medium transition ${
                 frequency === "weekly"
-                  ? "bg-bg-primary text-primary border border-0 border-r-2 border-primary"
-                  : "text-primary hover:text-secondary"
+                  ? "bg-bg-primary border border-0 border-r-2 border-secondary"
+                  : "text-secondary hover:text-primary"
               }`}
             >
               Weekly
@@ -166,8 +166,8 @@ const LoanCalculator: React.FC = () => {
               onClick={() => setFrequency("fortnightly")}
               className={`m-0 rounded-full px-4 py-4 font-medium transition ${
                 frequency === "fortnightly"
-                  ? "bg-bg-primary text-primary border border-0 border-l-2 border-primary"
-                  : "text-primary hover:text-secondary"
+                  ? "bg-bg-primary border border-0 border-l-2 border-secondary"
+                  : "text-secondary hover:primary"
               }`}
             >
               Fortnightly
