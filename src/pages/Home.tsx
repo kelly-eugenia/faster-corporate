@@ -7,6 +7,7 @@ import CTA from "../components/CTA";
 
 import HeroPhoto from "../assets/hero-sect.png";
 import TeamPhoto from "../assets/faster-team.jpg";
+import WebsitePhoto from "../assets/faster-website.png";
 
 import FeesIcon from "../assets/fair-fees.png";
 import SecurityIcon from "../assets/advanced-security.png";
@@ -350,8 +351,8 @@ export default function Home() {
           {/* Right */}
           <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
             <img
-              src={TeamPhoto}
-              alt="Faster is deeply invested in our customers"
+              src={WebsitePhoto}
+              alt="Faster website on phone and laptop"
               className="block w-full h-auto rounded-2xl"
             />
           </div>
