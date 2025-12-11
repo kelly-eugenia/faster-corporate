@@ -1,6 +1,8 @@
+import { type ReactNode } from "react";
+
 type FAQProps = {
   question: string;
-  answer: string;
+  answer: ReactNode;
   isOpen: boolean;
   onToggle: () => void;
 };
@@ -12,7 +14,7 @@ export default function FAQItem({
   onToggle,
 }: FAQProps) {
   return (
-    <div className="self-start w-full rounded-3xl bg-bg-secondary px-4 py-2 md:px-10">
+    <div className="self-start w-full rounded-3xl bg-bg-secondary px-8 py-2 md:px-10">
       {/* Header row */}
       <button
         type="button"

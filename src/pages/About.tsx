@@ -17,43 +17,53 @@ export default function About() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-br from-bg-secondary to-[#709FFF] rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center lg:text-left sm:text-center">
-          <div className="py-24 md:py-16">
-            <Pill text="About Faster" color="bg-primary" />
-            <h1 className="my-8 text-6xl">
-              We believe borrowing should be{" "}
-              <span className="text-primary font-[800]">
-                clear, fair, and actually make sense.
-              </span>
-            </h1>
-            <p>
-              Faster isn’t about payday loans or fast promises — it’s about
-              giving everyday Australians a smarter, more flexible way to manage
-              short-term cashflow.
-            </p>
-          </div>
-          <div className="pt-8">
-            <img
-              className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo1}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
+        <section>
+          <div className="relative mx-auto">
+            {/* Top card */}
+            <div className="bg-gradient-to-b from-secondary to-primary rounded-2xl px-8 py-12 sm:px-16 md:pt-24 md:py-32 gap-8 content-center text-center">
+              <Pill text="About Faster" color="bg-primary" />
+
+              <h1 className="mt-12 my-8 text-6xl text-bg-primary">
+                Borrowing that’s clear, fair, and makes sense.
+              </h1>
+              <p className="text-2xl lg:px-24 sm:px-0 font-medium my-8 mb-24 text-bg-primary">
+                Faster isn’t about payday loans or empty promises — it’s about
+                giving everyday Australians a more flexible way to manage
+                short-term cashflow.
+              </p>
+            </div>
+
+            {/* Image */}
+            <div className="relative mx-auto -mt-24 md:-mt-32 item-center">
+              <div className="overflow-hidden lg:px-32 md:px-16 sm:px-8">
+                <img
+                  src={Photo3}
+                  alt="Person in studio"
+                  className="block rounded-2xl h-auto object-cover"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
         {/* What we do */}
         <section className="grid lg:grid-cols-2 gap-16 mb-12 items-stretch">
-          <div className="rounded-2xl pr-8 py-12 content-center">
+          <div className="rounded-2xl pr-8 py-12 content-center lg:text-left md:text-center">
             <Pill text="What we do" color="bg-secondary" />
-            <h1 className="my-8 text-5xl">
+            <h1 className="my-8 text-4xl">
               Our Line of Credit (LOC) gives you access to funds{" "}
               <span className="text-primary font-[800]">
-                when you need them, without reapplying every time.
+                when you need them
               </span>{" "}
+              , without reapplying every time.
             </h1>
             <p className="font-medium text-xl">
               You can draw, repay, and reuse — up to your approved limit.
             </p>
+            <div className="items-center gap-2 mt-8 mx-auto">
+              <button className="btn-secondary mr-4">See Our Fees</button>
+              <button className="btn-primary">Learn How It Works</button>
+            </div>
           </div>
 
           <div className="rounded-2xl relative overflow-hidden flex items-center justify-center py-8">
@@ -71,7 +81,7 @@ export default function About() {
         <section className="py-24 md:py-12 mb-12 content-center">
           <div className="text-center mb-12">
             <Pill text="Our promise" color="bg-secondary" />
-            <h1 className="mt-8 text-6xl">
+            <h1 className="mt-8 text-4xl">
               We built Faster because we were tired of <br />
               credit that felt confusing.
             </h1>
@@ -82,7 +92,7 @@ export default function About() {
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch">
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -104,7 +114,7 @@ export default function About() {
               </p>
             </div>
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -120,12 +130,11 @@ export default function About() {
               </div>
               <h2>We’ll be upfront</h2>
               <p>
-                All our fees are explained before you commit — no hidden costs
-                or surprise charges.
+                All our fees are explained before you commit — no hidden costs.
               </p>
             </div>
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -142,15 +151,14 @@ export default function About() {
               <h2>We’ll lend responsibly</h2>
               <p>
                 Every application is reviewed against our lending criteria and
-                your financial situation. We only approve credit that is right
-                for you.
+                your financial situation.
               </p>
             </div>
           </div>
         </section>
 
         {/* How we're different */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-br from-bg-secondary to-[#709FFF] rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
+        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
           <div className="pt-8 px-8">
             <img
               className="bottom-0 object-cover h-full rounded-3xl"
@@ -160,11 +168,11 @@ export default function About() {
           </div>
           <div className="lg:text-left sm:text-center py-24 md:py-16">
             <Pill text="Why people choose us" color="bg-primary" />
-            <h1 className="mt-12 my-8 text-6xl">
+            <h1 className="mt-12 my-8 text-6xl text-bg-primary">
               How we're{" "}
-              <span className="text-primary font-[800]">different</span>
+              <span className="text-bg-secondary font-[800]">different</span>
             </h1>
-            <p className="font-medium text-xl mb-8">
+            <p className="font-medium text-xl mb-8 text-bg-primary">
               Traditional short-term loans often come with fixed terms and
               reapplications.
               <br />
@@ -172,8 +180,8 @@ export default function About() {
               <strong>it’s ongoing.</strong>
             </p>
 
-            <p>Once approved, you can:</p>
-            <ul className="list-inside text-lg font-bold text-text-primary">
+            <p className="text-bg-primary">Once approved, you can:</p>
+            <ul className="list-inside text-lg font-bold text-bg-primary">
               <li className="my-4">
                 <span className="text-primary mr-4 text-lg">▶</span>
                 Borrow up to your limit (e.g. $450)
@@ -188,79 +196,76 @@ export default function About() {
               </li>
             </ul>
 
-            <p className="mt-12 my-8 font-bold text-2xl">
-              With Faster, it is{" "}
-              <span className="text-primary font-bold">
-                flexibility — with fairness built in.
+            <p className="mt-12 my-8 font-bold text-2xl text-bg-primary">
+              With Faster, you get{" "}
+              <span className="text-bg-secondary font-bold">
+                flexibility with fairness built in.
               </span>
             </p>
 
-            <button className="btn-primary w-48 ">Apply Now</button>
+            <button className="btn-primary-light">Apply Now</button>
           </div>
         </section>
 
-        {/* Registered */}
-        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-24 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center">
-          <Pill text="Why people trust us" color="bg-primary" />
-          <h1 className="mt-8 text-6xl">Registered and Responsible</h1>
-
-          <div className="grid lg:grid-cols-2 gap-8 px-24 mt-12 my-8 items-stretch">
-            <div className="bg-bg-primary rounded-2xl p-12 content-center">
-              <h2>
-                Faster.com.au is a registered credit provider in Australia
-              </h2>
-              <p>
-                We comply with the National Consumer Credit Protection Act 2009
-                and follow ASIC Regulatory Guide 234 to ensure our communication
-                is fair, accurate, and transparent.
-              </p>
-            </div>
-            <div className="bg-bg-primary rounded-2xl p-12 content-center">
-              <h2>We lend responsibly</h2>
-              <p>
-                Approval is subject to our lending criteria and your financial
-                circumstances.
-              </p>
-            </div>
+        {/* Security */}
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
+          <div className="lg:text-left sm:text-center py-24 md:py-16">
+            <Pill text="Why people trust us" color="bg-primary" />
+            <h1 className="my-8 text-6xl">We are registered and responsible</h1>
+            <p>Faster.com.au is:</p>
+            <ul className="list-inside text-lg font-medium text-text-primary">
+              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                A registered credit provider in Australia
+              </li>
+              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                Compliant with Australian credit laws and privacy requirements
+              </li>
+              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                Committed to responsible lending through careful assessment of
+                every application
+              </li>
+            </ul>
+            <button className="btn-primary">See Our Security</button>
           </div>
-
-          <button className="btn-primary w-48">See Our Security</button>
+          <div className="pt-8 px-8">
+            <img
+              className="bottom-0 object-cover h-full rounded-3xl"
+              src={Photo2}
+              alt="Smiling customer enjoying simple, secure banking"
+            />
+          </div>
         </section>
 
         {/* Support */}
         <section className="py-12 mb-12 content-center text-center">
-          <div>
-            <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-16"
-              >
-                <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
-                <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
-              </svg>
-            </div>
+          <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="size-16"
+            >
+              <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
+              <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
+            </svg>
+          </div>
 
-            <h1 className="mt-12 text-6xl">Need support?</h1>
-            <p className="text-2xl mt-8">
-              If you ever have questions about your account, repayments, or how
-              our products work — we’re here to help.
-            </p>
-            <p className="text-3xl font-medium mt-8">
-              Email us anytime at{" "}
-              <a
-                href="mailto:support@faster.com.au"
-                className="text-primary font-bold underline hover:text-secondary"
-              >
-                support@faster.com.au.
-              </a>
-            </p>
-          </div>
-          <div className="items-center gap-2 mt-8 mx-auto">
-            <button className="btn-primary mr-4">Learn How It Works</button>
-            <button className="btn-primary">See Our Fees</button>
-          </div>
+          <h1 className="mt-12 text-6xl">Need support?</h1>
+          <p className="text-2xl mt-8">
+            Questions about your account, repayments, or how it works? We’re
+            here to help.
+          </p>
+          <p className="text-3xl font-medium mt-8">
+            Email us anytime at{" "}
+            <a
+              href="mailto:support@faster.com.au"
+              className="text-primary font-bold underline hover:text-secondary"
+            >
+              support@faster.com.au.
+            </a>
+          </p>
+
+          <button className="mt-12 btn-primary">Contact Us</button>
         </section>
 
         {/* CTA */}

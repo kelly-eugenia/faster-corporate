@@ -2,13 +2,86 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import CTA from "../components/CTA";
-import FAQ from "../components/FAQ";
+import FAQSection from "../components/FAQSection";
 
 import Photo1 from "../assets/person-smiling.png";
 import Photo2 from "../assets/man-smiling.png";
 import Photo3 from "../assets/secure.jpeg";
 
 import "../App.css";
+
+const feesFaqs = [
+  {
+    question: "Which banks are supported by Faster?",
+    answer: (
+      <>
+        We support most major Australian banks and credit unions through our
+        secure bank-verification partner. When you connect your bank, it’s
+        read-only access — we cannot move your money.
+      </>
+    ),
+  },
+  {
+    question: "What fees apply to my Faster Line of Credit?",
+    answer: (
+      <>
+        Our standard fees are:
+        <ul className="mt-3 space-y-1">
+          <li>• a one-off establishment fee (20% of your approved limit)</li>
+          <li>• interest at 47% p.a. on your outstanding balance</li>
+          <li>• a $15 monthly fee</li>
+          <li>• a $3.50 fee per repayment</li>
+        </ul>
+        <p className="my-3 text-xl">
+          This does not include any additional charges that may apply if you
+          miss a payment or fall behind on your account. All fees are shown
+          clearly before you sign your contract.
+        </p>
+        <button className="btn-primary mt-4 text-lg">See Our Fees</button>
+      </>
+    ),
+  },
+  {
+    question: "How is interest calculated?",
+    answer: (
+      <>
+        Interest is charged daily on your outstanding balance, not your full
+        credit limit, and applied at 47% per annum (about 3.92% per month).
+      </>
+    ),
+  },
+  {
+    question: "How long does it take for a payment or drawdown to go through?",
+    answer: (
+      <>
+        Once your Line of Credit is approved and you make a drawdown request,
+        funds typically arrive the same day — depending on your bank’s
+        processing times. Some transfers may take longer, especially outside
+        business hours.
+      </>
+    ),
+  },
+  {
+    question: "What should I do if my payment doesn’t go through?",
+    answer: (
+      <>
+        If a repayment fails, we’ll notify you. The most common reasons are
+        insufficient funds or a bank delay. Log into your Faster dashboard to
+        retry the payment or contact us if you need support.
+      </>
+    ),
+  },
+  {
+    question: "Can I get a refund for a Faster repayment?",
+    answer: (
+      <>
+        Repayments made toward your Line of Credit can’t be “refunded,” but if a
+        payment was taken in error or duplicated, please contact support
+        immediately and we’ll review it for you.
+      </>
+    ),
+  },
+];
 
 export default function Fees() {
   return (
@@ -18,31 +91,32 @@ export default function Fees() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-br from-bg-secondary to-[#709FFF] rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center lg:text-left sm:text-center">
+        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center lg:text-left sm:text-center">
+          <div className="py-24 md:py-16">
+            <Pill text="Our fees" color="bg-primary" />
+            <h1 className="my-8 text-6xl text-bg-primary">
+              Clear, simple and upfront.
+            </h1>
+            <p className="text-2xl font-medium my-8 text-bg-primary">
+              Every cost of your Faster Line of Credit is set out before you
+              borrow, so you always know what you’ll pay and why.
+            </p>
+            <p className="text-bg-primary">
+              Our fees are straightforward and easy to understand. You’ll see a
+              full breakdown in your credit contract before you decide to go
+              ahead.
+            </p>
+            <button className="mt-12 btn-primary-light">
+              See How Our Fees Work
+            </button>
+          </div>
+
           <div className="pt-8">
             <img
               className="bottom-0 object-cover h-full rounded-3xl"
               src={Photo2}
               alt="Smiling customer enjoying simple, secure banking"
             />
-          </div>
-
-          <div className="py-24 md:py-16">
-            <Pill text="Our fees" color="bg-primary" />
-            <h1 className="my-8 text-6xl">Clear, simple and upfront.</h1>
-            <p className="text-2xl font-medium my-8">
-              We don’t believe in surprises. Every cost of your Faster Line of
-              Credit is set out before you borrow, so you always know what
-              you’ll pay and why.
-            </p>
-            <p>
-              With Faster, you’re paying for access to a flexible Line of Credit
-              — not for confusing extras. Our fees are straightforward, easy to
-              understand, and the same for every approved customer on the same
-              limit. You’ll see a full breakdown in your credit contract before
-              you decide to go ahead.
-            </p>
-            <button className="mt-12 btn-primary">See How Our Fees Work</button>
           </div>
         </section>
 
@@ -60,7 +134,7 @@ export default function Fees() {
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch">
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -82,7 +156,7 @@ export default function Fees() {
               </p>
             </div>
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -103,7 +177,7 @@ export default function Fees() {
               </p>
             </div>
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -127,31 +201,32 @@ export default function Fees() {
         </section>
 
         {/* Fee structure */}
-        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center">
+        <section className="bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center">
           <Pill text="How our fees work" color="bg-primary" />
 
           {/* Stat style */}
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-8 mt-8 mb-12 items-stretch text-left">
-            <div className="p-8 content-top">
+            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
               <h1 className="text-6xl text-primary font-[1000]">20%</h1>
-              <h2 className="text-secondary mt-2">Establishment fee</h2>
+              <h2 className="text-secondary text-3xl mt-2">
+                Establishment fee
+              </h2>
               <p className="text-2xl mt-4">
-                20% of your approved credit limit (e.g. $90 on a $450 limit),
-                charged once when your account is opened.
+                20% of your credit limit, charged once at the start.
               </p>
             </div>
-            <div className="p-8 content-top">
+            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
               <h1 className="text-6xl text-primary font-[1000]">
                 47%{" "}
                 <span className="text-4xl text-primary font-[1000]">p.a.</span>
               </h1>
               <h2 className="text-secondary mt-2">Interest rate</h2>
               <p className="text-2xl mt-4">
-                47% per annum (approximately 3.92% per month) on your
-                outstanding balance.
+                47% per annum (approx. 3.92% per month) on your outstanding
+                balance.
               </p>
             </div>
-            <div className="p-8 content-top">
+            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
               <h1 className="text-6xl text-primary font-[1000]">
                 $15{" "}
                 <span className="text-4xl text-primary font-[1000]">
@@ -160,15 +235,14 @@ export default function Fees() {
               </h1>
               <h2 className="text-secondary mt-2">Monthly fee</h2>
               <p className="text-2xl mt-4">
-                A flat monthly maintenance fee for keeping your Line of Credit
-                open.
+                A flat maintenance fee for keeping your LOC open.
               </p>
             </div>
-            <div className="p-8 content-top">
+            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
               <h1 className="text-6xl text-primary font-[1000]">$3.50</h1>
               <h2 className="text-secondary mt-2">Per repayment</h2>
               <p className="text-2xl mt-4">
-                A $3.50 payment fee each time a repayment is processed.
+                A $3.50 fee each time a repayment is processed.
               </p>
             </div>
           </div>
@@ -183,9 +257,8 @@ export default function Fees() {
                 limit?
               </h1>
               <p className="text-bg-primary text-2xl">
-                Here’s an example to help you see how the fees can add up. This
-                is a guide only — your actual costs will depend on how much you
-                draw and how quickly you repay.
+                Here’s an example and guide only — your actual costs will depend
+                on how much you draw and how quickly you repay.
               </p>
             </div>
 
@@ -251,9 +324,9 @@ export default function Fees() {
         </section>
 
         {/* How we think about fees */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-br from-bg-secondary to-[#709FFF] rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
           <div className="lg:text-left sm:text-center py-24 md:py-16">
-            <Pill text="How we think about fees" color="bg-primary" />
+            <Pill text="Our approach to fees" color="bg-primary" />
             <h1 className="mt-12 my-8 text-6xl">
               We’re serious about
               <span className="text-primary font-[800]">
@@ -262,32 +335,16 @@ export default function Fees() {
               </span>{" "}
               fees
             </h1>
-            <p className="font-bold text-xl mb-8">
-              Faster.com.au follows Australian credit laws, including the
-              National Consumer Credit Protection Act.
-            </p>
 
             <ul className="list-inside text-lg font-medium text-text-primary">
               <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                Our fees and interest are set within regulatory limits and are
-                fully disclosed in your credit contract.
+                Fees and interest are set within Australian regulatory limits
+                and clearly disclosed in your credit contract — no hidden
+                charges.
               </li>
               <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                We assess every application carefully and will only provide
-                credit where it’s suitable for your circumstances.
-              </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                No hidden or undisclosed charges.
-              </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                Clear explanation of every fee before you sign.
-              </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                Support available if you’re worried about making a repayment.
-              </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                We lend responsibly. Approval is subject to our lending criteria
-                and your financial circumstances.
+                Each application is assessed against our lending criteria and
+                your financial situation as part of responsible lending.
               </li>
             </ul>
           </div>
@@ -303,43 +360,44 @@ export default function Fees() {
 
         {/* Support */}
         <section className="py-12 mb-12 content-center text-center">
-          <div>
-            <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-16"
-              >
-                <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
-                <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
-              </svg>
-            </div>
-
-            <h1 className="mt-12 text-6xl">Need support?</h1>
-            <p className="text-2xl mt-8">
-              If you’re unsure about any fee, interest charge, or how our costs
-              work, get in touch before you borrow. <br /> We’re here to explain
-              everything in plain language so you can decide what’s right for
-              you.
-            </p>
-            <p className="text-3xl font-medium mt-8">
-              Email us anytime at{" "}
-              <a
-                href="mailto:support@faster.com.au"
-                className="text-primary font-bold underline hover:text-secondary"
-              >
-                support@faster.com.au.
-              </a>
-            </p>
+          <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="size-16"
+            >
+              <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
+              <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
+            </svg>
           </div>
+
+          <h1 className="mt-12 text-6xl">Need support?</h1>
+          <p className="text-2xl mt-8">
+            Questions about fees, interest, or how our costs work? We’re here to
+            help.
+          </p>
+          <p className="text-3xl font-medium mt-8">
+            Email us anytime at{" "}
+            <a
+              href="mailto:support@faster.com.au"
+              className="text-primary font-bold underline hover:text-secondary"
+            >
+              support@faster.com.au.
+            </a>
+          </p>
+
+          <button className="mt-12 btn-primary">Contact Us</button>
         </section>
 
         {/* CTA */}
         <CTA />
 
         {/* FAQ */}
-        <FAQ />
+        <section className="py-24 md:py-12 mb-12 content-center">
+          <h1 className="text-center mb-12">Customers frequently ask</h1>
+          <FAQSection faqs={feesFaqs} />
+        </section>
       </div>
       <Footer />
     </>

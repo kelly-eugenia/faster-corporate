@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import LoanCalculator from "../components/LoanCalculator";
 import CTA from "../components/CTA";
+import FAQSection from "../components/FAQSection";
 
 import HeroPhoto from "../assets/hero-sect.png";
 import TeamPhoto from "../assets/faster-team.jpg";
@@ -22,12 +24,82 @@ const xlLinkClass =
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0";
 
-const smLinkClass =
-  "relative text-xl font-medium text-secondary \
-    after:content-[''] after:absolute after:right-0 after:-bottom-2 \
-    after:h-[3px] after:w-0 after:bg-primary \
-    after:transition-all after:duration-300 \
-    hover:after:w-full hover:after:left-0";
+const homeFaqs = [
+  {
+    question: "What is Faster?",
+    answer: (
+      <>
+        Faster offers a flexible Line of Credit you can draw from, repay, and
+        reuse up to your approved limit. It’s designed to help manage short-term
+        cashflow, not as a long-term loan.
+      </>
+    ),
+  },
+  {
+    question: "Do I need an account with Faster to use the service?",
+    answer: (
+      <>
+        Yes. You’ll need a Faster account to apply for our Line of Credit and
+        manage your repayments. Your account gives you secure access to your
+        application, contract, transaction history and support.
+      </>
+    ),
+  },
+  {
+    question: "How much can I borrow with Faster?",
+    answer: (
+      <>
+        Eligible customers may be approved for a Line of Credit of up to
+        $10,000, subject to our lending criteria and your financial situation.
+      </>
+    ),
+  },
+  {
+    question: "Are there any fees for using Faster?",
+    answer: (
+      <>
+        Yes — as a credit provider, our Line of Credit includes:
+        <ul className="mt-3 space-y-1">
+          <li>• a one-off establishment fee (20% of your approved limit)</li>
+          <li>• interest at 47% p.a. on your outstanding balance</li>
+          <li>• a $15 monthly fee</li>
+          <li>• a $3.50 fee per repayment</li>
+        </ul>
+        <p className="my-3 text-xl">
+          All fees are shown clearly before you sign your contract.
+        </p>
+        <button className="btn-primary mt-4 text-lg">See Our Fees</button>
+      </>
+    ),
+  },
+  {
+    question: "Is Faster safe to use?",
+    answer: (
+      <>
+        Yes. We use secure, industry-standard technology to protect your data,
+        including encryption and strict access controls. We also comply with
+        Australian credit and privacy laws and apply responsible-lending
+        practices.
+        <div className="mt-4">
+          <button className="btn-primary mt-4 text-lg">See Our Security</button>
+        </div>
+      </>
+    ),
+  },
+  {
+    question: "How can I contact Faster for support or enquiries?",
+    answer: (
+      <>
+        You can reach our team anytime at{" "}
+        <a href="mailto:support@faster.com.au" className="hover:underline">
+          support@faster.com.au
+        </a>
+        . We’re here to help with account access, repayments, fee questions, or
+        anything else you’re unsure about.
+      </>
+    ),
+  },
+];
 
 export default function Home() {
   return (
@@ -39,7 +111,17 @@ export default function Home() {
         {/* Hero */}
         <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
           {/* Left */}
-          <div className="bg-secondary rounded-2xl px-8 py-24 sm:px-16 md:py-32 content-center text-center">
+          <motion.div
+            initial={{ opacity: 1, x: "50%" }} // start from the center
+            animate={{ opacity: 1, x: 0 }} // end in normal position
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.1,
+            }}
+            className="bg-secondary rounded-2xl px-8 py-24 sm:px-16 md:py-32 content-center text-center"
+          >
             <Pill text="Fast credit, made simple." color="bg-primary" />
             <h1 className="mt-12 my-8 text-6xl text-bg-primary">
               Access to credit when you need it most
@@ -50,17 +132,40 @@ export default function Home() {
               Get a line of credit up to $10,000 with clear terms, no surprises,
               and decisions in minutes.
             </p>
-            <button className="mt-16 btn-primary w-48 ">Apply Now</button>
-          </div>
+            <motion.button
+              className="mt-16 btn-primary w-48"
+              initial={{ y: 0 }}
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+                delay: 0.4, // starts after the slide-in has kinda finished
+              }}
+            >
+              Apply Now
+            </motion.button>
+          </motion.div>
 
           {/* Right */}
-          <div className="bg-secondary rounded-2xl flex items-bottom justify-center">
+          <motion.div
+            initial={{ opacity: 1, x: "-50%" }} // start from the center
+            animate={{ opacity: 1, x: 0 }} // end in normal position
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.1,
+            }}
+            className="bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-end justify-center"
+          >
             <img
               src={HeroPhoto}
               alt="Smiling customer enjoying simple, secure banking"
-              className="block w-full h-auto"
+              className="block w-full h-auto rounded-2xl"
             />
-          </div>
+          </motion.div>
         </section>
 
         {/* About */}
@@ -76,59 +181,55 @@ export default function Home() {
           <div className="rounded-2xl relative overflow-hidden flex items-center justify-center">
             <section className="grid xl:grid-cols-4 md:grid-cols-2 gap-8 items-stretch">
               <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/2 p-2 pl-0 flex items-center justify-center mb-4">
+                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
                   <img
                     src={SecurityIcon}
-                    alt="Smiling customer enjoying simple, secure banking"
+                    alt="Advanced Security"
                     className="block w-full h-auto"
                   />
                 </div>
                 <h2>Advanced Security</h2>
                 <p>
-                  Your information is encrypted, monitored and protected across
-                  every step of the process.
+                  Your data is encrypted and monitored throughout the process.
                 </p>
               </div>
               <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/2 p-2 pl-0 flex items-center justify-center mb-4">
+                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
                   <img
                     src={FeesIcon}
-                    alt="Smiling customer enjoying simple, secure banking"
+                    alt="Clear, fair fees"
                     className="block w-full h-auto"
                   />
                 </div>
                 <h2>Clear, Fair Fees</h2>
                 <p>
-                  No hidden extras — just a transparent cost for using your Line
+                  No hidden fees — just a transparent cost for using your Line
                   of Credit.
                 </p>
               </div>
               <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/2 p-2 pl-0 flex items-center justify-center mb-4">
+                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
                   <img
                     src={CustomerIcon}
-                    alt="Smiling customer enjoying simple, secure banking"
+                    alt="Customer support"
                     className="block w-full h-auto"
                   />
                 </div>
-                <h2>Customer-First Support</h2>
-                <p>
-                  Real people ready to help with repayments, account access, and
-                  questions.
-                </p>
+                <h2>Customer Support</h2>
+                <p>Real people ready to help with any question and issue.</p>
               </div>
               <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/2 p-2 pl-0 flex items-center justify-center mb-4">
+                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
                   <img
                     src={TechIcon}
-                    alt="Smiling customer enjoying simple, secure banking"
+                    alt="Reliable tech"
                     className="block w-full h-auto"
                   />
                 </div>
-                <h2>Technology That Works</h2>
+                <h2>Reliable Tech</h2>
                 <p>
                   Built by a tech-focused team to give you a smooth, reliable
-                  borrowing experience.
+                  experience.
                 </p>
               </div>
             </section>
@@ -145,10 +246,9 @@ export default function Home() {
                 Fast to set up, easy to use
               </h1>
               <p>
-                Faster’s reusable Line of Credit lets you access funds when you
-                need them – without applying for a new loan every time. Apply
-                once, and you can draw, repay, and reuse up to your approved
-                limit!
+                Faster’s Line of Credit lets you access funds when you need
+                them, without reapplying each time. Credit is subject to
+                eligibility and approval.
               </p>
 
               {/* Steps */}
@@ -161,8 +261,8 @@ export default function Home() {
                   <div>
                     <h2 className="font-semibold">Apply in minutes</h2>
                     <p className="mt-2 text-muted-primary">
-                      We verify your details securely, then assess your
-                      application against our lending criteria.
+                      Complete a quick online application and securely verify
+                      your details.
                     </p>
                   </div>
                 </div>
@@ -175,8 +275,8 @@ export default function Home() {
                   <div>
                     <h2 className="font-semibold">Get your Faster limit</h2>
                     <p className="mt-2 text-muted-primary">
-                      If approved, you’ll receive an ongoing credit limit. This
-                      is the maximum you can borrow at any one time.
+                      If approved, you will receive an ongoing credit limit —
+                      the maximum you can borrow at a time.
                     </p>
                   </div>
                 </div>
@@ -189,9 +289,8 @@ export default function Home() {
                   <div>
                     <h2 className="font-semibold">Draw when you need it</h2>
                     <p className="mt-2 text-muted-primary">
-                      Make a draw from your Faster limit to your nominated bank
-                      account. Each drawdown comes with a clear repayment
-                      schedule and total cost upfront.
+                      Make a draw from your limit to your bank account — with a
+                      clear repayment schedule and total cost shown upfront.
                     </p>
                   </div>
                 </div>
@@ -206,9 +305,8 @@ export default function Home() {
                       Repay, reuse, stay in control
                     </h2>
                     <p className="mt-2 text-muted-primary">
-                      As you repay, your available balance refreshes, and you
-                      can draw again up to your limit without reapplying each
-                      time.
+                      As you repay, your available balance refreshes. You can
+                      draw again up to your limit.
                     </p>
                   </div>
                 </div>
@@ -231,6 +329,7 @@ export default function Home() {
         {/* Values 1 */}
         <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
           {/* Left */}
+
           <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
             <img
               src={TeamPhoto}
@@ -247,10 +346,8 @@ export default function Home() {
               in our customers.
             </h1>
             <p className="text-xl">
-              Our commitment to responsible lending means we’ll always be
-              transparent about fees, repayments and how our Line of Credit
-              works. No pressure. No misleading terms. Just clear communication
-              backed by secure technology.
+              We believe borrowing should be clear, fair, and designed to help
+              you stay in control.
             </p>
             <div className="my-6 mt-8">
               <Pill text="Transparent Practices" color="bg-secondary" />
@@ -264,16 +361,8 @@ export default function Home() {
         <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
           {/* Left */}
           <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">
-              We pride ourselves on delivering credit with a{" "}
-              <span className="text-primary font-[800]">
-                commitment to fairness.
-              </span>{" "}
-            </h1>
-            <p className="text-xl">
-              Every part of Faster is designed to help you stay in control:
-              secure systems, clear fees and dedicated support at every stage.
-            </p>
+            <h1 className="mt-12 my-8 text-6xl">Fast. Secure. Simple.</h1>
+
             <div>
               <div className="flex gap-6 justify-start my-12">
                 <span>
@@ -292,9 +381,9 @@ export default function Home() {
                   </svg>
                 </span>
                 <div>
-                  <h2>Fast. Secure. Simple.</h2>
+                  <h2>Fast, simple experience</h2>
                   <p>
-                    Technology designed for a smooth, efficient borrowing
+                    Our technology is built for a smooth, efficient borrowing
                     experience.
                   </p>
                 </div>
@@ -360,6 +449,12 @@ export default function Home() {
 
         {/* CTA */}
         <CTA />
+
+        {/* FAQ */}
+        <section className="py-24 md:py-12 mb-12 content-center">
+          <h1 className="text-center mb-12">Customers frequently ask</h1>
+          <FAQSection faqs={homeFaqs} />
+        </section>
       </div>
       <Footer />
     </>
