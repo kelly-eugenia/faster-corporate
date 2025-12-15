@@ -415,7 +415,7 @@ export default function FAQ() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="bg-secondary rounded-2xl px-8 py-12 sm:px-16 md:py-24 mb-12 gap-8 content-center text-center">
+        <section className="bg-gradient-to-b from-secondary to-primary rounded-2xl px-8 py-12 sm:px-16 md:py-24 mb-12 gap-8 content-center text-center">
           <Pill text="Support" color="bg-primary" />
           <h1 className="mt-12 my-8 text-6xl text-bg-primary">
             Frequently Asked Questions

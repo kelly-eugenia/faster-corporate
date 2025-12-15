@@ -91,42 +91,45 @@ const feesFaqs = [
 export default function Fees() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-bg-primary px-12 py-6 mx-auto">
-        <NavBar />
-      </header>
+      <NavBar />
+
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center lg:text-left sm:text-center">
-          <div className="py-24 md:py-16 content-center">
-            <Pill text="Our fees" color="bg-primary" />
-            <h1 className="my-8 text-6xl text-bg-primary">
-              Clear, simple and upfront.
-            </h1>
-            <p className="text-2xl font-medium my-8 text-bg-primary">
-              Every cost of your Faster Line of Credit is set out before you
-              borrow, so you always know what you’ll pay and why.
-            </p>
-            <p className="text-bg-primary">
-              Our fees are straightforward and easy to understand. You’ll see a
-              full breakdown in your credit contract before you decide to go
-              ahead.
-            </p>
-            <button className="btn-primary-light mt-12">
-              <Link
-                to="/fees#how-fees-work"
-                className="font-medium text-bg-primary"
-              >
-                See How Our Fees Work
-              </Link>
-            </button>
-          </div>
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
+            {/* Left */}
+            <div className="lg:text-left sm:text-center">
+              <Pill text="Our fees" color="bg-primary" />
+              <h1 className="my-8 text-6xl text-bg-primary">
+                Clear, simple and upfront.
+              </h1>
+              <p className="text-2xl font-medium my-8 text-bg-primary">
+                Every cost of your Faster Line of Credit is set out before you
+                borrow, so you always know what you’ll pay and why.
+              </p>
+              <p className="text-bg-primary">
+                Our fees are straightforward and easy to understand. You’ll see
+                a full breakdown in your credit contract before you decide to go
+                ahead.
+              </p>
+              <button className="btn-primary-light mt-12">
+                <Link
+                  to="/fees#how-fees-work"
+                  className="font-medium text-bg-primary"
+                >
+                  See How Our Fees Work
+                </Link>
+              </button>
+            </div>
 
-          <div className="">
-            <img
-              className="bottom-0 object-cover h-full rounded-3xl"
-              src={HeroPhoto}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
+            {/* Right */}
+            <div className="rounded-2xl flex items-end justify-center">
+              <img
+                className="block w-full h-auto rounded-2xl"
+                src={HeroPhoto}
+                alt="Our Fees"
+              />{" "}
+            </div>
           </div>
         </section>
 

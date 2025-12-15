@@ -17,13 +17,12 @@ import "../App.css";
 export default function About() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-bg-primary px-12 py-6 mx-auto">
-        <NavBar />
-      </header>
+      <NavBar />
+
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="relative mx-auto">
-          <div className="bg-gradient-to-b from-secondary to-primary rounded-2xl px-8 py-12 sm:px-16 md:pt-24 md:py-32 gap-8 content-center text-center">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-16 lg:pt-24 bg-gradient-to-tr from-secondary to-primary">
+          <div className="px-8 py-12 sm:px-16 md:pt-16 md:py-32 gap-8 content-center text-center">
             <Pill text="About Faster" color="bg-primary" />
 
             <h1 className="mt-12 my-8 text-6xl text-bg-primary">

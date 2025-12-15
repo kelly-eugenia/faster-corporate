@@ -120,70 +120,52 @@ const homeFaqs = [
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-bg-primary px-12 py-6 mx-auto">
-        <NavBar />
-      </header>
+      <NavBar />
+
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
-          {/* Left */}
-          <motion.div
-            initial={{ opacity: 1, x: "50%" }} // start from the center
-            animate={{ opacity: 1, x: 0 }} // end in normal position
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.1,
-            }}
-            className="bg-secondary rounded-2xl px-8 py-24 sm:px-16 md:py-32 content-center text-center"
-          >
-            <Pill text="Fast credit, made simple." color="bg-primary" />
-            <h1 className="mt-12 my-8 text-6xl text-bg-primary">
-              Access to credit when you need it most
-            </h1>
-            <p className="text-bg-primary px-8">
-              When traditional banks say no, <strong>Faster says yes</strong>.
-              <br />
-              Get a Line of Credit up to $10,000 with clear terms, no surprises,
-              and decisions in minutes.
-            </p>
-            <motion.button
-              className="mt-16 btn-primary w-48 text-xl"
-              initial={{ y: 0 }}
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut",
-                delay: 0.4, // starts after the slide-in has kinda finished
-              }}
-            >
-              <Link to="/apply" className="text-bg-primary font-medium">
-                Apply Now
-              </Link>
-            </motion.button>
-          </motion.div>
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-16 lg:pt-24 bg-gradient-to-tr from-secondary to-primary">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
+            {/* Left */}
+            <div className="pb-16 lg:pb-24 lg:text-left sm:text-center">
+              <Pill text="Fast credit, made simple." color="bg-primary" />
+              <h1 className="mt-10 mb-6 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
+                Access up to $10,000 when you need it most
+              </h1>
+              <p className="text-bg-primary">
+                When traditional banks say no, <strong>Faster says yes</strong>.
+                <br />
+                Get a Line of Credit up to $10,000 with clear terms, no
+                surprises, and decisions in minutes.
+              </p>
 
-          {/* Right */}
-          <motion.div
-            initial={{ opacity: 1, x: "-50%" }} // start from the center
-            animate={{ opacity: 1, x: 0 }} // end in normal position
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.1,
-            }}
-            className="bg-gradient-to-br from-secondary to-primary rounded-2xl flex items-end justify-center"
-          >
-            <img
-              src={HeroPhoto}
-              alt="Smiling customer enjoying simple, secure banking"
-              className="block w-full h-auto rounded-2xl"
-            />
-          </motion.div>
+              <motion.button
+                className="mt-10 btn-primary text-xl"
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                  delay: 0.4,
+                }}
+              >
+                <Link to="/apply" className="text-bg-primary font-medium">
+                  Apply Now
+                </Link>
+              </motion.button>
+            </div>
+
+            {/* Right */}
+            <div className="rounded-2xl flex items-end justify-center">
+              <img
+                className="block w-full h-auto rounded-2xl"
+                src={HeroPhoto}
+                alt="Smiling customer enjoying Faster"
+              />{" "}
+            </div>
+          </div>
         </section>
 
         {/* About */}
