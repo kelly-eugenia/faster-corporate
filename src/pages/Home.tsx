@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -68,7 +69,11 @@ const homeFaqs = [
         <p className="my-3 text-xl">
           All fees are shown clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">See Our Fees</button>
+        <button className="btn-primary mt-4 text-lg">
+          <Link to="/fees" className="font-medium text-bg-primary">
+            See Our Fees
+          </Link>
+        </button>
       </>
     ),
   },
@@ -81,7 +86,11 @@ const homeFaqs = [
         Australian credit and privacy laws and apply responsible-lending
         practices.
         <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">See Our Security</button>
+          <button className="btn-primary mt-4 text-lg">
+            <Link to="/security" className="font-medium text-bg-primary">
+              See Our Security
+            </Link>
+          </button>
         </div>
       </>
     ),
@@ -96,6 +105,13 @@ const homeFaqs = [
         </a>
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
+        <div className="mt-4">
+          <button className="btn-primary mt-4 text-lg">
+            <Link to="/contact" className="font-medium text-bg-primary">
+              Contact Us
+            </Link>
+          </button>
+        </div>
       </>
     ),
   },
@@ -126,14 +142,14 @@ export default function Home() {
             <h1 className="mt-12 my-8 text-6xl text-bg-primary">
               Access to credit when you need it most
             </h1>
-            <p className="text-bg-primary">
+            <p className="text-bg-primary px-8">
               When traditional banks say no, <strong>Faster says yes</strong>.
               <br />
-              Get a line of credit up to $10,000 with clear terms, no surprises,
+              Get a Line of Credit up to $10,000 with clear terms, no surprises,
               and decisions in minutes.
             </p>
             <motion.button
-              className="mt-16 btn-primary w-48"
+              className="mt-16 btn-primary w-48 text-xl"
               initial={{ y: 0 }}
               animate={{ scale: [1, 1.1, 1] }}
               transition={{
@@ -144,7 +160,9 @@ export default function Home() {
                 delay: 0.4, // starts after the slide-in has kinda finished
               }}
             >
-              Apply Now
+              <Link to="/apply" className="text-bg-primary font-medium">
+                Apply Now
+              </Link>
             </motion.button>
           </motion.div>
 
@@ -237,7 +255,10 @@ export default function Home() {
         </section>
 
         {/* How it works */}
-        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12">
+        <section
+          id="how-it-works"
+          className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12"
+        >
           <div className="grid gap-32 lg:grid-cols-2 items-center">
             {/* Left */}
             <div>
@@ -314,8 +335,16 @@ export default function Home() {
 
               {/* CTAs */}
               <div className="mt-10 flex flex-wrap gap-4">
-                <button className="btn-secondary">See Our Fees</button>
-                <button className="btn-primary">Apply Now</button>
+                <button className="btn-secondary">
+                  <Link to="/fees" className="font-medium text-primary">
+                    See Our Fees
+                  </Link>
+                </button>
+                <button className="btn-primary">
+                  <Link to="/apply" className="font-medium text-bg-primary">
+                    Apply Now
+                  </Link>
+                </button>
               </div>
             </div>
 

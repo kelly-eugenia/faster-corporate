@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Phone from "../assets/animated-dashboard.gif";
 import Pill from "../components/Pill";
 import "../App.css";
@@ -11,8 +12,16 @@ export default function CTA() {
           Ready to get started with Faster?
         </h1>
         <div className="items-center gap-2 mt-12 text-xl">
-          <button className="btn-secondary-light mr-4">Contact Us</button>
-          <button className="btn-primary-light">Apply Now</button>
+          <button className="btn-secondary-light mr-4">
+            <Link to="/contact" className="font-medium text-bg-primary">
+              Contact Us
+            </Link>
+          </button>
+          <button className="btn-primary-light">
+            <Link to="/apply" className="font-medium text-bg-primary">
+              Apply Now
+            </Link>
+          </button>
         </div>
       </div>
       <div className="rounded-2xl flex items-end justify-center">

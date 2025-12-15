@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../App.css";
 import Logo from "../assets/logo-blue.svg";
 
@@ -38,8 +38,16 @@ export default function NavBar() {
 
       {/* CTA buttons */}
       <div className="hidden items-center gap-2 lg:flex">
-        <button className="btn-secondary">Log In</button>
-        <button className="btn-primary">Apply Now</button>
+        <button className="btn-secondary">
+          <Link to="/login" className="font-medium text-primary">
+            Log In
+          </Link>
+        </button>
+        <button className="btn-primary">
+          <Link to="/apply" className="font-medium text-bg-primary">
+            Apply Now
+          </Link>
+        </button>
       </div>
 
       {/* Hamburger button */}

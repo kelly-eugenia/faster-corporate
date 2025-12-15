@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
-
 import FAQSection, { type Faq } from "../components/FAQSection";
 
 import "../App.css";
@@ -61,7 +62,11 @@ const topFaqs: Faq[] = [
         <p className="my-3 text-xl">
           All fees are shown clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">See Our Fees</button>
+        <button className="btn-primary mt-4 text-lg">
+          <Link to="/fees" className="font-medium text-bg-primary">
+            See Our Fees
+          </Link>
+        </button>
       </>
     ),
   },
@@ -74,7 +79,11 @@ const topFaqs: Faq[] = [
         Australian credit and privacy laws and apply responsible-lending
         practices.
         <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">See Our Security</button>
+          <button className="btn-primary mt-4 text-lg">
+            <Link to="/security" className="font-medium text-bg-primary">
+              See Our Security
+            </Link>
+          </button>
         </div>
       </>
     ),
@@ -90,7 +99,11 @@ const topFaqs: Faq[] = [
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
         <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">Contact Us</button>
+          <button className="btn-primary mt-4 text-lg">
+            <Link to="/contact" className="font-medium text-bg-primary">
+              Contact Us
+            </Link>
+          </button>
         </div>
       </>
     ),
@@ -222,7 +235,13 @@ const creditFaqs: Faq[] = [
           miss a payment or fall behind on your account. All fees are shown
           clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">See Our Fees</button>
+        <div className="mt-4">
+          <button className="btn-primary mt-4 text-lg">
+            <Link to="/fees" className="font-medium text-bg-primary">
+              See Our Fees
+            </Link>
+          </button>
+        </div>
       </>
     ),
   },
@@ -299,7 +318,13 @@ const securityFaqs: Faq[] = [
         with Australian credit laws, privacy requirements, and
         responsible-lending regulations.
         <div className="mt-4">
-          <button className="btn-primary text-lg">See Our Security</button>
+          <div className="mt-4">
+            <button className="btn-primary mt-4 text-lg">
+              <Link to="/security" className="font-medium text-bg-primary">
+                See Our Security
+              </Link>
+            </button>
+          </div>
         </div>
       </>
     ),
@@ -421,34 +446,38 @@ export default function FAQ() {
           <FAQSection faqs={currentCategory.faqs} />
         </section>
 
-        <hr className="border-t border-[#D4D6E5] lg:-mx-40 sm:-mx-12" />
+        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 pt-12 lg:px-40 sm:px-12 mb-12 gap-8 content-center">
+          {/* Support */}
+          <section className="py-12 mb-12 content-center text-center">
+            <div className="mx-auto bg-bg-primary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="size-16"
+              >
+                <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
+                <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
+              </svg>
+            </div>
 
-        {/* Support */}
-        <section className="py-12 mb-12 content-center text-center">
-          <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-16"
-            >
-              <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
-              <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
-            </svg>
-          </div>
+            <h1 className="mt-12 text-6xl">Still have unanswered questions?</h1>
+            <p className="text-3xl font-medium mt-8">
+              Email us anytime at{" "}
+              <a
+                href="mailto:support@faster.com.au"
+                className="text-primary font-bold underline hover:text-secondary"
+              >
+                support@faster.com.au.
+              </a>
+            </p>
 
-          <h1 className="mt-12 text-6xl">Still have unanswered questions?</h1>
-          <p className="text-3xl font-medium mt-8">
-            Email us anytime at{" "}
-            <a
-              href="mailto:support@faster.com.au"
-              className="text-primary font-bold underline hover:text-secondary"
-            >
-              support@faster.com.au.
-            </a>
-          </p>
-
-          <button className="mt-12 btn-primary">Contact Us</button>
+            <button className="mt-12 btn-primary">
+              <Link to="/contact" className="font-medium text-bg-primary">
+                Contact Us
+              </Link>
+            </button>
+          </section>
         </section>
       </div>
       <Footer />

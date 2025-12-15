@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
-import Photo1 from "../assets/person-smiling.png";
-import Photo2 from "../assets/man-smiling.png";
-import Photo3 from "../assets/secure.jpeg";
+import HeroPhoto from "../assets/clear-fees.png";
+import CoinsPhoto from "../assets/coins.png";
 
 import "../App.css";
 
@@ -37,7 +38,11 @@ const feesFaqs = [
           miss a payment or fall behind on your account. All fees are shown
           clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">See Our Fees</button>
+        <button className="btn-primary mt-4 text-lg">
+          <Link to="/fees" className="font-medium text-bg-primary">
+            See Our Fees
+          </Link>
+        </button>
       </>
     ),
   },
@@ -91,8 +96,8 @@ export default function Fees() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center lg:text-left sm:text-center">
-          <div className="py-24 md:py-16">
+        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center lg:text-left sm:text-center">
+          <div className="py-24 md:py-16 content-center">
             <Pill text="Our fees" color="bg-primary" />
             <h1 className="my-8 text-6xl text-bg-primary">
               Clear, simple and upfront.
@@ -106,15 +111,20 @@ export default function Fees() {
               full breakdown in your credit contract before you decide to go
               ahead.
             </p>
-            <button className="mt-12 btn-primary-light">
-              See How Our Fees Work
+            <button className="btn-primary-light mt-12">
+              <Link
+                to="/fees#how-fees-work"
+                className="font-medium text-bg-primary"
+              >
+                See How Our Fees Work
+              </Link>
             </button>
           </div>
 
-          <div className="pt-8">
+          <div className="">
             <img
               className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo2}
+              src={HeroPhoto}
               alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
@@ -134,7 +144,7 @@ export default function Fees() {
 
           <div className="grid lg:grid-cols-3 gap-8 items-stretch">
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -143,10 +153,9 @@ export default function Fees() {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
                     clipRule="evenodd"
                   />
-                  <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
                 </svg>
               </div>
               <h2>One clear establishment fee</h2>
@@ -156,16 +165,17 @@ export default function Fees() {
               </p>
             </div>
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="size-6"
                 >
+                  <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
                   <path
                     fillRule="evenodd"
-                    d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                    d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
                     clipRule="evenodd"
                   />
                 </svg>
@@ -177,18 +187,14 @@ export default function Fees() {
               </p>
             </div>
             <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
+              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   className="size-6"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                    clipRule="evenodd"
-                  />
+                  <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 0 1 .878.645 49.17 49.17 0 0 1 .376 5.452.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 0 1-.595 4.845.75.75 0 0 1-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 0 1-.658.643 49.118 49.118 0 0 1-4.708-.36.75.75 0 0 1-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 0 0 .659-.663 47.703 47.703 0 0 0-.31-4.82.75.75 0 0 1 .83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 0 0 .657-.642Z" />
                 </svg>
               </div>
               <h2>Simple ongoing costs</h2>
@@ -201,47 +207,44 @@ export default function Fees() {
         </section>
 
         {/* Fee structure */}
-        <section className="bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center">
+        <section
+          id="how-fees-work"
+          className="bg-gradient-to-bl from-primary to-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center"
+        >
           <Pill text="How our fees work" color="bg-primary" />
 
           {/* Stat style */}
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-8 mt-8 mb-12 items-stretch text-left">
-            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
-              <h1 className="text-6xl text-primary font-[1000]">20%</h1>
-              <h2 className="text-secondary text-3xl mt-2">
+            <div className="p-12 bg-bg-primary rounded-2xl content-top">
+              <h1 className="text-7xl text-primary font-[1000]">20%</h1>
+              <h2 className="text-secondary text-3xl mt-3">
                 Establishment fee
               </h2>
-              <p className="text-2xl mt-4">
+              <p className="text-xl mt-6">
                 20% of your credit limit, charged once at the start.
               </p>
             </div>
-            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
-              <h1 className="text-6xl text-primary font-[1000]">
-                47%{" "}
-                <span className="text-4xl text-primary font-[1000]">p.a.</span>
-              </h1>
-              <h2 className="text-secondary mt-2">Interest rate</h2>
-              <p className="text-2xl mt-4">
-                47% per annum (approx. 3.92% per month) on your outstanding
+            <div className="p-12 bg-bg-primary rounded-2xl content-top">
+              <h1 className="text-7xl text-primary font-[1000]">47% </h1>
+              <h2 className="text-secondary text-3xl mt-3">
+                p.a. Interest rate
+              </h2>
+              <p className="text-xl mt-6">
+                47% per annum (approx. 3.92% per month) calculated daily on your
                 balance.
               </p>
             </div>
-            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
-              <h1 className="text-6xl text-primary font-[1000]">
-                $15{" "}
-                <span className="text-4xl text-primary font-[1000]">
-                  / month
-                </span>
-              </h1>
-              <h2 className="text-secondary mt-2">Monthly fee</h2>
-              <p className="text-2xl mt-4">
+            <div className="p-12 bg-bg-primary rounded-2xl content-top">
+              <h1 className="text-7xl text-primary font-[1000]">$15 </h1>
+              <h2 className="text-secondary text-3xl mt-3">Monthly fee</h2>
+              <p className="text-xl mt-6">
                 A flat maintenance fee for keeping your LOC open.
               </p>
             </div>
-            <div className="p-12 bg-bg-secondary rounded-2xl content-center">
-              <h1 className="text-6xl text-primary font-[1000]">$3.50</h1>
-              <h2 className="text-secondary mt-2">Per repayment</h2>
-              <p className="text-2xl mt-4">
+            <div className="p-12 bg-bg-primary rounded-2xl content-top">
+              <h1 className="text-7xl text-primary font-[1000]">$3.50</h1>
+              <h2 className="text-secondary text-3xl mt-3">Per repayment</h2>
+              <p className="text-xl mt-6">
                 A $3.50 fee each time a repayment is processed.
               </p>
             </div>
@@ -249,7 +252,7 @@ export default function Fees() {
 
           {/* In practice */}
           <section className="grid lg:grid-cols-2 gap-8 mb-12 items-stretch">
-            <div className="bg-secondary rounded-2xl p-12 content-center text-left">
+            <div className="rounded-2xl p-12 content-center text-left">
               <Pill text="Example in practice" color="bg-primary" />
               <h1 className="my-12 text-bg-primary">
                 What does this look like on a{" "}
@@ -262,7 +265,7 @@ export default function Fees() {
               </p>
             </div>
 
-            <div className="bg-bg-primary rounded-2xl text-left px-12 py-24 md:py-16">
+            <div className="bg-bg-secondary rounded-2xl text-left px-12 py-24 md:py-16">
               <p className="font-medium text-xl mb-8">
                 For a customer with a $450 credit limit who uses the full amount
                 for one month:
@@ -324,8 +327,8 @@ export default function Fees() {
         </section>
 
         {/* How we think about fees */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
-          <div className="lg:text-left sm:text-center py-24 md:py-16">
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mt-24 mb-12 gap-16 content-center ">
+          <div className="lg:text-left sm:text-center py-24 md:py-16 content-center">
             <Pill text="Our approach to fees" color="bg-primary" />
             <h1 className="mt-12 my-8 text-6xl">
               We’re serious about
@@ -349,10 +352,10 @@ export default function Fees() {
             </ul>
           </div>
 
-          <div className="pt-8 px-8">
+          <div className="px-8">
             <img
-              className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo1}
+              className="bottom-0 object-cover h-full rounded-2xl"
+              src={CoinsPhoto}
               alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
@@ -387,7 +390,11 @@ export default function Fees() {
             </a>
           </p>
 
-          <button className="mt-12 btn-primary">Contact Us</button>
+          <button className="mt-12 btn-primary">
+            <Link to="/contact" className="font-medium text-bg-primary">
+              Contact Us
+            </Link>
+          </button>
         </section>
 
         {/* CTA */}

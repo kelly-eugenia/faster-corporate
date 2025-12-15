@@ -27,17 +27,17 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="about" className={linkClass}>
+                  <Link to="/about" className={linkClass}>
                     About us
                   </Link>
                 </li>
                 <li>
-                  <Link to="fees" className={linkClass}>
+                  <Link to="/fees" className={linkClass}>
                     Fees
                   </Link>
                 </li>
                 <li>
-                  <Link to="security" className={linkClass}>
+                  <Link to="/security" className={linkClass}>
                     Security
                   </Link>
                 </li>
@@ -47,17 +47,17 @@ export default function Footer() {
             <div>
               <ul className="space-y-3">
                 <li>
-                  <Link to="contact" className={linkClass}>
+                  <Link to="/contact" className={linkClass}>
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="testimonials" className={linkClass}>
+                  <Link to="/testimonials" className={linkClass}>
                     Testimonials
                   </Link>
                 </li>
                 <li>
-                  <Link to="faqs" className={linkClass}>
+                  <Link to="/faq" className={linkClass}>
                     FAQs
                   </Link>
                 </li>
@@ -67,17 +67,17 @@ export default function Footer() {
             <div>
               <ul className="space-y-3">
                 <li>
-                  <Link to="terms-and-conditions" className={linkClass}>
+                  <Link to="/terms-and-conditions" className={linkClass}>
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link to="refund-policy" className={linkClass}>
+                  <Link to="/refund-policy" className={linkClass}>
                     Refund Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="privacy-policy" className={linkClass}>
+                  <Link to="/privacy-policy" className={linkClass}>
                     Privacy Policy
                   </Link>
                 </li>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -6,6 +7,10 @@ import CTA from "../components/CTA";
 import Photo1 from "../assets/person-smiling.png";
 import Photo2 from "../assets/man-smiling.png";
 import Photo3 from "../assets/secure.jpeg";
+
+import TeamPhoto from "../assets/about-faster.jpg";
+import Phone from "../assets/how-faster-differs.png";
+import SecurePhoto from "../assets/responsible.png";
 
 import "../App.css";
 
@@ -17,223 +22,225 @@ export default function About() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section>
-          <div className="relative mx-auto">
-            {/* Top card */}
-            <div className="bg-gradient-to-b from-secondary to-primary rounded-2xl px-8 py-12 sm:px-16 md:pt-24 md:py-32 gap-8 content-center text-center">
-              <Pill text="About Faster" color="bg-primary" />
+        <section className="relative mx-auto">
+          <div className="bg-gradient-to-b from-secondary to-primary rounded-2xl px-8 py-12 sm:px-16 md:pt-24 md:py-32 gap-8 content-center text-center">
+            <Pill text="About Faster" color="bg-primary" />
 
-              <h1 className="mt-12 my-8 text-6xl text-bg-primary">
-                Borrowing that’s clear, fair, and makes sense.
-              </h1>
-              <p className="text-2xl lg:px-24 sm:px-0 font-medium my-8 mb-24 text-bg-primary">
-                Faster isn’t about payday loans or empty promises — it’s about
-                giving everyday Australians a more flexible way to manage
-                short-term cashflow.
-              </p>
-            </div>
-
-            {/* Image */}
-            <div className="relative mx-auto -mt-24 md:-mt-32 item-center">
-              <div className="overflow-hidden lg:px-32 md:px-16 sm:px-8">
-                <img
-                  src={Photo3}
-                  alt="Person in studio"
-                  className="block rounded-2xl h-auto object-cover"
-                />
-              </div>
-            </div>
+            <h1 className="mt-12 my-8 text-6xl text-bg-primary">
+              Borrowing that’s clear, fair, and makes sense.
+            </h1>
+            <p className="text-2xl lg:px-24 sm:px-0 font-medium my-8 mb-24 text-bg-primary">
+              Faster isn’t about payday loans or empty promises — it’s about
+              giving everyday Australians a more flexible way to manage
+              short-term cashflow.
+            </p>
           </div>
         </section>
 
         {/* What we do */}
-        <section className="grid lg:grid-cols-2 gap-16 mb-12 items-stretch">
-          <div className="rounded-2xl pr-8 py-12 content-center lg:text-left md:text-center">
+        <section className="rounded-2xl -mt-32 md:-mt-48 lg:px-32 md:px-16 sm:px-8 py-12 pb-6 content-center mb-12 items-stretch">
+          {/* Image */}
+          <div className="relative mx-auto item-center">
+            <div className="overflow-hidden">
+              <img
+                src={TeamPhoto}
+                alt="The Faster team"
+                className="block rounded-2xl h-auto object-cover"
+              />
+            </div>
+          </div>
+          <div className="mt-12">
             <Pill text="What we do" color="bg-secondary" />
-            <h1 className="my-8 text-4xl">
-              Our Line of Credit (LOC) gives you access to funds{" "}
+            <h1 className="my-8 text-6xl">
+              Our Line of Credit gives you access to funds{" "}
               <span className="text-primary font-[800]">
                 when you need them
-              </span>{" "}
-              , without reapplying every time.
+              </span>
+              , without reapplying <br /> every time.
             </h1>
-            <p className="font-medium text-xl">
+            <p className="font-medium text-2xl">
               You can draw, repay, and reuse — up to your approved limit.
             </p>
-            <div className="items-center gap-2 mt-8 mx-auto">
-              <button className="btn-secondary mr-4">See Our Fees</button>
-              <button className="btn-primary">Learn How It Works</button>
-            </div>
-          </div>
-
-          <div className="rounded-2xl relative overflow-hidden flex items-center justify-center py-8">
-            <img
-              className="object-cover h-full rounded-3xl"
-              src={Photo3}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
-          </div>
-        </section>
-
-        <hr className="border-t border-[#D4D6E5] lg:-mx-40 sm:-mx-12" />
-
-        {/* Promises */}
-        <section className="py-24 md:py-12 mb-12 content-center">
-          <div className="text-center mb-12">
-            <Pill text="Our promise" color="bg-secondary" />
-            <h1 className="mt-8 text-4xl">
-              We built Faster because we were tired of <br />
-              credit that felt confusing.
-            </h1>
-            <p className="text-2xl mt-8">
-              You deserve transparency, not fine print.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
+            <div className="items-center gap-2 mt-4 mx-auto">
+              <button className="btn-secondary mr-4">
+                <Link to="/fees" className="font-medium text-primary">
+                  See Our Fees
+                </Link>
+              </button>
+              <button className="btn-primary">
+                <Link
+                  to="/home#how-it-works"
+                  className="font-medium text-bg-primary"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                    clipRule="evenodd"
-                  />
-                  <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
-                </svg>
-              </div>
-              <h2>We’ll keep it simple</h2>
-              <p>
-                No jargon, no gimmicks. Just clear information so you always
-                know where you stand.
-              </p>
-            </div>
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h2>We’ll be upfront</h2>
-              <p>
-                All our fees are explained before you commit — no hidden costs.
-              </p>
-            </div>
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-4 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h2>We’ll lend responsibly</h2>
-              <p>
-                Every application is reviewed against our lending criteria and
-                your financial situation.
-              </p>
+                  Learn How It Works
+                </Link>
+              </button>
             </div>
           </div>
         </section>
 
-        {/* How we're different */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
-          <div className="pt-8 px-8">
-            <img
-              className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo2}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
-          </div>
-          <div className="lg:text-left sm:text-center py-24 md:py-16">
-            <Pill text="Why people choose us" color="bg-primary" />
-            <h1 className="mt-12 my-8 text-6xl text-bg-primary">
-              How we're{" "}
-              <span className="text-bg-secondary font-[800]">different</span>
-            </h1>
-            <p className="font-medium text-xl mb-8 text-bg-primary">
-              Traditional short-term loans often come with fixed terms and
-              reapplications.
-              <br />
-              Faster’s Line of Credit works differently —{" "}
-              <strong>it’s ongoing.</strong>
-            </p>
+        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-12 md:py-8 mb-12 gap-8 content-center">
+          {/* Promises */}
+          <section className="py-24 md:py-12 mb-12 content-center">
+            <div className="text-center mb-12">
+              <Pill text="Our promise" color="bg-primary" />
+              <h1 className="mt-8 text-5xl">
+                We built Faster because we were tired of <br />
+                credit that felt confusing.
+              </h1>
+              <p className="text-2xl mt-8">
+                You deserve transparency, not fine print.
+              </p>
+            </div>
 
-            <p className="text-bg-primary">Once approved, you can:</p>
-            <ul className="list-inside text-lg font-bold text-bg-primary">
-              <li className="my-4">
-                <span className="text-primary mr-4 text-lg">▶</span>
-                Borrow up to your limit (e.g. $450)
-              </li>
-              <li className="my-4">
-                <span className="text-primary mr-4 text-lg">▶</span>
-                Repay and reuse when you need it
-              </li>
-              <li className="my-4">
-                <span className="text-primary mr-4 text-lg">▶</span>
-                Only pay interest on what you’ve actually borrowed
-              </li>
-            </ul>
+            <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+              <div className="bg-bg-primary rounded-2xl p-8 content-center">
+                <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
+                  </svg>
+                </div>
+                <h2>We’ll keep it simple</h2>
+                <p>
+                  No jargon, no gimmicks. Just clear information so you always
+                  know where you stand.
+                </p>
+              </div>
+              <div className="bg-bg-primary rounded-2xl p-8 content-center">
+                <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path d="M16.881 4.345A23.112 23.112 0 0 1 8.25 6H7.5a5.25 5.25 0 0 0-.88 10.427 21.593 21.593 0 0 0 1.378 3.94c.464 1.004 1.674 1.32 2.582.796l.657-.379c.88-.508 1.165-1.593.772-2.468a17.116 17.116 0 0 1-.628-1.607c1.918.258 3.76.75 5.5 1.446A21.727 21.727 0 0 0 18 11.25c0-2.414-.393-4.735-1.119-6.905ZM18.26 3.74a23.22 23.22 0 0 1 1.24 7.51 23.22 23.22 0 0 1-1.41 7.992.75.75 0 1 0 1.409.516 24.555 24.555 0 0 0 1.415-6.43 2.992 2.992 0 0 0 .836-2.078c0-.807-.319-1.54-.836-2.078a24.65 24.65 0 0 0-1.415-6.43.75.75 0 1 0-1.409.516c.059.16.116.321.17.483Z" />
+                  </svg>
+                </div>
+                <h2>We’ll be upfront</h2>
+                <p>
+                  All our fees are explained before you commit — no hidden
+                  costs.
+                </p>
+              </div>
+              <div className="bg-bg-primary rounded-2xl p-8 content-center">
+                <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                    <path
+                      fillRule="evenodd"
+                      d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <h2>We’ll lend responsibly</h2>
+                <p>
+                  Every application is reviewed against our lending criteria and
+                  your financial situation.
+                </p>
+              </div>
+            </div>
+          </section>
 
-            <p className="mt-12 my-8 font-bold text-2xl text-bg-primary">
-              With Faster, you get{" "}
-              <span className="text-bg-secondary font-bold">
-                flexibility with fairness built in.
-              </span>
-            </p>
+          {/* How we're different */}
+          <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center ">
+            <div className="pt-8 px-8">
+              <img
+                className="bottom-0 object-cover h-full rounded-3xl"
+                src={Phone}
+                alt="Smiling customer enjoying simple, secure banking"
+              />
+            </div>
+            <div className="lg:text-left sm:text-center py-24 md:py-16">
+              <Pill text="Why people choose us" color="bg-primary" />
+              <h1 className="mt-12 my-8 text-6xl text-bg-primary">
+                How we're{" "}
+                <span className="text-bg-secondary font-[800]">different</span>
+              </h1>
+              <p className="font-medium text-xl mb-8 text-bg-primary">
+                Traditional short-term loans often come with fixed terms and
+                reapplications.
+                <br />
+                Faster’s Line of Credit works differently —{" "}
+                <strong>it’s ongoing.</strong>
+              </p>
 
-            <button className="btn-primary-light">Apply Now</button>
-          </div>
-        </section>
+              <p className="text-bg-primary">Once approved, you can:</p>
+              <ul className="list-inside text-lg font-bold text-bg-primary">
+                <li className="my-4">
+                  <span className="text-primary mr-4 text-lg">▶</span>
+                  Borrow up to your limit (e.g. $450)
+                </li>
+                <li className="my-4">
+                  <span className="text-primary mr-4 text-lg">▶</span>
+                  Repay and reuse when you need it
+                </li>
+                <li className="my-4">
+                  <span className="text-primary mr-4 text-lg">▶</span>
+                  Only pay interest on what you’ve actually borrowed
+                </li>
+              </ul>
 
-        {/* Security */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
-          <div className="lg:text-left sm:text-center py-24 md:py-16">
-            <Pill text="Why people trust us" color="bg-primary" />
-            <h1 className="my-8 text-6xl">We are registered and responsible</h1>
-            <p>Faster.com.au is:</p>
-            <ul className="list-inside text-lg font-medium text-text-primary">
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
-                A registered credit provider in Australia
-              </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
-                Compliant with Australian credit laws and privacy requirements
-              </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
-                Committed to responsible lending through careful assessment of
-                every application
-              </li>
-            </ul>
-            <button className="btn-primary">See Our Security</button>
-          </div>
-          <div className="pt-8 px-8">
-            <img
-              className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo2}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
-          </div>
+              <p className="mt-12 my-8 font-bold text-2xl text-bg-primary">
+                With Faster, you get{" "}
+                <span className="text-bg-secondary font-bold">
+                  flexibility with fairness built in.
+                </span>
+              </p>
+
+              <button className="btn-primary-light">
+                <Link to="/apply" className="font-medium text-bg-primary">
+                  Apply Now
+                </Link>
+              </button>
+            </div>
+          </section>
+
+          {/* Security */}
+          <section className="grid lg:grid-cols-2 bg-bg-primary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center ">
+            <div className="lg:text-left sm:text-center py-24 md:py-16">
+              <Pill text="Why people trust us" color="bg-secondary" />
+              <h1 className="my-8 text-6xl">
+                We are registered and responsible
+              </h1>
+              <p>Faster.com.au is:</p>
+              <ul className="list-inside text-lg font-medium text-text-primary">
+                <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                  A registered credit provider in Australia
+                </li>
+                <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                  Compliant with Australian credit laws and privacy requirements
+                </li>
+                <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                  Committed to responsible lending through careful assessment of
+                  every application
+                </li>
+              </ul>
+              <button className="btn-primary">
+                <Link to="/security" className="font-medium text-bg-primary">
+                  See Our Security
+                </Link>
+              </button>
+            </div>
+            <div className="pt-8 px-8">
+              <img
+                className="bottom-0 object-cover h-full rounded-3xl"
+                src={SecurePhoto}
+                alt="Smiling customer enjoying simple, secure banking"
+              />
+            </div>
+          </section>
         </section>
 
         {/* Support */}
@@ -265,7 +272,11 @@ export default function About() {
             </a>
           </p>
 
-          <button className="mt-12 btn-primary">Contact Us</button>
+          <button className="mt-12 btn-primary">
+            <Link to="/contact" className="font-medium text-bg-primary">
+              Contact Us
+            </Link>
+          </button>
         </section>
 
         {/* CTA */}

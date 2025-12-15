@@ -5,10 +5,10 @@ import Collapsible from "../components/Collapsible";
 import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
-import Photo1 from "../assets/person-smiling.png";
-import Photo2 from "../assets/man-smiling.png";
-import Photo3 from "../assets/secure.jpeg";
-import WebsitePhoto from "../assets/faster-website.png";
+import HeroPhoto from "../assets/trusted-security-reliable-tech.png";
+import Banner from "../assets/secure.jpeg";
+import RegisteredPhoto from "../assets/registered-2.png";
+import CorePhoto from "../assets/core-security.png";
 
 import "../App.css";
 
@@ -270,11 +270,11 @@ export default function Security() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center lg:text-left sm:text-center">
-          <div className="py-24 md:py-16">
+        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center lg:text-left sm:text-center">
+          <div className="py-24 md:py-16 content-center">
             <Pill text="Advanced security" color="bg-primary" />
             <h1 className="my-8 text-6xl text-bg-primary">
-              Security you can trust, technology you can rely on
+              Security you can trust, tech you can rely on
             </h1>
             <p className="mb-8 text-bg-primary">
               As a digital-first credit provider, Faster is built on strong
@@ -285,8 +285,8 @@ export default function Security() {
           </div>
           <div className="pt-8">
             <img
-              className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo1}
+              className="bottom-0 object-cover h-full rounded-2xl"
+              src={HeroPhoto}
               alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
@@ -310,7 +310,7 @@ export default function Security() {
           <div className="rounded-2xl relative overflow-hidden flex items-center justify-center py-8 mt-8">
             <img
               className="object-cover w-full h-96 rounded-3xl"
-              src={Photo3}
+              src={Banner}
               alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
@@ -348,15 +348,15 @@ export default function Security() {
 
         <h1 className="text-6xl text-center my-12 mt-24">Why trust Faster?</h1>
         {/* Regulation and compliance */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-8 content-center ">
-          <div className="pt-8 px-8">
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center ">
+          <div className="px-8">
             <img
               className="bottom-0 object-cover h-full rounded-3xl"
-              src={Photo2}
+              src={RegisteredPhoto}
               alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
-          <div className="lg:text-left sm:text-center py-24 md:py-16">
+          <div className="lg:text-left sm:text-center py-24 md:py-16 content-center">
             <h1 className="my-8 text-6xl">Regulation and compliance</h1>
             <p>
               Faster.com.au is a registered credit provider in Australia and:
@@ -375,11 +375,9 @@ export default function Security() {
         </section>
 
         {/* Security */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 mb-12 gap-16 content-center ">
-          <div className="rounded-2xl px-8 lg:py-24 sm:py-12 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">
-              Security at the core of Faster
-            </h1>
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 mb-24 gap-8 content-center ">
+          <div className="rounded-2xl px-8 py-16 content-center lg:text-left sm:text-center">
+            <h1 className="mt-12 my-8 text-6xl">Security at our core</h1>
             <p>
               You trust us with your information — and we take that
               responsibility seriously.
@@ -392,14 +390,13 @@ export default function Security() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary"
+                    className="size-12 text-primary mr-1"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
+                      d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z"
                       clipRule="evenodd"
                     />
-                    <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
                   </svg>
                 </span>
                 <div>
@@ -416,13 +413,14 @@ export default function Security() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary"
+                    className="size-12 text-primary mr-1"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                      d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
                       clipRule="evenodd"
                     />
+                    <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
                   </svg>
                 </span>
                 <div>
@@ -439,13 +437,14 @@ export default function Security() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary"
+                    className="size-12 text-primary mr-1"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
+                      d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
                       clipRule="evenodd"
                     />
+                    <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
                   </svg>
                 </span>
                 <div>
@@ -460,11 +459,11 @@ export default function Security() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="size-12 text-primary"
+                  className="size-12 text-primary mr-1"
                 >
                   <path
                     fillRule="evenodd"
-                    d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                    d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
                     clipRule="evenodd"
                   />
                 </svg>
@@ -477,9 +476,9 @@ export default function Security() {
               </div>
             </div>
           </div>
-          <div className="rounded-2xl flex items-bottom justify-center px-6 lg:py-24 sm:pt-0 sm:pb-12">
+          <div className="rounded-2xl flex items-bottom justify-center px-8 lg:py-16 sm:pt-0 sm:pb-12">
             <img
-              src={WebsitePhoto}
+              src={CorePhoto}
               alt="Faster website on phone and laptop"
               className="block w-full h-auto rounded-2xl"
             />
