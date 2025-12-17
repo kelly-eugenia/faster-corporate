@@ -1,25 +1,41 @@
 import { Link } from "react-router-dom";
 import "../App.css";
-import Logo from "../assets/logo-blue.svg";
+import Logo from "../assets/logo-white.svg";
 
 const linkClass =
-  "relative font-semibold text-text-primary \
+  "relative font-semibold text-bg-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
-    after:h-[2px] after:w-0 after:bg-secondary \
+    after:h-[2px] after:w-0 after:bg-bg-primary \
+    after:transition-all after:duration-300 \
+    hover:after:w-full hover:after:left-0";
+
+const xlLinkClass =
+  "relative text-lg font-semibold text-bg-primary \
+    after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
+    after:h-[2px] after:w-0 after:bg-bg-primary \
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0";
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-primary">
-      <div className="w-full mx-auto p-16 space-y-10">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+    <footer className="bg-gradient-to-b from-secondary to-primary">
+      <div className="w-full mx-auto p-12 lg:py-16 lg:px-40 space-y-10">
+        <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between sm:place-items-center">
           {/* Logo */}
-          <img className="w-1/3 object-center" src={Logo} alt="Faster Logo" />
+          <div className="md:w-1/3 flex-shrink-0">
+            <img
+              src={Logo}
+              alt="Faster Logo"
+              className="h-12 w-auto object-contain"
+            />
+          </div>
 
           {/* Links */}
-          <div className="grid gap-8 text-md sm:grid-cols-3">
+          <div className="grid lg:gap-48 sm:gap-24 text-md sm:grid-cols-3">
             <div>
+              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-bg-secondary/70">
+                Company
+              </h4>
               <ul className="space-y-3">
                 <li>
                   <Link to="/" className={linkClass}>
@@ -28,7 +44,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link to="/about" className={linkClass}>
-                    About us
+                    About Us
                   </Link>
                 </li>
                 <li>
@@ -41,10 +57,18 @@ export default function Footer() {
                     Security
                   </Link>
                 </li>
+                <li>
+                  <Link to="/careers" className={linkClass}>
+                    Careers
+                  </Link>
+                </li>
               </ul>
             </div>
 
             <div>
+              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-bg-secondary/70">
+                Support
+              </h4>
               <ul className="space-y-3">
                 <li>
                   <Link to="/contact" className={linkClass}>
@@ -52,23 +76,26 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/testimonials" className={linkClass}>
-                    Testimonials
+                  <Link to="/faq" className={linkClass}>
+                    FAQs
                   </Link>
                 </li>
                 <li>
-                  <Link to="/faq" className={linkClass}>
-                    FAQs
+                  <Link to="/calculator" className={linkClass}>
+                    Calculator
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div>
+              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-bg-secondary/70">
+                Legal
+              </h4>
               <ul className="space-y-3">
                 <li>
                   <Link to="/terms-and-conditions" className={linkClass}>
-                    Terms & Conditions
+                    Terms &amp; Conditions
                   </Link>
                 </li>
                 <li>
@@ -81,34 +108,35 @@ export default function Footer() {
                     Privacy Policy
                   </Link>
                 </li>
+                <li>
+                  <Link to="/credit-guide" className={linkClass}>
+                    Credit Guide
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <hr className="border-t border-[#D4D6E5]" />
+        <hr className="border-t border-bg-secondary/40" />
 
-        <div className="flex flex-col gap-6 text-xs text-muted-primary md:flex-row md:items-center md:justify-between">
-          <div className="space-y-1 max-w-3xl">
-            <span>
-              All Rights Reserved ©2025 Faster Financial Pty Ltd (ABN: 47 651
-              975 932,
-              <br />
-              Lightspeed CashFaster Ventures Pty Ltd Australian Credit Licence
-              569825
-              <br />
-              Faster Financial Pty Ltd is ISO 27001 Certified by Lloyds Register
-              for Information Security Management
-            </span>
-          </div>
-
-          <div className="flex flex-col items-start gap-3 md:items-end">
-            <span className="text-lg font-medium text-text-primary">
-              Contact us:
-            </span>
-            <div className="flex gap-3">
-              <a href="" className="text-primary hover:text-secondary">
+        <div className="space-y-6 text-xs text-gray-400">
+          {/* Row: legal links left, socials right */}
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-wrap gap-x-10 gap-y-2">
+              <Link to="/terms-and-conditions" className={xlLinkClass}>
+                Terms &amp; Conditions
+              </Link>
+              <Link to="/privacy-policy" className={xlLinkClass}>
+                Privacy Policy
+              </Link>
+              <Link to="/refund-policy" className={xlLinkClass}>
+                Refund Policy
+              </Link>
+            </div>
+            <div className="flex gap-4">
+              <a href="" className="text-bg-primary hover:text-bg-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -120,7 +148,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a href="" className="text-primary hover:text-secondary">
-                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-primary hover:[&>svg]:fill-secondary">
+                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -131,7 +159,7 @@ export default function Footer() {
                 </span>
               </a>
               <a href="" className="text-primary hover:text-secondary">
-                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-primary hover:[&>svg]:fill-secondary">
+                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -142,7 +170,7 @@ export default function Footer() {
                 </span>
               </a>
               <a href="" className="text-primary hover:text-secondary">
-                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-primary hover:[&>svg]:fill-secondary">
+                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -155,6 +183,14 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Fine print */}
+        <p className="text-sm text-bg-primary/70 max-w-4xl leading-relaxed">
+          All Rights Reserved ©2025 Faster Financial Pty Ltd (ABN: 47 651 975
+          932). Lightspeed CashFaster Ventures Pty Ltd Australian Credit Licence
+          569825. Faster Financial Pty Ltd is ISO 27001 Certified by Lloyds
+          Register for Information Security Management.
+        </p>
       </div>
     </footer>
   );

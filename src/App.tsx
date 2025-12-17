@@ -7,6 +7,8 @@ import About from "./pages/About";
 import Fees from "./pages/Fees";
 import Security from "./pages/Security";
 import FAQ from "./pages/FAQ";
+import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
 import "./App.css";
 
 export default function App() {
@@ -22,6 +24,8 @@ export default function App() {
         <Route path="fees" element={<Fees />}></Route>
         <Route path="security" element={<Security />}></Route>
         <Route path="faq" element={<FAQ />}></Route>
+        <Route path="contact" element={<Contact />}></Route>
+        <Route path="careers" element={<Careers />}></Route>
       </Routes>
     </BrowserRouter>
   );

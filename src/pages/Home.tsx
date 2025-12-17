@@ -61,7 +61,7 @@ const homeFaqs = [
       <>
         Yes — as a credit provider, our Line of Credit includes:
         <ul className="mt-3 space-y-1">
-          <li>• a one-off establishment fee (20% of your approved limit)</li>
+          <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
@@ -124,10 +124,10 @@ export default function Home() {
 
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-16 lg:pt-24 bg-gradient-to-tr from-secondary to-primary">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-24 lg:pt-32 py-16 lg:py-24 bg-gradient-to-tr from-secondary to-primary">
+          <div className="grid gap-32 lg:grid-cols-2 items-center">
             {/* Left */}
-            <div className="pb-16 lg:pb-24 lg:text-left sm:text-center">
+            <div className="lg:text-left sm:text-center">
               <Pill text="Fast credit, made simple." color="bg-primary" />
               <h1 className="mt-10 mb-6 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                 Access up to $10,000 when you need it most
@@ -158,14 +158,18 @@ export default function Home() {
             </div>
 
             {/* Right */}
-            <div className="rounded-2xl flex items-end justify-center">
+            <div className="rounded-2xl bg-primary/40 items-center justify-center">
               <img
-                className="block w-full h-auto rounded-2xl"
+                className="block h-full"
                 src={HeroPhoto}
                 alt="Smiling customer enjoying Faster"
               />{" "}
             </div>
           </div>
+        </section>
+
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 bg-bg-secondary py-8 h-24 text-xl text-center text-text-primary">
+          Trustpilot Carousel
         </section>
 
         {/* About */}

@@ -4,10 +4,6 @@ import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import CTA from "../components/CTA";
 
-import Photo1 from "../assets/person-smiling.png";
-import Photo2 from "../assets/man-smiling.png";
-import Photo3 from "../assets/secure.jpeg";
-
 import TeamPhoto from "../assets/about-faster.jpg";
 import Phone from "../assets/how-faster-differs.png";
 import SecurePhoto from "../assets/responsible.png";
@@ -21,7 +17,7 @@ export default function About() {
 
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-16 lg:pt-24 bg-gradient-to-tr from-secondary to-primary">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-16 lg:pt-24 bg-gradient-to-b from-secondary to-primary">
           <div className="px-8 py-12 sm:px-16 md:pt-16 md:py-32 gap-8 content-center text-center">
             <Pill text="About Faster" color="bg-primary" />
 
@@ -279,7 +275,9 @@ export default function About() {
         </section>
 
         {/* CTA */}
-        <CTA />
+        <div className="mb-24">
+          <CTA />
+        </div>
       </div>
       <Footer />
     </>

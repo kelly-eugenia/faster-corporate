@@ -54,7 +54,7 @@ const topFaqs: Faq[] = [
       <>
         Yes — as a credit provider, our Line of Credit includes:
         <ul className="mt-3 space-y-1">
-          <li>• a one-off establishment fee (20% of your approved limit)</li>
+          <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
@@ -225,7 +225,7 @@ const creditFaqs: Faq[] = [
       <>
         Our standard fees are:
         <ul className="mt-3 space-y-1">
-          <li>• a one-off establishment fee (20% of your approved limit)</li>
+          <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
@@ -410,12 +410,11 @@ export default function FAQ() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-bg-primary px-12 py-6 mx-auto">
-        <NavBar />
-      </header>
+      <NavBar />
+
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="bg-gradient-to-b from-secondary to-primary rounded-2xl px-8 py-12 sm:px-16 md:py-24 mb-12 gap-8 content-center text-center">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto mb-12 px-8 sm:px-16 py-24 pt-32 lg:pt-40 gap-8 content-center text-center bg-gradient-to-b from-secondary to-primary">
           <Pill text="Support" color="bg-primary" />
           <h1 className="mt-12 my-8 text-6xl text-bg-primary">
             Frequently Asked Questions
@@ -446,7 +445,7 @@ export default function FAQ() {
           <FAQSection faqs={currentCategory.faqs} />
         </section>
 
-        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 pt-12 lg:px-40 sm:px-12 mb-12 gap-8 content-center">
+        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 pt-12 lg:px-40 sm:px-12 gap-8 content-center">
           {/* Support */}
           <section className="py-12 mb-12 content-center text-center">
             <div className="mx-auto bg-bg-primary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">

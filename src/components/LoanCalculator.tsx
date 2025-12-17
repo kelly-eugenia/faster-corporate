@@ -11,7 +11,7 @@ const MAX_WEEKS = 12; // 3 months
 const STEP_WEEKS = 1;
 
 // Product constants
-const ESTABLISHMENT_RATE = 0.2; // 20%
+const DRAWDOWN_RATE = 0.2; // 20%
 const ANNUAL_RATE = 0.47; // 47% p.a.
 const MONTHLY_FEE = 15;
 const REPAYMENT_FEE = 3.5;
@@ -50,7 +50,7 @@ const LoanCalculator: React.FC = () => {
   const termLabel = `${termWeeks} week${termWeeks === 1 ? "" : "s"}`;
 
   // Fees & interest
-  const establishmentFee = amount * ESTABLISHMENT_RATE;
+  const drawdownFee = amount * DRAWDOWN_RATE;
 
   const dailyRate = ANNUAL_RATE / 365;
   const interest = amount * dailyRate * termDays;
@@ -59,8 +59,7 @@ const LoanCalculator: React.FC = () => {
 
   const repaymentFees = numberOfPayments * REPAYMENT_FEE;
 
-  const totalCharges =
-    establishmentFee + interest + monthlyFees + repaymentFees;
+  const totalCharges = drawdownFee + interest + monthlyFees + repaymentFees;
 
   const totalRepayable = amount + totalCharges;
 
@@ -70,7 +69,7 @@ const LoanCalculator: React.FC = () => {
     <div className="relative w-full rounded-2xl border border-4 border-secondary bg-bg-primary px-6 pt-6 pb-8 shadow-sm sm:px-10 sm:pt-2 sm:pb-10">
       <div className="mt-6 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex-1">
-          <Pill text="Loan calculator" color="bg-secondary" />
+          <Pill text="Line of Credit calculator" color="bg-secondary" />
           {/* Loan amount */}
           <div className="mt-8">
             <h2 className="text-2xl font-semibold text-text-primary">
@@ -176,51 +175,6 @@ const LoanCalculator: React.FC = () => {
         </div>
 
         <hr className="border-t border-[#D4D6E5] my-8" />
-
-        {/* Fee breakdown */}
-        {/*
-        <div className="grid gap-4 text-xs text-foreground sm:grid-cols-4 sm:text-sm justify-between">
-          <div>
-            <div className="font-medium">Establishment fee</div>
-            <div className="text-muted-primary">
-              20% of your loan amount (charged once)
-            </div>
-            <div className="mt-1 text-lg font-semibold">
-              {currency2.format(establishmentFee)}
-            </div>
-          </div>
-
-          <div>
-            <div className="font-medium">Estimated interest</div>
-            <div className="text-muted-primary">
-              47% p.a., over {termLabel.toLowerCase()}
-            </div>
-            <div className="mt-1 text-lg font-semibold">
-              {currency2.format(interest)}
-            </div>
-          </div>
-
-          <div>
-            <div className="font-medium">Other fees</div>
-            <div className="text-muted-primary">
-              ${MONTHLY_FEE} / month + ${REPAYMENT_FEE.toFixed(2)} per payment
-            </div>
-            <div className="mt-1 text-lg font-semibold">
-              {currency2.format(monthlyFees + repaymentFees)}
-            </div>
-          </div>
-
-          <div>
-            <div className="font-medium">Estimated total to repay</div>
-            <div className="text-muted-primary">
-              Over {termLabel.toLowerCase()}
-            </div>
-            <div className="mt-1 text-lg font-semibold">
-              {currency2.format(totalRepayable)}
-            </div>
-          </div>
-        </div>
-        */}
 
         <p className="mt-3 text-[11px] leading-snug text-muted-primary">
           This is an estimate only. It assumes you draw the full amount once,

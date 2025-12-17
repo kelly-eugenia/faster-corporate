@@ -28,7 +28,7 @@ const feesFaqs = [
       <>
         Our standard fees are:
         <ul className="mt-3 space-y-1">
-          <li>• a one-off establishment fee (20% of your approved limit)</li>
+          <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
@@ -134,7 +134,7 @@ export default function Fees() {
         </section>
 
         {/* Why people choose us */}
-        <section className="py-24 md:py-12 mb-12 content-center">
+        <section className="py-40 md:py-32 mb-12 content-center">
           <div className="text-center mb-12">
             <h1 className="mt-8 text-6xl">
               Why people choose Faster’s fee structure
@@ -161,7 +161,7 @@ export default function Fees() {
                   />
                 </svg>
               </div>
-              <h2>One clear establishment fee</h2>
+              <h2>One clear drawdown fee</h2>
               <p>
                 A single upfront fee when your Line of Credit is opened — not
                 every time you draw down.
@@ -217,38 +217,28 @@ export default function Fees() {
           <Pill text="How our fees work" color="bg-primary" />
 
           {/* Stat style */}
-          <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-8 mt-8 mb-12 items-stretch text-left">
-            <div className="p-12 bg-bg-primary rounded-2xl content-top">
-              <h1 className="text-7xl text-primary font-[1000]">20%</h1>
-              <h2 className="text-secondary text-3xl mt-3">
-                Establishment fee
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mt-12 mb-24 items-stretch text-center">
+            <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 bg-bg-primary rounded-2xl content-center">
+              <h1 className="lg:text-8xl sm:text-7xl text-primary font-[1000]">
+                20%
+              </h1>
+              <h2 className="text-secondary lg:text-4xl sm:text-3xl mt-1">
+                Drawdown fee
               </h2>
               <p className="text-xl mt-6">
                 20% of your credit limit, charged once at the start.
               </p>
             </div>
-            <div className="p-12 bg-bg-primary rounded-2xl content-top">
-              <h1 className="text-7xl text-primary font-[1000]">47% </h1>
-              <h2 className="text-secondary text-3xl mt-3">
+            <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 bg-bg-primary rounded-2xl content-center">
+              <h1 className="lg:text-8xl sm:text-7xl text-primary font-[1000]">
+                47%{" "}
+              </h1>
+              <h2 className="text-secondary lg:text-4xl sm:text-3xl mt-1">
                 p.a. Interest rate
               </h2>
               <p className="text-xl mt-6">
                 47% per annum (approx. 3.92% per month) calculated daily on your
                 balance.
-              </p>
-            </div>
-            <div className="p-12 bg-bg-primary rounded-2xl content-top">
-              <h1 className="text-7xl text-primary font-[1000]">$15 </h1>
-              <h2 className="text-secondary text-3xl mt-3">Monthly fee</h2>
-              <p className="text-xl mt-6">
-                A flat maintenance fee for keeping your LOC open.
-              </p>
-            </div>
-            <div className="p-12 bg-bg-primary rounded-2xl content-top">
-              <h1 className="text-7xl text-primary font-[1000]">$3.50</h1>
-              <h2 className="text-secondary text-3xl mt-3">Per repayment</h2>
-              <p className="text-xl mt-6">
-                A $3.50 fee each time a repayment is processed.
               </p>
             </div>
           </div>
@@ -263,8 +253,9 @@ export default function Fees() {
                 limit?
               </h1>
               <p className="text-bg-primary text-2xl">
-                Here’s an example and guide only — your actual costs will depend
-                on how much you draw and how quickly you repay.
+                Here’s an example only — your actual costs will depend on how
+                much you draw, how quickly you repay, and may be subject to
+                further fees.
               </p>
             </div>
 
@@ -277,7 +268,7 @@ export default function Fees() {
               <ul className="list-inside text-lg text-text-primary">
                 <li className="my-4 font-bold text-2xl relative pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
                   <span className="text-primary mr-4 font-medium">
-                    Establishment fee:
+                    Drawdown fee:
                   </span>
                   $90
                   <span className="ml-2 text-lg font-medium">
@@ -313,11 +304,6 @@ export default function Fees() {
               <p className="my-12 mb-4 font-bold text-2xl">
                 Total charges for the first month:
                 <span className="text-primary ml-4 font-bold">$136.64</span>
-              </p>
-              <p className="font-medium text-lg">
-                The representative APR is approximately
-                <span className="text-primary font-bold"> 221.36%</span>, which
-                reflects all charges annualised over an 8-week period.
               </p>
 
               <p className="mt-12 text-muted-primary text-sm font-medium">
@@ -359,7 +345,7 @@ export default function Fees() {
             <img
               className="bottom-0 object-cover h-full rounded-2xl"
               src={CoinsPhoto}
-              alt="Smiling customer enjoying simple, secure banking"
+              alt="Illustration of coins"
             />
           </div>
         </section>
