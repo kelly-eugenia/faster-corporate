@@ -292,8 +292,32 @@ export default function Security() {
           </div>
         </section>
 
+        {/* Trustpilot */}
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+          <Pill text="What the people say" color="bg-primary" />
+          <div
+            className="trustpilot-widget mt-8"
+            data-locale="en-US"
+            data-template-id="54ad5defc6454f065c28af8b"
+            data-businessunit-id="65b19266fd020b5cdce866e7"
+            data-style-height="240px"
+            data-style-width="100%"
+            data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
+            data-stars="1,2,3,4,5"
+            data-review-languages="en"
+          >
+            <a
+              href="https://www.trustpilot.com/review/cashfaster.com.au"
+              target="_blank"
+              rel="noopener"
+            >
+              Trustpilot
+            </a>
+          </div>
+        </section>
+
         {/* Key features */}
-        <section className="mb-12 px-8 sm:px-16 py-8 mb-12 gap-8 items-center">
+        <section className="mb-12 px-8 sm:px-16 py-16 mb-12 gap-8 items-center">
           <div className="text-center">
             <h1 className="my-8 text-6xl">
               Built on secure, encrypted systems

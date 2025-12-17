@@ -17,7 +17,7 @@ export default function NavBar() {
   }, []);
 
   const wrapperClasses = [
-    "fixed top-0 left-0 right-0 z-50 py-1transition-colors duration-300",
+    "fixed top-0 left-0 right-0 z-50 py-1 transition-colors duration-300",
     scrolled
       ? "bg-bg-secondary text-primary shadow-sm"
       : "bg-secondary text-white",
@@ -27,11 +27,13 @@ export default function NavBar() {
     [
       "relative text-lg font-semibold \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
-    after:h-[2px] after:w-0 after:bg-secondary \
+    after:h-[2px] after:w-0 \
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0",
       isActive ? "active" : "",
-      scrolled ? "text-text-primary" : "text-bg-primary",
+      scrolled
+        ? "text-text-primary after:bg-secondary"
+        : "text-bg-primary after:bg-bg-primary",
     ].join(" ");
 
   return (

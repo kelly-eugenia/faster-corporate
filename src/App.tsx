@@ -9,6 +9,7 @@ import Security from "./pages/Security";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import JobDesc from "./pages/JobDesc";
 import "./App.css";
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="faq" element={<FAQ />}></Route>
         <Route path="contact" element={<Contact />}></Route>
         <Route path="careers" element={<Careers />}></Route>
+        <Route path="/careers/:jobId" element={<JobDesc />} />
       </Routes>
     </BrowserRouter>
   );

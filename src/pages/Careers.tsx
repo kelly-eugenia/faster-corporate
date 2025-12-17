@@ -2,13 +2,64 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
-import CTA from "../components/CTA";
+import JobCard from "../components/JobCard";
 
 import TeamPhoto from "../assets/about-faster.jpg";
-import Phone from "../assets/how-faster-differs.png";
-import SecurePhoto from "../assets/responsible.png";
 
 import "../App.css";
+
+const jobDesc = [
+  {
+    jobId: "dm001",
+    role: "Digital Marketing Manager",
+    desc: (
+      <div className="text-lg space-y-4">
+        <p className="font-bold text-2xl">About Faster</p>
+        <p>
+          Faster is a forward-thinking financial technology company dedicated to
+          advancing credit inclusion by providing fair, swift, and transparent
+          access to credit through its innovative online lending platform.
+          Operating in Australia, New Zealand, the USA, Canada, and the United
+          Kingdom, Faster offers tailored credit solutions to meet diverse
+          consumer needs. With a deep understanding of consumer lending, the
+          company leverages artificial intelligence, sophisticated underwriting,
+          and a commitment to exceptional customer experience to efficiently
+          provide thousands of personal loans each month.
+        </p>
+        <br />
+        <p className="font-bold text-2xl">Role Description</p>
+        <p>
+          This is a full-time hybrid role for a Digital Marketing Manager
+          located in Melbourne, VIC, with some work from home acceptable. The
+          Digital Marketing Manager will be responsible for developing and
+          executing social media marketing campaigns, generating leads,
+          analysing web analytics, and driving overall digital marketing
+          strategies. Daily tasks include monitoring the performance of digital
+          marketing initiatives, optimising content for various platforms, and
+          collaborating with cross-functional teams to enhance digital presence
+          and effectiveness.
+        </p>
+        <br />
+        <p className="font-bold text-2xl">Qualifications</p>
+        <ul className="text-text-primary list-disc list-inside">
+          <li>Social Media Marketing and Lead Generation skills</li>
+          <li>
+            Expertise in Digital Marketing and Marketing strategies (Knows how
+            to execute and plan digital campaigns across Meta, Google & Tiktok)
+          </li>
+          <li>Proficiency in Web Analytics tools</li>
+          <li>Strong attention to detail and analytical skills</li>
+          <li>Excellent communication and teamwork abilities</li>
+          <li>Bachelor's degree in Marketing, Business, or related field</li>
+          <li>Experience in the financial technology industry is a plus</li>
+        </ul>
+      </div>
+    ),
+    type: "Full-time",
+    location: "Hybrid - Melbourne, VIC",
+    applyUrl: "https://www.linkedin.com/jobs/view/4324348669",
+  },
+];
 
 export default function Careers() {
   return (
@@ -38,7 +89,7 @@ export default function Careers() {
 
         <section className="py-8">
           {/* About Faster */}
-          <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
+          <section className="grid xl:grid-cols-2 gap-8 mb-16 items-stretch">
             {/* Left */}
             <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
               <img
@@ -50,7 +101,8 @@ export default function Careers() {
 
             {/* Right */}
             <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-              <h1 className="text-6xl">Who we are</h1>
+              <Pill text="About the team" color="bg-secondary" />
+              <h1 className="mt-12 text-6xl">Who we are</h1>
               <p className="text-xl my-8">
                 Faster is a forward-thinking financial technology company
                 dedicated to advancing credit inclusion – giving more people{" "}
@@ -73,7 +125,7 @@ export default function Careers() {
           </section>
 
           {/* Values */}
-          <section className="grid lg:grid-cols-3 rounded-2xl bg-bg-secondary lg:px-24 sm:px-16 lg:py-16 md:py-12 mt-24 mb-12 gap-16 content-top">
+          <section className="grid lg:grid-cols-3 rounded-2xl bg-gradient-to-t from-bg-primary to-bg-secondary lg:px-24 sm:px-16 lg:pt-16 md:pt-12 mb-10 gap-16 content-top">
             <div className="lg:text-left sm:text-center content-top">
               <Pill text="Our values" color="bg-primary" />
               <h1 className="my-8 text-6xl">We believe in</h1>
@@ -98,8 +150,7 @@ export default function Careers() {
                 <div>
                   <h2>Customer first</h2>
                   <p>
-                    We design credit solutions that help people stay in control,
-                    not stuck in fine print.
+                    We design credit solutions that help people stay in control.
                   </p>
                 </div>
               </div>
@@ -145,7 +196,7 @@ export default function Careers() {
                   <h2>Security and trust</h2>
                   <p>
                     We treat customer data with care. Security, privacy and
-                    reliability are built into everything we ship.
+                    reliability are built into everything we do.
                   </p>
                 </div>
               </div>
@@ -165,10 +216,10 @@ export default function Careers() {
                   </svg>
                 </span>
                 <div>
-                  <h2>One team, many disciplines</h2>
+                  <h2>Many disciplines, one team</h2>
                   <p>
                     All roles and divisions work together to solve problems
-                    end-to-end.
+                    end-to-end as a single team.
                   </p>
                 </div>
               </div>
@@ -176,133 +227,126 @@ export default function Careers() {
           </section>
 
           {/* Why work here */}
-          <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
-            {/* Left */}
-            <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-              <h1 className="mt-12 my-8 text-4xl">
-                Joining Faster means working at the intersection of fintech,
-                data and real-world impact.
-              </h1>
-
-              <div>
-                <div className="flex gap-6 justify-start my-12">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                        clipRule="evenodd"
-                      />
-                      <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
-                    </svg>
-                  </span>
-                  <div>
-                    <h2>Make a meaningful difference</h2>
-                    <p>
-                      Your work helps people access credit that’s clearer, more
-                      transparent, and easier to manage.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 justify-start my-12">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <div>
-                    <h2>Tech at the core</h2>
-                    <p>
-                      We’re a technology-driven company: from our Line of Credit
-                      platform to our security systems, engineering is front and
-                      centre.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 justify-start my-12">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <div>
-                    <h2>Customer-first mindset</h2>
-                    <p>
-                      We design products, campaigns, and processes around
-                      clarity and transparency, not fine print.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 justify-start my-12">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <div>
-                    <h2>Flexible work</h2>
-                    <p>
-                      We design products, campaigns, and processes around
-                      clarity and transparency, not fine print.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <section className="lg:px-24 sm:px-16 lg:py-16 md:py-12 content-center">
+            <div className="rounded-2xl mb-16 content-center text-center">
+              <Pill text="So..." color="bg-secondary" />
+              <h1 className="my-8 text-6xl">Why work here?</h1>
+              <p className="text-2xl">
+                Joining Faster means growing your career in a data-driven
+                fintech shaping how people access credit.
+              </p>
             </div>
-
-            {/* Right */}
-            <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
-              <img
-                src={TeamPhoto}
-                alt="Faster website on phone and laptop"
-                className="block w-full h-auto rounded-2xl"
-              />
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <h2>Make a meaningful difference</h2>
+                <p>
+                  Your work directly shapes how people access and manage credit
+                  across multiple countries.
+                </p>
+              </div>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                    <path
+                      fillRule="evenodd"
+                      d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <h2>Tech at the core</h2>
+                <p>
+                  From AI-driven underwriting to digital marketing and
+                  experimentation, you’ll work with modern tools and ideas.
+                </p>
+              </div>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 0 1 .878.645 49.17 49.17 0 0 1 .376 5.452.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 0 1-.595 4.845.75.75 0 0 1-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 0 1-.658.643 49.118 49.118 0 0 1-4.708-.36.75.75 0 0 1-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 0 0 .659-.663 47.703 47.703 0 0 0-.31-4.82.75.75 0 0 1 .83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 0 0 .657-.642Z" />
+                  </svg>
+                </div>
+                <h2>Inclusive and responsible</h2>
+                <p>
+                  We care about inclusion and growth, but we care just as much
+                  about responsible lending, transparency and security.
+                </p>
+              </div>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-6"
+                  >
+                    <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 0 1 .878.645 49.17 49.17 0 0 1 .376 5.452.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 0 1-.595 4.845.75.75 0 0 1-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 0 1-.658.643 49.118 49.118 0 0 1-4.708-.36.75.75 0 0 1-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 0 0 .659-.663 47.703 47.703 0 0 0-.31-4.82.75.75 0 0 1 .83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 0 0 .657-.642Z" />
+                  </svg>
+                </div>
+                <h2>Flexible work</h2>
+                <p>
+                  Enjoy flexible, hybrid work that works best for you —
+                  balancing focus time at home with collaboration in the office.
+                </p>
+              </div>
             </div>
           </section>
         </section>
 
         {/* Open roles */}
-        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-12 md:py-8 gap-8 content-center">
+        <section
+          id="open-roles"
+          className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-12 md:py-8 gap-8 content-center"
+        >
           <section className="py-24 md:py-12 mb-12 content-center">
             <div className="text-center mb-12">
               <Pill text="We're hiring" color="bg-primary" />
               <h1 className="my-8 text-6xl">Open Roles</h1>
               <p className="text-xl">
-                Join Faster in helping Australians access fair, flexible credit
+                We’re growing across multiple disciplines and are interested in
+                people who care about fintech and doing credit the right way.
               </p>
             </div>
+
+            <section className="space-y-4">
+              {jobDesc.map((job) => {
+                return (
+                  <JobCard
+                    key={job.jobId}
+                    jobId={job.jobId}
+                    role={job.role}
+                    type={job.type}
+                    location={job.location}
+                    applyUrl={job.applyUrl}
+                  />
+                );
+              })}
+            </section>
           </section>
         </section>
       </div>
