@@ -20,7 +20,7 @@ export default function NavBar() {
     "fixed top-0 left-0 right-0 z-50 py-1transition-colors duration-300",
     scrolled
       ? "bg-bg-secondary text-primary shadow-sm"
-      : "bg-transparent text-white",
+      : "bg-secondary text-white",
   ].join(" ");
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
@@ -77,7 +77,7 @@ export default function NavBar() {
               Log In
             </Link>
           </button>
-          <button className={scrolled ? "btn-primary" : "btn-primary-light"}>
+          <button className={scrolled ? "btn-primary" : "btn-primary"}>
             <Link to="/apply" className="font-medium text-bg-primary">
               Apply Now
             </Link>

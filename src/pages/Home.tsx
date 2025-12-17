@@ -124,15 +124,18 @@ export default function Home() {
 
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-24 lg:pt-32 py-12 lg:py-16 bg-gradient-to-tr from-secondary to-primary">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-24 lg:pt-32 py-12 lg:py-16 bg-bg-primary">
           <div className="grid gap-32 lg:grid-cols-2 items-bottom">
             {/* Left */}
             <div className="md:py-16 md:pb-0 lg:py-16 lg:text-left sm:text-center">
-              <Pill text="Fast credit, made simple." color="bg-primary" />
-              <h1 className="mt-10 text-5xl md:text-6xl lg:text-7xl text-bg-primary">
-                Access up to $10,000 when you need it most
+              <Pill text="Fast credit, made simple." color="bg-secondary" />
+              <h1 className="mt-10 text-5xl md:text-6xl lg:text-7xl text-text-primary">
+                Access up to $10,000{" "}
+                <span className="text-primary font-[800]">
+                  when you need it most
+                </span>
               </h1>
-              <p className="text-bg-primary text-2xl my-8">
+              <p className="text-text-primary text-2xl my-8 mb-4">
                 When traditional banks say no, <strong>Faster says yes</strong>.
                 Get a Line of Credit with clear terms, no surprises, and
                 decisions in minutes.
