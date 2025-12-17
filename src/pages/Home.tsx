@@ -124,19 +124,18 @@ export default function Home() {
 
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-24 lg:pt-32 py-16 lg:py-24 bg-gradient-to-tr from-secondary to-primary">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-24 lg:pt-32 py-12 lg:py-16 bg-gradient-to-tr from-secondary to-primary">
           <div className="grid gap-32 lg:grid-cols-2 items-bottom">
             {/* Left */}
-            <div className="md:py-16 md:pb-0 lg:py-28 lg:text-left sm:text-center">
+            <div className="md:py-16 md:pb-0 lg:py-16 lg:text-left sm:text-center">
               <Pill text="Fast credit, made simple." color="bg-primary" />
-              <h1 className="mt-10 mb-6 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
+              <h1 className="mt-10 text-5xl md:text-6xl lg:text-7xl text-bg-primary">
                 Access up to $10,000 when you need it most
               </h1>
-              <p className="text-bg-primary">
+              <p className="text-bg-primary text-2xl my-8">
                 When traditional banks say no, <strong>Faster says yes</strong>.
-                <br />
-                Get a Line of Credit up to $10,000 with clear terms, no
-                surprises, and decisions in minutes.
+                Get a Line of Credit with clear terms, no surprises, and
+                decisions in minutes.
               </p>
 
               <motion.button
@@ -158,7 +157,7 @@ export default function Home() {
             </div>
 
             {/* Right */}
-            <div className="rounded-2xl lg:pt-16 sm:-mt-24 sm:-mb-16 md:-mt-24 lg:-mb-24 items-center justify-center">
+            <div className="rounded-2xl sm:-mt-24 sm:-mb-16 md:-mt-24 lg:-mb-16 lg:pt-24 items-center justify-center">
               <img
                 className="block w-auto lg:max-w-3xl md:max-w-2xl mx-auto h-full"
                 src={HeroPhoto}
@@ -168,7 +167,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 bg-bg-secondary py-8 h-24 text-xl text-center text-text-primary">
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 bg-secondary py-8 h-24 text-xl text-center text-bg-primary">
           Trustpilot Carousel
         </section>
 
