@@ -125,9 +125,9 @@ export default function Home() {
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
         <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-24 lg:pt-32 py-16 lg:py-24 bg-gradient-to-tr from-secondary to-primary">
-          <div className="grid gap-32 lg:grid-cols-2 items-center">
+          <div className="grid gap-32 lg:grid-cols-2 items-bottom">
             {/* Left */}
-            <div className="lg:text-left sm:text-center">
+            <div className="md:py-16 md:pb-0 lg:py-28 lg:text-left sm:text-center">
               <Pill text="Fast credit, made simple." color="bg-primary" />
               <h1 className="mt-10 mb-6 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                 Access up to $10,000 when you need it most
@@ -158,9 +158,9 @@ export default function Home() {
             </div>
 
             {/* Right */}
-            <div className="rounded-2xl bg-primary/40 items-center justify-center">
+            <div className="rounded-2xl lg:pt-16 sm:-mt-24 sm:-mb-16 md:-mt-24 lg:-mb-24 items-center justify-center">
               <img
-                className="block h-full"
+                className="block w-auto lg:max-w-3xl md:max-w-2xl mx-auto h-full"
                 src={HeroPhoto}
                 alt="Smiling customer enjoying Faster"
               />{" "}
