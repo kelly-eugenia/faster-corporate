@@ -270,55 +270,36 @@ export default function Security() {
       </header>
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
-        <section className="grid lg:grid-cols-2 bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center lg:text-left sm:text-center">
-          <div className="py-24 md:py-16 content-center">
-            <Pill text="Advanced security" color="bg-primary" />
-            <h1 className="my-8 text-6xl text-bg-primary">
-              Security you can trust, tech you can rely on
-            </h1>
-            <p className="mb-8 text-bg-primary">
-              As a digital-first credit provider, Faster is built on strong
-              engineering foundations. We use secure, industry-standard
-              technology to protect your personal information, bank data, and
-              account activity.
-            </p>
-          </div>
-          <div className="pt-8">
-            <img
-              className="bottom-0 object-cover h-full rounded-2xl"
-              src={HeroPhoto}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
-          </div>
-        </section>
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
+          <div className="py-16 grid gap-16 lg:grid-cols-2 items-center">
+            {/* Left */}
+            <div className="lg:text-left sm:text-center">
+              <Pill text="Advanced security" color="bg-primary" />
+              <h1 className="my-8 text-6xl text-bg-primary">
+                Security you can trust, tech you can rely on
+              </h1>
+              <p className="mb-8 text-bg-primary">
+                As a digital-first credit provider, Faster is built on strong
+                engineering foundations. We use secure, industry-standard
+                technology to protect your personal information, bank data, and
+                account activity.
+              </p>
+            </div>
 
-        {/* Trustpilot */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
-          <Pill text="What the people say" color="bg-primary" />
-          <div
-            className="trustpilot-widget mt-8"
-            data-locale="en-US"
-            data-template-id="54ad5defc6454f065c28af8b"
-            data-businessunit-id="65b19266fd020b5cdce866e7"
-            data-style-height="240px"
-            data-style-width="100%"
-            data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-            data-stars="1,2,3,4,5"
-            data-review-languages="en"
-          >
-            <a
-              href="https://www.trustpilot.com/review/cashfaster.com.au"
-              target="_blank"
-              rel="noopener"
-            >
-              Trustpilot
-            </a>
+            {/* Right */}
+            <div className="rounded-2xl flex items-end justify-center">
+              <img
+                className="block w-full h-auto rounded-2xl"
+                src={HeroPhoto}
+                alt="Our Fees"
+              />{" "}
+            </div>
           </div>
         </section>
 
         {/* Key features */}
-        <section className="mb-12 px-8 sm:px-16 py-16 mb-12 gap-8 items-center">
-          <div className="text-center">
+        <section className="mb-12 px-8 sm:px-16 py-12 mb-12 gap-8 items-center">
+          <div className="text-center mb-16">
             <h1 className="my-8 text-6xl">
               Built on secure, encrypted systems
             </h1>
@@ -331,6 +312,7 @@ export default function Security() {
             </p>
           </div>
 
+          {/*
           <div className="rounded-2xl relative overflow-hidden flex items-center justify-center py-8 mt-8">
             <img
               className="object-cover w-full h-96 rounded-3xl"
@@ -338,6 +320,31 @@ export default function Security() {
               alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
+          */}
+
+          {/* Trustpilot */}
+          <section className="rounded-2xl mb-24 sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+            <Pill text="What the people say" color="bg-primary" />
+            <div
+              className="trustpilot-widget mt-8"
+              data-locale="en-US"
+              data-template-id="54ad5defc6454f065c28af8b"
+              data-businessunit-id="65b19266fd020b5cdce866e7"
+              data-style-height="240px"
+              data-style-width="100%"
+              data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
+              data-stars="1,2,3,4,5"
+              data-review-languages="en"
+            >
+              <a
+                href="https://www.trustpilot.com/review/cashfaster.com.au"
+                target="_blank"
+                rel="noopener"
+              >
+                Trustpilot
+              </a>
+            </div>
+          </section>
 
           {/* Features */}
           <h1 className="my-12">Key features</h1>

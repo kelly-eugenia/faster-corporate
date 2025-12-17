@@ -9,7 +9,7 @@ import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
 import HeroPhoto from "../assets/hero-sect.png";
-import TeamPhoto from "../assets/faster-team.jpg";
+import TeamPhoto from "../assets/faster-team-values.jpg";
 import WebsitePhoto from "../assets/faster-website.png";
 
 import FeesIcon from "../assets/fair-fees.png";
@@ -132,7 +132,7 @@ export default function Home() {
               <h1 className="mt-10 text-5xl md:text-6xl lg:text-7xl text-bg-primary">
                 Access up to $10,000 when you need it most
               </h1>
-              <p className="text-bg-primary text-2xl my-8">
+              <p className="text-bg-secondary text-2xl my-8">
                 When traditional banks say no, <strong>Faster says yes</strong>.
                 Get a Line of Credit with clear terms, no surprises, and
                 decisions in minutes.
@@ -157,7 +157,7 @@ export default function Home() {
             </div>
 
             {/* Right */}
-            <div className="rounded-2xl sm:-mt-24 sm:-mb-16 md:-mt-24 lg:-mb-16 lg:pt-24 items-center justify-center">
+            <div className="rounded-2xl sm:-mt-32 sm:-mb-12 lg:-mb-16 lg:pt-12 items-center justify-center">
               <img
                 className="block w-auto lg:max-w-3xl md:max-w-2xl mx-auto h-full"
                 src={HeroPhoto}
@@ -354,7 +354,7 @@ export default function Home() {
             </div>
 
             {/* Right: Loan calculator */}
-            <div className="bg-gradient-to-tr from-secondary to-primary rounded-2xl p-6 lg:p-8 shadow-lg">
+            <div className="bg-gradient-to-tr from-secondary to-primary rounded-2xl p-6 lg:p-8">
               <LoanCalculator />
             </div>
           </div>
@@ -381,7 +381,7 @@ export default function Home() {
             </h1>
             <p className="text-xl">
               We believe borrowing should be clear, fair, and designed to help
-              you stay in control.
+              you always stay in control.
             </p>
             <div className="my-6 mt-8">
               <Pill text="Transparent Practices" color="bg-secondary" />

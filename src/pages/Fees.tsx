@@ -96,9 +96,9 @@ export default function Fees() {
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
         <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
+          <div className="pt-24 grid gap-32 lg:grid-cols-2 items-center">
             {/* Left */}
-            <div className="lg:text-left sm:text-center">
+            <div className="pb-16 lg:text-left sm:text-center">
               <Pill text="Our fees" color="bg-primary" />
               <h1 className="my-8 text-6xl text-bg-primary">
                 Clear, simple and upfront.

@@ -6,22 +6,20 @@ const MIN_AMOUNT = 500;
 const MAX_AMOUNT = 10000;
 const STEP_AMOUNT = 100;
 
-const MIN_WEEKS = 4; // 1 month
-const MAX_WEEKS = 12; // 3 months
-const STEP_WEEKS = 1;
-
 // Product constants
 const DRAWDOWN_RATE = 0.2; // 20%
 const ANNUAL_RATE = 0.47; // 47% p.a.
 const MONTHLY_FEE = 15;
 const REPAYMENT_FEE = 3.5;
 
+// Term assumption: 1 month
+const MONTHLY_INTEREST_RATE = ANNUAL_RATE / 12; // ≈ 3.92% per month
+
 type Frequency = "weekly" | "fortnightly";
 
 const LoanCalculator: React.FC = () => {
   const [amount, setAmount] = useState(2000);
-  const [termWeeks, setTermWeeks] = useState(8); // default 8 weeks
-  const [frequency, setFrequency] = useState<Frequency>("fortnightly");
+  const [frequency, setFrequency] = useState<Frequency>("weekly");
 
   // Currency formatters
   const currency0 = new Intl.NumberFormat("en-AU", {
@@ -37,41 +35,34 @@ const LoanCalculator: React.FC = () => {
     maximumFractionDigits: 2,
   });
 
-  // --- Derived values based on sliders + frequency ---
+  // --- Calculations for fixed 1-month term ---
 
-  const termDays = termWeeks * 7;
-  const monthsInTerm = termDays / 30; // rough month length
+  const drawdownFee = amount * DRAWDOWN_RATE;
+  const interest = amount * MONTHLY_INTEREST_RATE;
+  const monthlyFees = MONTHLY_FEE;
 
-  const numberOfPayments =
-    frequency === "weekly" ? termWeeks : Math.max(1, Math.ceil(termWeeks / 2)); // at least 1 payment
-
+  // Number of repayments over the month
+  const numberOfPayments = frequency === "weekly" ? 4 : 2;
   const frequencyLabel = frequency === "weekly" ? "per week" : "per fortnight";
 
-  const termLabel = `${termWeeks} week${termWeeks === 1 ? "" : "s"}`;
-
-  // Fees & interest
-  const drawdownFee = amount * DRAWDOWN_RATE;
-
-  const dailyRate = ANNUAL_RATE / 365;
-  const interest = amount * dailyRate * termDays;
-
-  const monthlyFees = MONTHLY_FEE * monthsInTerm;
-
+  // Per-repayment fees
   const repaymentFees = numberOfPayments * REPAYMENT_FEE;
 
+  // Total charges and total repayable
   const totalCharges = drawdownFee + interest + monthlyFees + repaymentFees;
-
   const totalRepayable = amount + totalCharges;
 
+  // Estimated repayment amount
   const perPayment = totalRepayable / numberOfPayments;
 
   return (
     <div className="relative w-full rounded-2xl border border-4 border-secondary bg-bg-primary px-6 pt-6 pb-8 shadow-sm sm:px-10 sm:pt-2 sm:pb-10">
-      <div className="mt-6 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+      <div className="mt-8 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex-1">
           <Pill text="Line of Credit calculator" color="bg-secondary" />
+
           {/* Loan amount */}
-          <div className="mt-8">
+          <div className="mt-12">
             <h2 className="text-2xl font-semibold text-text-primary">
               How much would you like to borrow?
             </h2>
@@ -82,7 +73,7 @@ const LoanCalculator: React.FC = () => {
             </div>
 
             {/* Amount slider */}
-            <div>
+            <div className="mt-4">
               <input
                 type="range"
                 min={MIN_AMOUNT}
@@ -98,45 +89,15 @@ const LoanCalculator: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <hr className="border-t border-[#D4D6E5] my-8" />
-
-          {/* Loan term */}
-          <div>
-            <h2 className="text-2xl font-semibold text-text-primary">
-              How long would you take to repay?
-            </h2>
-
-            {/* Current amount */}
-            <div className="mt-8 text-3xl font-semibold tracking-tight text-foreground">
-              {termLabel}
-            </div>
-
-            {/* Term slider */}
-            <div>
-              <input
-                type="range"
-                min={MIN_WEEKS}
-                max={MAX_WEEKS}
-                step={STEP_WEEKS}
-                value={termWeeks}
-                onChange={(e) => setTermWeeks(Number(e.target.value))}
-                className="range-slider mt-3"
-              />
-              <div className="mt-2 flex justify-between text-sm text-muted-primary">
-                <span>{MIN_WEEKS} weeks</span>
-                <span>{MAX_WEEKS} weeks</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div className="bg-bg-secondary mt-12 rounded-2xl p-8">
+      {/* Output card */}
+      <div className="bg-bg-secondary mt-12 rounded-2xl px-6 py-10">
         {/* Output */}
         <div className="mb-4 text-center">
           <p className="text-md font-medium text-text-primary">
-            Monthly repayment amount
+            Estimated repayment amount
           </p>
           <div className="mt-2 text-5xl font-bold text-foreground">
             {currency2.format(perPayment)}{" "}
@@ -148,7 +109,7 @@ const LoanCalculator: React.FC = () => {
 
         {/* Frequency tabs */}
         <div className="text-center">
-          <div className="mt-3 inline-flex rounded-full border border-2 border-secondary text-xs">
+          <div className="mt-2 inline-flex rounded-full border border-2 border-secondary text-xs">
             <button
               type="button"
               onClick={() => setFrequency("weekly")}
@@ -166,7 +127,7 @@ const LoanCalculator: React.FC = () => {
               className={`m-0 rounded-full px-4 py-4 font-medium transition ${
                 frequency === "fortnightly"
                   ? "bg-bg-primary border border-0 border-l-2 border-secondary"
-                  : "text-secondary hover:primary"
+                  : "text-secondary hover:text-primary"
               }`}
             >
               Fortnightly
@@ -176,13 +137,13 @@ const LoanCalculator: React.FC = () => {
 
         <hr className="border-t border-[#D4D6E5] my-8" />
 
-        <p className="mt-3 text-[11px] leading-snug text-muted-primary">
-          This is an estimate only. It assumes you draw the full amount once,
-          repay over {termLabel.toLowerCase()} with {numberOfPayments}{" "}
+        <p className="text-xs leading-snug text-muted-primary">
+          This is an estimate only. It assumes you use the full amount for 1
+          month, repay it in {numberOfPayments}{" "}
           {frequency === "weekly" ? "weekly" : "fortnightly"} repayments, and
-          don&apos;t miss or dishonour any payments. Your actual cost will
-          depend on how much you draw, how long you keep your balance, and
-          whether any extra fees or repayments apply.
+          don't miss or dishonour any payments. Your actual costs will depend on
+          how much you draw, how quickly you repay, and may be subject to
+          further fees.
         </p>
       </div>
     </div>

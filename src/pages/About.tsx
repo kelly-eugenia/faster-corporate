@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import CTA from "../components/CTA";
 
-import TeamPhoto from "../assets/about-faster.jpg";
+import TeamPhoto from "../assets/about-faster.png";
 import Phone from "../assets/how-faster-differs.png";
 import SecurePhoto from "../assets/responsible.png";
 
@@ -75,7 +75,7 @@ export default function About() {
         </section>
 
         {/* Trustpilot */}
-        <section className="rounded-2xl mb-24 sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+        <section className="rounded-2xl mb-24 sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8 text-xl text-center text-bg-primary">
           <Pill text="What the people say" color="bg-primary" />
           <div
             className="trustpilot-widget mt-8"

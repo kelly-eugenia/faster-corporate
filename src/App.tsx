@@ -10,6 +10,7 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import JobDesc from "./pages/JobDesc";
+import Calculator from "./pages/Calculator";
 import "./App.css";
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="contact" element={<Contact />}></Route>
         <Route path="careers" element={<Careers />}></Route>
         <Route path="/careers/:jobId" element={<JobDesc />} />
+        <Route path="/calculator" element={<Calculator />} />
       </Routes>
     </BrowserRouter>
   );
