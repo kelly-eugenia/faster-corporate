@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./utils/ScrollToTop";
 import ScrollToSection from "./utils/ScrollToSection";
+import LiveChat from "./components/LiveChat";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -18,6 +19,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <ScrollToSection />
+      <LiveChat />
 
       <Routes>
         <Route path="/" element={<Home />}></Route>

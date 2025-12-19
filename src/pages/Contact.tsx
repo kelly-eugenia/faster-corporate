@@ -190,10 +190,7 @@ export default function Contact() {
                     />
                   </svg>
                 </span>
-                <a
-                  href="mailto:support@faster.com.au"
-                  className="text-xl text-primary hover:underline"
-                >
+                <a href="" className="text-xl text-primary hover:underline">
                   Start chat
                 </a>
               </div>

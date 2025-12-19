@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -18,24 +19,44 @@ export default function About() {
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
         <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-16 lg:pt-24 bg-gradient-to-b from-secondary to-primary">
-          <div className="px-8 py-12 sm:px-16 md:pt-16 md:py-32 gap-8 content-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="px-8 py-12 sm:px-16 md:pt-16 md:py-32 gap-8 content-center text-center"
+          >
             <Pill text="About Faster" color="bg-primary" />
 
             <h1 className="mt-12 my-8 text-6xl text-bg-primary">
               Borrowing that’s clear, fair, and makes sense.
             </h1>
             <p className="text-2xl lg:px-24 sm:px-0 font-medium my-8 mb-24 text-bg-primary">
-              Faster isn’t about payday loans or empty promises — it’s about
-              giving everyday Australians a more flexible way to manage
+              Faster.com.au isn’t about payday loans or empty promises — it’s
+              about giving everyday Australians a more flexible way to manage
               short-term cashflow.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* What we do */}
         <section className="rounded-2xl -mt-32 md:-mt-48 lg:px-32 md:px-16 sm:px-8 py-12 pb-6 content-center mb-12 items-stretch">
           {/* Image */}
-          <div className="relative mx-auto item-center">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="relative mx-auto item-center"
+          >
             <div className="overflow-hidden">
               <img
                 src={TeamPhoto}
@@ -43,7 +64,8 @@ export default function About() {
                 className="block rounded-2xl h-auto object-cover"
               />
             </div>
-          </div>
+          </motion.div>
+
           <div className="mt-12">
             <Pill text="What we do" color="bg-secondary" />
             <h1 className="my-8 text-6xl">

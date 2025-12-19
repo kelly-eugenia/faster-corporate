@@ -25,7 +25,7 @@ export default function NavBar() {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     [
-      "relative text-lg font-semibold \
+      "relative text-lg font-medium \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
     after:h-[2px] after:w-0 \
     after:transition-all after:duration-300 \

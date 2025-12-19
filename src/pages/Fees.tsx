@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -98,7 +99,17 @@ export default function Fees() {
         <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
           <div className="pt-24 grid gap-32 lg:grid-cols-2 items-center">
             {/* Left */}
-            <div className="pb-16 lg:text-left sm:text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 20,
+                delay: 0.05,
+              }}
+              className="pb-16 lg:text-left sm:text-center"
+            >
               <Pill text="Our fees" color="bg-primary" />
               <h1 className="my-8 text-6xl text-bg-primary">
                 Clear, simple and upfront.
@@ -120,7 +131,7 @@ export default function Fees() {
                   See How Our Fees Work
                 </Link>
               </button>
-            </div>
+            </motion.div>
 
             {/* Right */}
             <div className="rounded-2xl flex items-end justify-center">

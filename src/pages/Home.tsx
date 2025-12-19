@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -17,6 +18,12 @@ import SecurityIcon from "../assets/advanced-security.png";
 import TechIcon from "../assets/technology-that-works.png";
 import CustomerIcon from "../assets/customer-support.png";
 import "../App.css";
+
+const currency0 = new Intl.NumberFormat("en-AU", {
+  style: "currency",
+  currency: "AUD",
+  maximumFractionDigits: 0,
+});
 
 const xlLinkClass =
   "relative text-6xl font-[800] text-primary \
@@ -118,6 +125,23 @@ const homeFaqs = [
 ];
 
 export default function Home() {
+  // motion value for the number
+  const amount = useMotionValue(5000);
+
+  // format it as $10,000 etc.
+  const amountFormatted = useTransform(amount, (latest) =>
+    currency0.format(latest)
+  );
+
+  useEffect(() => {
+    const controls = animate(amount, 10000, {
+      duration: 0.8,
+      ease: "easeOut",
+    });
+
+    return () => controls.stop();
+  }, [amount]);
+
   return (
     <>
       <NavBar />
@@ -125,12 +149,18 @@ export default function Home() {
       <div className="w-full lg:px-40 sm:px-12 mx-auto">
         {/* Hero */}
         <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-32 lg:pt-40 py-12 lg:py-16 bg-gradient-to-tr from-secondary to-primary">
-          <div className="grid gap-32 lg:grid-cols-2 items-bottom">
+          <div className="grid gap-24 lg:grid-cols-2 items-bottom">
             {/* Left */}
             <div className="md:py-16 md:pb-0 lg:py-16 lg:text-left sm:text-center">
               <Pill text="Fast credit, made simple." color="bg-primary" />
               <h1 className="mt-10 text-5xl md:text-6xl lg:text-7xl text-bg-primary">
-                Access up to $10,000 when you need it most
+                Access up to{" "}
+                <span className="inline-block w-[7ch] align-baseline text-center">
+                  <motion.span className="text-bg-primary font-[800] tabular-nums whitespace-nowrap">
+                    {amountFormatted}
+                  </motion.span>
+                </span>{" "}
+                when you need it most
               </h1>
               <p className="text-bg-secondary text-2xl my-8">
                 When traditional banks say no, <strong>Faster says yes</strong>.
@@ -197,7 +227,7 @@ export default function Home() {
             <Pill text="Why choose Faster" color="bg-secondary" />
             <h1 className="mt-12 my-2 text-6xl">There's a lot to love</h1>
             <Link to="about" className={xlLinkClass}>
-              about Faster
+              about Faster.com.au
             </Link>
           </div>
 
