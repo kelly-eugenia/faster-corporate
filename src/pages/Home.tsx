@@ -26,7 +26,7 @@ const currency0 = new Intl.NumberFormat("en-AU", {
 });
 
 const xlLinkClass =
-  "relative text-6xl font-[800] text-primary \
+  "relative text-5xl lg:text-6xl font-[800] text-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
     after:h-[6px] after:w-0 after:bg-primary \
     after:transition-all after:duration-300 \
@@ -146,14 +146,14 @@ export default function Home() {
     <>
       <NavBar />
 
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
+      <div className="w-full px-8 sm:px-12 lg:px-40 mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 pt-32 lg:pt-40 py-12 lg:py-16 bg-gradient-to-tr from-secondary to-primary">
+        <section className="-mx-8 sm:-mx-12 lg:-mx-40 mx-auto px-8 sm:px-12 lg:px-24 xl:px-40 pt-16 sm:pt-24 lg:pt-40 py-12 lg:py-16 bg-gradient-to-tr from-secondary to-primary">
           <div className="grid gap-24 lg:grid-cols-2 items-bottom">
             {/* Left */}
-            <div className="md:py-16 md:pb-0 lg:py-16 lg:text-left sm:text-center">
+            <div className="py-12 pb-0 lg:py-16 lg:text-left text-center">
               <Pill text="Fast credit, made simple." color="bg-primary" />
-              <h1 className="mt-10 text-5xl md:text-6xl lg:text-7xl text-bg-primary">
+              <h1 className="mt-10 text-5xl md:text-6xl lg:text-6xl xl:text-7xl text-bg-primary">
                 Access up to{" "}
                 <span className="inline-block w-[7ch] align-baseline text-center">
                   <motion.span className="text-bg-primary font-[800] tabular-nums whitespace-nowrap">
@@ -162,14 +162,14 @@ export default function Home() {
                 </span>{" "}
                 when you need it most
               </h1>
-              <p className="text-bg-secondary text-2xl my-8">
+              <p className="text-bg-secondary text-lg sm:text-xl md:text-2xl mt-8">
                 When traditional banks say no, <strong>Faster says yes</strong>.
                 Get a Line of Credit with clear terms, no surprises, and
                 decisions in minutes.
               </p>
 
               <motion.button
-                className="my-12 btn-primary text-xl"
+                className="my-10 lg:my-12 btn-primary text-lg sm:text-xl"
                 initial={{ scale: 1 }}
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{
@@ -187,7 +187,7 @@ export default function Home() {
             </div>
 
             {/* Right */}
-            <div className="rounded-2xl sm:-mt-32 sm:-mb-12 lg:-mb-16 lg:pt-12 items-center justify-center">
+            <div className="rounded-2xl -mt-32 -mb-12 lg:-mb-16 lg:pt-12 items-center justify-center">
               <img
                 className="block w-auto lg:max-w-3xl md:max-w-2xl mx-auto h-full"
                 src={HeroPhoto}
@@ -198,7 +198,7 @@ export default function Home() {
         </section>
 
         {/* Trustpilot */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+        <section className="sm:-mx-12 lg:-mx-40 mx-auto px-8 sm:px-12 lg:px-24 xl:px-40 py-12 bg-bg-secondary text-xl text-center text-bg-primary">
           <Pill text="What the people say" color="bg-primary" />
           <div
             className="trustpilot-widget mt-8"
@@ -208,7 +208,7 @@ export default function Home() {
             data-style-height="240px"
             data-style-width="100%"
             data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-            data-stars="1,2,3,4,5"
+            data-stars="4,5"
             data-review-languages="en"
           >
             <a
@@ -222,10 +222,12 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section className="grid gap-8 mb-12 lg:py-24 sm:py-12 items-stretch">
+        <section className="grid gap-8 mb-12 lg:py-24 py-12 items-stretch">
           <div className="rounded-2xl px-8 pb-4 content-center text-center">
             <Pill text="Why choose Faster" color="bg-secondary" />
-            <h1 className="mt-12 my-2 text-6xl">There's a lot to love</h1>
+            <h1 className="mt-8 lg:mt-12 my-2 text-5xl lg:text-6xl">
+              There's a lot to love
+            </h1>
             <Link to="about" className={xlLinkClass}>
               about Faster.com.au
             </Link>
@@ -292,26 +294,28 @@ export default function Home() {
         {/* How it works */}
         <section
           id="how-it-works"
-          className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12"
+          className="bg-bg-secondary lg:-mx-40 sm:-mx-12 sm:px-12 lg:px-24 xl:px-40 py-24 md:py-16 mb-12"
         >
           <div className="grid gap-32 lg:grid-cols-2 items-center">
             {/* Left */}
             <div>
-              <Pill text="How Faster works" color="bg-primary" />
-              <h1 className="mt-12 my-8 text-6xl">
-                Fast to set up, easy to use
-              </h1>
-              <p>
-                Faster’s Line of Credit lets you access funds when you need
-                them, without reapplying each time. Credit is subject to
-                eligibility and approval.
-              </p>
+              <div className="lg:text-left sm:text-center">
+                <Pill text="How Faster works" color="bg-primary" />
+                <h1 className="mt-12 my-8 md:text-5xl lg:text-6xl">
+                  Fast to set up, easy to use
+                </h1>
+                <p>
+                  Faster’s Line of Credit lets you access funds when you need
+                  them, without reapplying each time. Credit is subject to
+                  eligibility and approval.
+                </p>
+              </div>
 
               {/* Steps */}
-              <div className="mt-16 space-y-8">
+              <div className="mt-16 space-y-8 w-full mx-auto md:max-w-2xl lg:mx-0 lg:max-w-3xl">
                 {/* Step 1 */}
                 <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold text-xl">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
                     1
                   </div>
                   <div>
@@ -325,7 +329,7 @@ export default function Home() {
 
                 {/* Step 2 */}
                 <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold text-xl">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
                     2
                   </div>
                   <div>
@@ -339,7 +343,7 @@ export default function Home() {
 
                 {/* Step 3 */}
                 <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold text-xl">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
                     3
                   </div>
                   <div>
@@ -353,7 +357,7 @@ export default function Home() {
 
                 {/* Step 4 */}
                 <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold text-xl">
+                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
                     4
                   </div>
                   <div>
@@ -369,7 +373,7 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
                 <button className="btn-secondary">
                   <Link to="/fees" className="font-medium text-primary">
                     See Our Fees
