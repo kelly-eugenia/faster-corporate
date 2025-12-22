@@ -56,19 +56,22 @@ const LoanCalculator: React.FC = () => {
   const perPayment = totalRepayable / numberOfPayments;
 
   return (
-    <div className="relative w-full rounded-2xl border border-4 border-secondary bg-bg-primary px-6 pt-6 pb-8 shadow-sm sm:px-10 sm:pt-2 sm:pb-10">
-      <div className="mt-8 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+    <div
+      className="w-full max-w-full rounded-2xl border-4 border-secondary bg-bg-primary 
+                px-5 py-6 sm:px-8 sm:py-8 shadow-sm overflow-hidden"
+    >
+      <div className="mt-2 md:mt-8 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex-1">
           <Pill text="Line of Credit calculator" color="bg-secondary" />
 
           {/* Loan amount */}
-          <div className="mt-12">
-            <h2 className="text-2xl font-semibold text-text-primary">
+          <div className="mt-6 sm:mt-8">
+            <h2 className="text-xl sm:text-2xl font-semibold text-text-primary">
               How much would you like to borrow?
             </h2>
 
             {/* Current amount */}
-            <div className="mt-8 text-3xl font-semibold tracking-tight text-foreground">
+            <div className="mt-4 text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
               {currency0.format(amount)}
             </div>
 
@@ -81,9 +84,9 @@ const LoanCalculator: React.FC = () => {
                 step={STEP_AMOUNT}
                 value={amount}
                 onChange={(e) => setAmount(Number(e.target.value))}
-                className="range-slider"
+                className="range-slider w-full"
               />
-              <div className="mt-2 flex justify-between text-sm text-muted-primary">
+              <div className="mt-2 flex justify-between text-xs sm:text-sm text-muted-primary">
                 <span>{currency0.format(MIN_AMOUNT)}</span>
                 <span>{currency0.format(MAX_AMOUNT)}</span>
               </div>
@@ -93,15 +96,15 @@ const LoanCalculator: React.FC = () => {
       </div>
 
       {/* Output card */}
-      <div className="bg-bg-secondary mt-12 rounded-2xl px-6 py-10">
+      <div className="bg-bg-secondary mt-8 sm:mt-10 rounded-2xl px-4 py-8 sm:px-6 sm:py-10">
         {/* Output */}
         <div className="mb-4 text-center">
-          <p className="text-md font-medium text-text-primary">
+          <p className="text-sm sm:text-base font-medium text-text-primary">
             Estimated repayment amount
           </p>
-          <div className="mt-2 text-5xl font-bold text-foreground">
+          <div className="mt-2 text-3xl sm:text-5xl font-bold text-foreground leading-tight break-words">
             {currency2.format(perPayment)}{" "}
-            <span className="text-base font-normal text-muted-primary">
+            <span className="text-xs sm:text-base font-normal text-muted-primary align-middle">
               {frequencyLabel}
             </span>
           </div>
@@ -109,41 +112,42 @@ const LoanCalculator: React.FC = () => {
 
         {/* Frequency tabs */}
         <div className="text-center">
-          <div className="mt-2 inline-flex rounded-full border border-2 border-secondary text-xs">
+          <div className="mt-2 inline-flex flex-wrap justify-center rounded-full border-2 border-secondary text-xs sm:text-sm">
             <button
               type="button"
               onClick={() => setFrequency("weekly")}
-              className={`m-0 rounded-full px-4 py-4 font-medium transition ${
-                frequency === "weekly"
-                  ? "bg-bg-primary border border-0 border-r-2 border-secondary"
-                  : "text-secondary hover:text-primary"
-              }`}
+              className={`m-0 px-4 py-3 sm:py-4 font-medium rounded-full transition 
+                    ${
+                      frequency === "weekly"
+                        ? "bg-bg-primary"
+                        : "text-secondary hover:text-primary"
+                    }`}
             >
               Weekly
             </button>
+
             <button
               type="button"
               onClick={() => setFrequency("fortnightly")}
-              className={`m-0 rounded-full px-4 py-4 font-medium transition ${
-                frequency === "fortnightly"
-                  ? "bg-bg-primary border border-0 border-l-2 border-secondary"
-                  : "text-secondary hover:text-primary"
-              }`}
+              className={`m-0 px-4 py-3 sm:py-4 font-medium rounded-full transition
+                    ${
+                      frequency === "fortnightly"
+                        ? "bg-bg-primary"
+                        : "text-secondary hover:text-primary"
+                    }`}
             >
               Fortnightly
             </button>
           </div>
         </div>
 
-        <hr className="border-t border-[#D4D6E5] my-8" />
+        <hr className="border-t border-[#D4D6E5] my-6 sm:my-8" />
 
-        <p className="text-xs leading-snug text-muted-primary">
+        <p className="text-xs leading-snug text-muted-primary text-center sm:text-left">
           This is an estimate only. It assumes you use the full amount for 1
           month, repay it in {numberOfPayments}{" "}
           {frequency === "weekly" ? "weekly" : "fortnightly"} repayments, and
-          don't miss or dishonour any payments. Your actual costs will depend on
-          how much you draw, how quickly you repay, and may be subject to
-          further fees.
+          don't miss or dishonour any payments.
         </p>
       </div>
     </div>

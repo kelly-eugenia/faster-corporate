@@ -1,0 +1,172 @@
+import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+
+export default function MobileCarousel({ items }: { items: any[] }) {
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  const loop = (n: number) => (n + items.length) % items.length;
+
+  const next = () => {
+    setDirection(1);
+    setIndex((i) => loop(i + 1));
+  };
+
+  const prev = () => {
+    setDirection(-1);
+    setIndex((i) => loop(i - 1));
+  };
+
+  const current = items[index];
+  const prevCard = items[loop(index - 1)];
+  const nextCard = items[loop(index + 1)];
+
+  /* -------- VARIANTS -------- */
+
+  const centerVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 40 : -40,
+    }),
+    center: {
+      x: 0,
+    },
+    exit: (dir) => ({
+      x: dir > 0 ? 40 : -40,
+    }),
+  };
+
+  const leftVariants = {
+    enter: (dir) => ({
+      opacity: 0.4,
+      x: dir > 0 ? -40 : -120,
+      scale: 0.8,
+      filter: "blur(6px)",
+    }),
+    center: {
+      opacity: 0.4,
+      x: -80,
+      scale: 0.8,
+      filter: "blur(3px)",
+    },
+    exit: (dir) => ({
+      opacity: 0.4,
+      x: dir > 0 ? -40 : -120,
+      scale: 0.8,
+      filter: "blur(6px)",
+    }),
+  };
+
+  const rightVariants = {
+    enter: (dir) => ({
+      opacity: 0.4,
+      x: dir > 0 ? 120 : 40,
+      scale: 0.8,
+      filter: "blur(6px)",
+    }),
+    center: {
+      opacity: 0.4,
+      x: 80,
+      scale: 0.8,
+      filter: "blur(3px)",
+    },
+    exit: (dir) => ({
+      opacity: 0.4,
+      x: dir > 0 ? 120 : 40,
+      scale: 0.8,
+      filter: "blur(6px)",
+    }),
+  };
+
+  // --- AUTOPLAY ---
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    // clear previous interval
+    if (autoplayRef.current) clearInterval(autoplayRef.current);
+
+    autoplayRef.current = setInterval(() => {
+      setDirection(1); // autoplay always moves forward
+      setIndex((i) => loop(i + 1)); // loop around smoothly
+    }, 2500); // <-- autoplay interval (2.5 seconds)
+
+    return () => clearInterval(autoplayRef.current!);
+  }, [index]); // restart after each slide animation
+
+  return (
+    <div className="relative w-full md:hidden">
+      {/* FIXED HEIGHT WRAPPER */}
+      <div className="relative w-full overflow-hidden">
+        <div className="relative flex items-center justify-center h-full">
+          {/* PREVIOUS (left faded) */}
+          <motion.div
+            key={`prev-${index}`}
+            custom={direction}
+            variants={leftVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="absolute right-1/2 -translate-x-1/2 w-[70%] pointer-events-none"
+          >
+            <Card item={prevCard} />
+          </motion.div>
+
+          {/* CURRENT (center) */}
+          <motion.div
+            key={`current-${index}`}
+            custom={direction}
+            variants={centerVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="w-[75%] z-10"
+          >
+            <Card item={current} />
+          </motion.div>
+
+          {/* NEXT (right faded) */}
+          <motion.div
+            key={`next-${index}`}
+            custom={direction}
+            variants={rightVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="absolute left-1/2 -translate-x-1/2 w-[70%] pointer-events-none"
+          >
+            <Card item={nextCard} />
+          </motion.div>
+        </div>
+
+        {/* BUTTONS */}
+        <button
+          onClick={prev}
+          className="absolute left-8 top-1/2 -translate-y-1/2 bg-primary px-3 py-1 rounded-full text-bg-primary z-20"
+        >
+          ‹
+        </button>
+
+        <button
+          onClick={next}
+          className="absolute right-8 top-1/2 -translate-y-1/2 bg-primary px-3 py-1 rounded-full text-bg-primary z-20"
+        >
+          ›
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Card({ item }: { item: any }) {
+  return (
+    <div className="w-3/4 mx-auto bg-bg-secondary rounded-2xl p-8 text-center shadow-sm h-full">
+      <div className="w-1/4 mx-auto mb-4">
+        <img src={item.icon} alt={item.title} className="w-full h-auto" />
+      </div>
+      <h2 className="text-2xl">{item.title}</h2>
+      <p className="text-sm mt-2">{item.desc}</p>
+    </div>
+  );
+}

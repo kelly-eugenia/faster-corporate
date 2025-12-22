@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
+import MobileCarousel from "../components/MobileCarousel";
 import LoanCalculator from "../components/LoanCalculator";
 import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
@@ -26,7 +27,7 @@ const currency0 = new Intl.NumberFormat("en-AU", {
 });
 
 const xlLinkClass =
-  "relative text-5xl lg:text-6xl font-[800] text-primary \
+  "relative text-4xl sm:text-5xl lg:text-6xl font-[800] text-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
     after:h-[6px] after:w-0 after:bg-primary \
     after:transition-all after:duration-300 \
@@ -128,7 +129,7 @@ export default function Home() {
   // motion value for the number
   const amount = useMotionValue(5000);
 
-  // format it as $10,000 etc.
+  // format it as $10,000
   const amountFormatted = useTransform(amount, (latest) =>
     currency0.format(latest)
   );
@@ -146,50 +147,52 @@ export default function Home() {
     <>
       <NavBar />
 
-      <div className="w-full px-8 sm:px-12 lg:px-40 mx-auto">
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="-mx-8 sm:-mx-12 lg:-mx-40 mx-auto px-8 sm:px-12 lg:px-24 xl:px-40 pt-16 sm:pt-24 lg:pt-40 py-12 lg:py-16 bg-gradient-to-tr from-secondary to-primary">
-          <div className="grid gap-24 lg:grid-cols-2 items-bottom">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:pt-40 pb-12 lg:pb-24 bg-gradient-to-tr from-secondary to-primary">
+          <div className="grid gap-24 lg:grid-cols-2 items-stretch">
             {/* Left */}
-            <div className="py-12 pb-0 lg:py-16 lg:text-left text-center">
-              <Pill text="Fast credit, made simple." color="bg-primary" />
-              <h1 className="mt-10 text-5xl md:text-6xl lg:text-6xl xl:text-7xl text-bg-primary">
-                Access up to{" "}
-                <span className="inline-block w-[7ch] align-baseline text-center">
-                  <motion.span className="text-bg-primary font-[800] tabular-nums whitespace-nowrap">
-                    {amountFormatted}
-                  </motion.span>
-                </span>{" "}
-                when you need it most
-              </h1>
-              <p className="text-bg-secondary text-lg sm:text-xl md:text-2xl mt-8">
-                When traditional banks say no, <strong>Faster says yes</strong>.
-                Get a Line of Credit with clear terms, no surprises, and
-                decisions in minutes.
-              </p>
+            <div className="pt-12 pb-0 lg:pb-12 flex flex-col justify-center">
+              <div className="lg:mt-8 lg:text-left text-center">
+                <Pill text="Fast credit, made simple." color="bg-primary" />
+                <h1 className="mt-8 lg:mt-12 text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-bg-primary">
+                  Access up to{" "}
+                  <span className="inline-block w-[7ch] align-baseline text-center">
+                    <motion.span className="text-bg-primary font-[800] tabular-nums whitespace-nowrap">
+                      {amountFormatted}
+                    </motion.span>
+                  </span>{" "}
+                  when you need it most
+                </h1>
+                <p className="mt-6 lg:mt-8 text-bg-secondary text-base sm:text-lg md:text-2xl">
+                  When traditional banks say no,{" "}
+                  <strong>Faster says yes</strong>. Get a Line of Credit with
+                  clear terms, no surprises, and decisions in minutes.
+                </p>
 
-              <motion.button
-                className="my-10 lg:my-12 btn-primary text-lg sm:text-xl"
-                initial={{ scale: 1 }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  ease: "easeInOut",
-                  delay: 0.4,
-                }}
-              >
-                <Link to="/apply" className="text-bg-primary font-medium">
-                  Apply Now
-                </Link>
-              </motion.button>
+                <motion.button
+                  className="my-10 lg:my-12 btn-primary text-base sm:text-lg"
+                  initial={{ scale: 1 }}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut",
+                    delay: 0.4,
+                  }}
+                >
+                  <Link to="/apply" className="text-bg-primary font-medium">
+                    Apply Now
+                  </Link>
+                </motion.button>
+              </div>
             </div>
 
             {/* Right */}
-            <div className="rounded-2xl -mt-32 -mb-12 lg:-mb-16 lg:pt-12 items-center justify-center">
+            <div className="-mt-28 -mb-12 lg:-mb-24 lg:pt-20 flex items-end justify-center">
               <img
-                className="block w-auto lg:max-w-3xl md:max-w-2xl mx-auto h-full"
+                className="block w-auto max-w-full h-full scale-100 lg:scale-[1.05] origin-bottom-left"
                 src={HeroPhoto}
                 alt="Smiling customer enjoying Faster"
               />{" "}
@@ -198,7 +201,7 @@ export default function Home() {
         </section>
 
         {/* Trustpilot */}
-        <section className="sm:-mx-12 lg:-mx-40 mx-auto px-8 sm:px-12 lg:px-24 xl:px-40 py-12 bg-bg-secondary text-xl text-center text-bg-primary">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 bg-bg-secondary text-xl text-center text-bg-primary">
           <Pill text="What the people say" color="bg-primary" />
           <div
             className="trustpilot-widget mt-8"
@@ -222,104 +225,126 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section className="grid gap-8 mb-12 lg:py-24 py-12 items-stretch">
-          <div className="rounded-2xl px-8 pb-4 content-center text-center">
+        <section className="py-8 md:py-12 grid gap-8 mb-12 items-stretch">
+          <div className="rounded-2xl px-8 sm:px-12 lg:px-16 xl:px-40 pb-0 sm:pb-4 content-center text-center">
             <Pill text="Why choose Faster" color="bg-secondary" />
-            <h1 className="mt-8 lg:mt-12 my-2 text-5xl lg:text-6xl">
-              There's a lot to love
+            <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
+              There's a lot to love{" "}
+              <span className="hidden sm:inline">
+                <br />
+              </span>
+              <span>
+                <Link to="about" className={xlLinkClass}>
+                  about Faster.com.au
+                </Link>
+              </span>
             </h1>
-            <Link to="about" className={xlLinkClass}>
-              about Faster.com.au
-            </Link>
           </div>
+          <div>
+            {/* Mobile Looping Carousel */}
+            <MobileCarousel
+              items={[
+                {
+                  icon: SecurityIcon,
+                  title: "Advanced Security",
+                  desc: "Your data is encrypted and monitored throughout the process.",
+                },
+                {
+                  icon: FeesIcon,
+                  title: "Clear, Fair Fees",
+                  desc: "No hidden fees — just a transparent cost for using your Line of Credit.",
+                },
+                {
+                  icon: CustomerIcon,
+                  title: "Customer Support",
+                  desc: "Real people ready to help with any question and issue.",
+                },
+                {
+                  icon: TechIcon,
+                  title: "Reliable Tech",
+                  desc: "Built by a tech-focused team to give you a smooth, reliable experience.",
+                },
+              ]}
+            />
 
-          <div className="rounded-2xl relative overflow-hidden flex items-center justify-center">
-            <section className="grid xl:grid-cols-4 md:grid-cols-2 gap-8 items-stretch">
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={SecurityIcon}
-                    alt="Advanced Security"
-                    className="block w-full h-auto"
-                  />
+            {/* Desktop Grid */}
+            <div className="hidden px-8 sm:px-12 lg:px-16 xl:px-40 md:grid xl:grid-cols-4 md:grid-cols-2 gap-8 items-stretch text-center md:text-left">
+              <div className="bg-bg-secondary rounded-2xl p-8">
+                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                  <img src={SecurityIcon} alt="Security" />
                 </div>
-                <h2>Advanced Security</h2>
+                <h2 className="text-3xl sm:text-4xl">Advanced Security</h2>
                 <p>
                   Your data is encrypted and monitored throughout the process.
                 </p>
               </div>
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={FeesIcon}
-                    alt="Clear, fair fees"
-                    className="block w-full h-auto"
-                  />
+
+              <div className="bg-bg-secondary rounded-2xl p-8">
+                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                  <img src={FeesIcon} alt="Fees" />
                 </div>
-                <h2>Clear, Fair Fees</h2>
+                <h2 className="text-3xl sm:text-4xl">Clear, Fair Fees</h2>
                 <p>
                   No hidden fees — just a transparent cost for using your Line
                   of Credit.
                 </p>
               </div>
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={CustomerIcon}
-                    alt="Customer support"
-                    className="block w-full h-auto"
-                  />
+
+              <div className="bg-bg-secondary rounded-2xl p-8">
+                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                  <img src={CustomerIcon} alt="Customer Support" />
                 </div>
-                <h2>Customer Support</h2>
+                <h2 className="text-3xl sm:text-4xl">Customer Support</h2>
                 <p>Real people ready to help with any question and issue.</p>
               </div>
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={TechIcon}
-                    alt="Reliable tech"
-                    className="block w-full h-auto"
-                  />
+
+              <div className="bg-bg-secondary rounded-2xl p-8">
+                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                  <img src={TechIcon} alt="Reliable Tech" />
                 </div>
-                <h2>Reliable Tech</h2>
+                <h2 className="text-3xl sm:text-4xl">Reliable Tech</h2>
                 <p>
                   Built by a tech-focused team to give you a smooth, reliable
                   experience.
                 </p>
               </div>
-            </section>
+            </div>
           </div>
         </section>
 
         {/* How it works */}
         <section
           id="how-it-works"
-          className="bg-bg-secondary lg:-mx-40 sm:-mx-12 sm:px-12 lg:px-24 xl:px-40 py-24 md:py-16 mb-12"
+          className="bg-bg-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12"
         >
-          <div className="grid gap-32 lg:grid-cols-2 items-center">
+          <div className="grid gap-16 lg:gap-32 lg:grid-cols-2 items-center">
             {/* Left */}
-            <div>
-              <div className="lg:text-left sm:text-center">
-                <Pill text="How Faster works" color="bg-primary" />
-                <h1 className="mt-12 my-8 md:text-5xl lg:text-6xl">
-                  Fast to set up, easy to use
-                </h1>
-                <p>
-                  Faster’s Line of Credit lets you access funds when you need
-                  them, without reapplying each time. Credit is subject to
-                  eligibility and approval.
-                </p>
-              </div>
+            <div className="text-center md:text-left">
+              <Pill text="How Faster works" color="bg-primary" />
+              <h1 className="mt-8 lg:mt-12 my-4 text-4xl sm:text-5xl lg:text-6xl">
+                Fast to set up, easy to use
+              </h1>
+              <p>
+                Faster’s Line of Credit lets you access funds when you need
+                them, without reapplying each time. Credit is subject to
+                eligibility and approval.
+              </p>
 
               {/* Steps */}
-              <div className="mt-16 space-y-8 w-full mx-auto md:max-w-2xl lg:mx-0 lg:max-w-3xl">
+              <div className="mt-16 space-y-12 md:space-y-8 w-full mx-auto max-w-2xl md:mx-0 md:max-w-3xl">
                 {/* Step 1 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
+                  <div
+                    className="flex size-10 shrink-0 items-center justify-center 
+                  rounded-full bg-primary text-bg-primary font-bold 
+                  lg:text-xl text-lg self-start mx-auto md:mx-0"
+                  >
                     1
                   </div>
-                  <div>
-                    <h2 className="font-semibold">Apply in minutes</h2>
+                  <div className="mx-auto md:mx-0">
+                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                      Apply in minutes
+                    </h2>
                     <p className="mt-2 text-muted-primary">
                       Complete a quick online application and securely verify
                       your details.
@@ -328,12 +353,18 @@ export default function Home() {
                 </div>
 
                 {/* Step 2 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
+                  <div
+                    className="flex size-10 shrink-0 items-center justify-center 
+                  rounded-full bg-primary text-bg-primary font-bold 
+                  lg:text-xl text-lg self-start mx-auto md:mx-0"
+                  >
                     2
                   </div>
-                  <div>
-                    <h2 className="font-semibold">Get your Faster limit</h2>
+                  <div className="mx-auto md:mx-0">
+                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                      Get your Faster limit
+                    </h2>
                     <p className="mt-2 text-muted-primary">
                       If approved, you will receive an ongoing credit limit —
                       the maximum you can borrow at a time.
@@ -342,12 +373,18 @@ export default function Home() {
                 </div>
 
                 {/* Step 3 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
+                  <div
+                    className="flex size-10 shrink-0 items-center justify-center 
+                  rounded-full bg-primary text-bg-primary font-bold 
+                  lg:text-xl text-lg self-start mx-auto md:mx-0"
+                  >
                     3
                   </div>
-                  <div>
-                    <h2 className="font-semibold">Draw when you need it</h2>
+                  <div className="mx-auto md:mx-0">
+                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                      Draw when you need it
+                    </h2>
                     <p className="mt-2 text-muted-primary">
                       Make a draw from your limit to your bank account — with a
                       clear repayment schedule and total cost shown upfront.
@@ -356,12 +393,16 @@ export default function Home() {
                 </div>
 
                 {/* Step 4 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
+                  <div
+                    className="flex size-10 shrink-0 items-center justify-center 
+                  rounded-full bg-primary text-bg-primary font-bold 
+                  lg:text-xl text-lg self-start mx-auto md:mx-0"
+                  >
                     4
                   </div>
-                  <div>
-                    <h2 className="font-semibold">
+                  <div className="mx-auto md:mx-0">
+                    <h2 className="font-semibold text-3xl sm:text-4xl">
                       Repay, reuse, stay in control
                     </h2>
                     <p className="mt-2 text-muted-primary">
@@ -373,13 +414,13 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
-                <button className="btn-secondary">
+              <div className="mt-12 flex flex-wrap gap-4 justify-center md:justify-start">
+                <button className="btn-secondary my-0">
                   <Link to="/fees" className="font-medium text-primary">
                     See Our Fees
                   </Link>
                 </button>
-                <button className="btn-primary">
+                <button className="btn-primary my-0">
                   <Link to="/apply" className="font-medium text-bg-primary">
                     Apply Now
                   </Link>
@@ -388,17 +429,16 @@ export default function Home() {
             </div>
 
             {/* Right: Loan calculator */}
-            <div className="bg-gradient-to-tr from-secondary to-primary rounded-2xl p-6 lg:p-8">
+            <div className="bg-gradient-to-tr from-secondary to-primary rounded-2xl p-2 sm:p-4 md:p-8 mb-4 lg:mb-0">
               <LoanCalculator />
             </div>
           </div>
         </section>
 
         {/* Values 1 */}
-        <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-2 lg:mb-12 items-stretch">
           {/* Left */}
-
-          <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
+          <div className="rounded-2xl px-4 flex items-bottom justify-center">
             <img
               src={TeamPhoto}
               alt="Faster is deeply invested in our customers"
@@ -407,17 +447,17 @@ export default function Home() {
           </div>
 
           {/* Right */}
-          <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">
+          <div className="rounded-2xl p-0 lg:px-8 lg:py-10 content-center lg:text-left text-center">
+            <h1 className="mt-0 mb-6 sm:my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
               Faster is{" "}
               <span className="text-primary font-[800]">deeply invested</span>{" "}
               in our customers.
             </h1>
-            <p className="text-xl">
+            <p className="text-lg md:text-xl">
               We believe borrowing should be clear, fair, and designed to help
               you always stay in control.
             </p>
-            <div className="my-6 mt-8">
+            <div className="my-6 sm:mt-8">
               <Pill text="Transparent Practices" color="bg-secondary" />
               <Pill text="Responsible Lending" color="bg-secondary" />
               <Pill text="Customer Commitment" color="bg-secondary" />
@@ -426,14 +466,16 @@ export default function Home() {
         </section>
 
         {/* Values 2 */}
-        <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-2 items-stretch">
           {/* Left */}
-          <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">Fast. Secure. Simple.</h1>
+          <div className="order-2 lg:order-1 rounded-2xl p-0 lg:px-8 lg:py-10 content-center lg:text-left text-center">
+            <h1 className="mt-0 mb-6 sm:my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
+              Fast. Secure. Simple.
+            </h1>
 
             <div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -448,16 +490,18 @@ export default function Home() {
                     <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
                   </svg>
                 </span>
-                <div>
-                  <h2>Fast, simple experience</h2>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">
+                    Fast, simple experience
+                  </h2>
                   <p>
                     Our technology is built for a smooth, efficient borrowing
                     experience.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -471,16 +515,16 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-                <div>
-                  <h2>Secure by Design</h2>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">Secure by Design</h2>
                   <p>
                     Your data is encrypted and protected under strict privacy
                     standards.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -494,8 +538,10 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-                <div>
-                  <h2>Built for Australians</h2>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">
+                    Built for Australians
+                  </h2>
                   <p>
                     Our Line of Credit is designed to be flexible, accessible
                     and easy to understand.
@@ -506,7 +552,7 @@ export default function Home() {
           </div>
 
           {/* Right */}
-          <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
+          <div className="order-1 lg:order-2 rounded-2xl px-4 flex items-bottom justify-center">
             <img
               src={WebsitePhoto}
               alt="Faster website on phone and laptop"
@@ -519,11 +565,14 @@ export default function Home() {
         <CTA />
 
         {/* FAQ */}
-        <section className="py-24 md:py-12 mb-12 content-center">
-          <h1 className="text-center mb-12">Customers frequently ask</h1>
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
+          <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
+            Customers frequently ask
+          </h1>
           <FAQSection faqs={homeFaqs} />
         </section>
       </div>
+
       <Footer />
     </>
   );

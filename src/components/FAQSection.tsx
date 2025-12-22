@@ -24,9 +24,9 @@ export default function FAQSection({ faqs }: FaqSectionProps) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
       {/* Left column */}
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 md:gap-8">
         {leftFaqs.map((faq) => (
           <FAQItem
             key={faq.question}
@@ -39,7 +39,7 @@ export default function FAQSection({ faqs }: FaqSectionProps) {
       </div>
 
       {/* Right column */}
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-4 md:gap-8">
         {rightFaqs.map((faq) => (
           <FAQItem
             key={faq.question}

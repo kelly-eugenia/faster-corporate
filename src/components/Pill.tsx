@@ -6,7 +6,7 @@ interface PillProps {
 export default function Pill({ text, color }: PillProps) {
   return (
     <div
-      className={`inline-flex items-center rounded-full bg-${color} px-4 py-2 mx-1 my-2 text-lg font-semibold text-text-primary`}
+      className={`inline-flex items-center rounded-full bg-${color} px-4 py-2 mx-1 my-2 text-sm sm:text-base md:text-lg font-semibold text-text-primary`}
     >
       <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full text-primary text-2xl">
         <svg

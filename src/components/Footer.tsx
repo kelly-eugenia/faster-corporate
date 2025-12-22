@@ -19,10 +19,10 @@ const xlLinkClass =
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-secondary to-primary">
-      <div className="w-full mx-auto p-12 lg:py-16 lg:px-40 space-y-10">
-        <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between place-items-center">
+      <div className="w-full mx-auto px-8 py-12 lg:py-16 lg:px-40 space-y-10">
+        <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between">
           {/* Logo */}
-          <div className="w-2/3 md:w-1/3 flex-shrink-0">
+          <div className="w-3/4 md:w-1/3 flex-shrink-0">
             <img
               src={Logo}
               alt="Faster Logo"
@@ -30,8 +30,8 @@ export default function Footer() {
             />
           </div>
           {/* Socials (mobile) */}
-          <div className="sm:hidden flex gap-4 -mt-8">
-            <a href="" className="text-bg-primary hover:text-bg-secondary">
+          <div className="sm:hidden flex gap-4 -mt-12">
+            <a href="" className="text-bg-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -42,8 +42,8 @@ export default function Footer() {
                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
               </svg>
             </a>
-            <a href="" className="text-primary hover:text-secondary">
-              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
+            <a href="">
+              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -54,7 +54,7 @@ export default function Footer() {
               </span>
             </a>
             <a href="" className="text-primary hover:text-secondary">
-              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
+              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -65,7 +65,7 @@ export default function Footer() {
               </span>
             </a>
             <a href="" className="text-primary hover:text-secondary">
-              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
+              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="w-full grid gap-8 lg:gap-48 sm:gap-24 grid-cols-2 sm:grid-cols-3 text-md text-center sm:text-left">
+          <div className="w-full grid gap-12 lg:gap-48 sm:gap-24 grid-cols-2 sm:grid-cols-3 text-base text-left">
             <div>
               <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-bg-secondary/70">
                 Company
@@ -135,7 +135,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-span-2 sm:col-span-1">
+            <div>
               <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-bg-secondary/70">
                 Legal
               </h4>
@@ -233,7 +233,7 @@ export default function Footer() {
         </div>
 
         {/* Fine print */}
-        <p className="text-sm text-bg-primary/70 max-w-4xl leading-relaxed text-center md:text-left">
+        <p className="text-sm text-bg-primary/70 max-w-4xl leading-relaxed text-left">
           All Rights Reserved ©2025 Faster Financial Pty Ltd (ABN: 47 651 975
           932). Lightspeed CashFaster Ventures Pty Ltd Australian Credit Licence
           569825. Faster Financial Pty Ltd is ISO 27001 Certified by Lloyds
