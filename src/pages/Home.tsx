@@ -195,7 +195,7 @@ export default function Home() {
                 className="block w-auto max-w-full h-full scale-100 lg:scale-[1.05] origin-bottom-left"
                 src={HeroPhoto}
                 alt="Smiling customer enjoying Faster"
-              />{" "}
+              />
             </div>
           </div>
         </section>
@@ -342,7 +342,7 @@ export default function Home() {
                     1
                   </div>
                   <div className="mx-auto md:mx-0">
-                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                    <h2 className="font-semibold text-2xl sm:text-3xl">
                       Apply in minutes
                     </h2>
                     <p className="mt-2 text-muted-primary">
@@ -362,7 +362,7 @@ export default function Home() {
                     2
                   </div>
                   <div className="mx-auto md:mx-0">
-                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                    <h2 className="font-semibold text-2xl sm:text-3xl">
                       Get your Faster limit
                     </h2>
                     <p className="mt-2 text-muted-primary">
@@ -382,7 +382,7 @@ export default function Home() {
                     3
                   </div>
                   <div className="mx-auto md:mx-0">
-                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                    <h2 className="font-semibold text-2xl sm:text-3xl">
                       Draw when you need it
                     </h2>
                     <p className="mt-2 text-muted-primary">
@@ -402,7 +402,7 @@ export default function Home() {
                     4
                   </div>
                   <div className="mx-auto md:mx-0">
-                    <h2 className="font-semibold text-3xl sm:text-4xl">
+                    <h2 className="font-semibold text-2xl sm:text-3xl">
                       Repay, reuse, stay in control
                     </h2>
                     <p className="mt-2 text-muted-primary">
@@ -414,7 +414,7 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-12 flex flex-wrap gap-4 justify-center md:justify-start">
+              <div className="mt-12 flex flex-wrap gap-4 justify-center md:justify-start sm:mb-8">
                 <button className="btn-secondary my-0">
                   <Link to="/fees" className="font-medium text-primary">
                     See Our Fees
@@ -436,7 +436,7 @@ export default function Home() {
         </section>
 
         {/* Values 1 */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-2 lg:mb-12 items-stretch">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-2 lg:mb-6 items-stretch">
           {/* Left */}
           <div className="rounded-2xl px-4 flex items-bottom justify-center">
             <img
@@ -466,7 +466,7 @@ export default function Home() {
         </section>
 
         {/* Values 2 */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-2 items-stretch">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-12 items-stretch">
           {/* Left */}
           <div className="order-2 lg:order-1 rounded-2xl p-0 lg:px-8 lg:py-10 content-center lg:text-left text-center">
             <h1 className="mt-0 mb-6 sm:my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">

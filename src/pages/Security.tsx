@@ -8,7 +8,6 @@ import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
 import HeroPhoto from "../assets/trusted-security-reliable-tech.png";
-import Banner from "../assets/secure.jpeg";
 import RegisteredPhoto from "../assets/registered-2.png";
 import CorePhoto from "../assets/core-security.png";
 
@@ -23,10 +22,16 @@ const features = [
           We perform continuous monitoring to help detect unusual or suspicious
           activity on your account.
         </p>
-        <p className="mt-8 font-medium">
-          <span className="mr-2 text-primary font-bold">✓</span>Threat detection
-          <span className="ml-8 mr-2 text-primary font-bold">✓</span>Automated
-          alerts
+        <p className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <span className="flex items-start leading-snug font-medium">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Threat detection
+          </span>
+
+          <span className="flex items-start leading-snug font-medium mt-2 sm:mt-0">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Automated alerts
+          </span>
         </p>
       </>
     ),
@@ -55,10 +60,16 @@ const features = [
           Sensitive information is encrypted with strict access controls using
           industry-standard protocols.
         </p>
-        <p className="mt-8 font-medium">
-          <span className="mr-2 text-primary font-bold">✓</span>Encrypted data
-          <span className="ml-8 mr-2 text-primary font-bold">✓</span>Secure
-          access controls
+        <p className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <span className="flex items-start leading-snug font-medium">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Encrypted data
+          </span>
+
+          <span className="flex items-start leading-snug font-medium mt-2 sm:mt-0">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Secure access controls
+          </span>
         </p>
       </>
     ),
@@ -87,11 +98,16 @@ const features = [
           We use accredited third-party bank connections with read-only access —
           we cannot move or manage your money.
         </p>
-        <p className="mt-8 font-medium">
-          <span className="mr-2 text-primary font-bold">✓</span>Secure bank
-          connection
-          <span className="ml-8 mr-2 text-primary font-bold">✓</span>Read-only
-          access
+        <p className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <span className="flex items-start leading-snug font-medium">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Secure bank connection
+          </span>
+
+          <span className="flex items-start leading-snug font-medium mt-2 sm:mt-0">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Read-only access
+          </span>
         </p>
       </>
     ),
@@ -120,11 +136,16 @@ const features = [
           We operate on trusted cloud infrastructure with built-in compliance,
           patching, and strong security.
         </p>
-        <p className="mt-8 font-medium">
-          <span className="mr-2 text-primary font-bold">✓</span>Protected
-          infrastructure
-          <span className="ml-8 mr-2 text-primary font-bold">✓</span>Scalable
-          technology
+        <p className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <span className="flex items-start leading-snug font-medium">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Protected infrastructure
+          </span>
+
+          <span className="flex items-start leading-snug font-medium mt-2 sm:mt-0">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Scalable technology
+          </span>
         </p>
       </>
     ),
@@ -154,11 +175,16 @@ const features = [
           security risks, aligned with Australian financial and privacy
           requirements.
         </p>
-        <p className="mt-8 font-medium">
-          <span className="mr-2 text-primary font-bold">✓</span>Continuous
-          monitoring
-          <span className="ml-8 mr-2 text-primary font-bold">✓</span>Regulatory
-          alignment
+        <p className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <span className="flex items-start leading-snug font-medium">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Continuous monitoring
+          </span>
+
+          <span className="flex items-start leading-snug font-medium mt-2 sm:mt-0">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Regulatory alignment
+          </span>
         </p>
       </>
     ),
@@ -188,11 +214,16 @@ const features = [
           contact you through official Faster channels for any security-related
           information.
         </p>
-        <p className="mt-8 font-medium">
-          <span className="mr-2 text-primary font-bold">✓</span>Protection
-          guidance
-          <span className="ml-8 mr-2 text-primary font-bold">✓</span>Proactive
-          communication
+        <p className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <span className="flex items-start leading-snug font-medium">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Protection guidance
+          </span>
+
+          <span className="flex items-start leading-snug font-medium mt-2 sm:mt-0">
+            <span className="mr-3 text-primary font-bold">✓</span>
+            Proactive communication
+          </span>
         </p>
       </>
     ),
@@ -270,10 +301,10 @@ export default function Security() {
       <header className="sticky top-0 z-50 bg-bg-primary px-12 py-6 mx-auto">
         <NavBar />
       </header>
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
-          <div className="py-8 grid gap-16 lg:grid-cols-2 items-center">
+        <section className="py-16 md:py-20 lg:py-24 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
+          <div className="grid gap-4 lg:gap-32 lg:grid-cols-2 items-center content-center text-center lg:text-left">
             {/* Left */}
             <motion.div
               initial={{ opacity: 0, y: 80 }}
@@ -284,13 +315,13 @@ export default function Security() {
                 damping: 20,
                 delay: 0.05,
               }}
-              className="lg:text-left sm:text-center"
+              className="pt-4 sm:pt-6 md:pt-10 py-0 lg:py-16 lg:text-left sm:text-center"
             >
               <Pill text="Advanced security" color="bg-primary" />
-              <h1 className="my-8 text-6xl text-bg-primary">
+              <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                 Security you can trust, tech you can rely on
               </h1>
-              <p className="mb-8 text-bg-primary">
+              <p className="my-8 px-4 md:px-0 text-bg-secondary text-lg md:text-2xl font-medium">
                 As a digital-first credit provider, Faster is built on strong
                 engineering foundations. We use secure, industry-standard
                 technology to protect your personal information, bank data, and
@@ -299,23 +330,27 @@ export default function Security() {
             </motion.div>
 
             {/* Right */}
-            <div className="rounded-2xl flex items-end justify-center">
+            <div className="lg:pt-24 rounded-2xl flex items-end justify-center h-full">
               <img
-                className="block w-full h-auto rounded-2xl"
+                className="block w-auto h-full scale-[1.05] lg:scale-[1.1] origin-bottom"
                 src={HeroPhoto}
-                alt="Our Fees"
+                alt="Our Security"
               />{" "}
             </div>
           </div>
         </section>
 
         {/* Key features */}
-        <section className="mb-12 px-8 sm:px-16 py-12 mb-12 gap-8 items-center">
-          <div className="text-center mb-16">
-            <h1 className="my-8 text-6xl">
-              Built on secure, encrypted systems
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 grid gap-8 mb-12 items-stretch">
+          <div className="rounded-2xl pb-0 sm:pb-4 content-center text-center">
+            <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
+              Built on{" "}
+              <span className="text-primary font-[800]">
+                secure, encrypted{" "}
+              </span>
+              systems
             </h1>
-            <p className="font-medium text-xl">
+            <p className="text-lg md:text-xl mt-6 md:mt-8">
               We invest in secure infrastructure, encrypted data handling, and
               continuous monitoring to keep your information protected at all
               times. Our platform is designed to process applications safely,
@@ -324,18 +359,8 @@ export default function Security() {
             </p>
           </div>
 
-          {/*
-          <div className="rounded-2xl relative overflow-hidden flex items-center justify-center py-8 mt-8">
-            <img
-              className="object-cover w-full h-96 rounded-3xl"
-              src={Banner}
-              alt="Smiling customer enjoying simple, secure banking"
-            />
-          </div>
-          */}
-
           {/* Trustpilot */}
-          <section className="rounded-2xl mb-24 sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+          <section className="rounded-2xl px-6 py-8 md:py-12 mb-6 bg-bg-secondary text-xl text-center text-bg-primary">
             <Pill text="What the people say" color="bg-primary" />
             <div
               className="trustpilot-widget mt-8"
@@ -345,7 +370,7 @@ export default function Security() {
               data-style-height="240px"
               data-style-width="100%"
               data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-              data-stars="1,2,3,4,5"
+              data-stars="4,5"
               data-review-languages="en"
             >
               <a
@@ -359,10 +384,12 @@ export default function Security() {
           </section>
 
           {/* Features */}
-          <h1 className="my-12">Key features</h1>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <h1 className="my-6 mb-2 md:my-12 md:mb-6 text-4xl md:text-5xl lg:text-6xl text-center lg:text-left">
+            Key features
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {/* Left column */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-4 md:gap-8">
               {leftFeatures.map((feature) => (
                 <Collapsible
                   key={feature.header}
@@ -374,7 +401,7 @@ export default function Security() {
             </div>
 
             {/* Right column */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-4 md:gap-8">
               {rightFeatures.map((feature) => (
                 <Collapsible
                   key={feature.header + "-right"}
@@ -387,29 +414,32 @@ export default function Security() {
           </div>
         </section>
 
-        <hr className="border-t border-[#D4D6E5] lg:-mx-40 sm:-mx-12" />
+        <hr className="border-t border-[#D4D6E5]" />
 
-        <h1 className="text-6xl text-center my-12 mt-24">Why trust Faster?</h1>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl text-center my-16 mb-8 md:my-24 md:mb-12">
+          Why trust Faster?
+        </h1>
         {/* Regulation and compliance */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center ">
-          <div className="px-8">
+        <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-12 gap-8 sm:gap-16">
+          <div className="order-2 lg:order-1 rounded-2xl -mt-6 md:-mt-12 lg:-mt-0 pb-4 flex items-center justify-center">
             <img
-              className="bottom-0 object-cover h-full rounded-3xl"
               src={RegisteredPhoto}
-              alt="Smiling customer enjoying simple, secure banking"
+              alt="Illustration of regulation and compliance"
+              className="block w-full h-auto rounded-2xl"
             />
           </div>
-          <div className="lg:text-left sm:text-center py-24 md:py-16 content-center">
-            <h1 className="my-8 text-6xl">Regulation and compliance</h1>
-            <p>
-              Faster.com.au is a registered credit provider in Australia and:
-            </p>
-            <ul className="list-inside text-lg font-medium text-text-primary">
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+          <div className="order-1 lg:order-2 text-center lg:text-left content-center py-12 lg:py-16 pb-0">
+            <Pill text="Our approach to fees" color="bg-primary" />
+            <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
+              Regulation and compliance
+            </h1>
+
+            <ul className="list-inside text-base md:text-lg font-medium text-text-primary">
+              <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
                 Complies with Australian credit and privacy laws, including the
                 National Consumer Credit Protection Act 2009
               </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+              <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
                 Follows relevant ASIC expectations, including those set out in
                 Regulatory Guide 234 on clear, fair and accurate communication
               </li>
@@ -418,22 +448,24 @@ export default function Security() {
         </section>
 
         {/* Security */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 mb-24 gap-8 content-center ">
+        <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-24 gap-8 sm:gap-16">
           <div className="rounded-2xl px-8 py-16 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">Security at our core</h1>
+            <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
+              Security at our core
+            </h1>
             <p>
               You trust us with your information — and we take that
               responsibility seriously.
             </p>
 
             <div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary mr-1"
+                    className="size-12 text-primary"
                   >
                     <path
                       fillRule="evenodd"
@@ -442,21 +474,21 @@ export default function Security() {
                     />
                   </svg>
                 </span>
-                <div>
-                  <h2>Expertise</h2>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">Expertise</h2>
                   <p>
                     Backed by an experienced team across tech, credit, security,
                     and compliance.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary mr-1"
+                    className="size-12 text-primary"
                   >
                     <path
                       fillRule="evenodd"
@@ -466,21 +498,21 @@ export default function Security() {
                     <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
                   </svg>
                 </span>
-                <div>
-                  <h2>Innovation</h2>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">Innovation</h2>
                   <p>
                     Our platform is continually improved to stay aligned with
                     industry best practices.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary mr-1"
+                    className="size-12 text-primary"
                   >
                     <path
                       fillRule="evenodd"
@@ -490,36 +522,40 @@ export default function Security() {
                     <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
                   </svg>
                 </span>
-                <div>
-                  <h2>Customer-First Design</h2>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">
+                    Customer-First Design
+                  </h2>
                   <p>Privacy and safety are designed into every feature.</p>
                 </div>
               </div>
-            </div>
-            <div className="flex gap-6 justify-start my-12">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-12 text-primary mr-1"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </span>
-              <div>
-                <h2>Commitment to Transparency</h2>
-                <p>
-                  Clear communication about how your data is used and stored
-                </p>
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                <span className="flex items-center mx-auto lg:mx-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-12 text-primary"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div className="mx-auto lg:mx-0">
+                  <h2 className="text-3xl sm:text-4xl">
+                    Commitment to Transparency
+                  </h2>
+                  <p>
+                    Clear communication about how your data is used and stored.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="rounded-2xl flex items-bottom justify-center px-8 lg:py-16 sm:pt-0 sm:pb-12">
+          <div className="rounded-2xl -mt-40 md:-mt-48 lg:-mt-0 pb-4 flex items-center justify-center">
             <img
               src={CorePhoto}
               alt="Faster website on phone and laptop"
@@ -532,8 +568,10 @@ export default function Security() {
         <CTA />
 
         {/* FAQ */}
-        <section className="py-24 md:py-12 mb-12 content-center">
-          <h1 className="text-center mb-12">Customers frequently ask</h1>
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
+          <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
+            Customers frequently ask
+          </h1>
           <FAQSection faqs={securityFaqs} />
         </section>
       </div>

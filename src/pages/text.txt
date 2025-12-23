@@ -1,214 +1,158 @@
-
-
-        {/* About */}
-        <section className="grid gap-8 mb-12 lg:py-24 py-12 items-stretch">
-          <div className="rounded-2xl px-8 pb-4 content-center text-center">
-            <Pill text="Why choose Faster" color="bg-secondary" />
-            <h1 className="mt-8 lg:mt-12 my-2 text-5xl lg:text-6xl">
-              There's a lot to love
-            </h1>
-            <Link to="about" className={xlLinkClass}>
-              about Faster.com.au
-            </Link>
-          </div>
-
-          <div className="rounded-2xl relative overflow-hidden flex items-center justify-center">
-            <section className="grid xl:grid-cols-4 md:grid-cols-2 gap-8 items-stretch">
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={SecurityIcon}
-                    alt="Advanced Security"
-                    className="block w-full h-auto"
-                  />
-                </div>
-                <h2>Advanced Security</h2>
-                <p>
-                  Your data is encrypted and monitored throughout the process.
-                </p>
-              </div>
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={FeesIcon}
-                    alt="Clear, fair fees"
-                    className="block w-full h-auto"
-                  />
-                </div>
-                <h2>Clear, Fair Fees</h2>
-                <p>
-                  No hidden fees — just a transparent cost for using your Line
-                  of Credit.
-                </p>
-              </div>
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={CustomerIcon}
-                    alt="Customer support"
-                    className="block w-full h-auto"
-                  />
-                </div>
-                <h2>Customer Support</h2>
-                <p>Real people ready to help with any question and issue.</p>
-              </div>
-              <div className="bg-bg-secondary rounded-2xl p-8 content-start">
-                <div className="rounded-2xl w-1/5 flex items-center justify-center mb-6">
-                  <img
-                    src={TechIcon}
-                    alt="Reliable tech"
-                    className="block w-full h-auto"
-                  />
-                </div>
-                <h2>Reliable Tech</h2>
-                <p>
-                  Built by a tech-focused team to give you a smooth, reliable
-                  experience.
-                </p>
-              </div>
-            </section>
-          </div>
-        </section>
-
-        {/* How it works */}
-        <section
-          id="how-it-works"
-          className="bg-bg-secondary sm:px-12 lg:px-24 xl:px-40 py-24 md:py-16 mb-12"
-        >
-          <div className="grid gap-32 lg:grid-cols-2 items-center">
+<div className="w-full lg:px-40 sm:px-12 mx-auto">
+        {/* Hero */}
+        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
+          <div className="py-8 grid gap-16 lg:grid-cols-2 items-center">
             {/* Left */}
-            <div>
-              <div className="lg:text-left sm:text-center">
-                <Pill text="How Faster works" color="bg-primary" />
-                <h1 className="mt-12 my-8 md:text-5xl lg:text-6xl">
-                  Fast to set up, easy to use
-                </h1>
-                <p>
-                  Faster’s Line of Credit lets you access funds when you need
-                  them, without reapplying each time. Credit is subject to
-                  eligibility and approval.
-                </p>
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 20,
+                delay: 0.05,
+              }}
+              className="lg:text-left sm:text-center"
+            >
+              <Pill text="Advanced security" color="bg-primary" />
+              <h1 className="my-8 text-6xl text-bg-primary">
+                Security you can trust, tech you can rely on
+              </h1>
+              <p className="mb-8 text-bg-primary">
+                As a digital-first credit provider, Faster is built on strong
+                engineering foundations. We use secure, industry-standard
+                technology to protect your personal information, bank data, and
+                account activity.
+              </p>
+            </motion.div>
 
-              {/* Steps */}
-              <div className="mt-16 space-y-8 w-full mx-auto md:max-w-2xl lg:mx-0 lg:max-w-3xl">
-                {/* Step 1 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
-                    1
-                  </div>
-                  <div>
-                    <h2 className="font-semibold">Apply in minutes</h2>
-                    <p className="mt-2 text-muted-primary">
-                      Complete a quick online application and securely verify
-                      your details.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Step 2 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
-                    2
-                  </div>
-                  <div>
-                    <h2 className="font-semibold">Get your Faster limit</h2>
-                    <p className="mt-2 text-muted-primary">
-                      If approved, you will receive an ongoing credit limit —
-                      the maximum you can borrow at a time.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Step 3 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
-                    3
-                  </div>
-                  <div>
-                    <h2 className="font-semibold">Draw when you need it</h2>
-                    <p className="mt-2 text-muted-primary">
-                      Make a draw from your limit to your bank account — with a
-                      clear repayment schedule and total cost shown upfront.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Step 4 */}
-                <div className="flex gap-6 items-start">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-bg-primary font-bold lg:text-xl md:text-lg">
-                    4
-                  </div>
-                  <div>
-                    <h2 className="font-semibold">
-                      Repay, reuse, stay in control
-                    </h2>
-                    <p className="mt-2 text-muted-primary">
-                      As you repay, your available balance refreshes. You can
-                      draw again up to your limit.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTAs */}
-              <div className="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
-                <button className="btn-secondary">
-                  <Link to="/fees" className="font-medium text-primary">
-                    See Our Fees
-                  </Link>
-                </button>
-                <button className="btn-primary">
-                  <Link to="/apply" className="font-medium text-bg-primary">
-                    Apply Now
-                  </Link>
-                </button>
-              </div>
-            </div>
-
-            {/* Right: Loan calculator */}
-            <div className="bg-gradient-to-tr from-secondary to-primary rounded-2xl p-6 lg:p-8">
-              <LoanCalculator />
+            {/* Right */}
+            <div className="rounded-2xl flex items-end justify-center">
+              <img
+                className="block w-full h-auto rounded-2xl"
+                src={HeroPhoto}
+                alt="Our Fees"
+              />{" "}
             </div>
           </div>
         </section>
 
-        {/* Values 1 */}
-        <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
-          {/* Left */}
+        {/* Key features */}
+        <section className="mb-12 px-8 sm:px-16 py-12 mb-12 gap-8 items-center">
+          <div className="text-center mb-16">
+            <h1 className="my-8 text-6xl">
+              Built on secure, encrypted systems
+            </h1>
+            <p className="font-medium text-xl">
+              We invest in secure infrastructure, encrypted data handling, and
+              continuous monitoring to keep your information protected at all
+              times. Our platform is designed to process applications safely,
+              securely, and accurately — without compromising speed or
+              usability.
+            </p>
+          </div>
 
-          <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
+          {/*
+          <div className="rounded-2xl relative overflow-hidden flex items-center justify-center py-8 mt-8">
             <img
-              src={TeamPhoto}
-              alt="Faster is deeply invested in our customers"
-              className="block w-full h-auto rounded-2xl"
+              className="object-cover w-full h-96 rounded-3xl"
+              src={Banner}
+              alt="Smiling customer enjoying simple, secure banking"
             />
           </div>
+          */}
 
-          {/* Right */}
-          <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">
-              Faster is{" "}
-              <span className="text-primary font-[800]">deeply invested</span>{" "}
-              in our customers.
-            </h1>
-            <p className="text-xl">
-              We believe borrowing should be clear, fair, and designed to help
-              you always stay in control.
-            </p>
-            <div className="my-6 mt-8">
-              <Pill text="Transparent Practices" color="bg-secondary" />
-              <Pill text="Responsible Lending" color="bg-secondary" />
-              <Pill text="Customer Commitment" color="bg-secondary" />
+          {/* Trustpilot */}
+          <section className="rounded-2xl mb-24 sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+            <Pill text="What the people say" color="bg-primary" />
+            <div
+              className="trustpilot-widget mt-8"
+              data-locale="en-US"
+              data-template-id="54ad5defc6454f065c28af8b"
+              data-businessunit-id="65b19266fd020b5cdce866e7"
+              data-style-height="240px"
+              data-style-width="100%"
+              data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
+              data-stars="1,2,3,4,5"
+              data-review-languages="en"
+            >
+              <a
+                href="https://www.trustpilot.com/review/cashfaster.com.au"
+                target="_blank"
+                rel="noopener"
+              >
+                Trustpilot
+              </a>
+            </div>
+          </section>
+
+          {/* Features */}
+          <h1 className="my-12">Key features</h1>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Left column */}
+            <div className="flex flex-col gap-8">
+              {leftFeatures.map((feature) => (
+                <Collapsible
+                  key={feature.header}
+                  header={feature.header}
+                  text={feature.text}
+                  icon={feature.icon}
+                />
+              ))}
+            </div>
+
+            {/* Right column */}
+            <div className="flex flex-col gap-8">
+              {rightFeatures.map((feature) => (
+                <Collapsible
+                  key={feature.header + "-right"}
+                  header={feature.header}
+                  text={feature.text}
+                  icon={feature.icon}
+                />
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Values 2 */}
-        <section className="grid xl:grid-cols-2 gap-8 mb-12 items-stretch">
-          {/* Left */}
-          <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-            <h1 className="mt-12 my-8 text-6xl">Fast. Secure. Simple.</h1>
+        <hr className="border-t border-[#D4D6E5] lg:-mx-40 sm:-mx-12" />
+
+        <h1 className="text-6xl text-center my-12 mt-24">Why trust Faster?</h1>
+        {/* Regulation and compliance */}
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mb-12 gap-16 content-center ">
+          <div className="px-8">
+            <img
+              className="bottom-0 object-cover h-full rounded-3xl"
+              src={RegisteredPhoto}
+              alt="Smiling customer enjoying simple, secure banking"
+            />
+          </div>
+          <div className="lg:text-left sm:text-center py-24 md:py-16 content-center">
+            <h1 className="my-8 text-6xl">Regulation and compliance</h1>
+            <p>
+              Faster.com.au is a registered credit provider in Australia and:
+            </p>
+            <ul className="list-inside text-lg font-medium text-text-primary">
+              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                Complies with Australian credit and privacy laws, including the
+                National Consumer Credit Protection Act 2009
+              </li>
+              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                Follows relevant ASIC expectations, including those set out in
+                Regulatory Guide 234 on clear, fair and accurate communication
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Security */}
+        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 mb-24 gap-8 content-center ">
+          <div className="rounded-2xl px-8 py-16 content-center lg:text-left sm:text-center">
+            <h1 className="mt-12 my-8 text-6xl">Security at our core</h1>
+            <p>
+              You trust us with your information — and we take that
+              responsibility seriously.
+            </p>
 
             <div>
               <div className="flex gap-6 justify-start my-12">
@@ -217,7 +161,30 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary"
+                    className="size-12 text-primary mr-1"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <h2>Expertise</h2>
+                  <p>
+                    Backed by an experienced team across tech, credit, security,
+                    and compliance.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-6 justify-start my-12">
+                <span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="size-12 text-primary mr-1"
                   >
                     <path
                       fillRule="evenodd"
@@ -228,10 +195,10 @@
                   </svg>
                 </span>
                 <div>
-                  <h2>Fast, simple experience</h2>
+                  <h2>Innovation</h2>
                   <p>
-                    Our technology is built for a smooth, efficient borrowing
-                    experience.
+                    Our platform is continually improved to stay aligned with
+                    industry best practices.
                   </p>
                 </div>
               </div>
@@ -241,53 +208,48 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-12 text-primary"
+                    className="size-12 text-primary mr-1"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                      d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
                       clipRule="evenodd"
                     />
+                    <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
                   </svg>
                 </span>
                 <div>
-                  <h2>Secure by Design</h2>
-                  <p>
-                    Your data is encrypted and protected under strict privacy
-                    standards.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <div>
-                  <h2>Built for Australians</h2>
-                  <p>
-                    Our Line of Credit is designed to be flexible, accessible
-                    and easy to understand.
-                  </p>
+                  <h2>Customer-First Design</h2>
+                  <p>Privacy and safety are designed into every feature.</p>
                 </div>
               </div>
             </div>
+            <div className="flex gap-6 justify-start my-12">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="size-12 text-primary mr-1"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+              <div>
+                <h2>Commitment to Transparency</h2>
+                <p>
+                  Clear communication about how your data is used and stored
+                </p>
+              </div>
+            </div>
           </div>
-
-          {/* Right */}
-          <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
+          <div className="rounded-2xl flex items-bottom justify-center px-8 lg:py-16 sm:pt-0 sm:pb-12">
             <img
-              src={WebsitePhoto}
+              src={CorePhoto}
               alt="Faster website on phone and laptop"
               className="block w-full h-auto rounded-2xl"
             />
@@ -300,5 +262,6 @@
         {/* FAQ */}
         <section className="py-24 md:py-12 mb-12 content-center">
           <h1 className="text-center mb-12">Customers frequently ask</h1>
-          <FAQSection faqs={homeFaqs} />
+          <FAQSection faqs={securityFaqs} />
         </section>
+      </div>

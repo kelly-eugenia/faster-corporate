@@ -94,10 +94,10 @@ export default function Fees() {
     <>
       <NavBar />
 
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto px-6 sm:px-12 lg:px-40 pt-8 lg:pt-12 bg-gradient-to-bl from-secondary to-primary">
-          <div className="pt-24 grid gap-32 lg:grid-cols-2 items-center">
+        <section className="pt-16 md:pt-20 lg:pt-24 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
+          <div className="grid gap-4 lg:gap-32 lg:grid-cols-2 items-center content-center text-center lg:text-left">
             {/* Left */}
             <motion.div
               initial={{ opacity: 0, y: 80 }}
@@ -108,17 +108,17 @@ export default function Fees() {
                 damping: 20,
                 delay: 0.05,
               }}
-              className="pb-16 lg:text-left sm:text-center"
+              className="pt-12 sm:pt-16 md:pt-16 py-0 lg:py-16 lg:text-left sm:text-center"
             >
               <Pill text="Our fees" color="bg-primary" />
-              <h1 className="my-8 text-6xl text-bg-primary">
+              <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                 Clear, simple and upfront.
               </h1>
-              <p className="text-2xl font-medium my-8 text-bg-primary">
+              <p className="my-8 px-4 md:px-0 text-bg-primary text-lg md:text-2xl font-medium">
                 Every cost of your Faster Line of Credit is set out before you
                 borrow, so you always know what you’ll pay and why.
               </p>
-              <p className="text-bg-primary">
+              <p className="text-base px-4 md:px-0 md:text-lg text-bg-primary">
                 Our fees are straightforward and easy to understand. You’ll see
                 a full breakdown in your credit contract before you decide to go
                 ahead.
@@ -134,9 +134,9 @@ export default function Fees() {
             </motion.div>
 
             {/* Right */}
-            <div className="rounded-2xl flex items-end justify-center">
+            <div className="lg:pt-24 rounded-2xl flex items-end justify-center h-full">
               <img
-                className="block w-full h-auto rounded-2xl"
+                className="block w-auto h-full scale-[1.05] lg:scale-[1.1] origin-bottom"
                 src={HeroPhoto}
                 alt="Our Fees"
               />{" "}
@@ -145,7 +145,7 @@ export default function Fees() {
         </section>
 
         {/* Trustpilot */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto sm:px-12 lg:px-40 py-12 bg-bg-secondary py-8text-xl text-center text-bg-primary">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 bg-bg-secondary text-xl text-center text-bg-primary">
           <Pill text="What the people say" color="bg-primary" />
           <div
             className="trustpilot-widget mt-8"
@@ -155,7 +155,7 @@ export default function Fees() {
             data-style-height="240px"
             data-style-width="100%"
             data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-            data-stars="1,2,3,4,5"
+            data-stars="4,5"
             data-review-languages="en"
           >
             <a
@@ -169,12 +169,12 @@ export default function Fees() {
         </section>
 
         {/* Why people choose us */}
-        <section className="py-40 md:py-32 mb-12 content-center">
-          <div className="text-center mb-12">
-            <h1 className="mt-8 text-6xl">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 grid gap-8 mb-12 items-stretch">
+          <div className="rounded-2xl pb-0 sm:pb-4 content-center text-center">
+            <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
               Why people choose Faster’s fee structure
             </h1>
-            <p className="text-2xl mt-8">
+            <p className="text-lg md:text-2xl mt-4 md:mt-8">
               We’ve designed our fees to be transparent and predictable, so you
               can plan ahead and stay in control.
             </p>
@@ -247,31 +247,31 @@ export default function Fees() {
         {/* Fee structure */}
         <section
           id="how-fees-work"
-          className="bg-gradient-to-bl from-primary to-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center"
+          className="bg-gradient-to-bl from-primary to-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12 gap-8 content-center text-center"
         >
           <Pill text="How our fees work" color="bg-primary" />
 
           {/* Stat style */}
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 mt-12 mb-24 items-stretch text-center">
-            <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 bg-bg-primary rounded-2xl content-center">
-              <h1 className="lg:text-8xl sm:text-7xl text-primary font-[1000]">
+          <div className="max-w-6xl mx-auto grid sm:grid-cols-2 gap-6 md:gap-10 mt-8 md:mt-12 mb-6 md:mb-16 lg:mb-24 items-stretch text-center">
+            <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 p-8 bg-bg-primary rounded-2xl content-center">
+              <h1 className="lg:text-8xl sm:text-7xl text-6xl text-primary font-[1000]">
                 20%
               </h1>
-              <h2 className="text-secondary lg:text-4xl sm:text-3xl mt-1">
+              <h2 className="text-secondary lg:text-4xl sm:text-3xl text-2xl mt-1">
                 Drawdown fee
               </h2>
-              <p className="text-xl mt-6">
+              <p className="sm:text-xl text-lg mt-3 sm:mt-6">
                 20% of your credit limit, charged once at the start.
               </p>
             </div>
-            <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 bg-bg-primary rounded-2xl content-center">
-              <h1 className="lg:text-8xl sm:text-7xl text-primary font-[1000]">
-                47%{" "}
+            <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 p-8 bg-bg-primary rounded-2xl content-center">
+              <h1 className="lg:text-8xl sm:text-7xl text-6xl text-primary font-[1000]">
+                47%
               </h1>
-              <h2 className="text-secondary lg:text-4xl sm:text-3xl mt-1">
+              <h2 className="text-secondary lg:text-4xl sm:text-3xl text-2xl mt-1">
                 p.a. Interest rate
               </h2>
-              <p className="text-xl mt-6">
+              <p className="sm:text-xl text-lg mt-3 sm:mt-6">
                 47% per annum (approx. 3.92% per month) calculated daily on your
                 balance.
               </p>
@@ -279,69 +279,71 @@ export default function Fees() {
           </div>
 
           {/* In practice */}
-          <section className="grid lg:grid-cols-2 gap-8 mb-12 items-stretch">
-            <div className="rounded-2xl p-12 content-center text-left">
+          <section className="grid grid-cols-1 lg:grid-cols-2 mb-12 gap-2 sm:gap-10 content-center items-stretch">
+            <div className="text-center lg:text-left p-6 sm:px-6 sm:py-0 rounded-2xl content-center">
               <Pill text="Example in practice" color="bg-primary" />
-              <h1 className="my-12 text-bg-primary">
+              <h1 className="mt-8 lg:mt-12 my-6 md:my-8 text-4xl sm:text-6xl text-bg-primary">
                 What does this look like on a{" "}
                 <span className="text-bg-secondary font-[800]">$450 </span>
                 limit?
               </h1>
-              <p className="text-bg-primary text-2xl">
+              <p className="text-bg-primary text-lg md:text-2xl">
                 Here’s an example only — your actual costs will depend on how
                 much you draw, how quickly you repay, and may be subject to
                 further fees.
               </p>
             </div>
 
-            <div className="bg-bg-secondary rounded-2xl text-left px-12 py-24 md:py-16">
-              <p className="font-medium text-xl mb-8">
+            <div className="bg-bg-secondary rounded-2xl text-left px-8 md:px-12 py-10 md:py-16">
+              <p className="font-medium text-lg md:text-xl mb-8">
                 For a customer with a $450 credit limit who uses the full amount
                 for one month:
               </p>
 
-              <ul className="list-inside text-lg text-text-primary">
-                <li className="my-4 font-bold text-2xl relative pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                  <span className="text-primary mr-4 font-medium">
+              <ul className="list-inside text-base md:text-lg text-text-primary">
+                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+                  <span className="text-primary mr-2 md:mr-4 font-medium">
                     Drawdown fee:
                   </span>
                   $90
-                  <span className="ml-2 text-lg font-medium">
+                  <span className="ml-2 text-base md:text-lg font-medium">
                     (20% of $450, charged once at the start)
                   </span>
                 </li>
-                <li className="my-4 font-bold text-2xl relative pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                  <span className="text-primary mr-4 font-medium">
+                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+                  <span className="text-primary mr-2 md:mr-4 font-medium">
                     Interest for month one:
                   </span>
                   $17.64
-                  <span className="ml-2 text-lg font-medium">
+                  <span className="ml-2 text-base md:text-lg font-medium">
                     (3.92% of $450)
                   </span>
                 </li>
-                <li className="my-4 font-bold text-2xl relative pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                  <span className="text-primary mr-4 font-medium">
+                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+                  <span className="text-primary mr-2 md:mr-4 font-medium">
                     Monthly fees:
                   </span>
                   $15
                 </li>
-                <li className="my-4 font-bold text-2xl relative pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                  <span className="text-primary mr-4 font-medium">
+                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+                  <span className="text-primary mr-2 md:mr-4 font-medium">
                     Repayment fees:
                   </span>
                   $14
-                  <span className="ml-2 text-lg font-medium">
+                  <span className="ml-2 text-base md:text-lg font-medium">
                     (4 weekly repayments × $3.50)
                   </span>
                 </li>
               </ul>
 
-              <p className="my-12 mb-4 font-bold text-2xl">
+              <p className="my-8 md:my-12 mb-4 font-bold text-xl md:text-2xl">
                 Total charges for the first month:
-                <span className="text-primary ml-4 font-bold">$136.64</span>
+                <span className="text-primary ml-2 md:ml-4 font-bold">
+                  $136.64
+                </span>
               </p>
 
-              <p className="mt-12 text-muted-primary text-sm font-medium">
+              <p className="mt-8 md:mt-12 text-muted-primary text-sm font-medium">
                 Important: This is an example only and does not include any
                 additional charges that may apply if you miss a payment or fall
                 behind on your account.
@@ -351,10 +353,10 @@ export default function Fees() {
         </section>
 
         {/* How we think about fees */}
-        <section className="grid lg:grid-cols-2 bg-bg-secondary rounded-2xl px-8 sm:px-16 mt-24 mb-12 gap-16 content-center ">
-          <div className="lg:text-left sm:text-center py-24 md:py-16 content-center">
+        <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mt-16 md:mt-24 mb-12 gap-8 sm:gap-16">
+          <div className="lg:text-left text-center content-center py-12 lg:py-16 pb-0">
             <Pill text="Our approach to fees" color="bg-primary" />
-            <h1 className="mt-12 my-8 text-6xl">
+            <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
               We’re serious about
               <span className="text-primary font-[800]">
                 {" "}
@@ -363,48 +365,50 @@ export default function Fees() {
               fees
             </h1>
 
-            <ul className="list-inside text-lg font-medium text-text-primary">
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+            <ul className="list-inside text-base md:text-lg font-medium text-text-primary">
+              <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
                 Fees and interest are set within Australian regulatory limits
                 and clearly disclosed in your credit contract — no hidden
                 charges.
               </li>
-              <li className="my-4 relative pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+              <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
                 Each application is assessed against our lending criteria and
                 your financial situation as part of responsible lending.
               </li>
             </ul>
           </div>
 
-          <div className="px-8">
+          <div className="rounded-2xl -mt-12 md:-mt-24 lg:-mt-0 flex items-bottom justify-center">
             <img
-              className="bottom-0 object-cover h-full rounded-2xl"
               src={CoinsPhoto}
               alt="Illustration of coins"
+              className="block w-full h-auto rounded-2xl"
             />
           </div>
         </section>
 
         {/* Support */}
-        <section className="py-12 mb-12 content-center text-center">
-          <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 gap-8 mb-12 content-center text-center">
+          <div className="mx-auto bg-bg-secondary rounded-2xl grid place-items-center size-24 md:size-32 text-text-secondary">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="size-16"
+              className="size-12 md:size-16"
             >
               <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
               <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
             </svg>
           </div>
 
-          <h1 className="mt-12 text-6xl">Need support?</h1>
-          <p className="text-2xl mt-8">
+          <h1 className="mt-8 md:mt-12 text-4xl sm:text-5xl lg:text-6xl">
+            Need support?
+          </h1>
+          <p className="text-lg md:text-2xl mt-4 md:mt-8">
             Questions about fees, interest, or how our costs work? We’re here to
             help.
           </p>
-          <p className="text-3xl font-medium mt-8">
+          <p className="text-xl md:text-3xl font-medium mt-4 md:mt-8">
             Email us anytime at{" "}
             <a
               href="mailto:support@faster.com.au"
@@ -414,7 +418,7 @@ export default function Fees() {
             </a>
           </p>
 
-          <button className="mt-12 btn-primary">
+          <button className="mt-8 md:mt-12 btn-primary">
             <Link to="/contact" className="font-medium text-bg-primary">
               Contact Us
             </Link>
@@ -425,11 +429,14 @@ export default function Fees() {
         <CTA />
 
         {/* FAQ */}
-        <section className="py-24 md:py-12 mb-12 content-center">
-          <h1 className="text-center mb-12">Customers frequently ask</h1>
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
+          <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
+            Customers frequently ask
+          </h1>
           <FAQSection faqs={feesFaqs} />
         </section>
       </div>
+
       <Footer />
     </>
   );
