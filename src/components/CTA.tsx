@@ -26,7 +26,7 @@ export default function CTA() {
           </div>
         </div>
         <div className="pl-6 lg:pl-0 -mt-20 lg:-mt-0 rounded-2xl flex items-end justify-center lg:justify-end overflow-hidden">
-          <div className="w-full lg:w-auto lg:max-h-[560px] flex items-end">
+          <div className="w-full lg:w-auto lg:max-h-[560px] flex items-end lg:items-center">
             <img
               src={Phone}
               alt="Faster dashboard"
@@ -35,7 +35,7 @@ export default function CTA() {
                 w-full 
                 h-auto lg:h-full 
                 object-contain lg:object-cover
-                lg:scale-[1.0.5] 
+                lg:scale-[1.05] 
                 origin-bottom
               "
             />

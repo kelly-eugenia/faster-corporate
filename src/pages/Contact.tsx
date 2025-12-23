@@ -104,7 +104,6 @@ export default function Contact() {
   return (
     <>
       <NavBar />
-
       <div className="w-full mx-auto">
         {/* Hero */}
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">
@@ -216,13 +215,13 @@ export default function Contact() {
           </h1>
           <FAQSection faqs={homeFaqs} />
           <button className="mt-12 btn-primary text-base md:text-lg">
-            <Link to="/faq" className="font-medium text-xl text-bg-primary">
+            <Link to="/faq" className="font-medium text-bg-primary">
               View More
             </Link>
           </button>
         </section>
       </div>
-      <Footer />
+      <Footer />å
     </>
   );
 }
