@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
-export default function MobileCarousel({ items }: { items: any[] }) {
+interface CarouselItem {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -159,7 +165,7 @@ export default function MobileCarousel({ items }: { items: any[] }) {
   );
 }
 
-function Card({ item }: { item: any }) {
+function Card({ item }: { item: CarouselItem }) {
   return (
     <div className="w-3/4 mx-auto bg-bg-secondary rounded-2xl p-8 text-center shadow-sm h-full">
       <div className="w-1/4 mx-auto mb-4">
