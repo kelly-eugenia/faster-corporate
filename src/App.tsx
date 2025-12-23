@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./utils/ScrollToTop";
 import ScrollToSection from "./utils/ScrollToSection";
 import LiveChat from "./components/LiveChat";
@@ -13,10 +14,12 @@ import Careers from "./pages/Careers";
 import JobDesc from "./pages/JobDesc";
 import Calculator from "./pages/Calculator";
 import "./App.css";
+import "./index.css";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <Analytics />
       <ScrollToTop />
       <ScrollToSection />
       <LiveChat />
