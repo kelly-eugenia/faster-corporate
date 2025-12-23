@@ -24,19 +24,19 @@ export default function MobileCarousel({ items }: { items: any[] }) {
   /* -------- VARIANTS -------- */
 
   const centerVariants = {
-    enter: (dir) => ({
+    enter: (dir: -1 | 1) => ({
       x: dir > 0 ? 40 : -40,
     }),
     center: {
       x: 0,
     },
-    exit: (dir) => ({
+    exit: (dir: -1 | 1) => ({
       x: dir > 0 ? 40 : -40,
     }),
   };
 
   const leftVariants = {
-    enter: (dir) => ({
+    enter: (dir: -1 | 1) => ({
       opacity: 0.4,
       x: dir > 0 ? -40 : -120,
       scale: 0.8,
@@ -48,7 +48,7 @@ export default function MobileCarousel({ items }: { items: any[] }) {
       scale: 0.8,
       filter: "blur(3px)",
     },
-    exit: (dir) => ({
+    exit: (dir: -1 | 1) => ({
       opacity: 0.4,
       x: dir > 0 ? -40 : -120,
       scale: 0.8,
@@ -57,7 +57,7 @@ export default function MobileCarousel({ items }: { items: any[] }) {
   };
 
   const rightVariants = {
-    enter: (dir) => ({
+    enter: (dir: -1 | 1) => ({
       opacity: 0.4,
       x: dir > 0 ? 120 : 40,
       scale: 0.8,
@@ -69,7 +69,7 @@ export default function MobileCarousel({ items }: { items: any[] }) {
       scale: 0.8,
       filter: "blur(3px)",
     },
-    exit: (dir) => ({
+    exit: (dir: -1 | 1) => ({
       opacity: 0.4,
       x: dir > 0 ? 120 : 40,
       scale: 0.8,
@@ -78,7 +78,7 @@ export default function MobileCarousel({ items }: { items: any[] }) {
   };
 
   // --- AUTOPLAY ---
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     // clear previous interval

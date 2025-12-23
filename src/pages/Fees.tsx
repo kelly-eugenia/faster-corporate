@@ -39,7 +39,7 @@ const feesFaqs = [
           miss a payment or fall behind on your account. All fees are shown
           clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">
+        <button className="btn-primary mt-4 text-base md:text-lg">
           <Link to="/fees" className="font-medium text-bg-primary">
             See Our Fees
           </Link>
@@ -123,7 +123,7 @@ export default function Fees() {
                 a full breakdown in your credit contract before you decide to go
                 ahead.
               </p>
-              <button className="btn-primary-light mt-12">
+              <button className="btn-primary-light mt-12 text-base md:text-lg">
                 <Link
                   to="/fees#how-fees-work"
                   className="font-medium text-bg-primary"
@@ -418,7 +418,7 @@ export default function Fees() {
             </a>
           </p>
 
-          <button className="mt-8 md:mt-12 btn-primary">
+          <button className="mt-8 md:mt-12 btn-primary text-base md:text-lg">
             <Link to="/contact" className="font-medium text-bg-primary">
               Contact Us
             </Link>

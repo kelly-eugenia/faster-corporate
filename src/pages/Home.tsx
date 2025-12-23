@@ -77,7 +77,7 @@ const homeFaqs = [
         <p className="my-3 text-xl">
           All fees are shown clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">
+        <button className="btn-primary mt-4 text-base md:text-lg">
           <Link to="/fees" className="font-medium text-bg-primary">
             See Our Fees
           </Link>
@@ -94,7 +94,7 @@ const homeFaqs = [
         Australian credit and privacy laws and apply responsible-lending
         practices.
         <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
+          <button className="btn-primary mt-4 text-base md:text-lg">
             <Link to="/security" className="font-medium text-bg-primary">
               See Our Security
             </Link>
@@ -114,7 +114,7 @@ const homeFaqs = [
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
         <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
+          <button className="btn-primary mt-4 text-base md:text-lg">
             <Link to="/contact" className="font-medium text-bg-primary">
               Contact Us
             </Link>
@@ -415,12 +415,12 @@ export default function Home() {
 
               {/* CTAs */}
               <div className="mt-12 flex flex-wrap gap-4 justify-center md:justify-start sm:mb-8">
-                <button className="btn-secondary my-0">
+                <button className="btn-secondary text-base md:text-lg my-0">
                   <Link to="/fees" className="font-medium text-primary">
                     See Our Fees
                   </Link>
                 </button>
-                <button className="btn-primary my-0">
+                <button className="btn-primary text-base md:text-lg my-0">
                   <Link to="/apply" className="font-medium text-bg-primary">
                     Apply Now
                   </Link>

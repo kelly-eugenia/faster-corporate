@@ -79,12 +79,12 @@ export default function About() {
               You can draw, repay, and reuse — up to your approved limit.
             </p>
             <div className="mt-8 sm:mt-12 flex flex-wrap gap-4 justify-center md:justify-start">
-              <button className="btn-secondary my-0">
+              <button className="btn-secondary text-base md:text-lg my-0">
                 <Link to="/fees" className="font-medium text-primary">
                   See Our Fees
                 </Link>
               </button>
-              <button className="btn-primary my-0">
+              <button className="btn-primary text-base md:text-lg my-0">
                 <Link
                   to="/home#how-it-works"
                   className="font-medium text-bg-primary"
@@ -246,7 +246,7 @@ export default function About() {
                 </span>
               </p>
 
-              <button className="btn-primary-light">
+              <button className="btn-primary-light text-base md:text-lg">
                 <Link to="/apply" className="font-medium text-bg-primary">
                   Apply Now
                 </Link>
@@ -274,7 +274,7 @@ export default function About() {
                   every applications
                 </li>
               </ul>
-              <button className="btn-primary">
+              <button className="btn-primary text-base md:text-lg">
                 <Link to="/security" className="font-medium text-bg-primary">
                   See Our Security
                 </Link>
@@ -321,7 +321,7 @@ export default function About() {
             </a>
           </p>
 
-          <button className="mt-8 md:mt-12 btn-primary">
+          <button className="mt-8 md:mt-12 btn-primary text-base md:text-lg">
             <Link to="/contact" className="font-medium text-bg-primary">
               Contact Us
             </Link>

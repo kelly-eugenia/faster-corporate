@@ -6,9 +6,6 @@ import Pill from "../components/Pill";
 import CTA from "../components/CTA";
 import LoanCalculator from "../components/LoanCalculator";
 
-import HeroPhoto from "../assets/clear-fees.png";
-import CoinsPhoto from "../assets/coins.png";
-
 import "../App.css";
 
 export default function Calculator() {

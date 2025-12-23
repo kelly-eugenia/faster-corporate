@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -67,25 +69,38 @@ export default function Careers() {
     <>
       <NavBar />
 
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto mb-12 px-8 sm:px-16 py-24 pt-32 lg:pt-40 gap-8 content-center text-center bg-gradient-to-b from-secondary to-primary">
-          <Pill text="Work with Faster" color="bg-primary" />
-          <h1 className="mt-12 my-8 text-6xl text-bg-primary">
-            Let's build the future of fair, fast credit
-          </h1>
-          <p className="text-2xl font-medium my-8 mb-4 text-bg-primary">
-            If you care about technology and responsible, fast lending,
-            <br /> we’d love to meet you.
-          </p>
-          <button className="btn-primary-light">
-            <Link
-              to="/careers#open-roles"
-              className="font-medium text-bg-primary"
-            >
-              View Open Roles
-            </Link>
-          </button>
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 bg-gradient-to-b from-secondary to-primary">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="pt-12 sm:pt-16 py-16 md:pt-16 md:py-32 gap-8 content-center text-center"
+          >
+            <Pill text="Work with Faster" color="bg-primary" />
+
+            <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
+              Let's build the future of fair, fast credit
+            </h1>
+            <p className="my-4 md:my-8 px-6 sm:px-12 md:px-24 text-bg-secondary text-base sm:text-lg md:text-2xl font-medium">
+              If you care about technology and responsible, fast lending,
+              <br /> we’d love to meet you.
+            </p>
+            <button className="btn-primary-light text-base md:text-lg">
+              <Link
+                to="/careers#open-roles"
+                className="font-medium text-bg-primary"
+              >
+                View Open Roles
+              </Link>
+            </button>
+          </motion.div>
         </section>
 
         <section className="py-8">
