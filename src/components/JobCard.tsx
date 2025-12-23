@@ -14,11 +14,11 @@ export default function JobCard({
   applyUrl,
 }: JobCardProps) {
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-secondary/20 bg-bg-primary p-8 shadow-sm md:flex-row md:items-center md:justify-between">
+    <div className="flex flex-col gap-4 rounded-2xl border border-secondary/20 bg-bg-primary p-8 pb-4 md:pb-8 shadow-sm md:flex-row md:items-center md:justify-between">
       <div>
         <a
           href={`/careers/${jobId}`}
-          className="text-3xl font-semibold text-text-primary underline hover:text-primary"
+          className="text-2xl md:text-3xl font-semibold text-text-primary underline hover:text-primary"
         >
           {role}
         </a>
@@ -32,7 +32,7 @@ export default function JobCard({
         </div>
       </div>
 
-      <button className="btn-primary">
+      <button className="btn-primary text-base md:text-lg">
         <a
           href={applyUrl}
           target="_blank"

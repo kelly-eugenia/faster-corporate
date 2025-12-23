@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
+import Reviews from "../components/Reviews";
 import MobileCarousel from "../components/MobileCarousel";
 import LoanCalculator from "../components/LoanCalculator";
 import CTA from "../components/CTA";
@@ -203,25 +204,7 @@ export default function Home() {
         {/* Trustpilot */}
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 bg-bg-secondary text-xl text-center text-bg-primary">
           <Pill text="What the people say" color="bg-primary" />
-          <div
-            className="trustpilot-widget mt-8"
-            data-locale="en-US"
-            data-template-id="54ad5defc6454f065c28af8b"
-            data-businessunit-id="65b19266fd020b5cdce866e7"
-            data-style-height="240px"
-            data-style-width="100%"
-            data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-            data-stars="4,5"
-            data-review-languages="en"
-          >
-            <a
-              href="https://www.trustpilot.com/review/cashfaster.com.au"
-              target="_blank"
-              rel="noopener"
-            >
-              Trustpilot
-            </a>
-          </div>
+          <Reviews />
         </section>
 
         {/* About */}

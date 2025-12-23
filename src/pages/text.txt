@@ -1,287 +1,110 @@
-<div className="w-full lg:px-40 sm:px-12 mx-auto">
+export default function Calculator() {
+  return (
+    <>
+      <NavBar />
+
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto mb-12 px-8 sm:px-16 py-24 pt-32 lg:pt-40 gap-8 content-center text-center bg-gradient-to-b from-secondary to-primary">
-          <Pill text="Work with Faster" color="bg-primary" />
-          <h1 className="mt-12 my-8 text-6xl text-bg-primary">
-            Let's build the future of fair, fast credit
-          </h1>
-          <p className="text-2xl font-medium my-8 mb-4 text-bg-primary">
-            If you care about technology and responsible, fast lending,
-            <br /> we’d love to meet you.
-          </p>
-          <button className="btn-primary-light">
-            <Link
-              to="/careers#open-roles"
-              className="font-medium text-bg-primary"
-            >
-              View Open Roles
-            </Link>
-          </button>
-        </section>
-
-        <section className="py-8">
-          {/* About Faster */}
-          <section className="grid xl:grid-cols-2 gap-8 mb-16 items-stretch">
+        <section
+          className="
+            bg-gradient-to-bl from-secondary to-primary
+            lg:-mx-40 sm:-mx-12 mx-auto
+            px-6 sm:px-12 lg:px-40
+            pt-12 lg:pt-16
+        "
+        >
+          <div className="w-full py-24 lg:py-32 grid gap-16 lg:grid-cols-2 items-center">
             {/* Left */}
-            <div className="rounded-2xl flex items-bottom justify-center px-6 py-12 sm:py-6">
-              <img
-                src={TeamPhoto}
-                alt="Faster is deeply invested in our customers"
-                className="block w-full h-auto rounded-2xl"
-              />
-            </div>
-
-            {/* Right */}
-            <div className="rounded-2xl px-8 py-24 content-center lg:text-left sm:text-center">
-              <Pill text="About the team" color="bg-secondary" />
-              <h1 className="mt-12 text-6xl">Who we are</h1>
-              <p className="text-xl my-8">
-                Faster is a forward-thinking financial technology company
-                dedicated to advancing credit inclusion – giving more people{" "}
-                <span className="text-primary font-bold">
-                  fair, swift, and transparent access to credit.
-                </span>
-                <br />
-                <br />
-                We're proud to help thousands of customers manage short-term
-                cashflow with personal credit solutions that are built to be
-                clear, not confusing.
+            <div className="lg:text-left sm:text-center">
+              <h1 className="my-8 text-6xl text-bg-primary">
+                Line of Credit calculator
+              </h1>
+              <p className="text-2xl font-medium my-8 text-bg-primary">
+                Want to know what you're getting into? Estimate your monthly
+                repayments in less than 30 seconds.
               </p>
-
-              <button className="btn-primary">
-                <Link to="/about" className="font-medium text-bg-primary">
-                  Learn More
+              <button className="btn-primary-light">
+                <Link
+                  to="/fees#how-fees-work"
+                  className="font-medium text-bg-primary"
+                >
+                  See How Our Fees Work
                 </Link>
               </button>
             </div>
-          </section>
-
-          {/* Values */}
-          <section className="grid lg:grid-cols-3 rounded-2xl bg-gradient-to-t from-bg-primary to-bg-secondary lg:px-24 sm:px-16 lg:pt-16 md:pt-12 mb-10 gap-16 content-top">
-            <div className="lg:text-left sm:text-center content-top">
-              <Pill text="Our values" color="bg-primary" />
-              <h1 className="my-8 text-6xl">We believe in</h1>
-            </div>
-            <div className="col-span-2 rounded-2xl px-8 content-center lg:text-left sm:text-center">
-              <div className="flex gap-6 justify-start my-12">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                      clipRule="evenodd"
-                    />
-                    <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
-                  </svg>
-                </span>
-                <div>
-                  <h2>Customer first</h2>
-                  <p>
-                    We design credit solutions that help people stay in control.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <div>
-                  <h2>Responsible by default</h2>
-                  <p>
-                    We follow both the rules and the intent behind them, aiming
-                    for lending that is sustainable and suitable.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <div>
-                  <h2>Security and trust</h2>
-                  <p>
-                    We treat customer data with care. Security, privacy and
-                    reliability are built into everything we do.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-6 justify-start my-12">
-                <span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <div>
-                  <h2>Many disciplines, one team</h2>
-                  <p>
-                    All roles and divisions work together to solve problems
-                    end-to-end as a single team.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-        </section>
-
-        {/* Why work here */}
-        <section
-          className="lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 lg:py-16 md:py-12 content-center bg-cover bg-top"
-          style={{ backgroundImage: `url(${BgPhoto})` }}
-        >
-          <div className="rounded-2xl mb-16 content-center text-center">
-            <Pill text="So..." color="bg-secondary" />
-            <h1 className="my-8 text-6xl">Why work here?</h1>
-            <p className="text-2xl">
-              Joining Faster means growing your career in a data-driven fintech
-              shaping how people access credit.
-            </p>
-          </div>
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h2>Make a meaningful difference</h2>
-              <p>
-                Your work directly shapes how people access and manage credit
-                across multiple countries.
-              </p>
-            </div>
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                  <path
-                    fillRule="evenodd"
-                    d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h2>Tech at the core</h2>
-              <p>
-                From AI-driven underwriting to digital marketing and
-                experimentation, you’ll work with modern tools and ideas.
-              </p>
-            </div>
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 0 1 .878.645 49.17 49.17 0 0 1 .376 5.452.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 0 1-.595 4.845.75.75 0 0 1-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 0 1-.658.643 49.118 49.118 0 0 1-4.708-.36.75.75 0 0 1-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 0 0 .659-.663 47.703 47.703 0 0 0-.31-4.82.75.75 0 0 1 .83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 0 0 .657-.642Z" />
-                </svg>
-              </div>
-              <h2>Inclusive and responsible</h2>
-              <p>
-                We care about inclusion and growth, but we care just as much
-                about responsible lending, transparency and security.
-              </p>
-            </div>
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-6"
-                >
-                  <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003-.215.283-.401.604-.401.959 0 .332.278.598.61.578 1.91-.114 3.79-.342 5.632-.676a.75.75 0 0 1 .878.645 49.17 49.17 0 0 1 .376 5.452.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.647 1.647 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401.31 0 .557.262.534.571a48.774 48.774 0 0 1-.595 4.845.75.75 0 0 1-.61.61c-1.82.317-3.673.533-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959a.641.641 0 0 1-.658.643 49.118 49.118 0 0 1-4.708-.36.75.75 0 0 1-.645-.878c.293-1.614.504-3.257.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349.283.215.604.401.959.401a.656.656 0 0 0 .659-.663 47.703 47.703 0 0 0-.31-4.82.75.75 0 0 1 .83-.832c1.343.155 2.703.254 4.077.294a.64.64 0 0 0 .657-.642Z" />
-                </svg>
-              </div>
-              <h2>Flexible work</h2>
-              <p>
-                Enjoy flexible, hybrid work that works best for you — balancing
-                focus time at home with collaboration in the office.
-              </p>
-            </div>
           </div>
         </section>
 
-        {/* Open roles */}
-        <section
-          id="open-roles"
-          className="bg-bg-secondary lg:-mx-40 sm:-mx-12 lg:px-40 sm:px-12 py-12 md:py-8 gap-8 content-center"
-        >
-          <section className="py-24 md:py-12 mb-12 content-center">
-            <div className="text-center mb-12">
-              <Pill text="We're hiring" color="bg-primary" />
-              <h1 className="my-8 text-6xl">Open Roles</h1>
-              <p className="text-xl">
-                We’re growing across multiple disciplines and are interested in
-                people who care about fintech and doing credit the right way.
-              </p>
+        {/* Calculator */}
+        <section className="w-full mx-auto">
+          <div className="flex justify-center lg:justify-end">
+            <div
+              className="
+                -mt-[20vh] lg:-mt-[50vh]       
+                w-full max-w-2xl
+                rounded-xl shadow-lg
+                bg-bg-primary
+                p-6 lg:p-8
+                "
+            >
+              <LoanCalculator />
             </div>
+          </div>
 
-            <section className="space-y-4">
-              {jobDesc.map((job) => {
-                return (
-                  <JobCard
-                    key={job.jobId}
-                    jobId={job.jobId}
-                    role={job.role}
-                    type={job.type}
-                    location={job.location}
-                    applyUrl={job.applyUrl}
-                  />
-                );
-              })}
+          {/* Fee structure */}
+          <div className="mt-8">
+            <section
+              id="how-fees-work"
+              className="lg:px-40 sm:px-12 py-24 md:py-16 mb-12 gap-8 content-center text-center"
+            >
+              <Pill text="How our fees work" color="bg-secondary" />
+
+              {/* Stat style */}
+              <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-8 mt-8 mb-12 items-stretch text-left">
+                <div className="p-12 bg-bg-secondary rounded-2xl content-top">
+                  <h1 className="text-7xl text-primary font-[1000]">20%</h1>
+                  <h2 className="text-secondary text-3xl mt-3">Drawdown fee</h2>
+                  <p className="text-xl mt-6">
+                    20% of your credit limit, charged once at the start.
+                  </p>
+                </div>
+                <div className="p-12 bg-bg-secondary rounded-2xl content-top">
+                  <h1 className="text-7xl text-primary font-[1000]">47% </h1>
+                  <h2 className="text-secondary text-3xl mt-3">
+                    p.a. Interest rate
+                  </h2>
+                  <p className="text-xl mt-6">
+                    47% per annum (approx. 3.92% per month) calculated daily on
+                    your balance.
+                  </p>
+                </div>
+                <div className="p-12 bg-bg-secondary rounded-2xl content-top">
+                  <h1 className="text-7xl text-primary font-[1000]">$15 </h1>
+                  <h2 className="text-secondary text-3xl mt-3">Monthly fee</h2>
+                  <p className="text-xl mt-6">
+                    A flat maintenance fee for keeping your LOC open.
+                  </p>
+                </div>
+                <div className="p-12 bg-bg-secondary rounded-2xl content-top">
+                  <h1 className="text-7xl text-primary font-[1000]">$3.50</h1>
+                  <h2 className="text-secondary text-3xl mt-3">
+                    Per repayment
+                  </h2>
+                  <p className="text-xl mt-6">
+                    A $3.50 fee each time a repayment is processed.
+                  </p>
+                </div>
+              </div>
             </section>
-          </section>
+          </div>
         </section>
+
+        {/* CTA */}
+        <div className="mb-24">
+          <CTA />
+        </div>
       </div>
+      <Footer />
+    </>
+  );
+}

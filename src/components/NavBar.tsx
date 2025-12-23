@@ -30,7 +30,7 @@ export default function NavBar() {
       ? "bg-bg-secondary text-text-primary"
       : "bg-secondary text-bg-primary",
     mobileOpen
-      ? "max-h-128 opacity-100"
+      ? "max-h-128 opacity-100 shadow-xl"
       : "max-h-0 opacity-0 pointer-events-none",
   ].join(" ");
 

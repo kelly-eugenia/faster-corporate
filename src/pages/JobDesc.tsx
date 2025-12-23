@@ -85,17 +85,17 @@ export default function JobDesc() {
     <>
       <NavBar />
 
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
-        <section className="pt-24 lg:max-w-6xl md:max-w-full mx-auto">
+      <div className="w-full mx-auto">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:max-w-6xl md:max-w-full mx-auto">
           <button
             onClick={() => window.history.back()}
             className="p-0 text-lg text-text-primary/70 hover:text-primary"
           >
             ← Back to open roles
           </button>
-          <header className="bg-bg-secondary rounded-2xl sm:px-12 lg:px-16 sm:py-12 lg:py-16 mb-12">
-            <div className="mt-8 mb-12">
-              <h1 className="text-6xl font-semibold text-text-primary">
+          <header className="bg-bg-secondary rounded-2xl p-6 sm:p-12 lg:p-16 mb-12">
+            <div className="mt-6 mb-8 sm:mt-8 sm:mb-12">
+              <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl font-semibold text-text-primary">
                 {job.role}
               </h1>
               <div className="space-y-4 mt-8">
@@ -105,7 +105,7 @@ export default function JobDesc() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="size-8"
+                      className="size-6 md:size-8"
                     >
                       <path
                         fillRule="evenodd"
@@ -115,7 +115,7 @@ export default function JobDesc() {
                       <path d="M3 18.4v-2.796a4.3 4.3 0 0 0 .713.31A26.226 26.226 0 0 0 12 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 0 1-6.477-.427C4.047 21.128 3 19.852 3 18.4Z" />
                     </svg>
                   </span>
-                  <span className="inline-flex items-center text-2xl font-medium">
+                  <span className="inline-flex items-center text-xl md:text-2xl font-medium">
                     {job.type}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ export default function JobDesc() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="size-8"
+                      className="size-6 md:size-8"
                     >
                       <path
                         fillRule="evenodd"
@@ -134,14 +134,14 @@ export default function JobDesc() {
                       />
                     </svg>
                   </span>
-                  <span className="inline-flex items-center text-2xl font-medium">
+                  <span className="inline-flex items-center text-xl md:text-2xl font-medium">
                     {job.location}
                   </span>
                 </div>
               </div>
             </div>
 
-            <button className="btn-primary my-0">
+            <button className="btn-primary mt-0 mb-2 text-base md:text-lg">
               <a
                 href={job.applyUrl}
                 target="_blank"
@@ -153,14 +153,14 @@ export default function JobDesc() {
             </button>
           </header>
 
-          <section className="max-w-6xl mb-12">{job.desc}</section>
+          <section className="max-w-6xl mb-6 md:mb-12">{job.desc}</section>
 
           <button className="btn-primary mb-24">
             <a
               href={job.applyUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-bg-primary text-xl font-medium px-4"
+              className="text-bg-primary text-lg md:text-xl font-medium px-4"
             >
               Apply for this role
             </a>

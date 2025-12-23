@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
+import Reviews from "../components/Reviews";
 import CTA from "../components/CTA";
 
 import TeamPhoto from "../assets/about-faster.png";
@@ -99,25 +101,7 @@ export default function About() {
         {/* Trustpilot */}
         <section className="rounded-2xl mx-8 sm:mx-12 lg:mx-32 px-6 py-8 md:py-12 mb-12 md:mb-24 bg-bg-secondary text-xl text-center text-bg-primary">
           <Pill text="What the people say" color="bg-primary" />
-          <div
-            className="trustpilot-widget mt-8"
-            data-locale="en-US"
-            data-template-id="54ad5defc6454f065c28af8b"
-            data-businessunit-id="65b19266fd020b5cdce866e7"
-            data-style-height="240px"
-            data-style-width="100%"
-            data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-            data-stars="4,5"
-            data-review-languages="en"
-          >
-            <a
-              href="https://www.trustpilot.com/review/cashfaster.com.au"
-              target="_blank"
-              rel="noopener"
-            >
-              Trustpilot
-            </a>
-          </div>
+          <Reviews />
         </section>
 
         <section className="bg-bg-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12 gap-8 content-center">
@@ -134,62 +118,142 @@ export default function About() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-              <div className="bg-bg-primary rounded-2xl p-8 content-center">
-                <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-6"
-                  >
-                    <path d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
-                  </svg>
+            <div>
+              {/* MOBILE: swipeable carousel */}
+              <div className="md:hidden">
+                <div className="-mx-8 px-8">
+                  <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
+                    {/* Card 1 */}
+                    <div className="snap-start shrink-0 w-[80%] bg-bg-primary rounded-2xl p-8 flex flex-col justify-start">
+                      <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="size-6"
+                        >
+                          <path d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
+                        </svg>
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl mb-2">
+                        We’ll keep it simple
+                      </h2>
+                      <p>
+                        No jargon, no gimmicks. Just clear information so you
+                        always know where you stand.
+                      </p>
+                    </div>
+
+                    {/* Card 2 */}
+                    <div className="snap-start shrink-0 w-[80%] bg-bg-primary rounded-2xl p-8 flex flex-col justify-start">
+                      <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="size-6"
+                        >
+                          <path d="M16.881 4.345A23.112 23.112 0 0 1 8.25 6H7.5a5.25 5.25 0 0 0-.88 10.427 21.593 21.593 0 0 0 1.378 3.94c.464 1.004 1.674 1.32 2.582.796l.657-.379c.88-.508 1.165-1.593.772-2.468a17.116 17.116 0 0 1-.628-1.607c1.918.258 3.76.75 5.5 1.446A21.727 21.727 0 0 0 18 11.25c0-2.414-.393-4.735-1.119-6.905ZM18.26 3.74a23.22 23.22 0 0 1 1.24 7.51 23.22 23.22 0 0 1-1.41 7.992.75.75 0 1 0 1.409.516 24.555 24.555 0 0 0 1.415-6.43 2.992 2.992 0 0 0 .836-2.078c0-.807-.319-1.54-.836-2.078a24.65 24.65 0 0 0-1.415-6.43.75.75 0 1 0-1.409.516c.059.16.116.321.17.483Z" />
+                        </svg>
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl mb-2">
+                        We’ll be upfront
+                      </h2>
+                      <p>
+                        All our fees are explained before you commit — no hidden
+                        costs.
+                      </p>
+                    </div>
+
+                    {/* Card 3 */}
+                    <div className="snap-start shrink-0 w-[80%] bg-bg-primary rounded-2xl p-8 flex flex-col justify-start">
+                      <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="size-6"
+                        >
+                          <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                          <path
+                            fillRule="evenodd"
+                            d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <h2 className="text-2xl sm:text-3xl mb-2">
+                        We’ll lend responsibly
+                      </h2>
+                      <p>
+                        Every application is reviewed against our lending
+                        criteria and your financial situation.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl">We’ll keep it simple</h2>
-                <p>
-                  No jargon, no gimmicks. Just clear information so you always
-                  know where you stand.
-                </p>
               </div>
-              <div className="bg-bg-primary rounded-2xl p-8 content-center">
-                <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-6"
-                  >
-                    <path d="M16.881 4.345A23.112 23.112 0 0 1 8.25 6H7.5a5.25 5.25 0 0 0-.88 10.427 21.593 21.593 0 0 0 1.378 3.94c.464 1.004 1.674 1.32 2.582.796l.657-.379c.88-.508 1.165-1.593.772-2.468a17.116 17.116 0 0 1-.628-1.607c1.918.258 3.76.75 5.5 1.446A21.727 21.727 0 0 0 18 11.25c0-2.414-.393-4.735-1.119-6.905ZM18.26 3.74a23.22 23.22 0 0 1 1.24 7.51 23.22 23.22 0 0 1-1.41 7.992.75.75 0 1 0 1.409.516 24.555 24.555 0 0 0 1.415-6.43 2.992 2.992 0 0 0 .836-2.078c0-.807-.319-1.54-.836-2.078a24.65 24.65 0 0 0-1.415-6.43.75.75 0 1 0-1.409.516c.059.16.116.321.17.483Z" />
-                  </svg>
+
+              {/* DESKTOP: 3-column grid (original layout) */}
+              <div className="hidden md:grid md:grid-cols-3 gap-8 items-stretch">
+                <div className="bg-bg-primary rounded-2xl p-8 content-center">
+                  <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-6"
+                    >
+                      <path d="M7.493 18.5c-.425 0-.82-.236-.975-.632A7.48 7.48 0 0 1 6 15.125c0-1.75.599-3.358 1.602-4.634.151-.192.373-.309.6-.397.473-.183.89-.514 1.212-.924a9.042 9.042 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75A.75.75 0 0 1 15 2a2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23h-.777ZM2.331 10.727a11.969 11.969 0 0 0-.831 4.398 12 12 0 0 0 .52 3.507C2.28 19.482 3.105 20 3.994 20H4.9c.445 0 .72-.498.523-.898a8.963 8.963 0 0 1-.924-3.977c0-1.708.476-3.305 1.302-4.666.245-.403-.028-.959-.5-.959H4.25c-.832 0-1.612.453-1.918 1.227Z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl">We’ll keep it simple</h2>
+                  <p>
+                    No jargon, no gimmicks. Just clear information so you always
+                    know where you stand.
+                  </p>
                 </div>
-                <h2 className="text-2xl sm:text-3xl">We’ll be upfront</h2>
-                <p>
-                  All our fees are explained before you commit — no hidden
-                  costs.
-                </p>
-              </div>
-              <div className="bg-bg-primary rounded-2xl p-8 content-center">
-                <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-6"
-                  >
-                    <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
-                    <path
-                      fillRule="evenodd"
-                      d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                <div className="bg-bg-primary rounded-2xl p-8 content-center">
+                  <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-6"
+                    >
+                      <path d="M16.881 4.345A23.112 23.112 0 0 1 8.25 6H7.5a5.25 5.25 0 0 0-.88 10.427 21.593 21.593 0 0 0 1.378 3.94c.464 1.004 1.674 1.32 2.582.796l.657-.379c.88-.508 1.165-1.593.772-2.468a17.116 17.116 0 0 1-.628-1.607c1.918.258 3.76.75 5.5 1.446A21.727 21.727 0 0 0 18 11.25c0-2.414-.393-4.735-1.119-6.905ZM18.26 3.74a23.22 23.22 0 0 1 1.24 7.51 23.22 23.22 0 0 1-1.41 7.992.75.75 0 1 0 1.409.516 24.555 24.555 0 0 0 1.415-6.43 2.992 2.992 0 0 0 .836-2.078c0-.807-.319-1.54-.836-2.078a24.65 24.65 0 0 0-1.415-6.43.75.75 0 1 0-1.409.516c.059.16.116.321.17.483Z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl">We’ll be upfront</h2>
+                  <p>
+                    All our fees are explained before you commit — no hidden
+                    costs.
+                  </p>
                 </div>
-                <h2 className="text-2xl sm:text-3xl">We’ll lend responsibly</h2>
-                <p>
-                  Every application is reviewed against our lending criteria and
-                  your financial situation.
-                </p>
+                <div className="bg-bg-primary rounded-2xl p-8 content-center">
+                  <div className="bg-bg-secondary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-6"
+                    >
+                      <path d="M4.5 3.75a3 3 0 0 0-3 3v.75h21v-.75a3 3 0 0 0-3-3h-15Z" />
+                      <path
+                        fillRule="evenodd"
+                        d="M22.5 9.75h-21v7.5a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-7.5Zm-18 3.75a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 0 1.5h-6a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl">
+                    We’ll lend responsibly
+                  </h2>
+                  <p>
+                    Every application is reviewed against our lending criteria
+                    and your financial situation.
+                  </p>
+                </div>
               </div>
             </div>
           </section>

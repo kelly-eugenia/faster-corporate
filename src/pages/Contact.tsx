@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -104,23 +105,34 @@ export default function Contact() {
     <>
       <NavBar />
 
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto mb-12 px-8 sm:px-16 py-24 pt-32 lg:pt-40 gap-8 content-center bg-gradient-to-b from-secondary to-primary">
-          <div className="text-center mb-16">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="pt-12 sm:pt-16 gap-8 content-center text-center"
+          >
             <Pill text="Get in touch" color="bg-primary" />
-            <h1 className="mt-12 my-8 text-6xl text-bg-primary">
+
+            <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
               We're here to help
             </h1>
-            <p className="text-2xl font-medium my-8 text-bg-primary">
+            <p className="my-4 md:my-8 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg md:text-2xl font-medium">
               Whether you're looking for more information about our fees or need
               support with your account, we're just a message away.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="max-w-4xl grid lg:grid-cols-2 gap-8 mx-auto items-stretch">
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary">
+          <div className="pt-8 pb-12 sm:pb-16 max-w-sm sm:max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mx-auto items-stretch">
+            <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
+              <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -131,9 +143,9 @@ export default function Contact() {
                   <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                 </svg>
               </div>
-              <h2>Send us an email</h2>
+              <h2 className="text-2xl md:text-3xl">Send us an email</h2>
               <p>Reach out to our support email.</p>
-              <div className="mt-8">
+              <div className="mt-6 md:mt-8">
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -157,8 +169,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary">
+            <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
+              <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -172,9 +184,9 @@ export default function Contact() {
                   />
                 </svg>
               </div>
-              <h2>Chat with us live</h2>
+              <h2 className="text-2xl md:text-3xl">Chat with us live</h2>
               <p>Speak to our support team directly.</p>
-              <div className="mt-8">
+              <div className="mt-6 md:mt-8">
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -198,10 +210,12 @@ export default function Contact() {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 md:py-12 mb-12 content-center text-center">
-          <h1 className="mb-12">Customers frequently ask</h1>
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center text-center">
+          <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
+            Customers frequently ask
+          </h1>
           <FAQSection faqs={homeFaqs} />
-          <button className="mt-12 btn-primary">
+          <button className="mt-12 btn-primary text-base md:text-lg">
             <Link to="/faq" className="font-medium text-xl text-bg-primary">
               View More
             </Link>

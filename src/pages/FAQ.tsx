@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import NavBar from "../components/NavBar";
@@ -412,71 +413,87 @@ export default function FAQ() {
     <>
       <NavBar />
 
-      <div className="w-full lg:px-40 sm:px-12 mx-auto">
+      <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="lg:-mx-40 sm:-mx-12 mx-auto mb-12 px-8 sm:px-16 py-24 pt-32 lg:pt-40 gap-8 content-center text-center bg-gradient-to-b from-secondary to-primary">
-          <Pill text="Support" color="bg-primary" />
-          <h1 className="mt-12 my-8 text-6xl text-bg-primary">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-2xl font-medium my-8 text-bg-primary">
-            Need support? We're here to help.
-          </p>
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="pt-12 sm:pt-16 py-8 sm:py-12 md:py-24 gap-8 content-center text-center"
+          >
+            <Pill text="Support" color="bg-primary" />
+
+            <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
+              Frequently Asked Questions
+            </h1>
+            <p className="my-4 md:my-8 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg md:text-2xl font-medium">
+              Need support? We're here to help.
+            </p>
+          </motion.div>
         </section>
 
         {/* Menu */}
-        <section className="grid xl:grid-cols-4 lg:grid-cols-2 px-8 sm:px-16 mb-12 gap-4 item-stretch content-center text-center">
+        <section className="grid grid-cols-2 md:grid-cols-4 px-8 sm:px-16 mb-6 sm:mb-8 lg:mb-12 gap-4 item-stretch content-center text-center">
           {categories.map((category) => (
             <button
               key={category.key}
               onClick={() => setActiveCategory(category.key)}
-              className="bg-bg-secondary hover:bg-primary/20 rounded-2xl py-12 px-8 md:px-12 my-2 content-center transition"
+              className="bg-bg-secondary hover:bg-primary/20 rounded-2xl py-6 md:py-8 lg:py-12 my-0 md:my-2 content-center transition"
             >
-              <p className="text-3xl font-bold">{category.label}</p>
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                {category.label}
+              </p>
             </button>
           ))}
         </section>
 
         {/* FAQ */}
-        <section className="py-24 md:py-12 mb-12 content-center">
-          <h1 className="text-center mb-12 text-5xl font-bold">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-6 md:mb-12 content-center">
+          <h1 className="mb-8 md:mb-12 text-4xl md:text-5xl text-center">
             {currentCategory.label}
           </h1>
           <FAQSection faqs={currentCategory.faqs} />
         </section>
 
-        <section className="bg-bg-secondary lg:-mx-40 sm:-mx-12 pt-12 lg:px-40 sm:px-12 gap-8 content-center">
-          {/* Support */}
-          <section className="py-12 mb-12 content-center text-center">
-            <div className="mx-auto bg-bg-primary rounded-2xl grid place-items-center h-32 w-32 text-text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-16"
-              >
-                <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
-                <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
-              </svg>
-            </div>
+        {/* Support */}
+        <section className="bg-bg-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 gap-8 content-center text-center">
+          <div className="mx-auto bg-bg-primary rounded-2xl grid place-items-center mt-2 size-24 md:size-32 text-text-secondary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="size-12 md:size-16"
+            >
+              <path d="M19.5 22.5a3 3 0 0 0 3-3v-8.174l-6.879 4.022 3.485 1.876a.75.75 0 1 1-.712 1.321l-5.683-3.06a1.5 1.5 0 0 0-1.422 0l-5.683 3.06a.75.75 0 0 1-.712-1.32l3.485-1.877L1.5 11.326V19.5a3 3 0 0 0 3 3h15Z" />
+              <path d="M1.5 9.589v-.745a3 3 0 0 1 1.578-2.642l7.5-4.038a3 3 0 0 1 2.844 0l7.5 4.038A3 3 0 0 1 22.5 8.844v.745l-8.426 4.926-.652-.351a3 3 0 0 0-2.844 0l-.652.351L1.5 9.589Z" />
+            </svg>
+          </div>
 
-            <h1 className="mt-12 text-6xl">Still have unanswered questions?</h1>
-            <p className="text-3xl font-medium mt-8">
-              Email us anytime at{" "}
-              <a
-                href="mailto:support@faster.com.au"
-                className="text-primary font-bold underline hover:text-secondary"
-              >
-                support@faster.com.au.
-              </a>
-            </p>
+          <h1 className="mt-8 md:mt-12 text-4xl sm:text-5xl lg:text-6xl">
+            Still have unanswered questions?
+          </h1>
 
-            <button className="mt-12 btn-primary">
-              <Link to="/contact" className="font-medium text-bg-primary">
-                Contact Us
-              </Link>
-            </button>
-          </section>
+          <p className="text-xl md:text-3xl font-medium mt-4 md:mt-8">
+            Email us anytime at{" "}
+            <a
+              href="mailto:support@faster.com.au"
+              className="text-primary font-bold underline hover:text-secondary"
+            >
+              support@faster.com.au.
+            </a>
+          </p>
+
+          <button className="mt-8 md:mt-12 btn-primary text-base md:text-lg">
+            <Link to="/contact" className="font-medium text-bg-primary">
+              Contact Us
+            </Link>
+          </button>
         </section>
       </div>
       <Footer />

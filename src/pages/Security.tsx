@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import Collapsible from "../components/Collapsible";
 import CTA from "../components/CTA";
+import Reviews from "../components/Reviews";
 import FAQSection from "../components/FAQSection";
 
 import HeroPhoto from "../assets/trusted-security-reliable-tech.png";
@@ -362,25 +363,7 @@ export default function Security() {
           {/* Trustpilot */}
           <section className="rounded-2xl px-6 py-8 md:py-12 mb-6 bg-bg-secondary text-xl text-center text-bg-primary">
             <Pill text="What the people say" color="bg-primary" />
-            <div
-              className="trustpilot-widget mt-8"
-              data-locale="en-US"
-              data-template-id="54ad5defc6454f065c28af8b"
-              data-businessunit-id="65b19266fd020b5cdce866e7"
-              data-style-height="240px"
-              data-style-width="100%"
-              data-token="a19c9066-5a27-4aed-b43e-6129e09e819c"
-              data-stars="4,5"
-              data-review-languages="en"
-            >
-              <a
-                href="https://www.trustpilot.com/review/cashfaster.com.au"
-                target="_blank"
-                rel="noopener"
-              >
-                Trustpilot
-              </a>
-            </div>
+            <Reviews />
           </section>
 
           {/* Features */}
@@ -429,7 +412,6 @@ export default function Security() {
             />
           </div>
           <div className="order-1 lg:order-2 text-center lg:text-left content-center py-12 lg:py-16 pb-0">
-            <Pill text="Our approach to fees" color="bg-primary" />
             <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
               Regulation and compliance
             </h1>
@@ -449,8 +431,8 @@ export default function Security() {
 
         {/* Security */}
         <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-24 gap-8 sm:gap-16">
-          <div className="rounded-2xl px-8 py-16 content-center lg:text-left sm:text-center">
-            <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
+          <div className="rounded-2xl px-8 py-16 content-center lg:text-left text-center">
+            <h1 className="my-4 md:my-6 text-4xl sm:text-5xl lg:text-6xl">
               Security at our core
             </h1>
             <p>

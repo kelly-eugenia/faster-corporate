@@ -29,10 +29,10 @@ export default function LiveChat() {
   };
 
   return (
-    <div className="fixed bottom-6 right-12 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 md:right-12 z-50 flex flex-col items-end">
       {/* Chat panel */}
       {isOpen && (
-        <div className="w-[360px] h-[480px] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="w-full md:w-[360px] h-[480px] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 border-b">
             <button className="p-1 rounded-full hover:bg-gray-100">
@@ -136,7 +136,7 @@ export default function LiveChat() {
         className="size-20 rounded-full bg-primary shadow-xl flex items-center justify-center text-bg-primary"
       >
         {isOpen ? (
-          <span className="text-2xl text-bg-primary leading-none">×</span>
+          <span className="text-4xl text-bg-primary leading-none -mt-1">×</span>
         ) : (
           <svg
             viewBox="0 0 24 24"

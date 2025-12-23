@@ -8,11 +8,17 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Fees from "./pages/Fees";
 import Security from "./pages/Security";
+
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import JobDesc from "./pages/JobDesc";
 import Calculator from "./pages/Calculator";
+
+import TnC from "./pages/TnC";
+
+import ComingSoon from "./pages/ComingSoon";
+
 import "./App.css";
 import "./index.css";
 
@@ -35,6 +41,8 @@ export default function App() {
         <Route path="careers" element={<Careers />}></Route>
         <Route path="/careers/:jobId" element={<JobDesc />} />
         <Route path="/calculator" element={<Calculator />} />
+        <Route path="/terms-and-conditions" element={<TnC />} />
+        <Route path="*" element={<ComingSoon />} />
       </Routes>
     </BrowserRouter>
   );
