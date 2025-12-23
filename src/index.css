@@ -5,6 +5,7 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  font-size: 13px;
 
   --color-primary: #1c41e6;
   --color-secondary: #161630;
