@@ -18,17 +18,11 @@ export default function NavBar() {
   }, []);
 
   const wrapperClasses = [
-    "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-    scrolled
-      ? "bg-bg-secondary text-primary shadow-sm"
-      : "bg-secondary text-white",
+    "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-secondary text-white",
   ].join(" ");
 
   const mobileMenuClasses = [
-    "lg:hidden overflow-hidden transition-all duration-300",
-    scrolled
-      ? "bg-bg-secondary text-text-primary"
-      : "bg-secondary text-bg-primary",
+    "lg:hidden overflow-hidden transition-all duration-300 bg-secondary text-bg-primary",
     mobileOpen
       ? "max-h-128 opacity-100 shadow-xl"
       : "max-h-0 opacity-0 pointer-events-none",
@@ -36,27 +30,21 @@ export default function NavBar() {
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     [
-      "relative text-lg font-medium \
+      "relative text-lg font-medium text-bg-primary after:bg-bg-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
     after:h-[2px] after:w-0 \
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0",
       isActive ? "active" : "",
-      scrolled
-        ? "text-text-primary after:bg-secondary"
-        : "text-bg-primary after:bg-bg-primary",
     ].join(" ");
 
   const mobileLinkClass = ({ isActive }: { isActive: boolean }) =>
     [
-      "relative text-lg font-medium py-4 px-6 sm:px-12 \
+      "relative text-lg font-medium py-4 px-6 sm:px-12 text-bg-primary after:bg-bg-primary \
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
     after:h-[2px] after:w-0 \
     hover:bg-primary/50",
       isActive ? "active" : "",
-      scrolled
-        ? "text-text-primary after:bg-secondary"
-        : "text-bg-primary after:bg-bg-primary",
     ].join(" ");
 
   const handleMobileLinkClick = () => {
@@ -74,7 +62,7 @@ export default function NavBar() {
         >
           <img
             className="h-6 sm:h-8 object-contain"
-            src={scrolled ? LogoBlue : LogoWhite}
+            src={LogoWhite}
             alt="Faster Logo"
           />
         </NavLink>
@@ -97,20 +85,15 @@ export default function NavBar() {
 
         {/* CTA buttons (desktop) */}
         <div className="hidden items-center gap-2 lg:flex">
-          <button
-            className={scrolled ? "btn-secondary" : "btn-secondary-light"}
-          >
+          <button className="btn-secondary-light">
             <Link
               to="/login"
-              className={[
-                "font-medium",
-                scrolled ? "text-primary" : "text-bg-primary",
-              ].join(" ")}
+              className={["font-medium text-bg-primary"].join(" ")}
             >
               Log In
             </Link>
           </button>
-          <button className={scrolled ? "btn-primary" : "btn-primary"}>
+          <button className="btn-primary">
             <Link to="/apply" className="font-medium text-bg-primary">
               Apply Now
             </Link>
@@ -121,8 +104,7 @@ export default function NavBar() {
         <button
           type="button"
           className={[
-            "inline-flex items-center justify-center rounded-md px-0 mx-0 lg:hidden",
-            scrolled ? "text-text-primary" : "text-bg-primary",
+            "inline-flex items-center justify-center rounded-md px-0 mx-0 lg:hidden text-bg-primary",
           ].join(" ")}
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
@@ -198,28 +180,18 @@ export default function NavBar() {
         </div>
 
         <div className="my-4 px-6 sm:px-12 flex flex-col gap-2">
-          <button
-            className={
-              (scrolled ? "btn-secondary" : "btn-secondary-light") +
-              " my-2 w-full"
-            }
-          >
+          <button className="btn-secondary-light my-2 w-full">
             <Link
               to="/login"
               className={[
-                "block w-full text-center font-medium",
-                scrolled ? "text-primary" : "text-bg-primary",
+                "block w-full text-center font-medium text-bg-primary",
               ].join(" ")}
               onClick={handleMobileLinkClick}
             >
               Log In
             </Link>
           </button>
-          <button
-            className={
-              (scrolled ? "btn-primary" : "btn-primary") + " mt-0 my-8 w-full"
-            }
-          >
+          <button className="btn-primary mt-0 my-8 w-full">
             <Link
               to="/apply"
               className="block w-full text-center font-medium text-bg-primary"
