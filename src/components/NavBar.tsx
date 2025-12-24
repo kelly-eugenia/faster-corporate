@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../App.css";
-import LogoBlue from "../assets/logo-blue.svg";
 import LogoWhite from "../assets/logo-white.svg";
 
 export default function NavBar() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const wrapperClasses = [
     "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-secondary text-white",
