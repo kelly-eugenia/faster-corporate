@@ -11,7 +11,7 @@ import LoanCalculator from "../components/LoanCalculator";
 import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
-import HeroPhoto from "../assets/hero-sect.png";
+import HeroPhoto from "../assets/hero-sect.svg";
 import TeamPhoto from "../assets/faster-team-values.jpg";
 import WebsitePhoto from "../assets/faster-website.png";
 
@@ -193,9 +193,9 @@ export default function Home() {
             </div>
 
             {/* Right */}
-            <div className="-mt-28 -mb-12 lg:-mb-24 lg:pt-20 flex items-end justify-center">
+            <div className="-mt-28 -mb-12 lg:-mb-24 lg:pt-12 flex items-end justify-center">
               <img
-                className="block w-auto max-w-full h-full scale-100 lg:scale-[1.05] origin-bottom-left"
+                className="block w-auto max-w-full h-full object-cover"
                 src={HeroPhoto}
                 alt="Smiling customer enjoying Faster"
               />
