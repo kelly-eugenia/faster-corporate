@@ -27,18 +27,18 @@ export default function Calculator() {
               <h1 className="my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                 Line of Credit calculator
               </h1>
-              <p className="text-2xl font-medium my-4 lg:my-8 text-bg-primary">
+              <p className="text-base sm:text-lg md:text-2xl font-medium my-4 lg:my-8 text-bg-primary">
                 Want to know what you're getting into? Estimate your monthly
                 repayments in less than 30 seconds.
               </p>
-              <button className="btn-primary-light mb-24 lg:mb-0">
+              <div className="mb-12 lg:mb-0">
                 <Link
                   to="/fees#how-fees-work"
-                  className="font-medium text-bg-primary text-base md:text-lg"
+                  className="btn btn-primary-light text-base md:text-lg font-medium"
                 >
                   See How Our Fees Work
                 </Link>
-              </button>
+              </div>
             </div>
           </div>
         </section>

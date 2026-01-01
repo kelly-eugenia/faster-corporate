@@ -8,7 +8,7 @@ import Reviews from "../components/Reviews";
 import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
-import HeroPhoto from "../assets/clear-fees.png";
+import HeroPhoto from "../assets/clear-fees.svg";
 import CoinsPhoto from "../assets/coins.png";
 
 import "../App.css";
@@ -35,16 +35,17 @@ const feesFaqs = [
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
         </ul>
-        <p className="my-3 text-xl">
+        <p className="my-3 text-base md:text-xl">
           This does not include any additional charges that may apply if you
           miss a payment or fall behind on your account. All fees are shown
           clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-base md:text-lg">
-          <Link to="/fees" className="font-medium text-bg-primary">
-            See Our Fees
-          </Link>
-        </button>
+        <Link
+          to="/fees"
+          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
+        >
+          See Our Fees
+        </Link>
       </>
     ),
   },
@@ -124,14 +125,14 @@ export default function Fees() {
                 a full breakdown in your credit contract before you decide to go
                 ahead.
               </p>
-              <button className="btn-primary-light mt-12 text-base md:text-lg">
+              <div className="mt-6 lg:mb-6">
                 <Link
                   to="/fees#how-fees-work"
-                  className="font-medium text-bg-primary"
+                  className="btn btn-primary-light text-base md:text-lg font-medium"
                 >
                   See How Our Fees Work
                 </Link>
-              </button>
+              </div>
             </motion.div>
 
             {/* Right */}
@@ -485,11 +486,14 @@ export default function Fees() {
             </a>
           </p>
 
-          <button className="mt-8 md:mt-12 btn-primary text-base md:text-lg">
-            <Link to="/contact" className="font-medium text-bg-primary">
+          <div className="mt-4 md:mt-8">
+            <Link
+              to="/contact"
+              className="btn btn-primary text-base md:text-lg font-medium"
+            >
               Contact Us
             </Link>
-          </button>
+          </div>
         </section>
 
         {/* CTA */}

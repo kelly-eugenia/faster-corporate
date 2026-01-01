@@ -234,10 +234,10 @@ export default function Footer() {
 
         {/* Fine print */}
         <p className="text-sm text-bg-primary/70 max-w-4xl leading-relaxed text-left">
-          All Rights Reserved ©2025 Faster Financial Pty Ltd (ABN: 47 651 975
-          932). Lightspeed CashFaster Ventures Pty Ltd Australian Credit Licence
-          569825. Faster Financial Pty Ltd is ISO 27001 Certified by Lloyds
-          Register for Information Security Management.
+          All Rights Reserved ©2025 Faster Financial Group Pty Ltd (ABN: 42 096
+          001 900). Lightspeed CashFaster Ventures Pty Ltd Australian Credit
+          Licence 569825. Faster Financial Group Pty Ltd is ISO 27001 Certified
+          by Lloyds Register for Information Security Management.
         </p>
       </div>
     </footer>

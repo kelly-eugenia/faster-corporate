@@ -8,7 +8,7 @@ import CTA from "../components/CTA";
 import Reviews from "../components/Reviews";
 import FAQSection from "../components/FAQSection";
 
-import HeroPhoto from "../assets/trusted-security-reliable-tech.png";
+import HeroPhoto from "../assets/trusted-security-reliable-tech.svg";
 import RegisteredPhoto from "../assets/registered-2.png";
 import CorePhoto from "../assets/core-security.png";
 

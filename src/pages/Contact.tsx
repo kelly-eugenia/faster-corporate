@@ -49,14 +49,15 @@ const homeFaqs = [
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
         </ul>
-        <p className="my-3 text-xl">
+        <p className="my-3 text-base md:text-xl">
           All fees are shown clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">
-          <Link to="/fees" className="font-medium text-bg-primary">
-            See Our Fees
-          </Link>
-        </button>
+        <Link
+          to="/fees"
+          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
+        >
+          See Our Fees
+        </Link>
       </>
     ),
   },
@@ -68,12 +69,13 @@ const homeFaqs = [
         including encryption and strict access controls. We also comply with
         Australian credit and privacy laws and apply responsible-lending
         practices.
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
-            <Link to="/security" className="font-medium text-bg-primary">
-              See Our Security
-            </Link>
-          </button>
+        <div className="mt-2">
+          <Link
+            to="/security"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            See Our Security
+          </Link>
         </div>
       </>
     ),
@@ -88,13 +90,12 @@ const homeFaqs = [
         </a>
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
-            <Link to="/contact" className="font-medium text-bg-primary">
-              Contact Us
-            </Link>
-          </button>
-        </div>
+        <Link
+          to="/contact"
+          className="btn btn-primary text-base md:text-lg font-medium"
+        >
+          Contact Us
+        </Link>
       </>
     ),
   },
@@ -200,7 +201,16 @@ export default function Contact() {
                     />
                   </svg>
                 </span>
-                <a href="" className="text-xl text-primary hover:underline">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (window.tidioChatApi) {
+                      window.tidioChatApi.open();
+                    }
+                  }}
+                  className="text-xl text-primary hover:underline"
+                >
                   Start chat
                 </a>
               </div>
@@ -209,19 +219,22 @@ export default function Contact() {
         </section>
 
         {/* FAQ */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center text-center">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
           <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
             Customers frequently ask
           </h1>
           <FAQSection faqs={homeFaqs} />
-          <button className="mt-12 btn-primary text-base md:text-lg">
-            <Link to="/faq" className="font-medium text-bg-primary">
+          <div className="mt-4 text-center">
+            <Link
+              to="/faq"
+              className="btn btn-primary text-base md:text-lg font-medium"
+            >
               View More
             </Link>
-          </button>
+          </div>
         </section>
       </div>
-      <Footer />å
+      <Footer />
     </>
   );
 }

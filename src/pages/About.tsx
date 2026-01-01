@@ -80,20 +80,19 @@ export default function About() {
             <p className="font-medium text-lg md:text-2xl">
               You can draw, repay, and reuse — up to your approved limit.
             </p>
-            <div className="mt-8 sm:mt-12 flex flex-wrap gap-4 justify-center md:justify-start">
-              <button className="btn-secondary text-base md:text-lg my-0">
-                <Link to="/fees" className="font-medium text-primary">
-                  See Our Fees
-                </Link>
-              </button>
-              <button className="btn-primary text-base md:text-lg my-0">
-                <Link
-                  to="/home#how-it-works"
-                  className="font-medium text-bg-primary"
-                >
-                  Learn How It Works
-                </Link>
-              </button>
+            <div className="mt-4 sm:mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+              <Link
+                to="/fees"
+                className="btn btn-secondary text-base md:text-lg my-0 font-medium"
+              >
+                See Our Fees
+              </Link>
+              <Link
+                to="/home#how-it-works"
+                className="btn btn-primary text-base md:text-lg my-0 font-medium"
+              >
+                Learn How It Works
+              </Link>
             </div>
           </div>
         </section>
@@ -310,11 +309,12 @@ export default function About() {
                 </span>
               </p>
 
-              <button className="btn-primary-light text-base md:text-lg">
-                <Link to="/apply" className="font-medium text-bg-primary">
-                  Apply Now
-                </Link>
-              </button>
+              <Link
+                to="/apply"
+                className="btn btn-primary-light text-base md:text-lg my-0 font-medium"
+              >
+                Apply Now
+              </Link>
             </div>
           </section>
 
@@ -338,11 +338,12 @@ export default function About() {
                   every applications
                 </li>
               </ul>
-              <button className="btn-primary text-base md:text-lg">
-                <Link to="/security" className="font-medium text-bg-primary">
-                  See Our Security
-                </Link>
-              </button>
+              <Link
+                to="/security"
+                className="btn btn-primary text-base md:text-lg my-0 font-medium"
+              >
+                See Our Security
+              </Link>
             </div>
             <div className="rounded-2xl lg:pt-8 lg:px-8 flex items-bottom justify-center">
               <img
@@ -385,11 +386,14 @@ export default function About() {
             </a>
           </p>
 
-          <button className="mt-8 md:mt-12 btn-primary text-base md:text-lg">
-            <Link to="/contact" className="font-medium text-bg-primary">
+          <div className="mt-4 md:mt-8">
+            <Link
+              to="/contact"
+              className="btn btn-primary text-base md:text-lg font-medium"
+            >
               Contact Us
             </Link>
-          </button>
+          </div>
         </section>
 
         {/* CTA */}

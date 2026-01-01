@@ -32,16 +32,14 @@ export default function JobCard({
         </div>
       </div>
 
-      <button className="btn-primary text-base md:text-lg">
-        <a
-          href={applyUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="text-bg-primary font-medium px-2"
-        >
-          Apply
-        </a>
-      </button>
+      <a
+        href={applyUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="btn btn-primary text-base md:text-lg font-medium"
+      >
+        Apply
+      </a>
     </div>
   );
 }

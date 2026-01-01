@@ -74,19 +74,18 @@ export default function NavBar() {
 
         {/* CTA buttons (desktop) */}
         <div className="hidden items-center gap-2 lg:flex">
-          <button className="btn-secondary-light">
-            <Link
-              to="/login"
-              className={["font-medium text-bg-primary"].join(" ")}
-            >
-              Log In
-            </Link>
-          </button>
-          <button className="btn-primary">
-            <Link to="/apply" className="font-medium text-bg-primary">
-              Apply Now
-            </Link>
-          </button>
+          <Link
+            to="/login"
+            className="btn btn-secondary-light text-base md:text-lg font-medium"
+          >
+            Log In
+          </Link>
+          <Link
+            to="/apply"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            Apply Now
+          </Link>
         </div>
 
         {/* Hamburger button (mobile) */}
@@ -168,27 +167,21 @@ export default function NavBar() {
           </NavLink>
         </div>
 
-        <div className="my-4 px-6 sm:px-12 flex flex-col gap-2">
-          <button className="btn-secondary-light my-2 w-full">
-            <Link
-              to="/login"
-              className={[
-                "block w-full text-center font-medium text-bg-primary",
-              ].join(" ")}
-              onClick={handleMobileLinkClick}
-            >
-              Log In
-            </Link>
-          </button>
-          <button className="btn-primary mt-0 my-8 w-full">
-            <Link
-              to="/apply"
-              className="block w-full text-center font-medium text-bg-primary"
-              onClick={handleMobileLinkClick}
-            >
-              Apply Now
-            </Link>
-          </button>
+        <div className="px-6 sm:px-12 flex flex-col">
+          <Link
+            to="/login"
+            className="w-full btn btn-secondary-light text-base md:text-lg font-medium"
+            onClick={handleMobileLinkClick}
+          >
+            Log In
+          </Link>
+          <Link
+            to="/apply"
+            className="w-full mb-12 -mt-2 rounded-[8px] text-center py-3 btn-primary text-base md:text-lg font-medium"
+            onClick={handleMobileLinkClick}
+          >
+            Apply Now
+          </Link>
         </div>
       </div>
     </header>

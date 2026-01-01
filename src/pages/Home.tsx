@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 import NavBar from "../components/NavBar";
@@ -75,14 +75,15 @@ const homeFaqs = [
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
         </ul>
-        <p className="my-3 text-xl">
+        <p className="my-3 text-base md:text-xl">
           All fees are shown clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-base md:text-lg">
-          <Link to="/fees" className="font-medium text-bg-primary">
-            See Our Fees
-          </Link>
-        </button>
+        <Link
+          to="/fees"
+          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
+        >
+          See Our Fees
+        </Link>
       </>
     ),
   },
@@ -94,12 +95,13 @@ const homeFaqs = [
         including encryption and strict access controls. We also comply with
         Australian credit and privacy laws and apply responsible-lending
         practices.
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-base md:text-lg">
-            <Link to="/security" className="font-medium text-bg-primary">
-              See Our Security
-            </Link>
-          </button>
+        <div className="mt-2">
+          <Link
+            to="/security"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            See Our Security
+          </Link>
         </div>
       </>
     ),
@@ -114,19 +116,20 @@ const homeFaqs = [
         </a>
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-base md:text-lg">
-            <Link to="/contact" className="font-medium text-bg-primary">
-              Contact Us
-            </Link>
-          </button>
-        </div>
+        <Link
+          to="/contact"
+          className="btn btn-primary text-base md:text-lg font-medium"
+        >
+          Contact Us
+        </Link>
       </>
     ),
   },
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
+
   // motion value for the number
   const amount = useMotionValue(5000);
 
@@ -173,6 +176,7 @@ export default function Home() {
 
                 <motion.button
                   className="my-10 lg:my-12 btn-primary text-base sm:text-lg"
+                  onClick={() => navigate("/apply")}
                   initial={{ scale: 1 }}
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{
@@ -183,9 +187,7 @@ export default function Home() {
                     delay: 0.4,
                   }}
                 >
-                  <Link to="/apply" className="text-bg-primary font-medium">
-                    Apply Now
-                  </Link>
+                  Apply Now
                 </motion.button>
               </div>
             </div>
@@ -208,7 +210,7 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section className="py-8 md:py-12 grid gap-8 mb-12 items-stretch">
+        <section className="py-8 pb-0 md:py-12 md:pb-6 grid gap-8 mb-12 items-stretch">
           <div className="rounded-2xl px-8 sm:px-12 lg:px-16 xl:px-40 pb-0 sm:pb-4 content-center text-center">
             <Pill text="Why choose Faster" color="bg-secondary" />
             <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
@@ -223,6 +225,7 @@ export default function Home() {
               </span>
             </h1>
           </div>
+
           <div>
             {/* Mobile Looping Carousel */}
             <MobileCarousel
@@ -292,6 +295,15 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/about"
+              className="btn btn-primary text-base md:text-lg font-medium"
+            >
+              Learn More
+            </Link>
           </div>
         </section>
 
@@ -397,17 +409,19 @@ export default function Home() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-12 flex flex-wrap gap-4 justify-center md:justify-start sm:mb-8">
-                <button className="btn-secondary text-base md:text-lg my-0">
-                  <Link to="/fees" className="font-medium text-primary">
-                    See Our Fees
-                  </Link>
-                </button>
-                <button className="btn-primary text-base md:text-lg my-0">
-                  <Link to="/apply" className="font-medium text-bg-primary">
-                    Apply Now
-                  </Link>
-                </button>
+              <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start sm:mb-8">
+                <Link
+                  to="/fees"
+                  className="btn btn-secondary text-primary text-base md:text-lg my-0 font-medium"
+                >
+                  See Our Fees
+                </Link>
+                <Link
+                  to="/apply"
+                  className="btn btn-primary text-base md:text-lg my-0 font-medium"
+                >
+                  Apply Now
+                </Link>
               </div>
             </div>
 
@@ -538,7 +552,7 @@ export default function Home() {
           <div className="order-1 lg:order-2 rounded-2xl px-4 flex items-bottom justify-center">
             <img
               src={WebsitePhoto}
-              alt="Faster website on phone and laptop"
+              alt="Faster platform on phone and laptop"
               className="block w-full h-auto rounded-2xl"
             />
           </div>

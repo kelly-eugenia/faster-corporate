@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Phone from "../assets/animated-dashboard-mobile.gif";
+import Phone from "../assets/dashboard-mobile.svg";
+import Background from "../assets/animated-background.gif";
 import Pill from "../components/Pill";
 import "../App.css";
 
@@ -12,31 +13,44 @@ export default function CTA() {
           <h1 className="mt-10 md:mt-16 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-bg-primary">
             Ready to get started with Faster?
           </h1>
-          <div className="items-center flex flex-wrap gap-x-2 gap-y-1 mt-10 sm:mt-16 justify-center lg:justify-start text-sm md:text-lg">
-            <button className="btn-secondary-light my-1">
-              <Link to="/contact" className="font-medium text-bg-primary">
-                Contact Us
-              </Link>
-            </button>
-            <button className="btn-primary-light my-1">
-              <Link to="/apply" className="font-medium text-bg-primary">
-                Apply Now
-              </Link>
-            </button>
+          <div className="items-center flex flex-wrap gap-x-2 gap-y-1 mt-6 sm:mt-10 justify-center lg:justify-start text-sm md:text-lg">
+            <Link to="/contact" className="btn btn-secondary-light font-medium">
+              Contact Us
+            </Link>
+            <Link
+              to="/apply"
+              className="btn bg-primary lg:bg-secondary hover:bg-secondary lg:hover:bg-accent text-bg-primary font-medium"
+            >
+              Apply Now
+            </Link>
           </div>
         </div>
         <div className="pl-6 lg:pl-0 -mt-20 lg:-mt-0 rounded-2xl flex items-end justify-center lg:justify-end overflow-hidden">
-          <div className="w-full lg:w-auto lg:max-h-[560px] flex items-end lg:items-center">
+          <div className="relative w-full lg:w-auto lg:max-h-[560px] flex items-end lg:items-center">
+            {/* Phone */}
             <img
               src={Phone}
-              alt="Faster dashboard"
+              alt="Register for Faster"
               className="
-                block 
-                w-full 
-                h-auto lg:h-full 
+                relative z-10
+                w-full h-full
                 object-contain lg:object-cover
-                lg:scale-[1.05] 
+                lg:scale-[1.05]
                 origin-bottom
+              "
+            />
+
+            {/* Background */}
+            <img
+              src={Background}
+              alt="Animated background"
+              className="
+                absolute inset-0
+                w-full h-full
+                object-contain lg:object-cover
+                lg:scale-[1.05]
+                origin-bottom
+                pointer-events-none
               "
             />
           </div>

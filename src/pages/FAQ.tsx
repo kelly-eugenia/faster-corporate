@@ -60,14 +60,15 @@ const topFaqs: Faq[] = [
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
         </ul>
-        <p className="my-3 text-xl">
+        <p className="my-3 text-base md:text-xl">
           All fees are shown clearly before you sign your contract.
         </p>
-        <button className="btn-primary mt-4 text-lg">
-          <Link to="/fees" className="font-medium text-bg-primary">
-            See Our Fees
-          </Link>
-        </button>
+        <Link
+          to="/fees"
+          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
+        >
+          See Our Fees
+        </Link>
       </>
     ),
   },
@@ -79,12 +80,13 @@ const topFaqs: Faq[] = [
         including encryption and strict access controls. We also comply with
         Australian credit and privacy laws and apply responsible-lending
         practices.
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
-            <Link to="/security" className="font-medium text-bg-primary">
-              See Our Security
-            </Link>
-          </button>
+        <div className="mt-2">
+          <Link
+            to="/security"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            See Our Security
+          </Link>
         </div>
       </>
     ),
@@ -99,13 +101,12 @@ const topFaqs: Faq[] = [
         </a>
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
-            <Link to="/contact" className="font-medium text-bg-primary">
-              Contact Us
-            </Link>
-          </button>
-        </div>
+        <Link
+          to="/contact"
+          className="btn btn-primary text-base md:text-lg font-medium"
+        >
+          Contact Us
+        </Link>
       </>
     ),
   },
@@ -231,18 +232,17 @@ const creditFaqs: Faq[] = [
           <li>• a $15 monthly fee</li>
           <li>• a $3.50 fee per repayment</li>
         </ul>
-        <p className="my-3 text-xl">
+        <p className="my-3 text-base md:text-xl">
           This does not include any additional charges that may apply if you
           miss a payment or fall behind on your account. All fees are shown
           clearly before you sign your contract.
         </p>
-        <div className="mt-4">
-          <button className="btn-primary mt-4 text-lg">
-            <Link to="/fees" className="font-medium text-bg-primary">
-              See Our Fees
-            </Link>
-          </button>
-        </div>
+        <Link
+          to="/fees"
+          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
+        >
+          See Our Fees
+        </Link>
       </>
     ),
   },
@@ -318,14 +318,13 @@ const securityFaqs: Faq[] = [
         and all information is encrypted in transit and at rest. We also comply
         with Australian credit laws, privacy requirements, and
         responsible-lending regulations.
-        <div className="mt-4">
-          <div className="mt-4">
-            <button className="btn-primary mt-4 text-lg">
-              <Link to="/security" className="font-medium text-bg-primary">
-                See Our Security
-              </Link>
-            </button>
-          </div>
+        <div className="mt-2">
+          <Link
+            to="/security"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            See Our Security
+          </Link>
         </div>
       </>
     ),
@@ -479,7 +478,7 @@ export default function FAQ() {
             Still have unanswered questions?
           </h1>
 
-          <p className="text-xl md:text-3xl font-medium mt-4 md:mt-8">
+          <p className="text-xl md:text-3xl font-medium mt-8 md:mt-12">
             Email us anytime at{" "}
             <a
               href="mailto:support@faster.com.au"
@@ -489,11 +488,14 @@ export default function FAQ() {
             </a>
           </p>
 
-          <button className="mt-8 md:mt-12 btn-primary text-base md:text-lg">
-            <Link to="/contact" className="font-medium text-bg-primary">
+          <div className="mt-4 md:mt-8">
+            <Link
+              to="/contact"
+              className="btn btn-primary text-base md:text-lg font-medium"
+            >
               Contact Us
             </Link>
-          </button>
+          </div>
         </section>
       </div>
       <Footer />

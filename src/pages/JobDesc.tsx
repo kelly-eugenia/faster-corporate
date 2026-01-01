@@ -73,7 +73,9 @@ export default function JobDesc() {
             >
               ← Back to open roles
             </button>
-            <p className="text-xl mt-12 text-text-primary">Job not found.</p>
+            <p className="text-lg md:text-xl mt-12 text-text-primary">
+              Job not found.
+            </p>
           </section>
         </div>
         <Footer />
@@ -141,30 +143,30 @@ export default function JobDesc() {
               </div>
             </div>
 
-            <button className="btn-primary mt-0 mb-2 text-base md:text-lg">
+            <div className="pt-2 lg:pt-4 pb-2">
               <a
                 href={job.applyUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-bg-primary font-medium px-2"
+                className="rounded-[8px] text-center py-4 px-7 btn-primary text-base md:text-lg font-medium"
               >
                 Apply for this role
               </a>
-            </button>
+            </div>
           </header>
 
           <section className="max-w-6xl mb-6 md:mb-12">{job.desc}</section>
 
-          <button className="btn-primary mb-24">
+          <div className="mt-16 mb-24">
             <a
               href={job.applyUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-bg-primary text-lg md:text-xl font-medium px-4"
+              className="rounded-[8px] text-center py-4 px-7 btn-primary text-lg md:text-xl font-medium"
             >
               Apply for this role
             </a>
-          </button>
+          </div>
         </section>
       </div>
       <Footer />

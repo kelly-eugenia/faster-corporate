@@ -92,14 +92,12 @@ export default function Careers() {
               If you care about technology and responsible, fast lending,
               <br /> we’d love to meet you.
             </p>
-            <button className="btn-primary-light text-base md:text-lg">
-              <Link
-                to="/careers#open-roles"
-                className="font-medium text-bg-primary"
-              >
-                View Open Roles
-              </Link>
-            </button>
+            <Link
+              to="/careers#open-roles"
+              className="btn btn-primary-light text-base md:text-lg my-0 font-medium"
+            >
+              View Open Roles
+            </Link>
           </motion.div>
         </section>
 
@@ -136,11 +134,12 @@ export default function Careers() {
                 clear, not confusing.
               </p>
 
-              <button className="btn-primary text-base md:text-lg">
-                <Link to="/about" className="font-medium text-bg-primary">
-                  Learn More
-                </Link>
-              </button>
+              <Link
+                to="/about"
+                className="btn btn-primary text-base md:text-lg my-0 font-medium"
+              >
+                Learn More
+              </Link>
             </div>
           </section>
 
