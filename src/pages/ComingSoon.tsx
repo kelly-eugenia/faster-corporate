@@ -51,22 +51,24 @@ export default function Home() {
               </h1>
             </motion.div>
 
-            <p className="mb-8 md:mb-12 lg:mb-16 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg sm:text-xl md:text-2xl font-medium">
+            <p className="mb-4 md:mb-8 lg:mb-12 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg sm:text-xl md:text-2xl font-medium">
               Hold tight, we are creating something amazing. We will launch our
               Faster platform soon!
             </p>
 
             <div className="space-x-4">
-              <button className="btn-primary-light my-2 text-lg md:text-xl">
-                <Link to="/home" className="font-medium text-bg-primary">
-                  Back to Home
-                </Link>
-              </button>
-              <button className="btn-secondary-light my-2 text-lg md:text-xl">
-                <Link to="/contact" className="font-medium text-bg-primary">
-                  Contact Us
-                </Link>
-              </button>
+              <Link
+                to="/home"
+                className="btn btn-primary-light text-lg md:text-xl font-medium"
+              >
+                Back to Home
+              </Link>
+              <Link
+                to="/contact"
+                className="btn btn-secondary-light text-lg md:text-xl font-medium"
+              >
+                Contact Us
+              </Link>
             </div>
           </motion.div>
         </section>
