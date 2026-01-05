@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="w-full mx-auto px-8 py-12 lg:py-16 lg:px-40 space-y-10">
         <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between">
           {/* Logo */}
-          <div className="w-3/4 md:w-1/3 flex-shrink-0">
+          <div className="w-[45%] md:w-[30%] flex-shrink-0">
             <img
               src={Logo}
               alt="Faster Logo"
@@ -30,7 +30,7 @@ export default function Footer() {
             />
           </div>
           {/* Socials (mobile) */}
-          <div className="sm:hidden flex gap-4 -mt-12">
+          <div className="sm:hidden flex gap-4 -mt-10">
             <a href="" className="text-bg-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -146,15 +146,16 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/refund-policy" className={linkClass}>
-                    Refund Policy
-                  </Link>
-                </li>
-                <li>
                   <Link to="/privacy-policy" className={linkClass}>
                     Privacy Policy
                   </Link>
                 </li>
+                <li>
+                  <Link to="/refund-policy" className={linkClass}>
+                    Refund Policy
+                  </Link>
+                </li>
+
                 <li>
                   <Link to="/credit-guide" className={linkClass}>
                     Credit Guide

@@ -15,7 +15,10 @@ import Careers from "./pages/Careers";
 import JobDesc from "./pages/JobDesc";
 import Calculator from "./pages/Calculator";
 
-import TnC from "./pages/TnC";
+import TnC from "./pages/Legal/TnC";
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
+import RefundPolicy from "./pages/Legal/RefundPolicy";
+import CreditGuide from "./pages/Legal/CreditGuide";
 
 import ComingSoon from "./pages/ComingSoon";
 
@@ -36,12 +39,18 @@ export default function App() {
         <Route path="about" element={<About />}></Route>
         <Route path="fees" element={<Fees />}></Route>
         <Route path="security" element={<Security />}></Route>
-        <Route path="faq" element={<FAQ />}></Route>
-        <Route path="contact" element={<Contact />}></Route>
         <Route path="careers" element={<Careers />}></Route>
         <Route path="/careers/:jobId" element={<JobDesc />} />
+
+        <Route path="faq" element={<FAQ />}></Route>
+        <Route path="contact" element={<Contact />}></Route>
         <Route path="/calculator" element={<Calculator />} />
+
         <Route path="/terms-and-conditions" element={<TnC />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/credit-guide" element={<CreditGuide />} />
+
         <Route path="*" element={<ComingSoon />} />
       </Routes>
     </BrowserRouter>

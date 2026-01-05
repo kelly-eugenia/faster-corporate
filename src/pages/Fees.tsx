@@ -32,12 +32,10 @@ const feesFaqs = [
         <ul className="mt-3 space-y-1">
           <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
-          <li>• a $15 monthly fee</li>
-          <li>• a $3.50 fee per repayment</li>
         </ul>
         <p className="my-3 text-base md:text-xl">
-          This does not include any additional charges that may apply if you
-          miss a payment or fall behind on your account. All fees are shown
+          This does not include any additional charges that may apply, and if
+          you miss a payment or fall behind on your account. All fees are shown
           clearly before you sign your contract.
         </p>
         <Link
@@ -340,8 +338,7 @@ export default function Fees() {
                 p.a. Interest rate
               </h2>
               <p className="sm:text-xl text-lg mt-3 sm:mt-6">
-                47% per annum (approx. 3.92% per month) calculated daily on your
-                balance.
+                47% per annum calculated daily on your balance.
               </p>
             </div>
           </div>
@@ -387,21 +384,6 @@ export default function Fees() {
                     (3.92% of $450)
                   </span>
                 </li>
-                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                  <span className="text-primary mr-2 md:mr-4 font-medium">
-                    Monthly fees:
-                  </span>
-                  $15
-                </li>
-                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
-                  <span className="text-primary mr-2 md:mr-4 font-medium">
-                    Repayment fees:
-                  </span>
-                  $14
-                  <span className="ml-2 text-base md:text-lg font-medium">
-                    (4 weekly repayments × $3.50)
-                  </span>
-                </li>
               </ul>
 
               <p className="my-8 md:my-12 mb-4 font-bold text-xl md:text-2xl">
@@ -413,8 +395,8 @@ export default function Fees() {
 
               <p className="mt-8 md:mt-12 text-muted-primary text-sm font-medium">
                 Important: This is an example only and does not include any
-                additional charges that may apply if you miss a payment or fall
-                behind on your account.
+                additional charges that may apply, and if you miss a payment or
+                fall behind on your account.
               </p>
             </div>
           </section>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 import NavBar from "../components/NavBar";
@@ -8,14 +8,16 @@ import Logo from "../assets/lettermark.svg";
 
 import "../App.css";
 
-export default function Home() {
+export default function ComingSoon() {
+  const hasSubmittedRef = useRef(false);
+  const [submitted, setSubmitted] = useState(false);
+
   return (
     <>
       <NavBar />
 
       <div className="w-full mx-auto">
-        {/* Hero */}
-        <section className="min-h-[100vh] content-center px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-tr from-secondary to-primary">
+        <section className="min-h-[100vh] content-center px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:pt-40 pb-12 lg:pb-24 bg-gradient-to-tr from-secondary to-primary">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
@@ -29,12 +31,11 @@ export default function Home() {
           >
             <div className="mb-16 rounded-2xl flex items-end justify-center h-full">
               <img
-                className="block size-24 md:size-32"
+                className="block size-24 md:size-28"
                 src={Logo}
                 alt="Faster logo"
               />
             </div>
-
             <motion.div
               initial={{ scale: 1 }}
               animate={{ scale: [1, 1.05, 1] }}
@@ -46,30 +47,68 @@ export default function Home() {
                 delay: 0.4,
               }}
             >
-              <h1 className="my-8 md:my-12 text-5xl md:text-7xl lg:text-8xl text-bg-primary">
-                Coming Soon
+              <h1 className="my-8 md:my-12 text-5xl md:text-6xl lg:text-7xl text-bg-primary">
+                Applications Opening Soon
               </h1>
             </motion.div>
-
-            <p className="mb-4 md:mb-8 lg:mb-12 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg sm:text-xl md:text-2xl font-medium">
-              Hold tight, we are creating something amazing. We will launch our
-              Faster platform soon!
+            <p className="mb-16 md:mb-12 lg:mb-16 text-bg-secondary text-base sm:text-lg md:text-xl">
+              Hold tight, we will launch our Faster platform soon!
             </p>
 
-            <div className="space-x-4">
-              <Link
-                to="/home"
-                className="btn btn-primary-light text-lg md:text-xl font-medium"
-              >
-                Back to Home
-              </Link>
-              <Link
-                to="/contact"
-                className="btn btn-secondary-light text-lg md:text-xl font-medium"
-              >
-                Contact Us
-              </Link>
+            <div className="bg-secondary/50 max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-6xl mx-auto rounded-2xl px-12 md:px-24 lg:px-32 py-10 md:py-12 mb-6">
+              <h2 className="text-bg-primary text-2xl md:text-3xl lg:text-4xl mb-0 md:mb-4">
+                Get notified when applications open
+              </h2>
+              {!submitted ? (
+                <form
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSepIRActyRZE6DU8Lyue1iM1q2XhhMjTd26yImcJT-IO4Tzjw/formResponse"
+                  method="POST"
+                  target="hidden_iframe"
+                  onSubmit={() => {
+                    hasSubmittedRef.current = true;
+                  }}
+                >
+                  <div className="flex items-center space-x-4">
+                    <input
+                      type="email"
+                      name="entry.254947007"
+                      required
+                      placeholder="Email address"
+                      className="w-[70%] rounded-lg text-text-primary px-4 py-3"
+                    />
+
+                    <button
+                      type="submit"
+                      className="w-[30%] flex-shrink-0 btn btn-primary text-lg font-medium"
+                    >
+                      Notify Me
+                    </button>
+                  </div>
+
+                  <iframe
+                    name="hidden_iframe"
+                    className="hidden"
+                    onLoad={() => {
+                      if (hasSubmittedRef.current) {
+                        setSubmitted(true);
+                        hasSubmittedRef.current = false;
+                      }
+                    }}
+                  />
+                </form>
+              ) : (
+                <p className="mt-6 text-lg font-medium text-bg-primary">
+                  Thanks! We’ll notify you when applications open 🎉
+                </p>
+              )}
             </div>
+
+            <a
+              href="/home"
+              className=" text-bg-secondary/70 text-lg font-medium hover:underline"
+            >
+              ← Back to Home
+            </a>
           </motion.div>
         </section>
       </div>

@@ -63,55 +63,32 @@ export default function Calculator() {
           <div className="mt-2 lg:mt-8">
             <section
               id="how-fees-work"
-              className="px-8 sm:px-12 lg:px-16 xl:px-40 py-12 md:py-16 lg:py-24 mb-8 md:mb-12 gap-8 content-center text-center"
+              className="px-8 sm:px-12 lg:px-16 xl:px-40 py-12 md:py-16 lg:py-24 mb-8 md:mb-12 content-center text-center"
             >
               <Pill text="How our fees work" color="bg-secondary" />
 
               {/* Stat style */}
-              <div className="text-center sm:text-left grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mt-8 items-stretch">
-                <div className="p-8 sm:p-10 lg:p-12 bg-bg-secondary rounded-2xl content-top">
-                  <h1 className="lg:text-7xl sm:text-6xl text-5xl text-primary font-[1000]">
+              <div className="max-w-6xl mx-auto grid sm:grid-cols-2 gap-6 md:gap-10 mt-8 md:mt-12 items-stretch text-center">
+                <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 p-8 bg-bg-secondary rounded-2xl content-center">
+                  <h1 className="lg:text-8xl sm:text-7xl text-6xl text-primary font-[1000]">
                     20%
                   </h1>
-                  <h2 className="text-secondary lg:text-3xl sm:text-2xl text-xl mt-3">
+                  <h2 className="text-secondary lg:text-4xl sm:text-3xl text-2xl mt-1">
                     Drawdown fee
                   </h2>
                   <p className="sm:text-xl text-lg mt-3 sm:mt-6">
                     20% of your credit limit, charged once at the start.
                   </p>
                 </div>
-                <div className="p-8 sm:p-10 lg:p-12 bg-bg-secondary rounded-2xl content-top">
-                  <h1 className="lg:text-7xl sm:text-6xl text-5xl text-primary font-[1000]">
-                    47%{" "}
+                <div className="lg:px-12 lg:py-16 sm:px-8 sm:py-12 p-8 bg-bg-secondary rounded-2xl content-center">
+                  <h1 className="lg:text-8xl sm:text-7xl text-6xl text-primary font-[1000]">
+                    47%
                   </h1>
-                  <h2 className="text-secondary lg:text-3xl sm:text-2xl text-xl mt-3">
+                  <h2 className="text-secondary lg:text-4xl sm:text-3xl text-2xl mt-1">
                     p.a. Interest rate
                   </h2>
                   <p className="sm:text-xl text-lg mt-3 sm:mt-6">
-                    47% per annum (approx. 3.92% per month) calculated daily on
-                    your balance.
-                  </p>
-                </div>
-                <div className="p-8 sm:p-10 lg:p-12 bg-bg-secondary rounded-2xl content-top">
-                  <h1 className="lg:text-7xl sm:text-6xl text-5xl text-primary font-[1000]">
-                    $15{" "}
-                  </h1>
-                  <h2 className="text-secondary lg:text-3xl sm:text-2xl text-xl mt-3">
-                    Monthly fee
-                  </h2>
-                  <p className="sm:text-xl text-lg mt-3 sm:mt-6">
-                    A flat maintenance fee for keeping your LOC open.
-                  </p>
-                </div>
-                <div className="p-8 sm:p-10 lg:p-12 bg-bg-secondary rounded-2xl content-top">
-                  <h1 className="lg:text-7xl sm:text-6xl text-5xl text-primary font-[1000]">
-                    $3.50
-                  </h1>
-                  <h2 className="text-secondary lg:text-3xl sm:text-2xl text-xl mt-3">
-                    Per repayment
-                  </h2>
-                  <p className="sm:text-xl text-lg mt-3 sm:mt-6">
-                    A $3.50 fee each time a repayment is processed.
+                    47% per annum calculated daily on your balance.
                   </p>
                 </div>
               </div>

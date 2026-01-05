@@ -9,7 +9,7 @@ import Reviews from "../components/Reviews";
 import FAQSection from "../components/FAQSection";
 
 import HeroPhoto from "../assets/trusted-security-reliable-tech.svg";
-import RegisteredPhoto from "../assets/registered-2.png";
+import RegisteredPhoto from "../assets/registered.png";
 import CorePhoto from "../assets/core-security.png";
 
 import "../App.css";
@@ -304,7 +304,7 @@ export default function Security() {
       </header>
       <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="py-16 md:py-20 lg:py-24 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
+        <section className="py-16 md:py-20 lg:py-16 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
           <div className="grid gap-4 lg:gap-32 lg:grid-cols-2 items-center content-center text-center lg:text-left">
             {/* Left */}
             <motion.div

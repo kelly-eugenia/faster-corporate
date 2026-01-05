@@ -72,8 +72,6 @@ const homeFaqs = [
         <ul className="mt-3 space-y-1">
           <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
-          <li>• a $15 monthly fee</li>
-          <li>• a $3.50 fee per repayment</li>
         </ul>
         <p className="my-3 text-base md:text-xl">
           All fees are shown clearly before you sign your contract.
