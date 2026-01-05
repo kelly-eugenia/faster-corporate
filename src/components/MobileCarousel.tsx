@@ -100,9 +100,8 @@ export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
 
   return (
     <div className="relative w-full md:hidden">
-      {/* FIXED HEIGHT WRAPPER */}
       <div className="relative w-full overflow-hidden">
-        <div className="relative flex items-center justify-center h-full">
+        <div className="relative flex items-center justify-center h-full min-h-[240px]">
           {/* PREVIOUS (left faded) */}
           <motion.div
             key={`prev-${index}`}
@@ -167,7 +166,7 @@ export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
 
 function Card({ item }: { item: CarouselItem }) {
   return (
-    <div className="w-3/4 mx-auto bg-bg-secondary rounded-2xl p-8 text-center shadow-sm h-full">
+    <div className="w-3/4 mx-auto bg-bg-secondary rounded-2xl p-8 text-center shadow-sm">
       <div className="w-1/4 mx-auto mb-4">
         <img src={item.icon} alt={item.title} className="w-full h-auto" />
       </div>

@@ -295,7 +295,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="-mt-4 md:-mt-2 text-center">
             <Link
               to="/about"
               className="btn btn-primary text-base md:text-lg font-medium"

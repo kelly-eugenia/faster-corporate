@@ -360,13 +360,13 @@ export default function Fees() {
             </div>
 
             <div className="bg-bg-secondary rounded-2xl text-left px-8 md:px-12 py-10 md:py-16">
-              <p className="font-medium text-lg md:text-xl mb-8">
+              <p className="font-medium text-lg md:text-xl mb-6 md:mb-8">
                 For a customer with a $450 credit limit who uses the full amount
                 for one month:
               </p>
 
               <ul className="list-inside text-base md:text-lg text-text-primary">
-                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+                <li className="my-2 md:my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
                   <span className="text-primary mr-2 md:mr-4 font-medium">
                     Drawdown fee:
                   </span>
@@ -375,7 +375,7 @@ export default function Fees() {
                     (20% of $450, charged once at the start)
                   </span>
                 </li>
-                <li className="my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
+                <li className="my-2 md:my-4 font-bold text-xl md:text-2xl relative pl-8 md:pl-10 list-none before:absolute before:left-0 before:content-['▶'] before:text-primary">
                   <span className="text-primary mr-2 md:mr-4 font-medium">
                     Interest for month one:
                   </span>
@@ -386,7 +386,7 @@ export default function Fees() {
                 </li>
               </ul>
 
-              <p className="my-8 md:my-12 mb-4 font-bold text-xl md:text-2xl">
+              <p className="my-6 md:my-8 mb-4 font-bold text-xl md:text-2xl">
                 Total charges for the first month:
                 <span className="text-primary ml-2 md:ml-4 font-bold">
                   $136.64

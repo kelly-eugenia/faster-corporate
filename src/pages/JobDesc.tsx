@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -67,12 +67,14 @@ export default function JobDesc() {
 
         <div className="w-full lg:px-40 sm:px-12 mx-auto">
           <section className="py-24">
-            <button
-              onClick={() => window.history.back()}
-              className="p-0 text-lg text-text-primary/70 hover:text-primary"
-            >
-              ← Back to open roles
-            </button>
+            <div className="py-6">
+              <Link
+                to="/careers#open-roles"
+                className="text-lg font-medium text-text-primary/70 hover:text-primary"
+              >
+                ← Back to open roles
+              </Link>
+            </div>
             <p className="text-lg md:text-xl mt-12 text-text-primary">
               Job not found.
             </p>
@@ -89,12 +91,14 @@ export default function JobDesc() {
 
       <div className="w-full mx-auto">
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:max-w-6xl md:max-w-full mx-auto">
-          <button
-            onClick={() => window.history.back()}
-            className="p-0 text-lg text-text-primary/70 hover:text-primary"
-          >
-            ← Back to open roles
-          </button>
+          <div className="py-6">
+            <Link
+              to="/careers#open-roles"
+              className="text-lg font-medium text-text-primary/70 hover:text-primary"
+            >
+              ← Back to open roles
+            </Link>
+          </div>
           <header className="bg-bg-secondary rounded-2xl p-6 sm:p-12 lg:p-16 mb-12">
             <div className="mt-6 mb-8 sm:mt-8 sm:mb-12">
               <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl font-semibold text-text-primary">
@@ -143,7 +147,7 @@ export default function JobDesc() {
               </div>
             </div>
 
-            <div className="pt-2 lg:pt-4 pb-2">
+            <div className="pt-2 lg:pt-4 pb-4 lg:pb-2">
               <a
                 href={job.applyUrl}
                 target="_blank"
