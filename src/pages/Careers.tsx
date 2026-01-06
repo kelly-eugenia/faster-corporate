@@ -388,7 +388,7 @@ export default function Careers() {
               </div>
             </div>
 
-            {/* DESKTOP: 2-column grid (original layout) */}
+            {/* DESKTOP: 2-column grid */}
             <div className="hidden md:grid md:grid-cols-2 gap-8 items-stretch">
               <div className="bg-bg-secondary rounded-2xl p-8 content-center">
                 <div className="bg-bg-primary rounded-xl grid place-items-center h-12 w-12 mb-6 text-primary">

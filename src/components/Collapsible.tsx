@@ -19,7 +19,7 @@ export default function Collapsible({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full place-content-center md:place-content-start items-center gap-6 px-2 text-left"
+        className="flex w-full place-content-center md:place-content-start items-center gap-6 px-2 text-center md:text-left"
       >
         {/* Icon */}
         <span className="flex size-8 md:size-9 items-center justify-center font-bold text-primary">
