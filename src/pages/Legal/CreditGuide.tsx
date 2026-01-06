@@ -1,9 +1,15 @@
+import SEO from "../../components/SEO";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function CreditGuide() {
   return (
     <>
+      <SEO
+        title="Credit Guide | Faster.com.au"
+        description="Access Faster’s Credit Guide, outlining our obligations, complaint resolution process, and your rights under Australian credit laws."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto py-8">

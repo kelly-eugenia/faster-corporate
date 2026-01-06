@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -406,6 +407,11 @@ export default function FAQ() {
 
   return (
     <>
+      <SEO
+        title="Frequently Asked Questions | Faster.com.au"
+        description="Find clear answers about Faster, our Line of Credit, fees, repayments, security, and how our service works before you apply."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">

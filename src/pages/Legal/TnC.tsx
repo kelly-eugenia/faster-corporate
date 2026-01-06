@@ -1,9 +1,15 @@
+import SEO from "../../components/SEO";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function TnC() {
   return (
     <>
+      <SEO
+        title="Terms and Conditions | Faster.com.au"
+        description="Review the terms and conditions that apply to Faster’s services, including how our Line of Credit works and your rights as a customer."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto py-8">

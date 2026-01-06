@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -299,12 +300,16 @@ const securityFaqs = [
 export default function Security() {
   return (
     <>
-      <header className="sticky top-0 z-50 bg-bg-primary px-12 py-6 mx-auto">
-        <NavBar />
-      </header>
+      <SEO
+        title="Advanced Security — Security You Can Trust, Technology You Can Rely On | Faster.com.au"
+        description="See how Faster uses secure, encrypted systems and complies with Australian regulations to protect your data, privacy, and account activity."
+      />
+
+      <NavBar />
+
       <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="py-16 md:py-20 lg:py-16 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
+        <section className="py-16 md:py-18 lg:py-24 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
           <div className="grid gap-4 lg:gap-32 lg:grid-cols-2 items-center content-center text-center lg:text-left">
             {/* Left */}
             <motion.div
@@ -316,7 +321,7 @@ export default function Security() {
                 damping: 20,
                 delay: 0.05,
               }}
-              className="pt-4 sm:pt-6 md:pt-10 py-0 lg:py-16 lg:text-left sm:text-center"
+              className="pt-12 sm:pt-16 md:pt-16 lg:text-left sm:text-center"
             >
               <Pill text="Advanced security" color="bg-primary" />
               <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">

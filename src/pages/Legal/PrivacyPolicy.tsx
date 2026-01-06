@@ -1,9 +1,15 @@
+import SEO from "../../components/SEO";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function PrivacyPolicy() {
   return (
     <>
+      <SEO
+        title="Privacy Policy | Faster.com.au"
+        description="Learn how Faster collects, uses, and protects your personal and financial information in line with Australian privacy requirements."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto py-8">

@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -14,6 +15,11 @@ export default function ComingSoon() {
 
   return (
     <>
+      <SEO
+        title="Applications Opening Soon | Faster.com.au"
+        description="Faster.com.au applications are launching soon. Get notified to access our flexible Line of Credit designed for transparency, speed, and control."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -11,6 +12,11 @@ import "../App.css";
 export default function Calculator() {
   return (
     <>
+      <SEO
+        title="Line of Credit Calculator| Faster.com.au"
+        description="Use our calculator to estimate repayments and costs based on your credit limit, so you can understand your options upfront."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">
@@ -25,7 +31,7 @@ export default function Calculator() {
             {/* Left */}
             <div className="lg:text-left text-center">
               <h1 className="my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
-                Line of Credit calculator
+                Line of Credit Calculator
               </h1>
               <p className="text-base sm:text-lg md:text-2xl font-medium my-4 lg:my-8 text-bg-primary">
                 Want to know what you're getting into? Estimate your monthly

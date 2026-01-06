@@ -1,4 +1,6 @@
 import { useParams, Link } from "react-router-dom";
+
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -87,6 +89,11 @@ export default function JobDesc() {
 
   return (
     <>
+      <SEO
+        title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
+        description="Explore this role at Faster and see how you’ll help grow a fintech platform focused on fair credit, strong technology, and customer outcomes."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">

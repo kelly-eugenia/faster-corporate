@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -16,6 +17,11 @@ import "../App.css";
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Faster — Borrowing That’s Clear, Fair, and Makes Sense | Faster.com.au"
+        description="Learn who Faster.com.au is and how we are building a fairer credit experience with transparency, responsible lending, and customer trust at its core."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">

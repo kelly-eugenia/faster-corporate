@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -102,7 +103,13 @@ const homeFaqs = [
 export default function Contact() {
   return (
     <>
+      <SEO
+        title="Contact Us | Faster.com.au"
+        description="Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
+      />
+
       <NavBar />
+
       <div className="w-full mx-auto">
         {/* Hero */}
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">

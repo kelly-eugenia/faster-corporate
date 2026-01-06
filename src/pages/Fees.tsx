@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -92,6 +93,11 @@ const feesFaqs = [
 export default function Fees() {
   return (
     <>
+      <SEO
+        title="Our Fees — Clear, Simple, and Upfront | Faster.com.au"
+        description="View Faster’s fees, interest rates, and charges. Everything is explained clearly so you know exactly what to expect before applying."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">
@@ -112,7 +118,7 @@ export default function Fees() {
             >
               <Pill text="Our fees" color="bg-primary" />
               <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
-                Clear, simple and upfront.
+                Clear, simple, and upfront.
               </h1>
               <p className="my-8 px-4 md:px-0 text-bg-primary text-lg md:text-2xl font-medium">
                 Every cost of your Faster Line of Credit is set out before you

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
+import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -147,6 +148,11 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="Faster.com.au | Fast, Flexible Line of Credit in Australia"
+        description="Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+      />
+
       <NavBar />
 
       <div className="w-full mx-auto">

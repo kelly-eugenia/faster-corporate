@@ -1,23 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Pill from "../components/Pill";
 import "../App.css";
 
-const MIN_AMOUNT = 500;
+const MIN_AMOUNT = 0;
 const MAX_AMOUNT = 10000;
 const STEP_AMOUNT = 100;
 
-// Product constants
-const DRAWDOWN_RATE = 0.2; // 20%
-const ANNUAL_RATE = 0.47; // 47% p.a.
-const MONTHLY_FEE = 15;
-const REPAYMENT_FEE = 3.5;
+type Frequency = "weekly" | "fortnightly" | "monthly";
 
-// Term assumption: 1 month
-const MONTHLY_INTEREST_RATE = ANNUAL_RATE / 12; // ≈ 3.92% per month
-
-type Frequency = "weekly" | "fortnightly";
-
-const LoanCalculator: React.FC = () => {
+export default function LoanCalculator() {
   const [amount, setAmount] = useState(2000);
   const [frequency, setFrequency] = useState<Frequency>("weekly");
 
@@ -35,25 +26,31 @@ const LoanCalculator: React.FC = () => {
     maximumFractionDigits: 2,
   });
 
-  // --- Calculations for fixed 1-month term ---
+  // --- Formula ---
 
-  const drawdownFee = amount * DRAWDOWN_RATE;
-  const interest = amount * MONTHLY_INTEREST_RATE;
-  const monthlyFees = MONTHLY_FEE;
+  const getWeeklyRepayment = (amount: number): number => {
+    if (amount < 500) return 55;
+    if (amount < 1000) return 85;
+    if (amount < 2000) return 110;
+    return 200;
+  };
 
-  // Number of repayments over the month
-  const numberOfPayments = frequency === "weekly" ? 4 : 2;
-  const frequencyLabel = frequency === "weekly" ? "per week" : "per fortnight";
+  const weeklyBase = getWeeklyRepayment(amount);
 
-  // Per-repayment fees
-  const repaymentFees = numberOfPayments * REPAYMENT_FEE;
-
-  // Total charges and total repayable
-  const totalCharges = drawdownFee + interest + monthlyFees + repaymentFees;
-  const totalRepayable = amount + totalCharges;
+  const frequencyLabel =
+    frequency === "weekly"
+      ? "per week"
+      : frequency === "fortnightly"
+      ? "per fortnight"
+      : "per month";
 
   // Estimated repayment amount
-  const perPayment = totalRepayable / numberOfPayments;
+  const perPayment =
+    frequency === "weekly"
+      ? weeklyBase
+      : frequency === "fortnightly"
+      ? weeklyBase * 2
+      : weeklyBase * 4;
 
   return (
     <div
@@ -112,7 +109,7 @@ const LoanCalculator: React.FC = () => {
 
         {/* Frequency tabs */}
         <div className="text-center">
-          <div className="mt-2 inline-flex flex-wrap justify-center rounded-full border-2 border-secondary text-xs sm:text-sm">
+          <div className="mt-2 inline-flex flex-wrap justify-center rounded-full border-[1.5px] border-secondary text-xs sm:text-sm">
             <button
               type="button"
               onClick={() => setFrequency("weekly")}
@@ -138,20 +135,39 @@ const LoanCalculator: React.FC = () => {
             >
               Fortnightly
             </button>
+
+            <button
+              type="button"
+              onClick={() => setFrequency("monthly")}
+              className={`m-0 px-4 py-3 sm:py-4 font-medium rounded-full transition
+                    ${
+                      frequency === "monthly"
+                        ? "bg-bg-primary"
+                        : "text-secondary hover:text-primary"
+                    }`}
+            >
+              Monthly
+            </button>
           </div>
         </div>
 
         <hr className="border-t border-[#D4D6E5] my-6 sm:my-8" />
 
         <p className="text-xs leading-snug text-muted-primary text-center sm:text-left">
-          This is an estimate only. It assumes you use the full amount for 1
-          month, repay it in {numberOfPayments}{" "}
-          {frequency === "weekly" ? "weekly" : "fortnightly"} repayments, and
-          don't miss or dishonour any payments.
+          This Line of Credit calculator provides{" "}
+          <strong>estimates only</strong>. Results may vary based on how and
+          when funds are drawn, repaid, or re-drawn, and may be affected by
+          interest, fees, charges, and repayment behaviour. <br />
+          <br />
+          All credit is{" "}
+          <strong>
+            subject to eligibility criteria, credit assessment, and approval
+          </strong>
+          . Final terms, costs, and repayments will be set out in your credit
+          contract and disclosure documents. This is not an offer or financial
+          advice.
         </p>
       </div>
     </div>
   );
-};
-
-export default LoanCalculator;
+}
