@@ -310,8 +310,7 @@ export default function Security() {
       <div className="w-full mx-auto">
         {/* Hero */}
         <section className="py-16 md:py-18 lg:py-24 px-8 sm:px-12 lg:px-16 xl:px-40 bg-gradient-to-bl from-secondary to-primary">
-          <div className="grid gap-4 lg:gap-32 lg:grid-cols-2 items-center content-center text-center lg:text-left">
-            {/* Left */}
+          <div className="xl:max-w-[1920px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 80 }}
               animate={{ opacity: 1, y: 0 }}
@@ -321,246 +320,254 @@ export default function Security() {
                 damping: 20,
                 delay: 0.05,
               }}
-              className="pt-12 sm:pt-16 md:pt-16 lg:text-left sm:text-center"
+              className="grid gap-4 lg:gap-32 lg:grid-cols-2 items-center content-center text-center lg:text-left"
             >
-              <Pill text="Advanced security" color="bg-primary" />
-              <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
-                Security you can trust, tech you can rely on
-              </h1>
-              <p className="my-8 px-4 md:px-0 text-bg-secondary text-lg md:text-2xl font-medium">
-                As a digital-first credit provider, Faster is built on strong
-                engineering foundations. We use secure, industry-standard
-                technology to protect your personal information, bank data, and
-                account activity.
-              </p>
-            </motion.div>
+              {/* Left */}
+              <div className="pt-12 sm:pt-16 md:pt-16 lg:text-left sm:text-center">
+                <Pill text="Advanced security" color="bg-primary" />
+                <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
+                  Security you can trust, tech you can rely on
+                </h1>
+                <p className="my-8 px-4 md:px-0 text-bg-secondary text-lg md:text-2xl font-medium">
+                  As a digital-first credit provider, Faster is built on strong
+                  engineering foundations. We use secure, industry-standard
+                  technology to protect your personal information, bank data,
+                  and account activity.
+                </p>
+              </div>
 
-            {/* Right */}
-            <div className="lg:pt-24 rounded-2xl flex items-end justify-center h-full">
-              <img
-                className="block w-auto h-full scale-[1.05] lg:scale-[1.1] origin-bottom"
-                src={HeroPhoto}
-                alt="Our Security"
-              />{" "}
-            </div>
+              {/* Right */}
+              <div className="lg:pt-24 rounded-2xl flex items-end justify-center h-full">
+                <img
+                  className="block p-8 w-auto h-full"
+                  src={HeroPhoto}
+                  alt="Our Security"
+                />{" "}
+              </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Key features */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 grid gap-8 mb-12 items-stretch">
-          <div className="rounded-2xl pb-0 sm:pb-4 content-center text-center">
-            <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
-              Built on{" "}
-              <span className="text-primary font-[800]">
-                secure, encrypted{" "}
-              </span>
-              systems
+        <div className="xl:max-w-[1920px] mx-auto">
+          <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 grid gap-8 mb-12 items-stretch">
+            <div className="rounded-2xl pb-0 sm:pb-4 content-center text-center">
+              <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
+                Built on{" "}
+                <span className="text-primary font-[800]">
+                  secure, encrypted{" "}
+                </span>
+                systems
+              </h1>
+              <p className="text-lg md:text-xl mt-6 md:mt-8">
+                We invest in secure infrastructure, encrypted data handling, and
+                continuous monitoring to keep your information protected at all
+                times. Our platform is designed to process applications safely,
+                securely, and accurately — without compromising speed or
+                usability.
+              </p>
+            </div>
+
+            {/* Trustpilot */}
+            <section className="rounded-2xl px-6 py-8 md:py-12 mb-6 bg-bg-secondary text-xl text-center text-bg-primary">
+              <Pill text="What the people say" color="bg-primary" />
+              <Reviews />
+            </section>
+
+            {/* Features */}
+            <h1 className="my-6 mb-2 md:my-12 md:mb-6 text-4xl md:text-5xl lg:text-6xl text-center lg:text-left">
+              Key features
             </h1>
-            <p className="text-lg md:text-xl mt-6 md:mt-8">
-              We invest in secure infrastructure, encrypted data handling, and
-              continuous monitoring to keep your information protected at all
-              times. Our platform is designed to process applications safely,
-              securely, and accurately — without compromising speed or
-              usability.
-            </p>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+              {/* Left column */}
+              <div className="flex flex-col gap-4 md:gap-8">
+                {leftFeatures.map((feature) => (
+                  <Collapsible
+                    key={feature.header}
+                    header={feature.header}
+                    text={feature.text}
+                    icon={feature.icon}
+                  />
+                ))}
+              </div>
 
-          {/* Trustpilot */}
-          <section className="rounded-2xl px-6 py-8 md:py-12 mb-6 bg-bg-secondary text-xl text-center text-bg-primary">
-            <Pill text="What the people say" color="bg-primary" />
-            <Reviews />
+              {/* Right column */}
+              <div className="flex flex-col gap-4 md:gap-8">
+                {rightFeatures.map((feature) => (
+                  <Collapsible
+                    key={feature.header + "-right"}
+                    header={feature.header}
+                    text={feature.text}
+                    icon={feature.icon}
+                  />
+                ))}
+              </div>
+            </div>
           </section>
-
-          {/* Features */}
-          <h1 className="my-6 mb-2 md:my-12 md:mb-6 text-4xl md:text-5xl lg:text-6xl text-center lg:text-left">
-            Key features
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-            {/* Left column */}
-            <div className="flex flex-col gap-4 md:gap-8">
-              {leftFeatures.map((feature) => (
-                <Collapsible
-                  key={feature.header}
-                  header={feature.header}
-                  text={feature.text}
-                  icon={feature.icon}
-                />
-              ))}
-            </div>
-
-            {/* Right column */}
-            <div className="flex flex-col gap-4 md:gap-8">
-              {rightFeatures.map((feature) => (
-                <Collapsible
-                  key={feature.header + "-right"}
-                  header={feature.header}
-                  text={feature.text}
-                  icon={feature.icon}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        </div>
 
         <hr className="border-t border-[#D4D6E5]" />
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl text-center my-16 mb-8 md:my-24 md:mb-12">
-          Why trust Faster?
-        </h1>
-        {/* Regulation and compliance */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-12 gap-8 sm:gap-16">
-          <div className="order-2 lg:order-1 rounded-2xl -mt-6 md:-mt-12 lg:-mt-0 pb-4 flex items-center justify-center">
-            <img
-              src={RegisteredPhoto}
-              alt="Illustration of regulation and compliance"
-              className="block w-full h-auto rounded-2xl"
-            />
-          </div>
-          <div className="order-1 lg:order-2 text-center lg:text-left content-center py-12 lg:py-16 pb-0">
-            <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
-              Regulation and compliance
-            </h1>
+        <div className="xl:max-w-[1920px] mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-center my-16 mb-8 md:my-24 md:mb-12">
+            Why trust Faster?
+          </h1>
+          {/* Regulation and compliance */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-12 gap-8 sm:gap-16">
+            <div className="order-2 lg:order-1 rounded-2xl -mt-6 md:-mt-12 lg:-mt-0 pb-4 flex items-center justify-center">
+              <img
+                src={RegisteredPhoto}
+                alt="Illustration of regulation and compliance"
+                className="block w-full h-auto rounded-2xl"
+              />
+            </div>
+            <div className="order-1 lg:order-2 text-center lg:text-left content-center py-12 lg:py-16 pb-0">
+              <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
+                Regulation and compliance
+              </h1>
 
-            <ul className="list-inside text-base md:text-lg font-medium text-text-primary">
-              <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
-                Complies with Australian credit and privacy laws, including the
-                National Consumer Credit Protection Act 2009
-              </li>
-              <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
-                Follows relevant ASIC expectations, including those set out in
-                Regulatory Guide 234 on clear, fair and accurate communication
-              </li>
-            </ul>
-          </div>
-        </section>
+              <ul className="list-inside text-base md:text-lg font-medium text-text-primary">
+                <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                  Complies with Australian credit and privacy laws, including
+                  the National Consumer Credit Protection Act 2009
+                </li>
+                <li className="my-4 relative pl-6 lg:pl-8 list-none before:absolute before:left-0 before:content-['✓'] before:text-primary">
+                  Follows relevant ASIC expectations, including those set out in
+                  Regulatory Guide 234 on clear, fair and accurate communication
+                </li>
+              </ul>
+            </div>
+          </section>
 
-        {/* Security */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-24 gap-8 sm:gap-16">
-          <div className="rounded-2xl px-8 py-16 content-center lg:text-left text-center">
-            <h1 className="my-4 md:my-6 text-4xl sm:text-5xl lg:text-6xl">
-              Security at our core
-            </h1>
-            <p>
-              You trust us with your information — and we take that
-              responsibility seriously.
-            </p>
+          {/* Security */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 bg-bg-secondary rounded-2xl mx-8 sm:mx-12 lg:mx-32 xl:mx-40 px-8 sm:px-16 mb-24 gap-8 sm:gap-16">
+            <div className="rounded-2xl px-8 py-16 content-center lg:text-left text-center">
+              <h1 className="my-4 md:my-6 text-4xl sm:text-5xl lg:text-6xl">
+                Security at our core
+              </h1>
+              <p>
+                You trust us with your information — and we take that
+                responsibility seriously.
+              </p>
 
-            <div>
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                <span className="flex items-center mx-auto lg:mx-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <div className="mx-auto lg:mx-0">
-                  <h2 className="text-3xl sm:text-4xl">Expertise</h2>
-                  <p>
-                    Backed by an experienced team across tech, credit, security,
-                    and compliance.
-                  </p>
+              <div>
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                  <span className="flex items-center mx-auto lg:mx-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-12 text-primary"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div className="mx-auto lg:mx-0">
+                    <h2 className="text-3xl sm:text-4xl">Expertise</h2>
+                    <p>
+                      Backed by an experienced team across tech, credit,
+                      security, and compliance.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                <span className="flex items-center mx-auto lg:mx-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                      clipRule="evenodd"
-                    />
-                    <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
-                  </svg>
-                </span>
-                <div className="mx-auto lg:mx-0">
-                  <h2 className="text-3xl sm:text-4xl">Innovation</h2>
-                  <p>
-                    Our platform is continually improved to stay aligned with
-                    industry best practices.
-                  </p>
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                  <span className="flex items-center mx-auto lg:mx-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-12 text-primary"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
+                        clipRule="evenodd"
+                      />
+                      <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
+                    </svg>
+                  </span>
+                  <div className="mx-auto lg:mx-0">
+                    <h2 className="text-3xl sm:text-4xl">Innovation</h2>
+                    <p>
+                      Our platform is continually improved to stay aligned with
+                      industry best practices.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                <span className="flex items-center mx-auto lg:mx-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
-                      clipRule="evenodd"
-                    />
-                    <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
-                  </svg>
-                </span>
-                <div className="mx-auto lg:mx-0">
-                  <h2 className="text-3xl sm:text-4xl">
-                    Customer-First Design
-                  </h2>
-                  <p>Privacy and safety are designed into every feature.</p>
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                  <span className="flex items-center mx-auto lg:mx-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-12 text-primary"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z"
+                        clipRule="evenodd"
+                      />
+                      <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+                    </svg>
+                  </span>
+                  <div className="mx-auto lg:mx-0">
+                    <h2 className="text-3xl sm:text-4xl">
+                      Customer-First Design
+                    </h2>
+                    <p>Privacy and safety are designed into every feature.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                <span className="flex items-center mx-auto lg:mx-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-12 text-primary"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                <div className="mx-auto lg:mx-0">
-                  <h2 className="text-3xl sm:text-4xl">
-                    Commitment to Transparency
-                  </h2>
-                  <p>
-                    Clear communication about how your data is used and stored.
-                  </p>
+                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
+                  <span className="flex items-center mx-auto lg:mx-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-12 text-primary"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <div className="mx-auto lg:mx-0">
+                    <h2 className="text-3xl sm:text-4xl">
+                      Commitment to Transparency
+                    </h2>
+                    <p>
+                      Clear communication about how your data is used and
+                      stored.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="rounded-2xl -mt-40 md:-mt-48 lg:-mt-0 pb-4 flex items-center justify-center">
-            <img
-              src={CorePhoto}
-              alt="Faster website on phone and laptop"
-              className="block w-full h-auto rounded-2xl"
-            />
-          </div>
-        </section>
+            <div className="rounded-2xl -mt-40 md:-mt-48 lg:-mt-0 pb-4 flex items-center justify-center">
+              <img
+                src={CorePhoto}
+                alt="Faster website on phone and laptop"
+                className="block w-full h-auto rounded-2xl"
+              />
+            </div>
+          </section>
 
-        {/* CTA */}
-        <CTA />
+          {/* CTA */}
+          <CTA />
 
-        {/* FAQ */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
-          <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
-            Customers frequently ask
-          </h1>
-          <FAQSection faqs={securityFaqs} />
-        </section>
+          {/* FAQ */}
+          <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
+            <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
+              Customers frequently ask
+            </h1>
+            <FAQSection faqs={securityFaqs} />
+          </section>
+        </div>
       </div>
       <Footer />
     </>

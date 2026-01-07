@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Phone from "../assets/dashboard-mobile.svg";
-import Background from "../assets/animated-background.gif";
+import Phone from "../assets/dashboard-mobile.png";
+import Background from "../assets/animated-background.webp";
 import Pill from "../components/Pill";
 import "../App.css";
 
@@ -26,7 +26,7 @@ export default function CTA() {
           </div>
         </div>
         <div className="pl-6 lg:pl-0 -mt-20 lg:-mt-0 rounded-2xl flex items-end justify-center lg:justify-end overflow-hidden">
-          <div className="relative w-full lg:w-auto lg:max-h-[560px] flex items-end lg:items-center">
+          <div className="relative w-full lg:w-auto lg:max-h-[560px] 2xl:max-h-[640px] flex items-end lg:items-center">
             {/* Phone */}
             <img
               src={Phone}
@@ -34,9 +34,9 @@ export default function CTA() {
               className="
                 relative z-10
                 w-full h-full
-                object-contain lg:object-cover
-                lg:scale-[1.05]
-                origin-bottom
+                object-contain 
+                lg:scale-[1.05] origin-bottom
+                2xl:scale-[0.92] 2xl:origin-center
               "
             />
 

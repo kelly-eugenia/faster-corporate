@@ -65,6 +65,11 @@ export default function JobDesc() {
   if (!job) {
     return (
       <>
+        <SEO
+          title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
+          description="Explore this role at Faster and see how you’ll help grow a fintech platform focused on fair credit, strong technology, and customer outcomes."
+        />
+
         <NavBar />
 
         <div className="w-full lg:px-40 sm:px-12 mx-auto">
@@ -97,7 +102,7 @@ export default function JobDesc() {
       <NavBar />
 
       <div className="w-full mx-auto">
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:max-w-6xl md:max-w-full mx-auto">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 xl:max-w-[1920px] lg:max-w-6xl md:max-w-full mx-auto">
           <div className="py-6">
             <Link
               to="/careers#open-roles"
@@ -166,7 +171,9 @@ export default function JobDesc() {
             </div>
           </header>
 
-          <section className="max-w-6xl mb-6 md:mb-12">{job.desc}</section>
+          <section className="xl:max-w-[1920px] max-w-6xl mb-6 md:mb-12">
+            {job.desc}
+          </section>
 
           <div className="mt-16 mb-24">
             <a

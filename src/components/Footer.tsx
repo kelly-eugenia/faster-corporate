@@ -19,7 +19,7 @@ const xlLinkClass =
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-secondary to-primary">
-      <div className="w-full mx-auto px-8 py-12 lg:py-16 lg:px-40 space-y-10">
+      <div className="w-full max-w-[2160px] mx-auto  py-12 lg:py-16 px-8 lg:px-40 space-y-10">
         <div className="flex flex-col gap-16 md:flex-row md:items-start md:justify-between">
           {/* Logo */}
           <div className="w-[45%] md:w-[30%] flex-shrink-0">

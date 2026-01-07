@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
@@ -109,12 +110,12 @@ export default function ComingSoon() {
               )}
             </div>
 
-            <a
-              href="/home"
+            <Link
+              to="/home"
               className=" text-bg-secondary/70 text-lg font-medium hover:underline"
             >
               ← Back to Home
-            </a>
+            </Link>
           </motion.div>
         </section>
       </div>

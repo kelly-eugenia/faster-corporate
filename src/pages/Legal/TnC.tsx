@@ -12,7 +12,7 @@ export default function TnC() {
 
       <NavBar />
 
-      <div className="w-full mx-auto py-8">
+      <div className="w-full max-w-[1800px] mx-auto py-8">
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 mx-auto">
           <header className="bg-gradient-to-b from-secondary to-primary rounded-2xl py-12 p-6 sm:p-12 lg:p-16 mb-12">
             <h1 className="my-6 md:my-8 text-5xl lg:text-6xl font-bold text-center text-bg-primary">
@@ -20,7 +20,7 @@ export default function TnC() {
             </h1>
           </header>
 
-          <section className="max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
+          <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
               <h1 className="text-4xl">Faster.com.au Terms and Conditions</h1>
               <h2 className="mt-2 text-3xl text-muted-primary">

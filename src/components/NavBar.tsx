@@ -42,7 +42,7 @@ export default function NavBar() {
 
   return (
     <header className={wrapperClasses}>
-      <div className="mx-auto flex h-16 sm:h-20 items-center justify-between px-6 sm:px-12 lg:px-12 xl:px-40">
+      <div className="max-w-[2160px] mx-auto flex h-16 sm:h-20 items-center justify-between px-8 lg:px-40">
         {/* Logo */}
         <NavLink
           to="/"

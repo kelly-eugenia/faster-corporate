@@ -113,111 +113,113 @@ export default function Contact() {
       <div className="w-full mx-auto">
         {/* Hero */}
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">
-          <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
-            className="pt-12 sm:pt-16 gap-8 content-center text-center"
-          >
-            <Pill text="Get in touch" color="bg-primary" />
+          <div className="xl:max-w-[1920px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 20,
+                delay: 0.05,
+              }}
+              className="pt-12 sm:pt-16 gap-8 content-center text-center"
+            >
+              <Pill text="Get in touch" color="bg-primary" />
 
-            <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
-              We're here to help
-            </h1>
-            <p className="my-4 md:my-8 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg md:text-2xl font-medium">
-              Whether you're looking for more information about our fees or need
-              support with your account, we're just a message away.
-            </p>
-          </motion.div>
+              <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
+                We're here to help
+              </h1>
+              <p className="my-4 md:my-8 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg md:text-2xl font-medium">
+                Whether you're looking for more information about our fees or
+                need support with your account, we're just a message away.
+              </p>
+            </motion.div>
 
-          <div className="pt-8 pb-12 sm:pb-16 max-w-sm sm:max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mx-auto items-stretch">
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
-              <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-8"
-                >
-                  <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
-                  <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-                </svg>
-              </div>
-              <h2 className="text-2xl md:text-3xl">Send us an email</h2>
-              <p>Reach out to our support email.</p>
-              <div className="mt-6 md:mt-8">
-                <span>
+            <div className="pt-8 pb-12 sm:pb-16 max-w-sm sm:max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mx-auto items-stretch">
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
+                <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-6 inline mr-2 text-primary"
+                    className="size-8"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
-                      clipRule="evenodd"
-                    />
+                    <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                    <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                   </svg>
-                </span>
-                <a
-                  href="mailto:support@faster.com.au"
-                  className="text-xl text-primary hover:underline"
-                >
-                  support@faster.com.au
-                </a>
+                </div>
+                <h2 className="text-2xl md:text-3xl">Send us an email</h2>
+                <p>Reach out to our support email.</p>
+                <div className="mt-6 md:mt-8">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-6 inline mr-2 text-primary"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <a
+                    href="mailto:support@faster.com.au"
+                    className="text-xl text-primary hover:underline"
+                  >
+                    support@faster.com.au
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
-              <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="size-8"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h2 className="text-2xl md:text-3xl">Chat with us live</h2>
-              <p>Speak to our support team directly.</p>
-              <div className="mt-6 md:mt-8">
-                <span>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
+                <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="size-6 inline mr-2 text-primary"
+                    className="size-8"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                      d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"
                       clipRule="evenodd"
                     />
                   </svg>
-                </span>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (window.tidioChatApi) {
-                      window.tidioChatApi.open();
-                    }
-                  }}
-                  className="text-xl text-primary hover:underline"
-                >
-                  Start chat
-                </a>
+                </div>
+                <h2 className="text-2xl md:text-3xl">Chat with us live</h2>
+                <p>Speak to our support team directly.</p>
+                <div className="mt-6 md:mt-8">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-6 inline mr-2 text-primary"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (window.tidioChatApi) {
+                        window.tidioChatApi.open();
+                      }
+                    }}
+                    className="text-xl text-primary hover:underline"
+                  >
+                    Start chat
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -225,17 +227,19 @@ export default function Contact() {
 
         {/* FAQ */}
         <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
-          <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
-            Customers frequently ask
-          </h1>
-          <FAQSection faqs={homeFaqs} />
-          <div className="mt-4 text-center">
-            <Link
-              to="/faq"
-              className="btn btn-primary text-base md:text-lg font-medium"
-            >
-              View More
-            </Link>
+          <div className="xl:max-w-[1920px] mx-auto">
+            <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
+              Customers frequently ask
+            </h1>
+            <FAQSection faqs={homeFaqs} />
+            <div className="mt-4 text-center">
+              <Link
+                to="/faq"
+                className="btn btn-primary text-base md:text-lg font-medium"
+              >
+                View More
+              </Link>
+            </div>
           </div>
         </section>
       </div>
