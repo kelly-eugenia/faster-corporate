@@ -7,6 +7,12 @@ interface CarouselItem {
   desc: string;
 }
 
+const swipeConfidenceThreshold = 80;
+
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
+
 export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -93,13 +99,13 @@ export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
     autoplayRef.current = setInterval(() => {
       setDirection(1); // autoplay always moves forward
       setIndex((i) => loop(i + 1)); // loop around smoothly
-    }, 2500); // <-- autoplay interval (2.5 seconds)
+    }, 4000); // <-- autoplay interval (4 seconds)
 
     return () => clearInterval(autoplayRef.current!);
   }, [index]); // restart after each slide animation
 
   return (
-    <div className="relative w-full md:hidden">
+    <div className="relative w-full sm:hidden">
       <div className="relative w-full overflow-hidden">
         <div className="relative flex items-center justify-center h-full min-h-[240px]">
           {/* PREVIOUS (left faded) */}
@@ -110,7 +116,11 @@ export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{
+              delay: direction > 0 ? 0 : 0.1,
+              duration: 0.35,
+              ease: "easeOut",
+            }}
             className="absolute right-1/2 -translate-x-1/2 w-[70%] pointer-events-none"
           >
             <Card item={prevCard} />
@@ -124,8 +134,20 @@ export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{ delay: 0.05, duration: 0.35, ease: "easeOut" }}
             className="w-[75%] z-10"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.15}
+            onDragEnd={(_, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
+
+              if (swipe < -swipeConfidenceThreshold) {
+                next();
+              } else if (swipe > swipeConfidenceThreshold) {
+                prev();
+              }
+            }}
           >
             <Card item={current} />
           </motion.div>
@@ -138,7 +160,11 @@ export default function MobileCarousel({ items }: { items: CarouselItem[] }) {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{
+              delay: direction > 0 ? 0.1 : 0,
+              duration: 0.35,
+              ease: "easeOut",
+            }}
             className="absolute left-1/2 -translate-x-1/2 w-[70%] pointer-events-none"
           >
             <Card item={nextCard} />

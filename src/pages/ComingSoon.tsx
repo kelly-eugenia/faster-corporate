@@ -62,8 +62,8 @@ export default function ComingSoon() {
               Hold tight, we will launch our Faster platform soon!
             </p>
 
-            <div className="bg-secondary/50 max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-6xl mx-auto rounded-2xl px-12 md:px-24 lg:px-32 py-10 md:py-12 mb-6">
-              <h2 className="text-bg-primary text-2xl md:text-3xl lg:text-4xl mb-0 md:mb-4">
+            <div className="bg-secondary/50 max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-6xl mx-auto rounded-2xl p-8 m:px-12 md:px-24 lg:px-32 sm:py-10 md:py-12 mb-6">
+              <h2 className="text-bg-primary text-2xl sm:text-3xl lg:text-4xl mb-4">
                 Get notified when applications open
               </h2>
               {!submitted ? (
@@ -75,18 +75,18 @@ export default function ComingSoon() {
                     hasSubmittedRef.current = true;
                   }}
                 >
-                  <div className="flex items-center space-x-4">
+                  <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
                     <input
                       type="email"
                       name="entry.254947007"
                       required
                       placeholder="Email address"
-                      className="w-[70%] rounded-lg text-text-primary px-4 py-3"
+                      className="w-full sm:w-[70%] rounded-lg text-text-primary px-4 py-3"
                     />
 
                     <button
                       type="submit"
-                      className="w-[30%] flex-shrink-0 btn btn-primary text-lg font-medium"
+                      className="w-full sm:w-[30%] flex-shrink-0 btn btn-primary text-base sm:text-lg font-medium"
                     >
                       Notify Me
                     </button>

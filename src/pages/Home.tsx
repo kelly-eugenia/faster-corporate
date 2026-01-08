@@ -166,17 +166,16 @@ export default function Home() {
                   <Pill text="Fast credit, made simple." color="bg-primary" />
                   <h1 className="mt-8 lg:mt-12 text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-bg-primary">
                     Access up to{" "}
-                    <span className="inline-block w-[7ch] align-baseline text-center">
+                    <span className="inline-block w-[7.2ch] align-baseline text-center">
                       <motion.span className="text-bg-primary font-[800] tabular-nums whitespace-nowrap">
                         {amountFormatted}
                       </motion.span>
                     </span>{" "}
-                    when you need it most
+                    with a flexible Line of Credit
                   </h1>
                   <p className="mt-6 lg:mt-8 text-bg-secondary text-base sm:text-lg md:text-2xl">
-                    When traditional banks say no,{" "}
-                    <strong>Faster says yes</strong>. Get a Line of Credit with
-                    clear terms, no surprises, and decisions in minutes.
+                    A simpler alternative to traditional banks, with clear terms
+                    and no confusing surprises.
                   </p>
 
                   <motion.button
@@ -262,9 +261,9 @@ export default function Home() {
             />
 
             {/* Desktop Grid */}
-            <div className="hidden px-8 sm:px-12 lg:px-16 xl:px-40 md:grid xl:grid-cols-4 md:grid-cols-2 gap-8 items-stretch text-center md:text-left">
+            <div className="hidden px-8 sm:px-12 lg:px-16 xl:px-40 sm:grid xl:grid-cols-4 sm:grid-cols-2 gap-8 items-stretch text-center sm:text-left">
               <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
                   <img src={SecurityIcon} alt="Security" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl">Advanced Security</h2>
@@ -274,7 +273,7 @@ export default function Home() {
               </div>
 
               <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
                   <img src={FeesIcon} alt="Fees" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl">Clear, Fair Fees</h2>
@@ -285,7 +284,7 @@ export default function Home() {
               </div>
 
               <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
                   <img src={CustomerIcon} alt="Customer Support" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl">Customer Support</h2>
@@ -293,7 +292,7 @@ export default function Home() {
               </div>
 
               <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto md:mx-0 mb-6">
+                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
                   <img src={TechIcon} alt="Reliable Tech" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl">Reliable Tech</h2>
@@ -305,7 +304,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="-mt-4 md:-mt-2 text-center">
+          <div className="-mt-4 sm:-mt-2 text-center">
             <Link
               to="/about"
               className="btn btn-primary text-base md:text-lg font-medium"
