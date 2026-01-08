@@ -14,7 +14,7 @@ export default function Calculator() {
     <>
       <SEO
         title="Line of Credit Calculator| Faster.com.au"
-        description="Use our calculator to estimate repayments and costs based on your credit limit, so you can understand your options upfront."
+        description="Use our calculator to estimate repayments based on your credit limit and repayment frequency, so you can understand your options upfront."
       />
 
       <NavBar />
@@ -35,8 +35,8 @@ export default function Calculator() {
                   Line of Credit Calculator
                 </h1>
                 <p className="text-base sm:text-lg md:text-2xl font-medium my-4 lg:my-8 text-bg-primary">
-                  Want to know what you're getting into? Estimate your monthly
-                  repayments in less than 30 seconds.
+                  Want to know what you're getting into? Estimate your repayment
+                  schedule in less than 30 seconds.
                 </p>
                 <div className="mb-12 lg:mb-0">
                   <Link
