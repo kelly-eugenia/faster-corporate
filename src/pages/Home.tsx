@@ -163,7 +163,7 @@ export default function Home() {
               {/* Left */}
               <div className="pt-12 pb-0 lg:pb-12 flex flex-col justify-center">
                 <div className="lg:mt-8 lg:text-left text-center">
-                  <Pill text="Fast credit, made simple." color="bg-primary" />
+                  <Pill text="Credit, made clearer." color="bg-primary" />
                   <h1 className="mt-8 lg:mt-12 text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-bg-primary">
                     Access up to{" "}
                     <span className="inline-block w-[7.2ch] align-baseline text-center">
