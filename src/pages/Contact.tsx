@@ -89,12 +89,14 @@ const homeFaqs = [
         </a>
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
-        <Link
-          to="/contact"
-          className="btn btn-primary text-base md:text-lg font-medium"
-        >
-          Contact Us
-        </Link>
+        <div className="mt-2">
+          <Link
+            to="/contact"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            Contact Us
+          </Link>
+        </div>
       </>
     ),
   },

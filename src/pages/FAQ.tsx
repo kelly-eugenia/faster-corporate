@@ -100,12 +100,14 @@ const topFaqs: Faq[] = [
         </a>
         . We’re here to help with account access, repayments, fee questions, or
         anything else you’re unsure about.
-        <Link
-          to="/contact"
-          className="btn btn-primary text-base md:text-lg font-medium"
-        >
-          Contact Us
-        </Link>
+        <div className="mt-2">
+          <Link
+            to="/contact"
+            className="btn btn-primary text-base md:text-lg font-medium"
+          >
+            Contact Us
+          </Link>
+        </div>
       </>
     ),
   },
@@ -221,7 +223,7 @@ const applicationFaqs: Faq[] = [
 
 const creditFaqs: Faq[] = [
   {
-    question: "ly to my Faster Line of Credit?",
+    question: "What fees apply to my Faster Line of Credit?",
     answer: (
       <>
         Our standard fees are:
