@@ -6,12 +6,6 @@ const MIN_AMOUNT = 0;
 const MAX_AMOUNT = 10000;
 const STEP_AMOUNT = 100;
 
-const REPAYMENT_AMOUNT = {
-  weekly: 55,
-  fortnightly: 110,
-  monthly: 220,
-};
-
 type Frequency = "weekly" | "fortnightly" | "monthly";
 
 export default function LoanCalculator() {
@@ -36,13 +30,7 @@ export default function LoanCalculator() {
 
   // Estimated repayment amount
   const repaymentAmount =
-    frequency === "weekly"
-      ? REPAYMENT_AMOUNT.weekly
-      : frequency === "fortnightly"
-      ? REPAYMENT_AMOUNT.fortnightly
-      : REPAYMENT_AMOUNT.monthly;
-
-  const durationPeriods = Math.ceil(Math.ceil(amount / repaymentAmount) * 1.2);
+    frequency === "weekly" ? 55 : frequency === "fortnightly" ? 110 : 220;
 
   const frequencyLabel =
     frequency === "weekly"
@@ -50,13 +38,6 @@ export default function LoanCalculator() {
       : frequency === "fortnightly"
       ? "per fortnight"
       : "per month";
-
-  const durationLabel =
-    frequency === "weekly"
-      ? "weeks"
-      : frequency === "fortnightly"
-      ? "fortnights"
-      : "months";
 
   return (
     <div
@@ -67,40 +48,9 @@ export default function LoanCalculator() {
         <div className="flex-1">
           <Pill text="Line of Credit calculator" color="bg-secondary" />
 
-          {/* Loan amount */}
-          <div className="my-6 sm:my-8">
-            <h2 className="text-xl sm:text-2xl font-semibold text-text-primary">
-              How much would you like to borrow?
-            </h2>
-
-            <div className="p-4 border border-bg-secondary rounded-2xl">
-              {/* Current amount */}
-              <h1 className="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-primary">
-                {currency0.format(amount)}
-              </h1>
-
-              {/* Amount slider */}
-              <div className="mt-4">
-                <input
-                  type="range"
-                  min={MIN_AMOUNT}
-                  max={MAX_AMOUNT}
-                  step={STEP_AMOUNT}
-                  value={amount}
-                  onChange={(e) => setAmount(Number(e.target.value))}
-                  className="range-slider w-full"
-                />
-                <div className="mt-2 flex justify-between text-xs sm:text-sm text-muted-primary">
-                  <span>{currency0.format(MIN_AMOUNT)}</span>
-                  <span>{currency0.format(MAX_AMOUNT)}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Frequency tabs */}
-          <div>
-            <h2 className="text-base sm:text-lg -mb-2 font-medium text-text-primary">
+          <div className="mt-8 sm:mt-10 mb-2">
+            <h2 className="text-xl sm:text-2xl -mb-2 font-medium text-text-primary">
               Select repayment frequency
             </h2>
             <div className="grid grid-cols-3 gap-2 justify-center text-sm sm:text-base">
@@ -146,32 +96,47 @@ export default function LoanCalculator() {
       {/* Output card */}
       <div className="bg-bg-secondary mt-2 sm:mt-4 rounded-2xl px-4 py-8 sm:px-6 sm:py-10">
         {/* Output */}
-        <div className="mb-4 grid justify-center text-center">
+        <div className="grid justify-center text-center">
           <p className="text-sm sm:text-base font-medium text-text-primary">
             Estimated repayment amount
           </p>
-          <div className="my-2 text-3xl sm:text-5xl font-bold text-foreground leading-tight break-words">
+          <div className="my-2 text-4xl sm:text-5xl font-bold text-foreground leading-tight break-words">
             {currency2.format(repaymentAmount)}{" "}
-            <span className="text-xs sm:text-base font-normal text-muted-primary align-middle">
+            <span className="text-sm sm:text-base font-normal text-muted-primary align-middle">
               {frequencyLabel}
             </span>
           </div>
-          <div className="mt-0 sm:mt-2 rounded-2xl px-4 py-2 bg-bg-primary w-fit mx-auto">
-            <p className="font-medium text-muted-primary text-sm sm:text-base">
-              For approximately{" "}
-              <span className="font-bold text-primary">
-                {durationPeriods} {durationLabel}
-              </span>
-            </p>
-          </div>
+        </div>
+
+        <div className="mt-2 rounded-2xl bg-bg-primary px-4 py-2 w-fit mx-auto">
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="inline mr-2 size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+              />
+            </svg>
+          </span>
+          <span className="font-medium text-muted-primary text-xs sm:text-sm">
+            Estimated amount for any credit limit from{" "}
+            <strong>$0–$10,000</strong>
+          </span>
         </div>
 
         <hr className="border-t border-[#D4D6E5] my-6 sm:my-8" />
 
         <p className="text-xs leading-snug text-muted-primary text-center sm:text-left">
           This Line of Credit calculator provides{" "}
-          <strong>estimates only</strong>. Results may vary based on how and
-          when funds are drawn, repaid, or re-drawn, and may be affected by
+          <strong>estimates only</strong>. Actual results may vary based on how
+          and when funds are drawn, repaid, or re-drawn, and may be affected by
           interest, fees, charges, and repayment behaviour. <br />
           <br />
           All credit is{" "}

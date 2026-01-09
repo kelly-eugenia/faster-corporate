@@ -31,7 +31,10 @@ export default function Footer() {
           </div>
           {/* Socials (mobile) */}
           <div className="sm:hidden flex gap-4 -mt-10">
-            <a href="" className="text-bg-secondary">
+            <a
+              href="mailto:support@faster.com.au"
+              className="text-bg-primary hover:text-bg-secondary"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -42,19 +45,12 @@ export default function Footer() {
                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
               </svg>
             </a>
-            <a href="">
-              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-secondary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 320 512"
-                >
-                  <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
-                </svg>
-              </span>
-            </a>
-            <a href="" className="text-primary hover:text-secondary">
-              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-secondary">
+            <a
+              href="https://www.linkedin.com/company/fasterfinancial/"
+              target="_blank"
+              className="text-primary hover:text-secondary"
+            >
+              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -64,8 +60,12 @@ export default function Footer() {
                 </svg>
               </span>
             </a>
-            <a href="" className="text-primary hover:text-secondary">
-              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-secondary">
+            <a
+              href="https://www.instagram.com/faster.com.au"
+              target="_blank"
+              className="text-primary hover:text-secondary"
+            >
+              <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -185,7 +185,10 @@ export default function Footer() {
             </div>
             {/* Socials */}
             <div className="flex gap-4">
-              <a href="" className="text-bg-primary hover:text-bg-secondary">
+              <a
+                href="mailto:support@faster.com.au"
+                className="text-bg-primary hover:text-bg-secondary"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -196,18 +199,11 @@ export default function Footer() {
                   <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
                 </svg>
               </a>
-              <a href="" className="text-primary hover:text-secondary">
-                <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 320 512"
-                  >
-                    <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z" />
-                  </svg>
-                </span>
-              </a>
-              <a href="" className="text-primary hover:text-secondary">
+              <a
+                href="https://www.linkedin.com/company/fasterfinancial/"
+                target="_blank"
+                className="text-primary hover:text-secondary"
+              >
                 <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +214,11 @@ export default function Footer() {
                   </svg>
                 </span>
               </a>
-              <a href="" className="text-primary hover:text-secondary">
+              <a
+                href="https://www.instagram.com/faster.com.au"
+                target="_blank"
+                className="text-primary hover:text-secondary"
+              >
                 <span className="[&>svg]:h-6 [&>svg]:w-6 [&>svg]:fill-bg-primary hover:[&>svg]:fill-bg-secondary">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
