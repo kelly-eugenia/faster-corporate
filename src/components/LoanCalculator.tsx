@@ -2,24 +2,12 @@ import { useState } from "react";
 import Pill from "../components/Pill";
 import "../App.css";
 
-const MIN_AMOUNT = 0;
-const MAX_AMOUNT = 10000;
-const STEP_AMOUNT = 100;
-
 type Frequency = "weekly" | "fortnightly" | "monthly";
 
 export default function LoanCalculator() {
-  const [amount, setAmount] = useState(2000);
   const [frequency, setFrequency] = useState<Frequency>("weekly");
 
-  // Currency formatters
-  const currency0 = new Intl.NumberFormat("en-AU", {
-    style: "currency",
-    currency: "AUD",
-    maximumFractionDigits: 0,
-  });
-
-  const currency2 = new Intl.NumberFormat("en-AU", {
+  const currency = new Intl.NumberFormat("en-AU", {
     style: "currency",
     currency: "AUD",
     minimumFractionDigits: 2,
@@ -101,7 +89,7 @@ export default function LoanCalculator() {
             Estimated repayment amount
           </p>
           <div className="my-2 text-4xl sm:text-5xl font-bold text-foreground leading-tight break-words">
-            {currency2.format(repaymentAmount)}{" "}
+            {currency.format(repaymentAmount)}{" "}
             <span className="text-sm sm:text-base font-normal text-muted-primary align-middle">
               {frequencyLabel}
             </span>
