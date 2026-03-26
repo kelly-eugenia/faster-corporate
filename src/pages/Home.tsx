@@ -136,7 +136,7 @@ export default function Home() {
 
   // format it as $10,000
   const amountFormatted = useTransform(amount, (latest) =>
-    currency0.format(latest)
+    currency0.format(latest),
   );
 
   useEffect(() => {
@@ -181,7 +181,7 @@ export default function Home() {
                   </p>
 
                   <motion.button
-                    className="my-10 lg:my-12 btn-primary text-base sm:text-lg"
+                    className="my-10 lg:my-12 btn-primary text-xl sm:text-2xl font-medium"
                     onClick={() => navigate("/apply")}
                     initial={{ scale: 1 }}
                     animate={{ scale: [1, 1.05, 1] }}

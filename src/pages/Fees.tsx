@@ -237,7 +237,6 @@ export default function Fees() {
           className="bg-gradient-to-bl from-primary to-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12 gap-8 content-center text-center"
         >
           <div className="xl:max-w-[1920px] mx-auto">
-            {/* In practice */}
             <section className="grid grid-cols-1 lg:grid-cols-2 mt-6 md:mt-8 my-16 md:my-20 gap-2 sm:gap-10 content-center items-stretch">
               <div className=" text-center lg:text-left p-6 sm:px-16 sm:py-0 rounded-2xl content-center">
                 <Pill text="Example in practice" color="bg-primary" />
@@ -320,7 +319,7 @@ export default function Fees() {
               </div>
             </section>
 
-            <hr className="border-t border-bg-secondary/40 -mx-8 sm:-mx-12 lg:-mx-16 xl:-mx-[1920px]" />
+            <hr className="border-t border-bg-secondary/40 -mx-8 sm:-mx-12 lg:-mx-16 xl:-mx-40" />
 
             {/* How it works */}
             <div className="w-full lg:max-w-[80%] mx-auto my-16 md:my-20 mb-8 md:mb-12 text-center">

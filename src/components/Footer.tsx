@@ -105,6 +105,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/invest" className={linkClass}>
+                    Invest
+                  </Link>
+                </li>
+                <li>
                   <Link to="/careers" className={linkClass}>
                     Careers
                   </Link>

@@ -70,6 +70,9 @@ export default function NavBar() {
           <NavLink to="/security" className={linkClass}>
             Security
           </NavLink>
+          <NavLink to="/invest" className={linkClass}>
+            Invest
+          </NavLink>
         </nav>
 
         {/* CTA buttons (desktop) */}
@@ -164,6 +167,13 @@ export default function NavBar() {
             onClick={handleMobileLinkClick}
           >
             Security
+          </NavLink>
+          <NavLink
+            to="/invest"
+            className={mobileLinkClass}
+            onClick={handleMobileLinkClick}
+          >
+            Invest
           </NavLink>
         </div>
 
