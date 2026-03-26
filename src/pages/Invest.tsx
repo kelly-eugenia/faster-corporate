@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
