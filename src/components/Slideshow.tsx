@@ -132,17 +132,15 @@ export default function Slideshow() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const startX = useRef<number | null>(null);
 
-  // Dynamically calculate how many cards fit
+  // Responsive visible cards
   useEffect(() => {
     const calculateVisible = () => {
       if (!containerRef.current) return;
 
       const width = containerRef.current.offsetWidth;
 
-      if (width >= 1024)
-        setVisible(3); // lg
-      else if (width >= 640)
-        setVisible(2); // sm
+      if (width >= 1024) setVisible(3);
+      else if (width >= 640) setVisible(2);
       else setVisible(1);
     };
 
@@ -152,9 +150,9 @@ export default function Slideshow() {
   }, []);
 
   const prev = () => setIdx((i) => Math.max(0, i - 1));
-  const next = () => setIdx((i) => Math.min(cards.length - visible, i + 1));
+  const next = () => setIdx((i) => i + 1); // no artificial cap here
 
-  // Swipe support
+  // Swipe
   const onTouchStart = (e: React.TouchEvent) => {
     startX.current = e.touches[0].clientX;
   };
@@ -170,23 +168,33 @@ export default function Slideshow() {
     startX.current = null;
   };
 
-  // Translate based on actual card width
+  // Core logic: precise translate with clamp
   const getTranslateX = () => {
-    if (!trackRef.current) return 0;
+    const track = trackRef.current;
+    const container = containerRef.current;
+    if (!track || !container) return 0;
 
-    const firstCard = trackRef.current.children[0] as HTMLElement;
+    const firstCard = track.children[0] as HTMLElement;
     if (!firstCard) return 0;
 
-    const gap = 16; // gap-4 = 16px
+    // dynamic gap
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap || "0");
+
     const cardWidth = firstCard.offsetWidth;
 
-    return idx * (cardWidth + gap);
+    const rawTranslate = idx * (cardWidth + gap);
+
+    // clamp so last card is never cut
+    const maxTranslate = track.scrollWidth - container.offsetWidth;
+
+    return Math.max(0, Math.min(rawTranslate, maxTranslate));
   };
 
   return (
-    <div className="bg-gradient-to-tr from-primary to-secondary rounded-2xl px-8 sm:px-16 py-12 lg:py-16 mt-12 lg:mt-16 mb-12">
+    <div className="xl:max-w-[1920px] mx-auto bg-gradient-to-tr from-primary to-secondary rounded-2xl py-12 lg:py-16 mt-12 lg:mt-16 mb-12">
       {/* Header */}
-      <div className="text-center">
+      <div className="text-center px-8 sm:px-16">
         {" "}
         <Pill text="Track record" color="bg-primary" />{" "}
         <h1 className="mt-8 lg:mt-12 my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl text-bg-primary">
@@ -202,12 +210,12 @@ export default function Slideshow() {
       </div>
 
       {/* Slider */}
-      <div className="relative flex items-center mt-12 mb-6">
+      <div className="relative flex items-center px-4 sm:px-12 mt-12 mb-6">
         {/* Left */}
         <button
           onClick={prev}
           disabled={idx === 0}
-          className="z-10 size-10 sm:size-12 rounded-full bg-bg-primary hover:bg-bg-secondary shadow mr-4 disabled:opacity-30"
+          className="z-10 p-0 size-10 sm:size-12 rounded-full bg-bg-primary hover:bg-bg-secondary shadow mr-4 disabled:opacity-30"
         >
           ←
         </button>
@@ -221,7 +229,7 @@ export default function Slideshow() {
         >
           <div
             ref={trackRef}
-            className="flex gap-6 transition-transform duration-500 ease-in-out"
+            className="flex gap-4 transition-transform duration-500 ease-in-out"
             style={{
               transform: `translateX(-${getTranslateX()}px)`,
             }}
@@ -262,7 +270,7 @@ export default function Slideshow() {
         <button
           onClick={next}
           disabled={idx >= cards.length - visible}
-          className="z-10 size-10 sm:size-12 rounded-full bg-bg-primary hover:bg-bg-secondary shadow ml-4 disabled:opacity-30"
+          className="z-10 p-0 size-10 sm:size-12 rounded-full bg-bg-primary hover:bg-bg-secondary shadow ml-4 disabled:opacity-30"
         >
           →
         </button>

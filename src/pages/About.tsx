@@ -87,7 +87,7 @@ export default function About() {
               <p className="font-medium text-lg md:text-2xl">
                 You can draw, repay, and reuse — up to your approved limit.
               </p>
-              <div className="mt-4 sm:mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+              <div className="mt-4 sm:mt-6 flex gap-4 justify-center md:justify-start">
                 <Link
                   to="/fees"
                   className="btn btn-secondary text-base md:text-lg my-0 font-medium"

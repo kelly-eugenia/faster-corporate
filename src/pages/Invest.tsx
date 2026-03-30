@@ -359,13 +359,13 @@ export default function Invest() {
                   <div className="flex items-center justify-center lg:justify-start gap-4">
                     <Link
                       to="#register"
-                      className="btn my-10 lg:my-12 btn-primary text-xl sm:text-2xl font-medium"
+                      className="btn my-10 lg:my-12 btn-primary text-lg sm:text-xl md:text-2xl font-medium"
                     >
                       Register Interest
                     </Link>
                     <Link
                       to="#how-it-works"
-                      className="btn my-10 lg:my-12 btn-secondary-light text-xl sm:text-2xl font-medium"
+                      className="btn my-10 lg:my-12 btn-secondary-light text-lg sm:text-xl md:text-2xl font-medium"
                     >
                       How It Works
                     </Link>
@@ -409,33 +409,43 @@ export default function Invest() {
         </section>
 
         {/* Stats */}
-        <section className="bg-secondary grid grid-cols-2 lg:grid-cols-4 px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-8">
-          <div className="text-center p-8 border-r-[0.5px] border-b-[0.5px] lg:border-b-0 border-bg-secondary/30 space-y-2">
-            <h1 className="text-6xl md:text-7xl text-accent">11%</h1>
-            <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
-              Fixed Return p.a.
-            </p>
-          </div>
+        <section className="items-center bg-secondary px-4 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-4 sm:mb-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 xl:max-w-[1920px] mx-auto">
+            <div className="text-center px-4 sm:px-8 py-8 border-r-[0.5px] border-b-[0.5px] lg:border-b-0 border-bg-secondary/30 space-y-2">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl text-accent">
+                11%
+              </h1>
+              <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
+                Fixed Return p.a.
+              </p>
+            </div>
 
-          <div className="text-center p-8 border-r-0 lg:border-r-[0.5px] border-b-[0.5px] lg:border-b-0 border-bg-secondary/30 space-y-2">
-            <h1 className="text-6xl md:text-7xl text-bg-primary">$15M+</h1>
-            <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
-              Total Capital Lent
-            </p>
-          </div>
+            <div className="text-center px-4 sm:px-8 py-8 border-r-0 lg:border-r-[0.5px] border-b-[0.5px] lg:border-b-0 border-bg-secondary/30 space-y-2">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl text-bg-primary">
+                $15M+
+              </h1>
+              <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
+                Total Capital Lent
+              </p>
+            </div>
 
-          <div className="text-center p-8 border-r-[0.5px] border-r-bg-secondary/30 space-y-2">
-            <h1 className="text-6xl md:text-7xl text-bg-primary">3+</h1>
-            <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
-              Years Track Record
-            </p>
-          </div>
+            <div className="text-center px-4 sm:px-8 py-8 border-r-[0.5px] border-r-bg-secondary/30 space-y-2">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl text-bg-primary">
+                3+
+              </h1>
+              <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
+                Years Track Record
+              </p>
+            </div>
 
-          <div className="text-center p-8 space-y-2">
-            <h1 className="text-6xl md:text-7xl text-bg-primary">Monthly</h1>
-            <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
-              Distributions
-            </p>
+            <div className="text-center px-4 sm:px-8 py-8 space-y-2">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl text-bg-primary">
+                Monthly
+              </h1>
+              <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
+                Distributions
+              </p>
+            </div>
           </div>
         </section>
 
@@ -644,7 +654,7 @@ export default function Invest() {
         </section>
 
         {/* Security */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
+        <section className="xl:max-w-[1920px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
           <div className="pb-0 sm:pb-4 mb-8 content-center text-center">
             <Pill text="Security & risk" color="bg-secondary" />
             <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
@@ -656,78 +666,186 @@ export default function Invest() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 items-stretch">
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
-                <span className="font-medium text-accent text-sm">Active</span>
+          <div>
+            {/* MOBILE: swipeable carousel */}
+            <div className="md:hidden">
+              <div className="-mx-8 px-8">
+                <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
+                  <div className="snap-start shrink-0 w-[80%] bg-bg-secondary rounded-2xl p-8 content-center">
+                    <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
+                      <span className="font-medium text-accent text-sm">
+                        Active
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl">
+                      Loss Rate Covenants
+                    </h2>
+                    <p>
+                      Ongoing vintage loss monitoring across loan cohorts with
+                      covenant limits to protect investor capital.
+                    </p>
+                  </div>
+
+                  <div className="snap-start shrink-0 w-[80%] bg-bg-secondary rounded-2xl p-8 content-center">
+                    <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
+                      <span className="font-medium text-primary text-sm">
+                        Daily
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl">
+                      Loan-to-Value Monitoring
+                    </h2>
+                    <p>
+                      Debt-to-asset ratio monitored daily. Covenant limits
+                      ensure the book remains adequately capitalised at all
+                      times.
+                    </p>
+                  </div>
+
+                  <div className="snap-start shrink-0 w-[80%] bg-bg-secondary rounded-2xl p-8 content-center">
+                    <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
+                      <span className="font-medium text-primary text-sm">
+                        10%
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl">
+                      10% First Loss Capital
+                    </h2>
+                    <p>
+                      A 10% first loss capital buffer is maintained at all times
+                      — absorbing losses before they impact investor returns.
+                    </p>
+                  </div>
+
+                  <div className="snap-start shrink-0 w-[80%] bg-bg-secondary rounded-2xl p-8 content-center">
+                    <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
+                      <span className="font-medium text-accent text-sm">
+                        Enforced
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl">
+                      Eligible Loan Criteria
+                    </h2>
+                    <p>
+                      Only performing Australian loans meeting defined
+                      eligibility criteria count toward secured assets.
+                    </p>
+                  </div>
+
+                  <div className="snap-start shrink-0 w-[80%] bg-bg-secondary rounded-2xl p-8 content-center">
+                    <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
+                      <span className="font-medium text-accent text-sm">
+                        Active
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl">
+                      Institutional Debt Facility
+                    </h2>
+                    <p>
+                      A senior debt facility is already in place with an
+                      institutional private debt fund — validating the book
+                      quality and providing additional capital discipline.
+                    </p>
+                  </div>
+
+                  <div className="snap-start shrink-0 w-[80%] bg-bg-secondary rounded-2xl p-8 content-center">
+                    <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
+                      <span className="font-medium text-primary text-sm">
+                        Monthly
+                      </span>
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl">Monthly Reporting</h2>
+                    <p>
+                      Full covenant status, portfolio performance, and
+                      collection summaries delivered to investors every month.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-2xl sm:text-3xl">Loss Rate Covenants</h2>
-              <p>
-                Ongoing vintage loss monitoring across loan cohorts with
-                covenant limits to protect investor capital.
-              </p>
             </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
-                <span className="font-medium text-primary text-sm">Daily</span>
+            {/* DESKTOP: grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 items-stretch">
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
+                  <span className="font-medium text-accent text-sm">
+                    Active
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl">Loss Rate Covenants</h2>
+                <p>
+                  Ongoing vintage loss monitoring across loan cohorts with
+                  covenant limits to protect investor capital.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl">Loan-to-Value Monitoring</h2>
-              <p>
-                Debt-to-asset ratio monitored daily. Covenant limits ensure the
-                book remains adequately capitalised at all times. ✓ Daily
-              </p>
-            </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
-                <span className="font-medium text-primary text-sm">10%</span>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
+                  <span className="font-medium text-primary text-sm">
+                    Daily
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl">
+                  Loan-to-Value Monitoring
+                </h2>
+                <p>
+                  Debt-to-asset ratio monitored daily. Covenant limits ensure
+                  the book remains adequately capitalised at all times.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl">10% First Loss Capital</h2>
-              <p>
-                A 10% first loss capital buffer is maintained at all times —
-                absorbing losses before they impact investor returns.
-              </p>
-            </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
-                <span className="font-medium text-accent text-sm">
-                  Enforced
-                </span>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
+                  <span className="font-medium text-primary text-sm">10%</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl">10% First Loss Capital</h2>
+                <p>
+                  A 10% first loss capital buffer is maintained at all times —
+                  absorbing losses before they impact investor returns.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl">Eligible Loan Criteria</h2>
-              <p>
-                Only performing Australian loans meeting defined eligibility
-                criteria count toward secured assets.
-              </p>
-            </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
-                <span className="font-medium text-accent text-sm">Active</span>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
+                  <span className="font-medium text-accent text-sm">
+                    Enforced
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl">Eligible Loan Criteria</h2>
+                <p>
+                  Only performing Australian loans meeting defined eligibility
+                  criteria count toward secured assets.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl">
-                Institutional Debt Facility
-              </h2>
-              <p>
-                A senior debt facility is already in place with an institutional
-                private debt fund — validating the book quality and providing
-                additional capital discipline.
-              </p>
-            </div>
 
-            <div className="bg-bg-secondary rounded-2xl p-8 content-center">
-              <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
-                <span className="font-medium text-primary text-sm">
-                  Monthly
-                </span>
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="mb-4 rounded-full flex border bg-accent/10 px-4 py-2 w-fit">
+                  <span className="font-medium text-accent text-sm">
+                    Active
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl">
+                  Institutional Debt Facility
+                </h2>
+                <p>
+                  A senior debt facility is already in place with an
+                  institutional private debt fund — validating the book quality
+                  and providing additional capital discipline.
+                </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl">Monthly Reporting</h2>
-              <p>
-                Full covenant status, portfolio performance, and collection
-                summaries delivered to investors every month.
-              </p>
+
+              <div className="bg-bg-secondary rounded-2xl p-8 content-center">
+                <div className="mb-4 rounded-full flex border bg-primary/10 px-4 py-2 w-fit">
+                  <span className="font-medium text-primary text-sm">
+                    Monthly
+                  </span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl">Monthly Reporting</h2>
+                <p>
+                  Full covenant status, portfolio performance, and collection
+                  summaries delivered to investors every month.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -777,7 +895,10 @@ export default function Invest() {
         </div>
 
         {/* Form */}
-        <section id="register" className="px-8 sm:px-12 lg:px-16 xl:px-40">
+        <section
+          id="register"
+          className="xl:max-w-[1920px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-40"
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 bg-gradient-to-b from-secondary to-primary rounded-2xl mb-24 gap-12 sm:gap-16 lg:gap-32 items-center px-8 sm:px-16 py-12 lg:py-16">
             <div>
               <div className="text-center lg:text-left">
