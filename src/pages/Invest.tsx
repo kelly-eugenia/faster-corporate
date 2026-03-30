@@ -240,8 +240,8 @@ export default function Invest() {
   return (
     <>
       <SEO
-        title="Faster.com.au | Fast, Flexible Line of Credit in Australia"
-        description="Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+        title="Invest with Faster — Fixed Income Fund Opportunities | Faster.com.au"
+        description="Earn 11% p.a. with Faster Fixed Income Fund, backed by loan book assets and monthly reporting. Learn how it works and register your interest."
       />
 
       <NavBar />
@@ -252,7 +252,7 @@ export default function Invest() {
           <div className="xl:max-w-[1920px] mx-auto">
             <div className="grid gap-12 lg:grid-cols-2 items-stretch">
               {/* Left */}
-              <div className="pt-12 pb-0 lg:pb-12 flex flex-col justify-center">
+              <div className="pt-12 pb-0 lg:pt-0 lg:pb-12 flex flex-col justify-center">
                 <div className="lg:mt-8 lg:text-left text-center">
                   <Pill
                     text="ACL 569825 · AFCA Member · Regulated Australian Lender"
@@ -359,13 +359,13 @@ export default function Invest() {
                   <div className="flex items-center justify-center lg:justify-start gap-4">
                     <Link
                       to="#register"
-                      className="btn my-10 lg:my-12 btn-primary text-lg sm:text-xl md:text-2xl font-medium"
+                      className="btn my-10 lg:my-12 btn-primary text-lg sm:text-xl font-medium"
                     >
                       Register Interest
                     </Link>
                     <Link
                       to="#how-it-works"
-                      className="btn my-10 lg:my-12 btn-secondary-light text-lg sm:text-xl md:text-2xl font-medium"
+                      className="btn my-10 lg:my-12 btn-secondary-light text-lg sm:text-xl font-medium"
                     >
                       How It Works
                     </Link>
