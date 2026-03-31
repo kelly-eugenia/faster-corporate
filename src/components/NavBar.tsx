@@ -24,7 +24,7 @@ export default function NavBar() {
     after:h-[2px] after:w-0 \
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0",
-      isActive ? "active" : "",
+      isActive ? "" : "",
     ].join(" ");
 
   const mobileLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -33,7 +33,7 @@ export default function NavBar() {
     after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
     after:h-[2px] after:w-0 \
     hover:bg-primary/50",
-      isActive ? "active" : "",
+      isActive ? "" : "",
     ].join(" ");
 
   const handleMobileLinkClick = () => {
@@ -58,36 +58,34 @@ export default function NavBar() {
 
         {/* Nav links (desktop) */}
         <nav className="hidden gap-10 lg:flex">
-          <NavLink to="/" className={linkClass}>
-            Home
+          <NavLink to="#how-it-works" className={linkClass}>
+            How It Works
           </NavLink>
-          <NavLink to="/about" className={linkClass}>
-            About Us
+          <NavLink to="#about" className={linkClass}>
+            The Fund
           </NavLink>
-          <NavLink to="/fees" className={linkClass}>
-            Fees
-          </NavLink>
-          <NavLink to="/security" className={linkClass}>
+          <NavLink to="#security" className={linkClass}>
             Security
           </NavLink>
-          <NavLink to="/invest" className={linkClass}>
-            Invest
+          <NavLink to="#operator" className={linkClass}>
+            Operator
           </NavLink>
         </nav>
 
         {/* CTA buttons (desktop) */}
         <div className="hidden items-center gap-2 lg:flex">
           <Link
-            to="/login"
+            to="https://faster.com.au"
+            target="_blank"
             className="btn btn-secondary-light text-base md:text-lg font-medium"
           >
-            Log In
+            About Us
           </Link>
           <Link
-            to="/apply"
+            to="#register"
             className="btn btn-primary text-base md:text-lg font-medium"
           >
-            Apply Now
+            Register Interest
           </Link>
         </div>
 
@@ -141,56 +139,50 @@ export default function NavBar() {
       <div className={mobileMenuClasses}>
         <div className="flex flex-col py-2">
           <NavLink
-            to="/"
+            to="#how-it-works"
             className={mobileLinkClass}
             onClick={handleMobileLinkClick}
           >
-            Home
+            How It Works
           </NavLink>
           <NavLink
-            to="/about"
+            to="#about"
             className={mobileLinkClass}
             onClick={handleMobileLinkClick}
           >
-            About Us
+            The Fund
           </NavLink>
           <NavLink
-            to="/fees"
-            className={mobileLinkClass}
-            onClick={handleMobileLinkClick}
-          >
-            Fees
-          </NavLink>
-          <NavLink
-            to="/security"
+            to="#security"
             className={mobileLinkClass}
             onClick={handleMobileLinkClick}
           >
             Security
           </NavLink>
           <NavLink
-            to="/invest"
+            to="#operator"
             className={mobileLinkClass}
             onClick={handleMobileLinkClick}
           >
-            Invest
+            Operator
           </NavLink>
         </div>
 
         <div className="px-6 sm:px-12 flex flex-col">
           <Link
-            to="/login"
+            to="https://faster.com.au"
+            target="_blank"
             className="w-full btn btn-secondary-light text-base md:text-lg font-medium"
             onClick={handleMobileLinkClick}
           >
-            Log In
+            About Us
           </Link>
           <Link
-            to="/apply"
+            to="#register"
             className="w-full mb-12 -mt-2 rounded-[8px] text-center py-3 btn-primary text-base md:text-lg font-medium"
             onClick={handleMobileLinkClick}
           >
-            Apply Now
+            Register Interest
           </Link>
         </div>
       </div>

@@ -506,7 +506,10 @@ export default function Invest() {
         </section>
 
         {/* The fund */}
-        <section className="bg-bg-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12">
+        <section
+          id="about"
+          className="bg-bg-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12"
+        >
           <div className="xl:max-w-[1920px] mx-auto">
             <div className="grid gap-16 lg:gap-32 lg:grid-cols-2 items-end">
               {/* Left */}
@@ -654,7 +657,10 @@ export default function Invest() {
         </section>
 
         {/* Security */}
-        <section className="xl:max-w-[1920px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
+        <section
+          id="security"
+          className="xl:max-w-[1920px] mx-auto px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center"
+        >
           <div className="pb-0 sm:pb-4 mb-8 content-center text-center">
             <Pill text="Security & risk" color="bg-secondary" />
             <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
@@ -854,7 +860,10 @@ export default function Invest() {
 
         {/* Operator */}
         <div className="xl:max-w-[1920px] mx-auto mt-4">
-          <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 grid gap-8 mb-12 items-stretch">
+          <section
+            id="operator"
+            className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 grid gap-8 mb-12 items-stretch"
+          >
             <div className="pb-0 sm:pb-4 mb-8 content-center text-center">
               <Pill text="The operator" color="bg-secondary" />
               <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
