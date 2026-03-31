@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./utils/ScrollToTop";
@@ -26,7 +27,31 @@ import ComingSoon from "./pages/ComingSoon";
 import "./App.css";
 import "./index.css";
 
+const isInvestSubdomain = window.location.hostname === "invest.faster.com.au";
+
+const InvestRedirect = () => {
+  useEffect(() => {
+    window.location.replace("https://invest.faster.com.au");
+  }, []);
+  return null;
+};
+
 export default function App() {
+  // If on invest.faster.com.au, render Invest page only
+  if (isInvestSubdomain) {
+    return (
+      <>
+        <BrowserRouter>
+          <Analytics />
+          <ScrollToTop />
+          <ScrollToSection />
+          <LiveChat />
+          <Invest />
+        </BrowserRouter>
+      </>
+    );
+  }
+
   return (
     <BrowserRouter>
       <Analytics />
@@ -37,15 +62,15 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="about" element={<About />}></Route>
-        <Route path="fees" element={<Fees />}></Route>
-        <Route path="security" element={<Security />}></Route>
-        <Route path="invest" element={<Invest />}></Route>
-        <Route path="careers" element={<Careers />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/fees" element={<Fees />}></Route>
+        <Route path="/security" element={<Security />}></Route>
+        <Route path="/invest" element={<InvestRedirect />} />
+        <Route path="/careers" element={<Careers />}></Route>
         <Route path="/careers/:jobId" element={<JobDesc />} />
 
-        <Route path="faq" element={<FAQ />}></Route>
-        <Route path="contact" element={<Contact />}></Route>
+        <Route path="/faq" element={<FAQ />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
         <Route path="/calculator" element={<Calculator />} />
 
         <Route path="/terms-and-conditions" element={<TnC />} />
