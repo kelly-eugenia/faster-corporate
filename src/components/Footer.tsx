@@ -9,13 +9,6 @@ const linkClass =
     after:transition-all after:duration-300 \
     hover:after:w-full hover:after:left-0";
 
-const xlLinkClass =
-  "relative text-lg font-semibold text-bg-primary \
-    after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
-    after:h-[2px] after:w-0 after:bg-bg-primary \
-    after:transition-all after:duration-300 \
-    hover:after:w-full hover:after:left-0";
-
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-secondary to-primary">
