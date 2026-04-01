@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./utils/ScrollToTop";
@@ -9,7 +8,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Fees from "./pages/Fees";
 import Security from "./pages/Security";
-import Invest from "./pages/Invest";
 
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
@@ -27,31 +25,7 @@ import ComingSoon from "./pages/ComingSoon";
 import "./App.css";
 import "./index.css";
 
-const isInvestSubdomain = window.location.hostname === "invest.faster.com.au";
-
-const InvestRedirect = () => {
-  useEffect(() => {
-    window.location.replace("https://invest.faster.com.au");
-  }, []);
-  return null;
-};
-
 export default function App() {
-  // If on invest.faster.com.au, render Invest page only
-  if (isInvestSubdomain) {
-    return (
-      <>
-        <BrowserRouter>
-          <Analytics />
-          <ScrollToTop />
-          <ScrollToSection />
-          <LiveChat />
-          <Invest />
-        </BrowserRouter>
-      </>
-    );
-  }
-
   return (
     <BrowserRouter>
       <Analytics />
@@ -65,7 +39,6 @@ export default function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/fees" element={<Fees />}></Route>
         <Route path="/security" element={<Security />}></Route>
-        <Route path="/invest" element={<InvestRedirect />} />
         <Route path="/careers" element={<Careers />}></Route>
         <Route path="/careers/:jobId" element={<JobDesc />} />
 
