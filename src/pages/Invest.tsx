@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -237,11 +239,28 @@ const checkIcon = (
 );
 
 export default function Invest() {
+  const seo = useSEO("invest");
+
   return (
     <>
       <SEO
-        title="Invest with Faster — Fixed Income Fund Opportunities | Faster.com.au"
-        description="Earn 11% p.a. with Faster Fixed Income Fund, backed by loan book assets and monthly reporting. Learn how it works and register your interest."
+        title={
+          seo?.title ||
+          "Invest with Faster — Fixed Income Fund Opportunities | Faster.com.au"
+        }
+        description={
+          seo?.description ||
+          "Earn 11% p.a. with Faster Fixed Income Fund, backed by loan book assets and monthly reporting. Learn how it works and register your interest."
+        }
+        ogTitle={
+          seo?.ogTitle ||
+          "Invest with Faster — Fixed Income Fund Opportunities | Faster.com.au"
+        }
+        ogDescription={
+          seo?.ogDescription ||
+          "Earn 11% p.a. with Faster Fixed Income Fund, backed by loan book assets and monthly reporting. Learn how it works and register your interest."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />
