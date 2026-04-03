@@ -1,13 +1,26 @@
 import SEO from "../../components/SEO";
+import { useSEO } from "../../utils/useSEO";
+
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function CreditGuide() {
+  const seo = useSEO("credit-guide");
+
   return (
     <>
       <SEO
-        title="Credit Guide | Faster.com.au"
-        description="Access Faster’s Credit Guide, outlining our obligations, complaint resolution process, and your rights under Australian credit laws."
+        title={seo?.title || "Credit Guide | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Access Faster’s Credit Guide, outlining our obligations, complaint resolution process, and your rights under Australian credit laws."
+        }
+        ogTitle={seo?.ogTitle || "Credit Guide | Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Access Faster’s Credit Guide, outlining our obligations, complaint resolution process, and your rights under Australian credit laws."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

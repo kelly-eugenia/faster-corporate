@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -91,11 +93,27 @@ const feesFaqs = [
 ];
 
 export default function Fees() {
+  const seo = useSEO("fees");
+
   return (
     <>
       <SEO
-        title="Our Fees — Clear, Simple, and Upfront | Faster.com.au"
-        description="View Faster’s fees, interest rates, and charges. Everything is explained clearly so you know exactly what to expect before applying."
+        title={
+          seo?.title || "Our Fees — Clear, Simple, and Upfront | Faster.com.au"
+        }
+        description={
+          seo?.description ||
+          "View Faster’s fees, interest rates, and charges. Everything is explained clearly so you know exactly what to expect before applying."
+        }
+        ogTitle={
+          seo?.ogTitle ||
+          "Our Fees — Clear, Simple, and Upfront | Faster.com.au"
+        }
+        ogDescription={
+          seo?.ogDescription ||
+          "View Faster’s fees, interest rates, and charges. Everything is explained clearly so you know exactly what to expect before applying."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

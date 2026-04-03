@@ -1,13 +1,26 @@
 import SEO from "../../components/SEO";
+import { useSEO } from "../../utils/useSEO";
+
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function TnC() {
+  const seo = useSEO("terms-and-conditions");
+
   return (
     <>
       <SEO
-        title="Terms and Conditions | Faster.com.au"
-        description="Review the terms and conditions that apply to Faster’s services, including how our Line of Credit works and your rights as a customer."
+        title={seo?.title || "Terms and Conditions | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Review the terms and conditions that apply to Faster’s services, including how our Line of Credit works and your rights as a customer."
+        }
+        ogTitle={seo?.ogTitle || "Terms and Conditions | Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Review the terms and conditions that apply to Faster’s services, including how our Line of Credit works and your rights as a customer."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />
@@ -58,7 +71,8 @@ export default function TnC() {
               <p>
                 We aggregate financial and related information from one or more
                 Linked Services, using Authentication Information provided by
-                you, to retrieve Account Information from each Linked Service.{" "}
+                you, to retrieve Account Information from each Linked
+                Service.{" "}
               </p>
               <p>
                 The information provided by our Products & Services is

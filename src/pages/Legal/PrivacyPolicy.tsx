@@ -1,13 +1,26 @@
 import SEO from "../../components/SEO";
+import { useSEO } from "../../utils/useSEO";
+
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function PrivacyPolicy() {
+  const seo = useSEO("privacy-policy");
+
   return (
     <>
       <SEO
-        title="Privacy Policy | Faster.com.au"
-        description="Learn how Faster collects, uses, and protects your personal and financial information in line with Australian privacy requirements."
+        title={seo?.title || "Privacy Policy | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Learn how Faster collects, uses, and protects your personal and financial information in line with Australian privacy requirements."
+        }
+        ogTitle={seo?.ogTitle || "Privacy Policy | Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Learn how Faster collects, uses, and protects your personal and financial information in line with Australian privacy requirements."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

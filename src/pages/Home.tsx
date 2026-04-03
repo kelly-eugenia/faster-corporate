@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -129,6 +131,7 @@ const homeFaqs = [
 ];
 
 export default function Home() {
+  const seo = useSEO("home");
   const navigate = useNavigate();
 
   // motion value for the number
@@ -151,8 +154,23 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Faster.com.au | Fast, Flexible Line of Credit in Australia"
-        description="Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+        title={
+          seo?.title ||
+          "Faster.com.au | Fast, Flexible Line of Credit in Australia"
+        }
+        description={
+          seo?.description ||
+          "Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+        }
+        ogTitle={
+          seo?.ogTitle ||
+          "Faster.com.au | Fast, Flexible Line of Credit in Australia"
+        }
+        ogDescription={
+          seo?.ogDescription ||
+          "Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -298,11 +300,28 @@ const securityFaqs = [
 ];
 
 export default function Security() {
+  const seo = useSEO("security");
+
   return (
     <>
       <SEO
-        title="Advanced Security — Security You Can Trust, Technology You Can Rely On | Faster.com.au"
-        description="See how Faster uses secure, encrypted systems and complies with Australian regulations to protect your data, privacy, and account activity."
+        title={
+          seo?.title ||
+          "Advanced Security — Security You Can Trust, Technology You Can Rely On | Faster.com.au"
+        }
+        description={
+          seo?.description ||
+          "See how Faster uses secure, encrypted systems and complies with Australian regulations to protect your data, privacy, and account activity."
+        }
+        ogTitle={
+          seo?.ogTitle ||
+          "Advanced Security — Security You Can Trust, Technology You Can Rely On | Faster.com.au"
+        }
+        ogDescription={
+          seo?.ogDescription ||
+          "See how Faster uses secure, encrypted systems and complies with Australian regulations to protect your data, privacy, and account activity."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

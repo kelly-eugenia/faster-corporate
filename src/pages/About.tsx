@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -15,11 +17,28 @@ import SecurePhoto from "../assets/responsible.png";
 import "../App.css";
 
 export default function About() {
+  const seo = useSEO("about");
+
   return (
     <>
       <SEO
-        title="About Faster — Borrowing That’s Clear, Fair, and Makes Sense | Faster.com.au"
-        description="Learn who Faster.com.au is and how we are building a fairer credit experience with transparency, responsible lending, and customer trust at its core."
+        title={
+          seo?.title ||
+          "About Faster — Clear, Fair, and Flexible Credit for Australians | Faster.com.au"
+        }
+        description={
+          seo?.description ||
+          "Learn who Faster.com.au is and how we are building a fairer credit experience with transparency, responsible lending, and customer trust at its core."
+        }
+        ogTitle={
+          seo?.ogTitle ||
+          "About Faster — Clear, Fair, and Flexible Credit for Australians | Faster.com.au"
+        }
+        ogDescription={
+          seo?.ogDescription ||
+          "Learn who Faster.com.au is and how we are building a fairer credit experience with transparency, responsible lending, and customer trust at its core."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

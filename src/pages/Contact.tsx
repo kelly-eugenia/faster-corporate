@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -103,11 +105,27 @@ const homeFaqs = [
 ];
 
 export default function Contact() {
+  const seo = useSEO("contact");
+
   return (
     <>
       <SEO
         title="Contact Us | Faster.com.au"
         description="Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
+      />
+
+      <SEO
+        title={seo?.title || "Contact Us | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
+        }
+        ogTitle={seo?.ogTitle || "Contact Us | Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

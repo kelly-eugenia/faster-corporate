@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -404,14 +406,23 @@ const categories: {
 
 export default function FAQ() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("top");
-
   const currentCategory = categories.find((c) => c.key === activeCategory)!;
+  const seo = useSEO("faq");
 
   return (
     <>
       <SEO
-        title="Frequently Asked Questions | Faster.com.au"
-        description="Find clear answers about Faster, our Line of Credit, fees, repayments, security, and how our service works before you apply."
+        title={seo?.title || "Frequently Asked Questions | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Find clear answers about Faster, our Line of Credit, fees, repayments, security, and how our service works before you apply."
+        }
+        ogTitle={seo?.ogTitle || "Frequently Asked Questions | Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Find clear answers about Faster, our Line of Credit, fees, repayments, security, and how our service works before you apply."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

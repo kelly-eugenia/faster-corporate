@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -10,11 +12,22 @@ import LoanCalculator from "../components/LoanCalculator";
 import "../App.css";
 
 export default function Calculator() {
+  const seo = useSEO("calculator");
+
   return (
     <>
       <SEO
-        title="Line of Credit Calculator| Faster.com.au"
-        description="Use our calculator to estimate repayments based on your credit limit and repayment frequency, so you can understand your options upfront."
+        title={seo?.title || "Line of Credit Calculator| Faster.com.au"}
+        description={
+          seo?.description ||
+          "Use our calculator to estimate repayments based on your credit limit and repayment frequency, so you can understand your options upfront."
+        }
+        ogTitle={seo?.ogTitle || "Line of Credit Calculator| Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Use our calculator to estimate repayments based on your credit limit and repayment frequency, so you can understand your options upfront."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

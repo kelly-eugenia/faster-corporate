@@ -1,13 +1,26 @@
 import SEO from "../../components/SEO";
+import { useSEO } from "../../utils/useSEO";
+
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
 export default function RefundPolicy() {
+  const seo = useSEO("refund-policy");
+
   return (
     <>
       <SEO
-        title="Refund Policy | Faster.com.au"
-        description="Understand when refunds may apply, how errors are handled, and what to do if you believe a payment was debited incorrectly."
+        title={seo?.title || "Refund Policy | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Understand when refunds may apply, how errors are handled, and what to do if you believe a payment was debited incorrectly."
+        }
+        ogTitle={seo?.ogTitle || "Refund Policy | Faster.com.au"}
+        ogDescription={
+          seo?.ogDescription ||
+          "Understand when refunds may apply, how errors are handled, and what to do if you believe a payment was debited incorrectly."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />

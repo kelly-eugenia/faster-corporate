@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../utils/useSEO";
+
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
@@ -66,11 +68,28 @@ const jobDesc = [
 ];
 
 export default function Careers() {
+  const seo = useSEO("careers");
+
   return (
     <>
       <SEO
-        title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
-        description="Work with Faster and help shape how people access credit. We’re a data-driven fintech offering real impact, growth opportunities, and flexibility."
+        title={
+          seo?.title ||
+          "Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
+        }
+        description={
+          seo?.description ||
+          "Work with Faster and help shape how people access credit. We’re a data-driven fintech offering real impact, growth opportunities, and flexibility."
+        }
+        ogTitle={
+          seo?.ogTitle ||
+          "Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
+        }
+        ogDescription={
+          seo?.ogDescription ||
+          "Work with Faster and help shape how people access credit. We’re a data-driven fintech offering real impact, growth opportunities, and flexibility."
+        }
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />
