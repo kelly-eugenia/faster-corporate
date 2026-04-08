@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
-
+//test
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
