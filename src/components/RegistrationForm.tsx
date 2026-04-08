@@ -64,7 +64,7 @@ export default function RegistrationForm() {
 
     // Match EmailJS template variables
     const templateParams = {
-      to_email: "duncan@faster.com.au",
+      to_email: "kelly@faster.com.au",
       from_name: form.fullName,
       from_email: form.email,
       phone: form.phone,

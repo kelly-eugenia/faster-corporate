@@ -57,7 +57,7 @@ const fundTerms = [
   { label: "Geography", value: "Australia Only" },
   { label: "Reporting", value: "Monthly" },
   { label: "Operator Licence", value: "ACL 569825" },
-  { label: "Minimum Investment", value: "TBC — Register Below" },
+  { label: "Minimum Investment", value: "$100k" },
 ];
 
 const features = [
@@ -112,12 +112,11 @@ const features = [
     ),
   },
   {
-    header: "Institutional Debt Facility",
+    header: "AFSL 557810 / CAR 001319872",
     text: (
       <p>
-        A senior debt facility is already in place with an institutional private
-        debt fund — validating the book quality and operational credibility of
-        the business.
+        Issued by FB Corp Limited (AFSL 557810) | Managed by Faster Financial
+        Group Pty Ltd (CAR 001319872) | Wholesale clients only
       </p>
     ),
     icon: (
@@ -431,7 +430,7 @@ export default function Invest() {
         <section className="items-center bg-secondary px-4 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-4 sm:mb-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 xl:max-w-[1920px] mx-auto">
             <div className="text-center px-4 sm:px-8 py-8 border-r-[0.5px] border-b-[0.5px] lg:border-b-0 border-bg-secondary/30 space-y-2">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl text-accent">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl text-bg-primary">
                 11%
               </h1>
               <p className="text-xl md:text-3xl font-medium text-bg-secondary/70">
@@ -764,12 +763,13 @@ export default function Invest() {
                       </span>
                     </div>
                     <h2 className="text-2xl sm:text-3xl">
-                      Institutional Debt Facility
+                      Structured within an Australian AFSL and ACL regulated
+                      framework
                     </h2>
                     <p>
-                      A senior debt facility is already in place with an
-                      institutional private debt fund — validating the book
-                      quality and providing additional capital discipline.
+                      Operating within a regulated Australian AFSL and ACL
+                      framework Issued and managed through licensed entities
+                      within a structured Australian compliance framework.
                     </p>
                   </div>
 
@@ -850,12 +850,13 @@ export default function Invest() {
                   </span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl">
-                  Institutional Debt Facility
+                  Structured within an Australian AFSL and ACL regulated
+                  framework
                 </h2>
                 <p>
-                  A senior debt facility is already in place with an
-                  institutional private debt fund — validating the book quality
-                  and providing additional capital discipline.
+                  Operating within a regulated Australian AFSL and ACL framework
+                  Issued and managed through licensed entities within a
+                  structured Australian compliance framework.
                 </p>
               </div>
 
@@ -886,7 +887,7 @@ export default function Invest() {
             <div className="pb-0 sm:pb-4 mb-8 content-center text-center">
               <Pill text="The operator" color="bg-secondary" />
               <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
-                Licensed. Proven. Institutionally backed.
+                Licensed & Proven
               </h1>
               <p className="text-lg md:text-2xl mt-4 md:mt-8">
                 Faster is operated by a fully licensed Australian consumer
