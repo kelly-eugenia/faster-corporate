@@ -18,14 +18,14 @@ function Table({
 }) {
   return (
     <>
-      {rows.map(({ label, value, color }, i) => (
+      {rows.map(({ label, value }, i) => (
         <div
           key={i}
           className="flex items-center justify-between py-3 border-b border-gray-300 last:border-0 text-base md:text-lg"
         >
           <span className="text-muted-primary font-medium">{label}</span>
           <span
-            className={`font-bold text-right ${color ? color : "text-text-primary"}`}
+            className="font-bold text-right text-text-primary"
           >
             {value}
           </span>
@@ -36,7 +36,7 @@ function Table({
 }
 
 const heroRows = [
-  { label: "Distribution", value: "Monthly", color: "text-primary" },
+  { label: "Distribution", value: "Monthly" },
   { label: "Security", value: "Loan Book Assets" },
   { label: "First Loss Capital", value: "10%" },
   { label: "Track Record", value: "3+ Years" },
@@ -45,12 +45,9 @@ const heroRows = [
 ];
 
 const fundTerms = [
-  {
-    label: "Structure",
-    value: "Fixed Income · Private Credit",
-  },
-  { label: "Investor Return", value: "11% p.a. Fixed", color: "text-primary" },
-  { label: "Distribution", value: "Monthly", color: "text-accent" },
+  { label: "Structure", value: "Fixed Income · Private Credit" },
+  { label: "Investor Return", value: "11% p.a. Fixed" },
+  { label: "Distribution", value: "Monthly" },
   { label: "Security", value: "Loan Book Assets" },
   { label: "First Loss Capital", value: "10%" },
   { label: "Loan Duration", value: "Short-term · Revolving" },
@@ -172,7 +169,7 @@ const features = [
     text: (
       <p>
         Automated credit assessment using bureau data and bank statement
-        analysis for every applicant — consistent decisions improving credit
+        analysis for every applicant, allowing consistent decisions improving credit
         quality over time.
       </p>
     ),
@@ -291,7 +288,7 @@ export default function Invest() {
 
                   <p className="mt-6 lg:mt-8 text-bg-secondary text-base sm:text-lg md:text-2xl">
                     A fixed return secured against a growing Australian consumer
-                    credit book — with 3+ years of verifiable performance
+                    credit book, with 3+ years of verifiable performance
                     history.
                   </p>
 
@@ -503,7 +500,7 @@ export default function Invest() {
               </div>
               <h2 className="text-2xl sm:text-3xl">Capital Is Deployed</h2>
               <p>
-                Your capital funds Australian consumer loans through Faster — a
+                Your capital funds Australian consumer loans through Faster, a
                 licensed, automated lender with 3+ years of live performance
                 history and institutional-grade infrastructure.
               </p>
@@ -516,7 +513,7 @@ export default function Invest() {
               <h2 className="text-2xl sm:text-3xl">You Receive 11% p.a.</h2>
               <p>
                 Returns are fixed at 11% per annum and paid directly to your
-                nominated account every month. Fixed, predictable income — no
+                nominated account every month. Fixed, predictable income, no
                 variable exposure.
               </p>
             </div>
@@ -540,7 +537,7 @@ export default function Invest() {
                 </h1>
                 <p className="text-lg md:text-2xl mt-4 md:mt-8">
                   High-yield consumer credit exposure with a fixed investor
-                  return — structured to protect capital while delivering
+                  return, structured to protect capital while delivering
                   consistent monthly income.
                 </p>
 
@@ -562,11 +559,11 @@ export default function Invest() {
                     </span>
                     <div className="mx-auto lg:mx-0">
                       <h2 className="text-2xl sm:text-3xl">
-                        Fixed 11% Return — Paid Monthly
+                        Fixed 11% Return Paid Monthly
                       </h2>
                       <p>
                         Investors receive a fixed 11% p.a., distributed monthly.
-                        Predictable, fixed income — not subject to market
+                        Predictable, fixed income, not subject to market
                         fluctuations or variable performance.
                       </p>
                     </div>
@@ -653,7 +650,7 @@ export default function Invest() {
                       </h2>
                       <p>
                         Investors receive monthly covenant reports, portfolio
-                        performance metrics, and collection summaries — full
+                        performance metrics, and collection summaries. Full
                         transparency at all times.
                       </p>
                     </div>
@@ -686,7 +683,7 @@ export default function Invest() {
             </h1>
             <p className="text-lg md:text-2xl mt-4 md:mt-8">
               A multi-layered covenant framework built to protect investor
-              capital — monitored daily and reported monthly.
+              capital, monitored daily and reported monthly.
             </p>
           </div>
 
@@ -736,8 +733,7 @@ export default function Invest() {
                       10% First Loss Capital
                     </h2>
                     <p>
-                      A 10% first loss capital buffer is maintained at all times
-                      — absorbing losses before they impact investor returns.
+                      A 10% first loss capital buffer is maintained at all times, absorbing losses before they impact investor returns.
                     </p>
                   </div>
 
@@ -825,8 +821,7 @@ export default function Invest() {
                 </div>
                 <h2 className="text-2xl sm:text-3xl">10% First Loss Capital</h2>
                 <p>
-                  A 10% first loss capital buffer is maintained at all times —
-                  absorbing losses before they impact investor returns.
+                  A 10% first loss capital buffer is maintained at all times, absorbing losses before they impact investor returns.
                 </p>
               </div>
 
@@ -946,7 +941,7 @@ export default function Invest() {
               <div className="mt-12 grid grid-cols-2 gap-8">
                 <p className="text-base md:text-lg flex items-start leading-snug font-medium text-bg-secondary">
                   {checkIcon}
-                  Fixed 11% return — no variable exposure
+                  Fixed 11% return, no variable exposure
                 </p>
 
                 <p className="text-base md:text-lg flex items-start leading-snug font-medium text-bg-secondary">

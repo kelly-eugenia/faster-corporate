@@ -100,7 +100,7 @@ const cards = [
     ),
     title: "AI",
     subtitle: "Credit Decisioning",
-    body: "Automated credit assessment with bureau data and bank statement analysis — consistent, improving credit quality over time.",
+    body: "Automated credit assessment with bureau data and bank statement analysis. Consistent, improving credit quality over time.",
   },
   {
     icon: (
@@ -120,7 +120,7 @@ const cards = [
     ),
     title: "DD",
     subtitle: "Direct Debit Collections",
-    body: "Automated direct debit collections via institutional payment infrastructure — predictable, bankable cash flows.",
+    body: "Automated direct debit collections via institutional payment infrastructure, ensuring predictable, bankable cash flows.",
   },
 ];
 
@@ -195,18 +195,15 @@ export default function Slideshow() {
     <div className="xl:max-w-[1920px] mx-auto bg-gradient-to-tr from-primary to-secondary rounded-2xl py-12 lg:py-16 mt-12 lg:mt-16 mb-12">
       {/* Header */}
       <div className="text-center px-8 sm:px-16">
-        {" "}
-        <Pill text="Track record" color="bg-primary" />{" "}
+        <Pill text="Track record" color="bg-primary" />
         <h1 className="mt-8 lg:mt-12 my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl text-bg-primary">
-          {" "}
-          3+ years live. Verifiable history.{" "}
-        </h1>{" "}
+          3+ years live. Verifiable history.
+        </h1>
         <p className="font-medium text-lg md:text-xl mb-8 text-bg-primary">
-          {" "}
-          Faster is not a concept — it's a live, operating lender with a real
+          Faster is not a concept. It's a live, operating lender with a real
           book, real customers, and 3+ years of real collections history
-          available to qualified investors.{" "}
-        </p>{" "}
+          available to qualified investors.
+        </p>
       </div>
 
       {/* Slider */}
