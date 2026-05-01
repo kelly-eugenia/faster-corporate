@@ -177,7 +177,7 @@ export default function Home() {
 
       <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:pt-40 pb-12 lg:pb-24 bg-gradient-to-tr from-secondary to-primary">
+        <section className="overflow-hidden px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:pt-40 pb-12 lg:pb-24 bg-gradient-to-tr from-secondary to-primary">
           <div className="xl:max-w-[1920px] mx-auto">
             <div className="grid gap-24 lg:grid-cols-2 items-stretch">
               {/* Left */}
@@ -217,9 +217,9 @@ export default function Home() {
               </div>
 
               {/* Right */}
-              <div className="-mt-28 -mb-12 lg:-mb-24 lg:pt-12 flex items-end justify-center">
+              <div className="-mt-28 -mb-12 lg:-mb-24 lg:pt-12 aspect-auto lg:aspect-[4/5] flex items-end justify-center">
                 <img
-                  className="block w-auto max-w-full h-full object-cover"
+                  className="block w-auto h-full object-bottom"
                   src={HeroPhoto}
                   alt="Smiling customer enjoying Faster"
                 />
