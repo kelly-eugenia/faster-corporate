@@ -6,11 +6,11 @@ import LogoWhite from "../assets/logo-white.svg";
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const wrapperClasses = [
-    "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-secondary text-white",
+  const wrapperClass = [
+    "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 bg-secondary text-white border-b border-muted-primary/50 shadow-md",
   ].join(" ");
 
-  const mobileMenuClasses = [
+  const mobileMenuClass = [
     "lg:hidden overflow-hidden transition-all duration-300 bg-secondary text-bg-primary",
     mobileOpen
       ? "max-h-128 opacity-100 shadow-xl"
@@ -41,8 +41,8 @@ export default function NavBar() {
   };
 
   return (
-    <header className={wrapperClasses}>
-      <div className="max-w-[2160px] mx-auto flex h-16 sm:h-20 items-center justify-between px-8 lg:px-40">
+    <header className={wrapperClass}>
+      <div className="max-w-[1440px] mx-auto flex h-16 sm:h-20 items-center justify-between px-8">
         {/* Logo */}
         <NavLink
           to="/"
@@ -61,14 +61,14 @@ export default function NavBar() {
           <NavLink to="/" className={linkClass}>
             Home
           </NavLink>
-          <NavLink to="/about" className={linkClass}>
-            About Us
+          <NavLink to="/how-it-works" className={linkClass}>
+            How It Works
           </NavLink>
           <NavLink to="/fees" className={linkClass}>
             Fees
           </NavLink>
-          <NavLink to="/security" className={linkClass}>
-            Security
+          <NavLink to="/about" className={linkClass}>
+            About Us
           </NavLink>
         </nav>
 
@@ -135,7 +135,7 @@ export default function NavBar() {
       </div>
 
       {/* Mobile menu panel */}
-      <div className={mobileMenuClasses}>
+      <div className={mobileMenuClass}>
         <div className="flex flex-col py-2">
           <NavLink
             to="/"
@@ -145,11 +145,11 @@ export default function NavBar() {
             Home
           </NavLink>
           <NavLink
-            to="/about"
+            to="/how-it-works"
             className={mobileLinkClass}
             onClick={handleMobileLinkClick}
           >
-            About Us
+            How It Works
           </NavLink>
           <NavLink
             to="/fees"
@@ -159,11 +159,11 @@ export default function NavBar() {
             Fees
           </NavLink>
           <NavLink
-            to="/security"
+            to="/about"
             className={mobileLinkClass}
             onClick={handleMobileLinkClick}
           >
-            Security
+            About Us
           </NavLink>
         </div>
 

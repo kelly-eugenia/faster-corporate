@@ -1,125 +1,190 @@
-import { useState } from "react";
-import Pill from "../components/Pill";
+import { useState, useMemo } from "react";
 import "../App.css";
 
 type Frequency = "weekly" | "fortnightly" | "monthly";
 
-export default function LoanCalculator() {
-  const [frequency, setFrequency] = useState<Frequency>("weekly");
+const FIXED_REPAYMENT = {
+  weekly: { amount: 55.0, per: "week", unit: "weeks", daysPerPeriod: 7 },
+  fortnightly: {
+    amount: 110.0,
+    per: "fortnight",
+    unit: "fortnights",
+    daysPerPeriod: 14,
+  },
+  monthly: { amount: 238.33, per: "month", unit: "months", daysPerPeriod: 30 },
+};
 
-  const currency = new Intl.NumberFormat("en-AU", {
-    style: "currency",
-    currency: "AUD",
+const ANNUAL_RATE = 0.47;
+const DRAWDOWN_FEE_PCT = 0.2;
+
+const fmtAUD = (n: number) =>
+  "$" +
+  n.toLocaleString("en-AU", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
 
-  // --- Formula ---
+function calcRepayment(drawn: number, frequency: Frequency) {
+  const fee = drawn * DRAWDOWN_FEE_PCT;
+  const f = FIXED_REPAYMENT[frequency];
+  const dailyRate = ANNUAL_RATE / 365;
+  let balance = drawn + fee;
+  let periods = 0;
+  let totalInterest = 0;
+  const maxPeriods =
+    frequency === "monthly" ? 120 : frequency === "fortnightly" ? 260 : 520;
 
-  // Estimated repayment amount
-  const repaymentAmount =
-    frequency === "weekly" ? 55 : frequency === "fortnightly" ? 110 : 220;
+  while (balance > 0 && periods < maxPeriods) {
+    const interestThisPeriod = balance * dailyRate * f.daysPerPeriod;
+    totalInterest += interestThisPeriod;
+    balance = balance + interestThisPeriod - f.amount;
+    periods++;
+    if (balance < 0) balance = 0;
+  }
 
-  const frequencyLabel =
-    frequency === "weekly"
-      ? "per week"
-      : frequency === "fortnightly"
-      ? "per fortnight"
-      : "per month";
+  return {
+    fee,
+    totalInterest,
+    totalRepaid: drawn + fee + totalInterest,
+    periods,
+    maxPeriods,
+    f,
+  };
+}
+
+const freqOptions: { key: Frequency; label: string; sub: string }[] = [
+  { key: "weekly", label: "Weekly", sub: "$55.00 / week" },
+  { key: "fortnightly", label: "Fortnightly", sub: "$110.00 / fortnight" },
+  { key: "monthly", label: "Monthly", sub: "$238.33 / month" },
+];
+
+export default function LoanCalculator() {
+  const [drawAmount, setDrawAmount] = useState(450);
+  const [frequency, setFrequency] = useState<Frequency>("weekly");
+
+  const { fee, totalInterest, totalRepaid, periods, maxPeriods, f } = useMemo(
+    () => calcRepayment(drawAmount, frequency),
+    [drawAmount, frequency],
+  );
+
+  const sliderPct = ((drawAmount - 100) / (10000 - 100)) * 100;
+  const termLabel =
+    periods >= maxPeriods
+      ? "10+ years"
+      : `${periods} ${periods === 1 ? f.per : f.unit}`;
 
   return (
-    <div
-      className="w-full max-w-full rounded-2xl border-4 border-secondary bg-bg-primary 
-                px-5 py-6 sm:px-8 sm:py-8 shadow-sm overflow-hidden"
-    >
-      <div className="mt-0 md:mt-4 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex-1">
-          <Pill text="Line of Credit calculator" color="bg-secondary" />
-
-          {/* Frequency tabs */}
-          <div className="mt-8 sm:mt-10 mb-2">
-            <h2 className="text-xl sm:text-2xl -mb-2 font-medium text-text-primary">
-              Select repayment frequency
-            </h2>
-            <div className="grid grid-cols-3 gap-2 justify-center text-sm sm:text-base">
-              <button
-                type="button"
-                onClick={() => setFrequency("weekly")}
-                className={`
-                    ${
-                      frequency === "weekly" ? "btn-primary" : "btn-secondary"
-                    }`}
-              >
-                Weekly
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setFrequency("fortnightly")}
-                className={`
-                    ${
-                      frequency === "fortnightly"
-                        ? "btn-primary"
-                        : "btn-secondary"
-                    }`}
-              >
-                Fortnightly
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setFrequency("monthly")}
-                className={`
-                    ${
-                      frequency === "monthly" ? "btn-primary" : "btn-secondary"
-                    }`}
-              >
-                Monthly
-              </button>
-            </div>
-          </div>
+    <div className="w-full rounded-card-lg border-4 border-secondary bg-bg-primary p-6 sm:p-10 text-left shadow-sm overflow-hidden">
+      {/* Draw amount */}
+      <div className="mt-4 mb-8">
+        <h2 className="text-[17px] font-semibold text-text-primary mb-3">
+          How much do you want to draw?
+        </h2>
+        <div className="flex items-baseline gap-2.5 mb-3">
+          <span className="text-[38px] font-bold tracking-[-0.025em] text-primary leading-none tabular-nums">
+            ${drawAmount.toLocaleString("en-AU")}
+          </span>
+          <span className="text-[13px] text-muted-secondary">
+            from your approved limit
+          </span>
+        </div>
+        <input
+          type="range"
+          min="100"
+          max="10000"
+          step="50"
+          value={drawAmount}
+          onChange={(e) => setDrawAmount(Number(e.target.value))}
+          className="w-full h-1.5 rounded-full appearance-none outline-none cursor-pointer"
+          style={{
+            background: `linear-gradient(90deg, #1C41E6 ${sliderPct}%, #E7EAF3 ${sliderPct}%)`,
+          }}
+        />
+        <div className="flex justify-between text-[11px] text-ink-light mt-2">
+          <span>$100</span>
+          <span>$10,000</span>
         </div>
       </div>
 
-      {/* Output card */}
-      <div className="bg-bg-secondary mt-2 sm:mt-4 rounded-2xl px-4 py-8 sm:px-6 sm:py-10">
-        {/* Output */}
-        <div className="grid justify-center text-center">
-          <p className="text-sm sm:text-base font-medium text-text-primary">
-            Estimated repayment amount
-          </p>
-          <div className="my-2 text-4xl sm:text-5xl font-bold text-foreground leading-tight break-words">
-            {currency.format(repaymentAmount)}{" "}
-            <span className="text-sm sm:text-base font-normal text-muted-primary align-middle">
-              {frequencyLabel}
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-2 rounded-2xl bg-bg-primary px-4 py-2 w-fit mx-auto">
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="inline mr-2 size-5"
+      {/* Frequency */}
+      <div className="mb-5">
+        <h2 className="text-[17px] font-semibold text-text-primary mb-3">
+          How often will you repay?
+        </h2>
+        <div className="grid grid-cols-3 gap-2">
+          {freqOptions.map(({ key, label, sub }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setFrequency(key)}
+              className={`grid py-3 px-2 rounded-[10px] border font-semibold text-[14px] cursor-pointer transition-all text-center
+                ${
+                  frequency === key
+                    ? "bg-primary border-primary text-bg-primary"
+                    : "bg-white border-border-default text-muted-primary hover:border-primary hover:text-primary"
+                }`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-              />
-            </svg>
-          </span>
-          <span className="font-medium text-muted-primary text-xs sm:text-sm">
-            Estimated amount for any credit limit from{" "}
-            <strong>$0–$10,000</strong>
-          </span>
+              {label}
+              <small className="block text-[11px] font-medium mt-0.5 opacity-75">
+                {sub}
+              </small>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Result */}
+      <div className="bg-bg-secondary rounded-2xl px-4 py-6 sm:px-6 sm:py-8">
+        <p className="text-[18px] leading-[1.45] text-text-primary font-medium tracking-[-0.005em] mb-5">
+          You'd draw{" "}
+          <strong className="text-primary font-bold tabular-nums">
+            ${drawAmount.toLocaleString("en-AU")}
+          </strong>{" "}
+          and repay{" "}
+          <strong className="text-primary font-bold tabular-nums">
+            {fmtAUD(f.amount)}
+          </strong>{" "}
+          every <strong className="text-primary font-bold">{f.per}</strong> for
+          about <strong className="text-primary font-bold">{termLabel}</strong>.
+        </p>
+
+        {/* 3-cell grid */}
+        <div className="grid grid-cols-3 border border-border-default rounded-xl overflow-hidden bg-bg-primary mb-4">
+          {[
+            { lbl: "Drawdown fee", val: fmtAUD(fee), sub: "20% · once" },
+            {
+              lbl: "Total interest",
+              val: fmtAUD(totalInterest),
+              sub: "47% p.a.",
+            },
+            { lbl: "Total to repay", val: fmtAUD(totalRepaid), sub: "" },
+          ].map((cell, i) => (
+            <div
+              key={i}
+              className="p-[14px_16px] border-r border-border-default last:border-r-0"
+            >
+              <div className="text-[10px] text-muted-secondary uppercase tracking-[0.12em] font-semibold mb-1.5">
+                {cell.lbl}
+              </div>
+              <div className="text-[18px] font-bold text-text-primary tracking-[-0.015em] tabular-nums">
+                {cell.val}
+              </div>
+              {cell.sub && (
+                <div className="text-[11px] text-muted-secondary mt-0.5">
+                  {cell.sub}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
-        <hr className="border-t border-[#D4D6E5] my-6 sm:my-8" />
+        {/* APR note */}
+        <div className="border border-accent/20 bg-accent/5 p-[10px_14px] rounded-[10px] flex justify-between items-center gap-4 text-[12.5px] text-muted-primary mb-4">
+          <span>Representative APR ($450 / $55 per week example)</span>
+          <strong className="text-accent text-[13px] font-bold shrink-0">
+            225.5% p.a.
+          </strong>
+        </div>
 
         <p className="text-xs leading-snug text-muted-primary text-center sm:text-left">
           This Line of Credit calculator provides{" "}

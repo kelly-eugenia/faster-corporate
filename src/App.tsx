@@ -5,6 +5,7 @@ import ScrollToSection from "./utils/ScrollToSection";
 import LiveChat from "./components/LiveChat";
 
 import Home from "./pages/Home";
+import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import Fees from "./pages/Fees";
 import Security from "./pages/Security";
@@ -36,6 +37,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/how-it-works" element={<HowItWorks />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/fees" element={<Fees />}></Route>
         <Route path="/security" element={<Security />}></Route>

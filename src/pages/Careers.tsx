@@ -96,7 +96,7 @@ export default function Careers() {
 
       <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 bg-gradient-to-b from-secondary to-primary">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 bg-hero-gradient">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ export default function Careers() {
             }}
             className="pt-12 sm:pt-16 py-8 md:py-24 gap-8 content-center text-center"
           >
-            <Pill text="Work with Faster" color="bg-primary" />
+            <Pill text="Work with Faster" variant="light" />
 
             <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
               Let's build the future of fair, fast credit
@@ -143,7 +143,7 @@ export default function Careers() {
 
               {/* Right */}
               <div className="order-1 lg:order-2 rounded-2xl px-8 py-0 lg:px-10 lg:py-10 content-center lg:text-left text-center">
-                <Pill text="About the team" color="bg-secondary" />
+                <Pill text="About the team" />
                 <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
                   Who we are
                 </h1>
@@ -172,7 +172,7 @@ export default function Careers() {
             {/* Values */}
             <section className="grid grid-cols-1 lg:grid-cols-3 rounded-2xl bg-gradient-to-t from-bg-primary to-bg-secondary lg:px-24 px-16 lg:pt-16 pt-12 mb-12 gap-4 lg:gap-16 content-top">
               <div className="lg:text-left text-center content-top">
-                <Pill text="Our values" color="bg-primary" />
+                <Pill text="Our values" variant="white" />
                 <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
                   We believe in
                 </h1>
@@ -303,7 +303,7 @@ export default function Careers() {
             style={{ backgroundImage: `url(${BgPhoto})` }}
           >
             <div className="rounded-2xl px-4 mb-10 md:mb-16 content-center text-center">
-              <Pill text="So..." color="bg-secondary" />
+              <Pill text="So..." />
               <h1 className="mt-6 my-4 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
                 Why work here?
               </h1>
@@ -512,7 +512,7 @@ export default function Careers() {
         >
           <div className="xl:max-w-[1920px] mx-auto">
             <div className="text-center md:px-6 mb-12">
-              <Pill text="We're hiring" color="bg-primary" />
+              <Pill text="We're hiring" variant="white" />
               <h1 className="mt-6 my-4 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
                 Open Roles
               </h1>

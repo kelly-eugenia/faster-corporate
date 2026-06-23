@@ -5,6 +5,7 @@ type FAQProps = {
   answer: ReactNode;
   isOpen: boolean;
   onToggle: () => void;
+  white?: boolean;
 };
 
 export default function FAQItem({
@@ -12,18 +13,21 @@ export default function FAQItem({
   answer,
   isOpen,
   onToggle,
+  white = false,
 }: FAQProps) {
   return (
-    <div className="self-start w-full rounded-3xl bg-bg-secondary px-2 lg:px-10">
+    <div
+      className={`self-start w-full rounded-3xl p-2 ${white ? "bg-bg-primary" : "bg-bg-secondary"}`}
+    >
       {/* Header row */}
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full items-center gap-4 py-0 lg:py-2 text-left place-content-between"
+        className="flex w-full items-center gap-4 text-left place-content-between"
         aria-expanded={isOpen}
       >
         <span
-          className={`text-lg md:text-xl lg:text-2xl font-semibold ${
+          className={`text-wrap text-lg md:text-xl lg:text-2xl font-semibold ${
             isOpen ? "text-primary" : "text-text-primary"
           }`}
         >
@@ -38,10 +42,10 @@ export default function FAQItem({
       {/* Body */}
       <div
         className={`overflow-hidden text-text-primary transition-all duration-300 ${
-          isOpen ? "-mt-2 opacity-100 mb-8" : "max-h-0 opacity-0 mb-0"
+          isOpen ? "opacity-100 mb-6 -mt-2" : "max-h-0 opacity-0 mb-0"
         }`}
       >
-        <div className="px-4 lg:px-0 text-base md:text-lg lg:text-xl leading-relaxed">
+        <div className="px-6 text-base md:text-lg lg:text-xl leading-relaxed">
           {answer}
         </div>
       </div>

@@ -429,7 +429,7 @@ export default function FAQ() {
 
       <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-hero-gradient">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
@@ -441,7 +441,7 @@ export default function FAQ() {
             }}
             className="pt-12 sm:pt-16 py-8 sm:py-12 md:py-24 gap-8 content-center text-center"
           >
-            <Pill text="Support" color="bg-primary" />
+            <Pill text="Support" variant="light" />
 
             <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
               Frequently Asked Questions
@@ -461,7 +461,7 @@ export default function FAQ() {
                 onClick={() => setActiveCategory(category.key)}
                 className="bg-bg-secondary hover:bg-primary/20 rounded-2xl py-6 md:py-8 lg:py-12 my-0 md:my-2 content-center transition"
               >
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                <p className="text-wrap text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
                   {category.label}
                 </p>
               </button>

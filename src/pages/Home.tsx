@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import React from "react";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -9,20 +10,15 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import Reviews from "../components/Reviews";
-import MobileCarousel from "../components/MobileCarousel";
 import LoanCalculator from "../components/LoanCalculator";
-import CTA from "../components/CTA";
 import FAQSection from "../components/FAQSection";
 
 import HeroPhoto from "../assets/hero-sect.webp";
 import TeamPhoto from "../assets/faster-team-values.jpg";
-import WebsitePhoto from "../assets/faster-website.webp";
 
-import FeesIcon from "../assets/fair-fees.png";
-import SecurityIcon from "../assets/advanced-security.png";
-import TechIcon from "../assets/technology-that-works.png";
-import CustomerIcon from "../assets/customer-support.png";
 import "../App.css";
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const currency0 = new Intl.NumberFormat("en-AU", {
   style: "currency",
@@ -30,20 +26,112 @@ const currency0 = new Intl.NumberFormat("en-AU", {
   maximumFractionDigits: 0,
 });
 
-const xlLinkClass =
-  "relative text-4xl sm:text-5xl lg:text-6xl font-[800] text-primary \
-    after:content-[''] after:absolute after:right-0 after:-bottom-0.5 \
-    after:h-[6px] after:w-0 after:bg-primary \
-    after:transition-all after:duration-300 \
-    hover:after:w-full hover:after:left-0";
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
-const homeFaqs = [
+const HOW_STEPS = [
+  {
+    num: "01",
+    icon: (
+      <path d="M9 12l2 2 4-4M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    ),
+    title: "Apply in minutes",
+    desc: "A quick online application. We assess your situation against our lending criteria.",
+  },
+  {
+    num: "02",
+    icon: (
+      <>
+        <rect x="3" y="6" width="18" height="13" rx="2" />
+        <path d="M3 10h18M7 15h4" />
+      </>
+    ),
+    title: "Get your limit",
+    desc: "If approved, you'll receive a credit limit of up to $10,000 — the maximum you can draw at a time.",
+  },
+  {
+    num: "03",
+    icon: <path d="M12 5v14M5 12l7 7 7-7" />,
+    title: "Draw when you need it",
+    desc: "Transfer funds from your limit to your bank account — same business day, with a clear repayment schedule.",
+  },
+  {
+    num: "04",
+    icon: <path d="M21 12a9 9 0 1 1-9-9M21 3v6h-6" />,
+    title: "Repay & reuse",
+    desc: "As you repay, your available balance refreshes. Draw again up to your limit — without a new application.",
+  },
+];
+
+const TRUST_ROWS: {
+  title: string;
+  badge: string | null;
+  body: React.ReactNode;
+}[] = [
+  {
+    title: "Australian Credit Licence",
+    badge: "ACL 569825",
+    body: (
+      <>
+        Held by Lightspeed CashFaster Ventures Pty Ltd, Australian Credit
+        Licence 569825. Bound by Chapter 3 of the{" "}
+        <em>National Consumer Credit Protection Act 2009</em>, the same
+        responsible-lending obligations that apply across Australian credit.
+      </>
+    ),
+  },
+  {
+    title: "Independently security-certified",
+    badge: "ISO 27001",
+    body: "Audited and certified by Lloyd's Register for Information Security Management. Bank-grade encryption, real-time monitoring, multi-layered protection and documented incident-response apply to your personal data and account activity.",
+  },
+  {
+    title: "Responsible-lending assessment, every application",
+    badge: null,
+    body: (
+      <>
+        Every application is reviewed against our lending criteria and your
+        individual financial situation. If you're already in financial
+        difficulty, we won't lend — and we'll point you to the{" "}
+        <a
+          href="https://ndh.org.au"
+          className="text-primary-light font-semibold border-b border-bg-secondary/30 hover:border-primary-light transition-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          National Debt Helpline (1800 007 007)
+        </a>{" "}
+        instead.
+      </>
+    ),
+  },
+];
+
+const APP_FEATURES = [
+  {
+    strong: "Apply in around 5 minutes.",
+    text: " ID, residency and bank details captured securely.",
+  },
+  {
+    strong: "Draw to your bank instantly.",
+    text: " Funds reach your linked account on the same business day.",
+  },
+  {
+    strong: "Track every dollar.",
+    text: " See your balance, next repayment and full activity history.",
+  },
+  {
+    strong: "Repay early, anytime.",
+    text: " Extra repayments lower your interest — no penalty, no friction.",
+  },
+];
+
+const HOME_FAQS = [
   {
     question: "What is Faster?",
     answer: (
       <>
         Faster offers a flexible Line of Credit you can draw from, repay, and
-        reuse up to your approved limit. It’s designed to help manage short-term
+        reuse up to your approved limit. It's designed to help manage short-term
         cashflow, not as a long-term loan.
       </>
     ),
@@ -52,7 +140,7 @@ const homeFaqs = [
     question: "Do I need an account with Faster to use the service?",
     answer: (
       <>
-        Yes. You’ll need a Faster account to apply for our Line of Credit and
+        Yes. You'll need a Faster account to apply for our Line of Credit and
         manage your repayments. Your account gives you secure access to your
         application, contract, transaction history and support.
       </>
@@ -76,13 +164,10 @@ const homeFaqs = [
           <li>• a one-off drawdown fee (20% of your approved limit)</li>
           <li>• interest at 47% p.a. on your outstanding balance</li>
         </ul>
-        <p className="my-3 text-base md:text-xl">
+        <p className="my-3">
           All fees are shown clearly before you sign your contract.
         </p>
-        <Link
-          to="/fees"
-          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
-        >
+        <Link to="/fees" className="btn btn-primary text-base font-medium">
           See Our Fees
         </Link>
       </>
@@ -99,7 +184,7 @@ const homeFaqs = [
         <div className="mt-2">
           <Link
             to="/security"
-            className="btn btn-primary text-base md:text-lg font-medium"
+            className="btn btn-primary text-base font-medium"
           >
             See Our Security
           </Link>
@@ -112,16 +197,16 @@ const homeFaqs = [
     answer: (
       <>
         You can reach our team anytime at{" "}
-        <a href="mailto:support@faster.com.au" className="hover:underline">
+        <a
+          href="mailto:support@faster.com.au"
+          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+        >
           support@faster.com.au
         </a>
-        . We’re here to help with account access, repayments, fee questions, or
-        anything else you’re unsure about.
+        . We're here to help with account access, repayments, fee questions, or
+        anything else you're unsure about.
         <div className="mt-2">
-          <Link
-            to="/contact"
-            className="btn btn-primary text-base md:text-lg font-medium"
-          >
+          <Link to="/contact" className="btn btn-primary text-base font-medium">
             Contact Us
           </Link>
         </div>
@@ -130,24 +215,19 @@ const homeFaqs = [
   },
 ];
 
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function Home() {
   const seo = useSEO("home");
   const navigate = useNavigate();
 
-  // motion value for the number
   const amount = useMotionValue(5000);
-
-  // format it as $10,000
   const amountFormatted = useTransform(amount, (latest) =>
     currency0.format(latest),
   );
 
   useEffect(() => {
-    const controls = animate(amount, 10000, {
-      duration: 0.8,
-      ease: "easeOut",
-    });
-
+    const controls = animate(amount, 10000, { duration: 0.8, ease: "easeOut" });
     return () => controls.stop();
   }, [amount]);
 
@@ -173,36 +253,46 @@ export default function Home() {
         canonicalUrl={seo?.canonicalUrl}
       />
 
-      <NavBar />
+      <div className="font-sans antialiased text-text-primary bg-bg-primary">
+        <NavBar />
 
-      <div className="w-full mx-auto">
-        {/* Hero */}
-        <section className="overflow-hidden px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 lg:pt-40 pb-12 lg:pb-24 bg-gradient-to-tr from-secondary to-primary">
-          <div className="xl:max-w-[1920px] mx-auto">
-            <div className="grid gap-24 lg:grid-cols-2 items-stretch">
+        {/* ── Hero ── */}
+        <section className="relative overflow-hidden section-padding py-[8em] sm:py-[10em] lg:py-[11em] lg:pb-[8em] bg-hero-gradient">
+          <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
               {/* Left */}
-              <div className="pt-12 pb-0 lg:pb-12 flex flex-col justify-center">
-                <div className="lg:mt-8 lg:text-left text-center">
-                  <Pill text="Credit, made clearer." color="bg-primary" />
-                  <h1 className="mt-8 lg:mt-12 text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-bg-primary">
-                    Access up to{" "}
-                    <span className="inline-block w-[7.2ch] align-baseline text-center">
-                      <motion.span className="text-bg-primary font-[800] tabular-nums whitespace-nowrap">
-                        {amountFormatted}
-                      </motion.span>
-                    </span>{" "}
-                    with a flexible Line of Credit
-                  </h1>
-                  <p className="mt-6 lg:mt-8 text-bg-secondary text-base sm:text-lg md:text-2xl">
-                    A simpler alternative to traditional banks, with clear terms
-                    and no confusing surprises.
-                  </p>
+              <div>
+                <Pill text="Credit, made clearer" variant="light" />
 
+                <h1
+                  className="text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] tracking-[-0.02em] font-bold mt-[22px] mb-[18px] text-bg-primary"
+                  style={{ textWrap: "balance" } as React.CSSProperties}
+                >
+                  Access up to{" "}
+                  <span className="inline-block w-[7.2ch] align-baseline text-center">
+                    <motion.span className="bg-text-gradient bg-clip-text text-transparent font-[800] tabular-nums whitespace-nowrap">
+                      {amountFormatted}
+                    </motion.span>
+                  </span>{" "}
+                  with a flexible{" "}
+                  <span className="bg-text-gradient bg-clip-text text-transparent italic font-[700]">
+                    Line of Credit
+                  </span>
+                </h1>
+
+                <p className="text-[18px] text-bg-secondary/80 max-w-[52ch] mb-4">
+                  A revolving line of credit you don't have to reapply for. One
+                  drawdown fee when you first access your limit. Interest only
+                  on what you've actually drawn — calculated daily.
+                </p>
+
+                {/* CTA */}
+                <div className="flex flex-col max-w-sm mb-9">
                   <motion.button
-                    className="my-10 lg:my-12 btn-primary text-xl sm:text-2xl font-medium"
+                    className="my-6 mb-4 inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold bg-primary text-bg-primary border border-transparent py-[15px] text-xl shadow-btn-primary hover:bg-primary-light group cursor-pointer"
                     onClick={() => navigate("/apply")}
                     initial={{ scale: 1 }}
-                    animate={{ scale: [1, 1.05, 1] }}
+                    animate={{ scale: [1, 1.04, 1] }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
@@ -212,396 +302,596 @@ export default function Home() {
                     }}
                   >
                     Apply Now
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      className="transition-transform group-hover:translate-x-0.5"
+                    >
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
                   </motion.button>
+                  <span className="text-[12.5px] text-border-default tracking-[0.02em]">
+                    Takes 5 minutes · ID + bank details
+                  </span>
+                </div>
+
+                {/* Trust strip */}
+                <div
+                  className="flex flex-wrap gap-3"
+                  role="region"
+                  aria-label="Trust signals"
+                >
+                  {/* Trustpilot */}
+                  <div
+                    className="inline-flex items-center gap-2.5 px-4 py-3 rounded-[12px] border border-bg-primary/10"
+                    style={{
+                      background: "rgba(252,253,255,0.06)",
+                      backdropFilter: "blur(6px)",
+                    }}
+                  >
+                    <div
+                      className="inline-flex gap-px"
+                      aria-label="4.4 out of 5 stars"
+                    >
+                      {Array.from({ length: 4 }).map((_, i) => (
+                        <svg
+                          key={i}
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-[16px] h-[16px]"
+                        >
+                          <path d="M0 0h24v24H0z" fill="#00b67a" />
+                          <path
+                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                            fill="#fff"
+                          />
+                        </svg>
+                      ))}
+                      <svg viewBox="0 0 24 24" className="w-[16px] h-[16px]">
+                        <defs>
+                          <linearGradient id="halfstar">
+                            <stop offset="40%" stopColor="#00b67a" />
+                            <stop offset="40%" stopColor="#d6dae6" />
+                          </linearGradient>
+                        </defs>
+                        <path d="M0 0h24v24H0z" fill="url(#halfstar)" />
+                        <path
+                          d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                          fill="#fff"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-bold text-[13px] text-bg-primary leading-none">
+                        4.4 / 5
+                      </div>
+                      <div className="text-[11px] text-border-default/60 mt-0.5">
+                        1,500+ Trustpilot reviews
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ISO 27001 */}
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-[12px] border border-bg-primary/10"
+                    style={{
+                      background: "rgba(252,253,255,0.06)",
+                      backdropFilter: "blur(6px)",
+                    }}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="size-6 mr-1 text-primary-light"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <div>
+                      <div className="text-[13px] font-semibold text-bg-primary leading-none">
+                        ISO 27001
+                      </div>
+                      <div className="text-[11px] text-border-default/60 mt-0.5">
+                        Lloyd's Register
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ACL */}
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-[12px] border border-bg-primary/10"
+                    style={{
+                      background: "rgba(252,253,255,0.06)",
+                      backdropFilter: "blur(6px)",
+                    }}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="size-6 mr-1 text-primary-light"
+                    >
+                      <path d="M3 12l2 2 4-4M3 6h18M3 18h18" />
+                    </svg>
+                    <div>
+                      <div className="text-[13px] font-semibold text-bg-primary leading-none">
+                        ACL 569825
+                      </div>
+                      <div className="text-[11px] text-border-default/60 mt-0.5">
+                        Aust. Credit Licence
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Right */}
-              <div className="-mt-28 -mb-12 lg:-mb-24 lg:pt-12 aspect-auto lg:aspect-[4/5] flex items-end justify-center">
+              {/* Right: hero photo */}
+              <div
+                className="relative flex justify-center items-end min-h-[480px] lg:min-h-[580px]"
+                aria-hidden="true"
+              >
                 <img
-                  className="block w-auto h-full object-bottom"
                   src={HeroPhoto}
                   alt="Smiling customer enjoying Faster"
+                  className="block w-auto h-full max-h-[580px] object-bottom"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Trustpilot */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 bg-bg-secondary text-xl text-center text-bg-primary">
-          <div className="xl:max-w-[1920px] mx-auto">
-            <Pill text="What the people say" color="bg-primary" />
-            <Reviews />
-          </div>
-        </section>
-
-        {/* About */}
-        <section className="py-8 pb-0 md:py-12 md:pb-6 grid gap-8 mb-12 items-stretch">
-          <div className="rounded-2xl px-8 sm:px-12 lg:px-16 xl:px-40 pb-0 sm:pb-4 content-center text-center">
-            <Pill text="Why choose Faster" color="bg-secondary" />
-            <h1 className="mt-8 lg:mt-12 my-2 text-4xl sm:text-5xl lg:text-6xl">
-              There's a lot to love{" "}
-              <span className="hidden sm:inline">
-                <br />
-              </span>
-              <span>
-                <Link to="about" className={xlLinkClass}>
-                  about Faster.com.au
-                </Link>
-              </span>
-            </h1>
-          </div>
-
-          <div className="xl:max-w-[1920px] mx-auto">
-            {/* Mobile Looping Carousel */}
-            <MobileCarousel
-              items={[
-                {
-                  icon: SecurityIcon,
-                  title: "Advanced Security",
-                  desc: "Your data is encrypted and monitored throughout the process.",
-                },
-                {
-                  icon: FeesIcon,
-                  title: "Clear, Fair Fees",
-                  desc: "No hidden fees — just a transparent cost for using your Line of Credit.",
-                },
-                {
-                  icon: CustomerIcon,
-                  title: "Customer Support",
-                  desc: "Real people ready to help with any question and issue.",
-                },
-                {
-                  icon: TechIcon,
-                  title: "Reliable Tech",
-                  desc: "Built by a tech-focused team to give you a smooth, reliable experience.",
-                },
-              ]}
-            />
-
-            {/* Desktop Grid */}
-            <div className="hidden px-8 sm:px-12 lg:px-16 xl:px-40 sm:grid xl:grid-cols-4 sm:grid-cols-2 gap-8 items-stretch text-center sm:text-left">
-              <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
-                  <img src={SecurityIcon} alt="Security" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl">Advanced Security</h2>
-                <p>
-                  Your data is encrypted and monitored throughout the process.
-                </p>
-              </div>
-
-              <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
-                  <img src={FeesIcon} alt="Fees" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl">Clear, Fair Fees</h2>
-                <p>
-                  No hidden fees — just a transparent cost for using your Line
-                  of Credit.
-                </p>
-              </div>
-
-              <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
-                  <img src={CustomerIcon} alt="Customer Support" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl">Customer Support</h2>
-                <p>Real people ready to help with any question and issue.</p>
-              </div>
-
-              <div className="bg-bg-secondary rounded-2xl p-8">
-                <div className="w-1/5 mx-auto sm:mx-0 mb-6">
-                  <img src={TechIcon} alt="Reliable Tech" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl">Reliable Tech</h2>
-                <p>
-                  Built by a tech-focused team to give you a smooth, reliable
-                  experience.
-                </p>
-              </div>
+        {/* ── How It Works ── */}
+        <section className="section-padding bg-bg-primary">
+          <div className="text-center w-full max-w-[1440px] mx-auto px-8">
+            <div className=" max-w-[720px] mx-auto mb-14">
+              <Pill text="How it works" className="mb-[18px]" />
+              <h2
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
+                Not a loan. A credit limit you control.
+              </h2>
+              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+                A Faster Line of Credit gives you an approved limit you can draw
+                from when you need it. Repay, and the balance is ready to use
+                again. No reapplying every time.
+              </p>
             </div>
-          </div>
 
-          <div className="-mt-4 sm:-mt-2 text-center">
-            <Link
-              to="/about"
-              className="btn btn-primary text-base md:text-lg font-medium"
-            >
+            <div className="text-left grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px] mb-8">
+              {HOW_STEPS.map((step) => (
+                <div
+                  key={step.num}
+                  className="bg-bg-secondary border border-border-subtle rounded-card p-[24px_22px] relative transition-all duration-150 hover:border-border-default hover:-translate-y-0.5"
+                >
+                  <div className="w-8 h-8 rounded-full bg-primary text-bg-primary inline-flex items-center justify-center font-bold text-[13px] mb-4">
+                    {step.num}
+                  </div>
+                  <div className="absolute top-[22px] right-[22px] text-primary-light/40">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="w-[22px] h-[22px]"
+                    >
+                      {step.icon}
+                    </svg>
+                  </div>
+                  <h3 className="text-[18px] font-bold tracking-[-0.01em] mb-1.5 m-0 text-text-primary">
+                    {step.title}
+                  </h3>
+                  <p className="text-[14px] text-muted-secondary m-0 leading-[1.5]">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <Link to="/how-it-works" className="btn btn-primary">
               Learn More
             </Link>
           </div>
         </section>
 
-        {/* How it works */}
+        {/* ── Why / About ── */}
         <section
-          id="how-it-works"
-          className="bg-bg-secondary px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-16 mb-12"
+          id="about"
+          className="py-[110px] bg-bg-secondary section-padding"
         >
-          <div className="xl:max-w-[1920px] mx-auto">
-            <div className="grid gap-16 lg:gap-32 lg:grid-cols-2 items-center">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
               {/* Left */}
-              <div className="text-center md:text-left">
-                <Pill text="How Faster works" color="bg-primary" />
-                <h1 className="mt-8 lg:mt-12 my-4 text-4xl sm:text-5xl lg:text-6xl">
-                  Fast to set up, easy to use
-                </h1>
-                <p>
-                  Faster’s Line of Credit lets you access funds when you need
-                  them, without reapplying each time. Credit is subject to
-                  eligibility and approval.
+              <div>
+                <Pill
+                  text="About Faster.com.au · Why trust us"
+                  variant="white"
+                  className="mb-[18px]"
+                />
+                <h2
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
+                  style={{ textWrap: "balance" } as React.CSSProperties}
+                >
+                  Trust is what you can verify yourself.
+                </h2>
+                <p className="text-[17px] text-muted-primary leading-[1.6] max-w-[52ch]">
+                  Faster.com.au is an Australian digital credit provider. We
+                  provide a{" "}
+                  <strong className="text-text-primary font-semibold">
+                    flexible Line of Credit
+                  </strong>{" "}
+                  — a pre-approved limit you draw from when you need it. Repay,
+                  and the balance is ready to use again. Most importantly, we
+                  run it against specific obligations you can check, not just
+                  claims.
                 </p>
 
-                {/* Steps */}
-                <div className="mt-16 space-y-12 md:space-y-8 w-full mx-auto max-w-2xl md:mx-0 md:max-w-3xl">
-                  {/* Step 1 */}
-                  <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
+                {/* Trust ledger */}
+                <div className="mt-7 border-t border-border-subtle">
+                  {TRUST_ROWS.map((row, i) => (
                     <div
-                      className="flex size-10 shrink-0 items-center justify-center 
-                  rounded-full bg-primary text-bg-primary font-bold 
-                  lg:text-xl text-lg self-start mx-auto md:mx-0"
+                      key={i}
+                      className="grid grid-cols-[28px_1fr] gap-4 py-[18px] border-b border-border-subtle items-start"
                     >
-                      1
+                      <span className="size-[24px] rounded-full bg-bg-primary border border-border-default text-primary inline-flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          className="size-[16px]"
+                        >
+                          <path d="M5 12l5 5L20 7" />
+                        </svg>
+                      </span>
+                      <div>
+                        <h4 className="m-0 mb-1 text-[15px] font-bold text-text-primary tracking-[-0.005em]">
+                          {row.title}
+                          {row.badge && (
+                            <span className="inline-block ml-3 text-[11px] font-semibold text-primary bg-bg-primary px-[7px] py-[2px] rounded-md tracking-[0.04em] align-[1px]">
+                              {row.badge}
+                            </span>
+                          )}
+                        </h4>
+                        <p className="m-0 text-[13.5px] text-muted-secondary leading-[1.5]">
+                          {row.body}
+                        </p>
+                      </div>
                     </div>
-                    <div className="mx-auto md:mx-0">
-                      <h2 className="font-semibold text-2xl sm:text-3xl">
-                        Apply in minutes
-                      </h2>
-                      <p className="mt-2 text-muted-primary">
-                        Complete a quick online application and securely verify
-                        your details.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Step 2 */}
-                  <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
-                    <div
-                      className="flex size-10 shrink-0 items-center justify-center 
-                  rounded-full bg-primary text-bg-primary font-bold 
-                  lg:text-xl text-lg self-start mx-auto md:mx-0"
-                    >
-                      2
-                    </div>
-                    <div className="mx-auto md:mx-0">
-                      <h2 className="font-semibold text-2xl sm:text-3xl">
-                        Get your Faster limit
-                      </h2>
-                      <p className="mt-2 text-muted-primary">
-                        If approved, you will receive an ongoing credit limit —
-                        the maximum you can borrow at a time.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Step 3 */}
-                  <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
-                    <div
-                      className="flex size-10 shrink-0 items-center justify-center 
-                  rounded-full bg-primary text-bg-primary font-bold 
-                  lg:text-xl text-lg self-start mx-auto md:mx-0"
-                    >
-                      3
-                    </div>
-                    <div className="mx-auto md:mx-0">
-                      <h2 className="font-semibold text-2xl sm:text-3xl">
-                        Draw when you need it
-                      </h2>
-                      <p className="mt-2 text-muted-primary">
-                        Make a draw from your limit to your bank account — with
-                        a clear repayment schedule and total cost shown upfront.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Step 4 */}
-                  <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start text-center md:text-left">
-                    <div
-                      className="flex size-10 shrink-0 items-center justify-center 
-                  rounded-full bg-primary text-bg-primary font-bold 
-                  lg:text-xl text-lg self-start mx-auto md:mx-0"
-                    >
-                      4
-                    </div>
-                    <div className="mx-auto md:mx-0">
-                      <h2 className="font-semibold text-2xl sm:text-3xl">
-                        Repay, reuse, stay in control
-                      </h2>
-                      <p className="mt-2 text-muted-primary">
-                        As you repay, your available balance refreshes. You can
-                        draw again up to your limit.
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
-                {/* CTAs */}
-                <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start sm:mb-8">
-                  <Link
-                    to="/fees"
-                    className="btn btn-secondary text-primary text-base md:text-lg my-0 font-medium"
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-1.5 text-primary font-semibold text-[15px] mt-6 pb-0.5 border-b border-border-default hover:border-primary transition-colors"
+                >
+                  Learn more about us
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
                   >
-                    See Our Fees
-                  </Link>
-                  <Link
-                    to="/apply"
-                    className="btn btn-primary text-base md:text-lg my-0 font-medium"
-                  >
-                    Apply Now
-                  </Link>
-                </div>
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
 
-              {/* Right: Loan calculator */}
-              <div className="bg-gradient-to-tr from-secondary to-primary rounded-2xl p-2 sm:p-4 md:p-8 mb-4 lg:mb-0">
+              {/* Right: team photo */}
+              <div className="relative">
+                <div
+                  className="w-full aspect-[4/5] rounded-card-lg overflow-hidden"
+                  style={{ boxShadow: "0 20px 50px -16px rgba(11,16,36,0.3)" }}
+                >
+                  <img
+                    src={TeamPhoto}
+                    alt="Faster is deeply invested in our customers"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Reviews sub-section */}
+            <div className="relative mt-24 text-center pb-2">
+              <div className="absolute top-[14px] left-0 right-0 h-px bg-border-default -mx-16 sm:-mx-20 lg:-mx-24 xl:-mx-40 z-0" />
+              <Pill
+                text="What customers say"
+                variant="white"
+                className="relative z-10"
+              />
+              <div
+                className="mt-[1em] text-[26px] font-bold text-text-primary tracking-[-0.015em]"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
+                Rated 4.4 / 5 by 1,500+ Australian borrowers.
+              </div>
+            </div>
+
+            <Reviews />
+          </div>
+        </section>
+
+        {/* ── Fees + Calculator ── */}
+        <section
+          id="fees"
+          className="section-padding relative overflow-hidden bg-fees-gradient"
+        >
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            {/* Section head */}
+            <div className="text-center max-w-[720px] mx-auto mb-14">
+              <Pill
+                text="Two fees · Nothing else"
+                variant="light"
+                className="mb-[18px]"
+              />
+              <h2
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
+                Two numbers. See what you'd pay.
+              </h2>
+              <p className="text-[18px] text-bg-secondary/70 m-0 leading-[1.55]">
+                Every cost is set out before you borrow. The drawdown fee is
+                charged once. Interest only accrues on what you've actually
+                drawn.
+              </p>
+            </div>
+
+            {/* Fee cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+              {[
+                {
+                  label: "Fee 01",
+                  when: "Charged once",
+                  big: "20%",
+                  bigSub: "of your limit",
+                  title: "One-time drawdown fee",
+                  desc: "A single fee when you first access your line of credit. Never charged again — no matter how many times you draw or repay.",
+                },
+                {
+                  label: "Fee 02",
+                  when: "Calculated daily",
+                  big: "47%",
+                  bigSub: "p.a. on balance",
+                  title: "Interest while in use",
+                  desc: "Charged only on the amount you've drawn, for the days it's outstanding. Interest doesn't compound. Repay sooner, pay less.",
+                },
+              ].map((card) => (
+                <div
+                  key={card.label}
+                  className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[36px] backdrop-blur-lg"
+                >
+                  <div className="flex items-center justify-between mb-[18px]">
+                    <span className="text-[11px] uppercase tracking-[0.12em] text-accent px-[10px] py-1 bg-primary-light/20 border border-primary-light/40 rounded-[6px]">
+                      {card.label}
+                    </span>
+                    <span className="text-[12px] text-ink-light">
+                      {card.when}
+                    </span>
+                  </div>
+                  <div
+                    className="text-[clamp(56px,7vw,72px)] font-bold leading-[0.95] mb-1"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, #FCFDFF 30%, #b8c4ff 100%)",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    {card.big}
+                    <small
+                      className="text-[22px] font-semibold ml-1"
+                      style={{
+                        WebkitTextFillColor: "rgba(234,237,245,0.7)",
+                        color: "rgba(234,237,245,0.7)",
+                      }}
+                    >
+                      {card.bigSub}
+                    </small>
+                  </div>
+                  <h3 className="text-[20px] font-bold mt-3.5 mb-2 text-bg-primary">
+                    {card.title}
+                  </h3>
+                  <p className="text-[14.5px] text-bg-secondary/70 leading-[1.55] m-0">
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* APR bar */}
+            <div
+              className="border border-accent/40 bg-accent/15 rounded-card p-[22px_28px] grid grid-cols-1 md:grid-cols-[auto_auto_1fr] items-center gap-7 mb-6"
+              role="region"
+              aria-label="Representative APR disclosure"
+            >
+              <div>
+                <div className="text-[13px] font-semibold text-bg-secondary/50 uppercase tracking-[0.12em] mb-1">
+                  Representative APR
+                </div>
+                <div className="text-[36px] font-bold tracking-[-0.02em] text-accent leading-none tabular-nums">
+                  225.5%
+                  <small className="text-[14px] text-accent/70 font-semibold ml-1.5">
+                    p.a.
+                  </small>
+                </div>
+              </div>
+              <div className="hidden md:block h-14 w-px bg-accent/30" />
+              <p className="text-[14.5px] text-bg-secondary/85 leading-[1.5] m-0">
+                <strong className="text-bg-primary">
+                  Based on a $450 limit drawn in full and repaid at $55/week
+                  (about 11 weeks).
+                </strong>{" "}
+                Cost of credit: $118.02 ($90 one-time drawdown fee + $28.02
+                interest). Total you repay (incl. the $450 you drew): $568.02.
+                Your actual APR varies with how much you draw, how long it's
+                outstanding, and your repayment behaviour.
+              </p>
+            </div>
+
+            {/* Calculator */}
+            <div id="calculator" className="relative text-center mt-[4em] mb-7">
+              <div className="absolute top-[14px] left-0 right-0 h-px bg-bg-secondary/20 -mx-16 sm:-mx-20 lg:-mx-24 xl:-mx-40 z-0" />
+              <Pill
+                text="Try it on your numbers"
+                variant="light"
+                className="mb-4 relative z-10"
+              />
+
+              <h2
+                className="text-center text-bg-primary text-[24px]md:text-[32px] lg:text-[40px] leading-[1.05] tracking-[-0.02em] font-bold my-6"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
+                What it'd look like for you
+              </h2>
+
+              <div className="mt-8 max-w-[880px] mx-auto">
                 <LoanCalculator />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Values 1 */}
-        <div className="xl:max-w-[1920px] mx-auto">
-          <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-2 lg:mb-6 items-stretch">
-            {/* Left */}
-            <div className="rounded-2xl px-4 flex items-bottom justify-center">
-              <img
-                src={TeamPhoto}
-                alt="Faster is deeply invested in our customers"
-                className="block w-full h-auto rounded-2xl"
+        {/* ── CTA ── */}
+        <section
+          id="apply"
+          className="section-padding bg-bg-primary overflow-hidden"
+        >
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center rounded-card-lg p-8 md:p-16 relative overflow-hidden bg-cta-gradient">
+              {/* Glow */}
+              <div
+                className="absolute w-80 h-80 right-[12%] top-1/2 -translate-y-1/2 z-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(125,155,255,0.4) 0%, transparent 60%)",
+                  filter: "blur(40px)",
+                }}
               />
-            </div>
 
-            {/* Right */}
-            <div className="rounded-2xl p-0 lg:px-8 lg:py-10 content-center lg:text-left text-center">
-              <h1 className="mt-0 mb-6 sm:my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
-                Faster is{" "}
-                <span className="text-primary font-[800]">deeply invested</span>{" "}
-                in our customers.
-              </h1>
-              <p className="text-lg md:text-xl">
-                We believe borrowing should be clear, fair, and designed to help
-                you always stay in control.
+              {/* Left */}
+              <div className="relative z-10">
+                <Pill
+                  text="Get started in 5 minutes"
+                  variant="light"
+                  className="mb-[18px]"
+                />
+                <h2
+                  className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
+                  style={{ textWrap: "balance" } as React.CSSProperties}
+                >
+                  Ready to get started?
+                </h2>
+
+                <div className="grid gap-3 mt-8 mb-6">
+                  {APP_FEATURES.map((feat, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 text-[14.5px] text-bg-secondary/85"
+                    >
+                      <span className="w-6 h-6 rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          className="w-[13px] h-[13px]"
+                        >
+                          <path d="M5 12l5 5L20 7" />
+                        </svg>
+                      </span>
+                      <span className="text-bg-secondary">
+                        <strong className="text-bg-primary font-semibold">
+                          {feat.strong}
+                        </strong>
+                        {feat.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link to="/apply" className="btn btn-primary text-2xl group">
+                  Apply Now
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    className="ml-1 transition-transform group-hover:translate-x-0.5"
+                  >
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </Link>
+
+                <div className="mt-[16px] pt-[22px] border-t border-bg-primary/10 text-[13.5px] text-bg-secondary/70 leading-[1.55]">
+                  <p className="mt-2 text-[13px] text-bg-secondary tracking-[0.01em]">
+                    You'll need:{" "}
+                    <strong>
+                      Australian residency · government-issued ID · 90+ days of
+                      income · a bank account in your name.
+                    </strong>
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: app UI mockup */}
+              <div className="relative z-10 flex items-center justify-center min-h-[400px] lg:min-h-[540px]">
+                <div
+                  className="w-full max-w-[360px] aspect-[3/4] rounded-card-lg bg-secondary/50 border border-bg-primary/10 flex items-center justify-center relative"
+                  style={{ boxShadow: "0 20px 50px -16px rgba(0,0,0,0.5)" }}
+                >
+                  <span className="text-ink-light text-sm">
+                    App photo placeholder
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="section-padding bg-bg-secondary">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            <div className="text-center mb-12">
+              <Pill text="FAQ" variant="white" className="mb-[18px]" />
+              <h2
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
+                Customers frequently ask
+              </h2>
+              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+                If you don't see your question here, ask{" "}
+                <a
+                  href="mailto:support@faster.com.au"
+                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                >
+                  support@faster.com.au
+                </a>{" "}
+                — we'll add it.
               </p>
-              <div className="my-6 sm:mt-8">
-                <Pill text="Transparent Practices" color="bg-secondary" />
-                <Pill text="Responsible Lending" color="bg-secondary" />
-                <Pill text="Customer Commitment" color="bg-secondary" />
-              </div>
             </div>
-          </section>
+            <FAQSection faqs={HOME_FAQS} white />
+          </div>
+        </section>
 
-          {/* Values 2 */}
-          <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-4 md:py-12 grid lg:grid-cols-2 gap-8 mb-12 items-stretch">
-            {/* Left */}
-            <div className="order-2 lg:order-1 rounded-2xl p-0 lg:px-8 lg:py-10 content-center lg:text-left text-center">
-              <h1 className="mt-0 mb-6 sm:my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl">
-                Fast. Secure. Simple.
-              </h1>
-
-              <div>
-                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                  <span className="flex items-center mx-auto lg:mx-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z"
-                        clipRule="evenodd"
-                      />
-                      <path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z" />
-                    </svg>
-                  </span>
-                  <div className="mx-auto lg:mx-0">
-                    <h2 className="text-3xl sm:text-4xl">
-                      Fast, simple experience
-                    </h2>
-                    <p>
-                      Our technology is built for a smooth, efficient borrowing
-                      experience.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                  <span className="flex items-center mx-auto lg:mx-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.516 2.17a.75.75 0 0 0-1.032 0 11.209 11.209 0 0 1-7.877 3.08.75.75 0 0 0-.722.515A12.74 12.74 0 0 0 2.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 0 0 .374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 0 0-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08Zm3.094 8.016a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <div className="mx-auto lg:mx-0">
-                    <h2 className="text-3xl sm:text-4xl">Secure by Design</h2>
-                    <p>
-                      Your data is encrypted and protected under strict privacy
-                      standards.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start text-center lg:text-left lg:justify-start my-12">
-                  <span className="flex items-center mx-auto lg:mx-0">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-12 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <div className="mx-auto lg:mx-0">
-                    <h2 className="text-3xl sm:text-4xl">
-                      Built for Australians
-                    </h2>
-                    <p>
-                      Our Line of Credit is designed to be flexible, accessible
-                      and easy to understand.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right */}
-            <div className="order-1 lg:order-2 rounded-2xl px-4 flex items-bottom justify-center">
-              <img
-                src={WebsitePhoto}
-                alt="Faster platform on phone and laptop"
-                className="block w-full h-auto rounded-2xl"
-              />
-            </div>
-          </section>
-
-          {/* CTA */}
-          <CTA />
-
-          {/* FAQ */}
-          <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
-            <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
-              Customers frequently ask
-            </h1>
-            <FAQSection faqs={homeFaqs} />
-          </section>
-        </div>
+        <Footer />
       </div>
-
-      <Footer />
     </>
   );
 }

@@ -36,7 +36,7 @@ export default function Calculator() {
         {/* Hero */}
         <section
           className="
-            bg-gradient-to-bl from-secondary to-primary
+            bg-hero-gradient
             pt-12 md:pt-16 lg:pt-24 px-8 sm:px-12 lg:px-16 xl:px-40
         "
         >
@@ -71,8 +71,8 @@ export default function Calculator() {
               <div
                 className="
                 -mt-[150px] lg:-mt-[450px] xl:-mt-[400px]     
-                w-full max-w-2xl lg:max-w-xl xl:max-w-2xl
-                rounded-xl shadow-lg
+                w-full max-w-2xl xl:max-w-3xl
+                rounded-3xl shadow-lg
                 bg-bg-primary
                 p-4 md:p-6 lg:p-8
                 "
@@ -84,13 +84,13 @@ export default function Calculator() {
             {/* Fee structure */}
             <div className="mt-2 lg:mt-8">
               <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-12 md:py-16 lg:py-24 mb-8 md:mb-12 content-center text-center">
-                <Pill text="How our fees work" color="bg-secondary" />
+                <Pill text="How our fees work" />
 
                 {/* Stat style */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 mt-8 lg:mt-12 items-stretch">
                   <div className="flex flex-col justify-between lg:px-12 lg:py-12 sm:px-8 sm:py-10 p-8 bg-bg-secondary rounded-2xl">
                     <div>
-                      <Pill text="One-time drawdown fee" color="bg-primary" />
+                      <Pill text="One-time drawdown fee" variant="white" />
                       <h1 className="mt-4 lg:mt-6 lg:text-3xl text-2xl text-text-primary">
                         Charged once, when you first access your credit
                       </h1>
@@ -104,7 +104,7 @@ export default function Calculator() {
                   </div>
                   <div className="flex flex-col justify-between lg:px-12 lg:py-12 sm:px-8 sm:py-10 p-8 bg-bg-secondary rounded-2xl">
                     <div>
-                      <Pill text="Interest while in use" color="bg-primary" />
+                      <Pill text="Interest while in use" variant="white" />
                       <h1 className="mt-4 lg:mt-6 lg:text-3xl text-2xl text-text-primary">
                         Only applies to the amount you've drawn, for the days
                         it's outstanding

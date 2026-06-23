@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -8,7 +8,6 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import FAQSection from "../components/FAQSection";
-import Reviews from "../components/Reviews";
 
 import "../App.css";
 
@@ -27,7 +26,7 @@ const ANATOMY_CARDS = [
         v: (
           <>
             The first time you draw funds from your line of credit, ever. Not
-            when you're approved — when you actually move money.
+            when you&apos;re approved — when you actually move money.
           </>
         ),
       },
@@ -48,7 +47,7 @@ const ANATOMY_CARDS = [
         v: (
           <>
             Added to your outstanding balance at the moment of your first
-            drawdown. You don't pay it from your bank account separately.
+            drawdown. You don&apos;t pay it from your bank account separately.
           </>
         ),
       },
@@ -107,8 +106,8 @@ const ANATOMY_CARDS = [
         v: (
           <>
             <strong className="text-text-primary font-semibold">No.</strong>{" "}
-            Interest does not capitalise — accrued interest doesn't earn further
-            interest of its own.
+            Interest does not capitalise — accrued interest doesn&apos;t earn
+            further interest of its own.
           </>
         ),
       },
@@ -116,7 +115,7 @@ const ANATOMY_CARDS = [
         k: "Reduce it by",
         v: (
           <>
-            Repaying sooner, or making extra repayments. There's{" "}
+            Repaying sooner, or making extra repayments. There&apos;s{" "}
             <strong className="text-text-primary font-semibold">
               no early-repayment fee
             </strong>{" "}
@@ -127,14 +126,15 @@ const ANATOMY_CARDS = [
     ],
     exCalc: (
       <>
-        <span className="text-muted-secondary">$540 balance </span>× (47% ÷ 365){" "}
+        <span className="text-muted-secondary">$540 balance </span>× (47% ÷ 365)
+        × 31 days{" "}
         <span className="text-primary font-bold bg-bg-primary px-2 py-0.5 rounded ml-1">
-          = about $4.87 across week one
+          = $21.55 month one
         </span>
       </>
     ),
     exNote:
-      "Balance shrinks as you repay, so each week's interest is smaller than the last. The schedule below shows it week-by-week.",
+      "Balance shrinks as you repay, so each subsequent month's interest is smaller. The schedule below shows it month-by-month.",
   },
 ];
 
@@ -148,7 +148,9 @@ const WORKED_SUMMARY_ROWS: {
     label: (
       <>
         Drawdown fee{" "}
-        <span className="text-[12px] text-bg-secondary/50">· 20% × $450</span>
+        <span className="font-mono text-[12px] text-bg-secondary/50">
+          · 20% × $450
+        </span>
       </>
     ),
     amount: "$90.00",
@@ -157,18 +159,14 @@ const WORKED_SUMMARY_ROWS: {
     label: (
       <>
         Total interest{" "}
-        <span className="text-[12px] text-bg-secondary/50">
-          · 47% p.a. over ~11 weeks
+        <span className="font-mono text-[12px] text-bg-secondary/50">
+          · 47% p.a., 4 weeks
         </span>
       </>
     ),
-    amount: "$28.02",
+    amount: "$17.64",
   },
-  {
-    label: "Total to repay",
-    amount: "$568.02",
-    total: true,
-  },
+  { label: "Total to repay", amount: "$557.64", total: true },
 ];
 
 interface SchedRow {
@@ -243,10 +241,7 @@ const FEE_TABLE: FeeTableRow[] = [
     desc: (
       <>
         Charged once at your first drawdown.{" "}
-        <a
-          href="#anatomy"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
+        <a href="#anatomy" className="text-primary font-semibold">
           See anatomy ↑
         </a>
       </>
@@ -262,10 +257,7 @@ const FEE_TABLE: FeeTableRow[] = [
     desc: (
       <>
         Calculated daily on outstanding balance, no compounding.{" "}
-        <a
-          href="#anatomy"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
+        <a href="#anatomy" className="text-primary font-semibold">
           See anatomy ↑
         </a>
       </>
@@ -341,9 +333,40 @@ const FEE_TABLE: FeeTableRow[] = [
 ];
 
 const CT_MINI_ROWS = [
-  { label: "Drawdown fee · once", value: "$90.00" },
+  { label: "Drawdown fee · once", value: "$640.00" },
   { label: "Repayment · weekly", value: "$55.00" },
-  { label: "Total interest · est.", value: "$28.02" },
+  { label: "Total interest · est.", value: "$432.18" },
+];
+
+const REVIEWS = [
+  {
+    stars: 5,
+    title: "Knew exactly what I was paying",
+    body: "The fee structure was clearer than anywhere else I looked. No surprises after I drew the money.",
+    author: "Kyle",
+    time: "4 days ago",
+  },
+  {
+    stars: 5,
+    title: "Repaid early, no penalty",
+    body: "Paid the whole balance off six weeks early after a tax refund came in. They actually credited the unused interest back. Nice surprise.",
+    author: "Hannah K.",
+    time: "2 weeks ago",
+  },
+  {
+    stars: 4,
+    title: "Not the cheapest, but the clearest",
+    body: "Did the math against my credit card cash advance and it cost more. But for me it was about knowing the total upfront. Will use again.",
+    author: "James O.",
+    time: "1 month ago",
+  },
+  {
+    stars: 5,
+    title: "Drew again, no new fee",
+    body: "Repaid the first lot, then drew again two months later for a car repair. Didn't get hit with another 20% fee — same as advertised.",
+    author: "Andrew Reynolds",
+    time: "May 13",
+  },
 ];
 
 const FEES_FAQS = [
@@ -358,22 +381,22 @@ const FEES_FAQS = [
         (≈ 0.1288% per day), and add that as accrued interest. We charge it
         against your balance once per repayment period. Interest stops the day
         your balance reaches $0 — so paying anything extra immediately reduces
-        the next day's interest charge.
+        the next day&apos;s interest charge.
       </>
     ),
   },
   {
     question:
-      "What's the 225.5% representative APR and why is it so different from 47%?",
+      "What's the 221.36% representative APR and why is it so different from 47%?",
     answer: (
       <>
         The 47% is just the interest rate. The{" "}
         <strong className="text-text-primary">representative APR</strong>{" "}
         includes the 20% drawdown fee, annualised over the example term. Because
-        the drawdown fee is paid once but spread across a short repayment
-        period, the equivalent annualised rate is high. On a longer-term draw,
-        the same fee structure produces a lower APR. We use the $450 example
-        repaid at $55/week (about 11 weeks) as our representative scenario.
+        the drawdown fee is paid once but the example only runs for a month, the
+        equivalent annualised rate is high. On a longer-term draw, the same fee
+        structure produces a lower APR. We use the $450 / 1-month example
+        because that&apos;s the typical first-time draw on this product.
       </>
     ),
   },
@@ -403,13 +426,27 @@ const FEES_FAQS = [
     ),
   },
   {
+    question: "When does the $35 late fee and $15 dishonour fee get charged?",
+    answer: (
+      <>
+        <strong className="text-text-primary">$35 late fee</strong> applies once
+        a scheduled repayment is overdue — once per missed payment, not per day
+        overdue.{" "}
+        <strong className="text-text-primary">$15 dishonour fee</strong> applies
+        if a direct debit fails (e.g. insufficient funds). Both are waived if
+        you contact us before the due date and agree a revised arrangement, or
+        if you&apos;re in hardship.
+      </>
+    ),
+  },
+  {
     question: "Why is my weekly repayment $55 regardless of how much I draw?",
     answer: (
       <>
         We use a fixed-amount repayment schedule so your per-period commitment
-        stays predictable. Drawing more <em>extends</em> the time you'll spend
-        repaying — it doesn't raise the weekly amount. You can always make extra
-        repayments to clear it sooner.
+        stays predictable. Drawing more <em>extends</em> the time you&apos;ll
+        spend repaying — it doesn&apos;t raise the weekly amount. You can always
+        make extra repayments to clear it sooner.
       </>
     ),
   },
@@ -417,9 +454,9 @@ const FEES_FAQS = [
     question: "What happens to the interest I'd have paid if I repay early?",
     answer: (
       <>
-        You simply don't pay it. Interest only accrues on days you have an
+        You simply don&apos;t pay it. Interest only accrues on days you have an
         outstanding balance — repay early and the future days never happen.
-        There's nothing to refund because we never charged it.
+        There&apos;s nothing to refund because we never charged it.
       </>
     ),
   },
@@ -427,13 +464,43 @@ const FEES_FAQS = [
     question: "Where can I see all of this in writing before I commit?",
     answer: (
       <>
-        Every fee disclosed on this page is also set out in your Credit
-        Contract, with the exact amounts and timings for your specific limit.
-        You see the contract before you accept — never after.
+        Every fee disclosed on this page is also set out in your{" "}
+        <a href="#" className="text-primary font-semibold">
+          Credit Contract
+        </a>
+        , with the exact amounts and timings for your specific limit. You see
+        the contract before you accept — never after.
       </>
     ),
   },
 ];
+
+// ─── Small presentational helpers ──────────────────────────────────────────────
+
+function TrustpilotStars({ count }: { count: number }) {
+  return (
+    <div className="inline-flex gap-px bg-trustpilot p-[3px_4px]">
+      {Array.from({ length: 5 }).map((_, j) => (
+        <span
+          key={j}
+          className={`w-3.5 h-3.5 inline-flex items-center justify-center ${
+            j < count ? "bg-bg-primary" : "bg-border-default"
+          }`}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className={`w-3.5 h-3.5 ${
+              j < count ? "text-trustpilot" : "text-border-default"
+            }`}
+          >
+            <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+        </span>
+      ))}
+    </div>
+  );
+}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -444,13 +511,14 @@ export default function Fees() {
     <>
       <SEO
         title={
-          seo?.title || "Our Fees — Clear, Simple, and Upfront | Faster.com.au"
+          seo?.title ||
+          "Faster.com.au | Fees — every cost, in writing, before you borrow"
         }
         description={
           seo?.description ||
           "Every cost that can apply to a Faster Line of Credit — what triggers each fee, how it's calculated, the worked example behind our representative APR, and what we don't charge."
         }
-        ogTitle={seo?.ogTitle || "Our Fees, Clear and Upfront | Faster.com.au"}
+        ogTitle={seo?.ogTitle || "Faster.com.au | Fees, itemised"}
         ogDescription={
           seo?.ogDescription ||
           "Two charged fees, two penalty fees, and a full list of the things we don't charge. The same content that appears in your credit contract."
@@ -462,7 +530,18 @@ export default function Fees() {
         <NavBar />
 
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden hero-padding bg-hero-gradient">
+        <section className="relative overflow-hidden section-padding py-[6em] sm:py-[7em] bg-hero-gradient">
+          {/* Dot grid */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+              maskImage:
+                "linear-gradient(180deg, transparent, black 30%, black 70%, transparent)",
+            }}
+          />
           <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
             <div className="max-w-[780px]">
               <Pill text="Fees" variant="light" className="mb-[22px]" />
@@ -470,17 +549,18 @@ export default function Fees() {
                 className="text-[clamp(40px,5.2vw,68px)] leading-[1.0] tracking-[-0.025em] font-bold mb-[22px] text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                Our fees,{" "}
-                <em className="bg-text-gradient bg-clip-text text-transparent font-medium italic">
-                  clear and upfront
+                Fees,{" "}
+                <em className="not-italic bg-text-gradient bg-clip-text text-transparent italic font-medium">
+                  itemised
                 </em>
                 .
               </h1>
-              <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[64ch] leading-[1.6] m-0">
-                Every cost of your Faster Line of Credit is set out before you
-                borrow, so you always know what you’ll pay and why. Our fees are
-                straightforward and easy to understand. You’ll see a full
-                breakdown in your credit contract before you decide to go ahead.
+              <p className="text-[18px] text-bg-secondary/80 max-w-[64ch] leading-[1.6] m-0">
+                This page sets out every cost that can apply to a Faster Line of
+                Credit — what triggers each fee, how it&apos;s calculated, the
+                worked example we use for our representative APR, and the things
+                we don&apos;t charge at all. The same content appears in your
+                credit contract before you commit.
               </p>
             </div>
           </div>
@@ -495,7 +575,7 @@ export default function Fees() {
                 className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                What triggers each fee, how it's calculated, what it costs.
+                What triggers each fee, how it&apos;s calculated, what it costs.
               </h2>
               <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
                 Two boxes. Every input, every formula, every example — laid out
@@ -509,10 +589,11 @@ export default function Fees() {
                   key={card.tag}
                   className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[32px_32px_28px] flex flex-col"
                 >
+                  {/* Header */}
                   <div className="flex items-start justify-between gap-4 pb-[22px] border-b border-border-subtle mb-6">
                     <div>
                       <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-semibold mb-3.5">
-                        <span className="bg-bg-primary border border-border-subtle text-primary px-2 py-0.5 rounded-md">
+                        <span className="bg-bg-primary border border-border-subtle text-primary px-2 py-0.5 rounded-md font-mono">
                           {card.tag}
                         </span>
                       </div>
@@ -527,19 +608,20 @@ export default function Fees() {
                           {card.rateSub}
                         </small>
                       </div>
-                      <div className="text-[12px] text-muted-secondary mt-1">
+                      <div className="text-[12px] text-muted-secondary mt-1 font-mono">
                         {card.rateUnit}
                       </div>
                     </div>
                   </div>
 
+                  {/* Rows */}
                   <div className="flex flex-col gap-3.5 mb-6">
                     {card.rows.map((row) => (
                       <div
                         key={row.k}
                         className="grid grid-cols-[90px_1fr] sm:grid-cols-[110px_1fr] gap-4 items-start text-[14.5px]"
                       >
-                        <span className="text-[11px] uppercase tracking-[0.12em] text-muted-secondary font-semibold pt-0.5">
+                        <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted-secondary font-semibold pt-0.5">
                           {row.k}
                         </span>
                         <span className="text-muted-primary leading-[1.5]">
@@ -549,11 +631,12 @@ export default function Fees() {
                     ))}
                   </div>
 
+                  {/* Example */}
                   <div className="mt-auto bg-bg-primary border border-border-subtle rounded-[12px] p-[18px_20px]">
-                    <div className="text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-2.5">
+                    <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-2.5">
                       Example
                     </div>
-                    <div className="text-[14.5px] text-muted-primary leading-[1.6]">
+                    <div className="text-[14.5px] text-muted-primary leading-[1.6] font-mono">
                       {card.exCalc}
                     </div>
                     <div className="text-[12px] text-ink-light mt-2.5 leading-[1.45]">
@@ -566,40 +649,38 @@ export default function Fees() {
           </div>
         </section>
 
-        {/* ── APR strip ── */}
+        {/* ── APR equal-prominence strip ── */}
         <section
           id="apr"
           role="region"
           aria-label="Representative APR disclosure"
-          className="section-padding bg-[#0a1140] text-bg-primary border-y border-accent/20"
-          style={{ paddingTop: 0, paddingBottom: 0 }}
+          className="bg-[#0a1140] text-bg-primary border-y border-[rgba(255,208,102,0.18)]"
         >
           <div className="w-full max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-[auto_auto_1fr_auto] gap-4 md:gap-8 items-center py-[26px]">
             <div className="flex flex-col gap-1">
-              <div className="text-[11px] uppercase tracking-[0.14em] text-accent font-semibold">
+              <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#ffd066] font-semibold">
                 Representative APR
               </div>
-              <div className="text-[clamp(36px,5vw,44px)] font-bold tracking-[-0.025em] text-accent leading-none tabular-nums">
-                225.5%
-                <small className="text-[16px] text-accent/70 font-semibold ml-1.5">
+              <div className="text-[clamp(36px,5vw,44px)] font-bold tracking-[-0.025em] text-[#ffd066] leading-none tabular-nums">
+                221.36%
+                <small className="text-[16px] text-[rgba(255,208,102,0.7)] font-semibold ml-1.5">
                   p.a.
                 </small>
               </div>
             </div>
-            <div className="hidden md:block w-px h-14 bg-accent/20" />
+            <div className="hidden md:block w-px h-14 bg-[rgba(255,208,102,0.22)]" />
             <p className="text-[14.5px] text-bg-primary/85 leading-[1.55] max-w-[78ch] m-0">
               <strong className="text-bg-primary">
                 This is what 20% upfront + 47% p.a. interest costs once you
                 express it as a single annualised comparison rate.
               </strong>{" "}
-              Calculated on a $450 limit drawn in full and repaid at $55/week
-              (about 11 weeks). Cost of credit: $118.02 ($90 drawdown + $28.02
-              interest). Total you repay (incl. $450 drawn): $568.02. Different
-              amounts and repayment periods will produce different rates.
+              Calculated on a $450 limit drawn in full and repaid over one month
+              ($90 drawdown + $17.64 interest = $107.64). Different amounts and
+              repayment periods will produce different rates.
             </p>
             <a
               href="#worked"
-              className="inline-flex items-center gap-1.5 text-[13px] text-accent border border-accent/35 px-3.5 py-2 rounded-lg hover:bg-accent/[0.08] transition-colors whitespace-nowrap justify-self-start md:justify-self-auto"
+              className="inline-flex items-center gap-1.5 text-[13px] text-[#ffd066] font-mono border border-[rgba(255,208,102,0.35)] px-3.5 py-2 rounded-lg hover:bg-[rgba(255,208,102,0.08)] transition-colors whitespace-nowrap justify-self-start md:justify-self-auto"
             >
               See the working →
             </a>
@@ -622,11 +703,11 @@ export default function Fees() {
                 className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                $450 drawn in full. Repaid weekly.
+                $450 drawn in full. Repaid over four weeks.
               </h2>
               <p className="text-[18px] text-bg-secondary/70 m-0 leading-[1.55]">
                 This is the canonical example we use for the representative APR.
-                Every figure shown, and every weekly repayment, comes from the
+                Every cent shown — and every weekly repayment — comes from the
                 formulas on the cards above.
               </p>
             </div>
@@ -634,25 +715,25 @@ export default function Fees() {
             <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-9 items-start">
               {/* Summary */}
               <aside className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[32px_32px_28px] backdrop-blur-lg lg:sticky lg:top-[92px]">
-                <div className="text-[13px] uppercase tracking-[0.14em] text-[#b8c4ff] mb-4 font-semibold">
+                <div className="font-mono text-[13px] uppercase tracking-[0.14em] text-[#b8c4ff] mb-4">
                   Summary
                 </div>
                 <p className="text-[17px] leading-[1.45] text-bg-secondary/85 mb-[22px]">
-                  You're approved for a{" "}
+                  You&apos;re approved for a{" "}
                   <strong className="text-bg-primary font-semibold">
                     $450 limit
                   </strong>
                   , draw the full amount, and repay{" "}
                   <strong className="text-bg-primary font-semibold">
-                    $55/week
+                    $55 / week
                   </strong>{" "}
-                  over the next 11 weeks.
+                  over the next four weeks.
                 </p>
 
                 <table className="w-full border-collapse text-[14.5px]">
                   <tbody>
                     {WORKED_SUMMARY_ROWS.map((row, i) => (
-                      <tr key={i}>
+                      <tr key={i} className={row.total ? "" : ""}>
                         <td
                           className={`py-3.5 border-b border-bg-primary/10 text-bg-secondary/80 ${
                             row.total
@@ -663,7 +744,7 @@ export default function Fees() {
                           {row.label}
                         </td>
                         <td
-                          className={`py-3.5 text-right tabular-nums text-bg-primary font-medium border-b border-bg-primary/10 ${
+                          className={`py-3.5 text-right font-mono tabular-nums text-bg-primary font-medium border-b border-bg-primary/10 ${
                             row.total
                               ? "font-bold text-[21px] border-b-0 pt-[18px]"
                               : ""
@@ -676,18 +757,18 @@ export default function Fees() {
                     <tr>
                       <td
                         colSpan={2}
-                        className="pt-1.5 pb-3.5 text-bg-secondary/55 text-[12.5px]"
+                        className="pt-1.5 pb-3.5 text-bg-secondary/55 text-[12.5px] font-mono"
                       >
-                        Representative APR · 225.5% p.a.
+                        Representative APR · 221.36% p.a.
                       </td>
                     </tr>
                   </tbody>
                 </table>
 
-                <div className="mt-[22px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 leading-[1.6]">
+                <div className="mt-[22px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 font-mono leading-[1.6]">
                   Repaying sooner reduces interest. Repaying later (within your
                   contract terms) increases it. Late and dishonour fees are not
-                  part of this example.
+                  part of this example — they apply only if a payment fails.
                 </div>
               </aside>
 
@@ -696,6 +777,14 @@ export default function Fees() {
                 <div className="flex items-center justify-between px-[22px] pb-[18px] border-b border-bg-primary/[0.08]">
                   <div className="text-[18px] font-bold text-bg-primary tracking-[-0.01em]">
                     Repayment schedule
+                  </div>
+                  <div className="inline-flex gap-1 bg-bg-primary/[0.06] border border-bg-primary/10 rounded-lg p-[3px]">
+                    <button className="bg-[rgba(184,196,255,0.16)] text-bg-primary px-3 py-1.5 text-[12px] rounded-md font-semibold font-mono tracking-[0.04em] uppercase">
+                      Weekly
+                    </button>
+                    <button className="bg-transparent text-bg-secondary/70 px-3 py-1.5 text-[12px] rounded-md font-semibold font-mono tracking-[0.04em] uppercase cursor-pointer">
+                      Fortnightly
+                    </button>
                   </div>
                 </div>
 
@@ -711,12 +800,12 @@ export default function Fees() {
                         ].map((h) => (
                           <th
                             key={h}
-                            className="text-left px-[22px] py-3 text-[11px] text-bg-secondary/50 font-semibold uppercase tracking-[0.12em] bg-bg-primary/[0.02]"
+                            className="text-left px-[22px] py-3 text-[11px] text-bg-secondary/50 font-semibold font-mono uppercase tracking-[0.12em] bg-bg-primary/[0.02]"
                           >
                             {h}
                           </th>
                         ))}
-                        <th className="text-right px-[22px] py-3 text-[11px] text-bg-secondary/50 font-semibold uppercase tracking-[0.12em] bg-bg-primary/[0.02]">
+                        <th className="text-right px-[22px] py-3 text-[11px] text-bg-secondary/50 font-semibold font-mono uppercase tracking-[0.12em] bg-bg-primary/[0.02]">
                           Closing balance
                         </th>
                       </tr>
@@ -724,21 +813,21 @@ export default function Fees() {
                     <tbody>
                       {SCHEDULE_ROWS.map((row, i) => (
                         <tr key={i}>
-                          <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05]">
+                          <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05] font-mono">
                             <span className="inline-block px-[7px] py-0.5 bg-[rgba(184,196,255,0.12)] text-[#b8c4ff] rounded text-[11px] font-semibold">
                               {row.week}
                             </span>
                           </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
+                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums">
                             {row.opening}
                           </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
+                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums">
                             {row.interest}
                           </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums leading-[1.4]">
+                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums leading-[1.4]">
                             {row.repayment}
                           </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums text-right">
+                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums text-right">
                             {row.closing}
                           </td>
                         </tr>
@@ -746,63 +835,44 @@ export default function Fees() {
                       <tr>
                         <td
                           colSpan={5}
-                          className="text-center text-bg-secondary/40 py-2 text-[11px]"
+                          className="text-center text-bg-secondary/40 py-2 text-[11px] font-mono"
                         >
-                          … continues through …
+                          … continues through W11 …
                         </td>
                       </tr>
                       <tr>
-                        <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05]">
+                        <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05] font-mono">
                           <span className="inline-block px-[7px] py-0.5 bg-[rgba(184,196,255,0.12)] text-[#b8c4ff] rounded text-[11px] font-semibold">
                             W10
                           </span>
                         </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $72.21
+                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums">
+                          $54.18
                         </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $0.65
+                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums">
+                          $0.49
                         </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          − $55.00
+                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums">
+                          − $54.67
                         </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums text-right">
-                          $17.86
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05]">
-                          <span className="inline-block px-[7px] py-0.5 bg-[rgba(184,196,255,0.12)] text-[#b8c4ff] rounded text-[11px] font-semibold">
-                            W11
-                          </span>
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $17.86
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $0.16
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          − $18.02
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums text-right">
+                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] font-mono tabular-nums text-right">
                           $0.00
                         </td>
                       </tr>
-                      <tr className="bg-primary-light/[0.05] text-primary-light/80">
-                        <td className="px-[22px] py-3 text-[13.5px]">
-                          <span className="inline-block px-[7px] py-0.5 bg-primary-light/15 text-primary-light rounded text-[11px] font-semibold">
+                      <tr className="bg-[rgba(125,220,145,0.05)] text-[#c8f3d2]">
+                        <td className="px-[22px] py-3 text-[13.5px] font-mono">
+                          <span className="inline-block px-[7px] py-0.5 bg-[rgba(125,220,145,0.15)] text-[#7ddc91] rounded text-[11px] font-semibold">
                             Done
                           </span>
                         </td>
                         <td
                           colSpan={3}
-                          className="px-[22px] py-3 text-[13.5px]"
+                          className="px-[22px] py-3 text-[13.5px] font-mono"
                         >
-                          Total repaid: <strong>$568.02</strong> ($450 drawn +
-                          $90 fee + $28.02 interest)
+                          Total repaid: <strong>$557.64</strong> ($450 drawn +
+                          $90 fee + $17.64 interest)
                         </td>
-                        <td className="px-[22px] py-3 text-[13.5px] tabular-nums text-right">
+                        <td className="px-[22px] py-3 text-[13.5px] font-mono tabular-nums text-right">
                           $0.00
                         </td>
                       </tr>
@@ -831,7 +901,7 @@ export default function Fees() {
               </h2>
               <p className="text-[16px] text-muted-secondary m-0 leading-[1.55]">
                 The two charged fees are detailed above. This is the canonical
-                reference: every fee, every $0 row that says what we don't
+                reference: every fee, every $0 row that says what we don&apos;t
                 charge.
               </p>
             </div>
@@ -841,13 +911,13 @@ export default function Fees() {
                 <table className="w-full border-collapse">
                   <thead>
                     <tr>
-                      <th className="text-left px-6 py-[18px] text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle w-1/2">
+                      <th className="text-left px-6 py-[18px] text-[11px] font-mono uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle w-1/2">
                         Fee
                       </th>
-                      <th className="text-left px-6 py-[18px] text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle">
+                      <th className="text-left px-6 py-[18px] text-[11px] font-mono uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle">
                         When it applies
                       </th>
-                      <th className="text-right px-6 py-[18px] text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle">
+                      <th className="text-right px-6 py-[18px] text-[11px] font-mono uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle">
                         Amount
                       </th>
                     </tr>
@@ -858,7 +928,7 @@ export default function Fees() {
                         <tr key={i}>
                           <td
                             colSpan={3}
-                            className="bg-[#eef1f8] px-6 py-3 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold border-b border-border-subtle"
+                            className="bg-[#eef1f8] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold border-b border-border-subtle"
                           >
                             {row.scope}
                           </td>
@@ -874,18 +944,18 @@ export default function Fees() {
                           <td className="px-6 py-[22px] border-b border-border-subtle align-top text-muted-primary text-[14.5px] leading-[1.5]">
                             {row.when}
                             {row.whenSub && (
-                              <div className="text-[12.5px] text-muted-secondary tracking-[0.02em] mt-1">
+                              <div className="text-[12.5px] text-muted-secondary font-mono tracking-[0.02em] mt-1">
                                 {row.whenSub}
                               </div>
                             )}
                           </td>
                           <td className="px-6 py-[22px] border-b border-border-subtle align-top text-right">
                             <span
-                              className={`tabular-nums font-bold tracking-[-0.015em] leading-none ${
+                              className={`font-mono tabular-nums font-bold tracking-[-0.015em] leading-none ${
                                 row.amountKind === "zero"
-                                  ? "text-accent text-[18px]"
+                                  ? "text-[#00824f] text-[18px]"
                                   : row.amountKind === "penalty"
-                                    ? "text-primary-light text-[22px]"
+                                    ? "text-[#b87900] text-[22px]"
                                     : "text-primary text-[22px]"
                               }`}
                             >
@@ -906,7 +976,7 @@ export default function Fees() {
             </div>
 
             <div className="mt-[18px] p-[18px_22px] bg-bg-primary border border-dashed border-border-default rounded-[12px] text-[13px] text-muted-secondary leading-[1.6] flex gap-3 items-start">
-              <span className="w-[22px] h-[22px] flex-shrink-0 rounded-full bg-primary text-bg-primary inline-flex items-center justify-center font-bold text-[12px] mt-px">
+              <span className="w-[22px] h-[22px] flex-shrink-0 rounded-full bg-primary text-bg-primary inline-flex items-center justify-center font-bold text-[12px] font-mono mt-px">
                 i
               </span>
               <div>
@@ -917,19 +987,18 @@ export default function Fees() {
                 payment is due and we agree a hardship arrangement. Call the
                 National Debt Helpline <strong>1800&nbsp;007&nbsp;007</strong>{" "}
                 for free, independent advice — or{" "}
-                <Link
-                  to="/contact"
-                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-                >
-                  contact us directly
-                </Link>
+                <a href="#" className="text-primary font-semibold">
+                  apply for hardship support directly
+                </a>
                 .
               </div>
             </div>
           </div>
+        </section>
 
-          {/* ── Calculator ── */}
-          <div className="w-full max-w-[1440px] mt-12 md:mt-20 mx-auto px-8">
+        {/* ── Calculator teaser ── */}
+        <section className="section-padding bg-bg-secondary">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
             <div
               className="border border-bg-secondary rounded-card-lg p-8 md:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-center shadow-card"
               style={{
@@ -937,7 +1006,11 @@ export default function Fees() {
               }}
             >
               <div>
-                <Pill text="Run your own numbers" className="mb-6" />
+                <Pill
+                  text="Run your own numbers"
+                  variant="white"
+                  className="mb-3.5"
+                />
                 <h3
                   className="text-[30px] font-bold tracking-[-0.02em] mb-3 text-text-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
@@ -950,7 +1023,7 @@ export default function Fees() {
                   $10,000 against weekly, fortnightly or monthly repayments —
                   and shows the same fee structure applied to your numbers.
                 </p>
-                <Link to="/home#calculator" className="btn btn-primary group">
+                <Link to="/#calculator" className="btn btn-primary group">
                   Open the calculator
                   <svg
                     width="16"
@@ -967,25 +1040,25 @@ export default function Fees() {
                 </Link>
               </div>
 
-              {/* Mini preview card */}
+              {/* Mini card */}
               <div
                 className="bg-bg-primary border border-border-subtle rounded-card p-[22px]"
                 aria-hidden="true"
                 style={{ boxShadow: "0 6px 20px -6px rgba(11,16,36,0.1)" }}
               >
-                <div className="text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-3">
+                <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-3">
                   If you drew
                 </div>
                 <div className="text-[28px] font-bold text-primary tracking-[-0.02em] tabular-nums mb-3">
-                  $450
+                  $3,200
                 </div>
                 <div className="h-1.5 bg-border-subtle rounded-full mb-3.5 overflow-hidden">
-                  <div className="w-[25%] h-full bg-primary rounded-full" />
+                  <div className="w-[32%] h-full bg-primary rounded-full" />
                 </div>
                 {CT_MINI_ROWS.map((row) => (
                   <div
                     key={row.label}
-                    className="flex justify-between text-[12px] text-muted-secondary py-1"
+                    className="flex justify-between text-[12px] text-muted-secondary font-mono py-1"
                   >
                     <span>{row.label}</span>
                     <strong className="text-text-primary font-semibold">
@@ -993,31 +1066,97 @@ export default function Fees() {
                     </strong>
                   </div>
                 ))}
-                <div className="flex justify-between text-[12px] py-1 mt-2 pt-2.5 border-t border-border-subtle">
+                <div className="flex justify-between text-[12px] font-mono py-1 mt-2 pt-2.5 border-t border-border-subtle">
                   <span className="text-text-primary">Total to repay</span>
-                  <strong className="text-primary text-[14px]">$568.02</strong>
+                  <strong className="text-primary text-[14px]">
+                    $4,272.18
+                  </strong>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── Reviews ── */}
+        {/* ── Trustpilot ── */}
         <section className="section-padding bg-bg-primary">
           <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-4">
-              <Pill
-                text="What customers say about the fees"
-                className="mb-[18px]"
-              />
+            <div className="text-center mb-6">
+              <Pill text="What customers say about the fees" />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+              {REVIEWS.map((r, i) => (
+                <div
+                  key={i}
+                  className="bg-bg-secondary border border-border-subtle rounded-[6px] p-[18px_20px] flex flex-col gap-2.5 min-h-[200px]"
+                >
+                  <div className="flex items-center justify-between">
+                    <TrustpilotStars count={r.stars} />
+                    <span className="text-[11px] text-muted-secondary font-medium inline-flex items-center gap-1">
+                      <span className="w-3 h-3 bg-trustpilot rounded-full inline-flex items-center justify-center text-bg-primary text-[9px] font-bold">
+                        ✓
+                      </span>
+                      Verified
+                    </span>
+                  </div>
+                  <h4 className="text-[14px] font-bold text-text-primary m-0 leading-[1.3] tracking-[-0.005em]">
+                    {r.title}
+                  </h4>
+                  <p className="text-[13px] text-muted-primary leading-[1.5] m-0 flex-1">
+                    {r.body}
+                  </p>
+                  <div className="text-[11.5px] text-muted-secondary">
+                    <strong className="text-muted-primary font-semibold">
+                      {r.author}
+                    </strong>
+                    , {r.time}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-6 text-[13.5px] text-muted-secondary">
+              Rated <strong className="text-text-primary">4.4 / 5</strong> based
+              on <strong className="text-text-primary">1,500 reviews</strong>.
+              Showing reviews mentioning fees, costs and clarity.
+              <span className="inline-flex items-center gap-1.5 text-text-primary font-semibold ml-1">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-4 h-4 text-trustpilot"
+                >
+                  <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                Trustpilot
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ ── */}
+        <section className="section-padding bg-bg-secondary">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            <div className="text-center mb-12">
+              <Pill text="Fees FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(28px,3vw,38px)] leading-[1.05] tracking-[-0.02em] font-bold text-text-primary"
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                Rated 4.4 / 5 by 1,500+ Australian borrowers.
+                The questions people ask before they apply.
               </h2>
+              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+                If you don&apos;t see your question here, ask{" "}
+                <a
+                  href="mailto:support@faster.com.au"
+                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                >
+                  support@faster.com.au
+                </a>{" "}
+                — we&apos;ll add it.
+              </p>
             </div>
-            <Reviews />
+
+            <FAQSection faqs={FEES_FAQS} white />
           </div>
         </section>
 
@@ -1038,11 +1177,12 @@ export default function Fees() {
                   className="text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
-                  Now you've seen the receipt. Apply in about five minutes.
+                  Now you&apos;ve seen the receipt. Apply in about five minutes.
                 </h2>
-                <p className="text-[17px] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.55]">
-                  You'll see the same fees again in your credit contract before
-                  you commit — no hidden terms, no after-the-fact changes.
+                <p className="text-[17px] text-bg-secondary/72 mb-7 max-w-[46ch] leading-[1.55]">
+                  You&apos;ll see the same fees again in your credit contract
+                  before you commit — no hidden terms, no after-the-fact
+                  changes.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-[22px]">
                   {[
@@ -1053,9 +1193,9 @@ export default function Fees() {
                   ].map((req) => (
                     <div
                       key={req}
-                      className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/80"
+                      className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/78"
                     >
-                      <span className="w-[22px] h-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
+                      <span className="w-[22px] h-[22px] rounded-full bg-[rgba(184,196,255,0.16)] text-[#b8c4ff] inline-flex items-center justify-center flex-shrink-0">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
@@ -1073,7 +1213,7 @@ export default function Fees() {
               </div>
 
               <div className="text-left lg:text-right">
-                <Link to="/apply" className="btn btn-primary text-2xl group">
+                <Link to="/apply" className="btn btn-primary text-base group">
                   Apply Now
                   <svg
                     width="16"
@@ -1083,42 +1223,16 @@ export default function Fees() {
                     stroke="currentColor"
                     strokeWidth="2.5"
                     strokeLinecap="round"
-                    className="ml-1 transition-transform group-hover:translate-x-0.5"
+                    className="transition-transform group-hover:translate-x-0.5"
                   >
                     <path d="M5 12h14M13 5l7 7-7 7" />
                   </svg>
                 </Link>
-                <div className="mt-3.5 text-[12.5px] text-bg-secondary/55">
+                <div className="mt-3.5 text-[12.5px] text-bg-secondary/55 font-mono">
                   Takes 5 minutes · No impact on credit score for pre-qual
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ── FAQ ── */}
-        <section className="section-padding bg-bg-secondary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12">
-              <Pill text="FAQ" variant="white" className="mb-[18px]" />
-              <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
-                style={{ textWrap: "balance" } as React.CSSProperties}
-              >
-                Customers frequently ask
-              </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
-                If you don't see your question here, ask{" "}
-                <a
-                  href="mailto:support@faster.com.au"
-                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-                >
-                  support@faster.com.au
-                </a>{" "}
-                — we'll add it.
-              </p>
-            </div>
-            <FAQSection faqs={FEES_FAQS} white />
           </div>
         </section>
 

@@ -1,19 +1,36 @@
+type PillVariant = "default" | "white" | "light";
+
 interface PillProps {
   text: string;
-  color: string;
+  variant?: PillVariant;
+  className?: string;
 }
 
-export default function Pill({ text, color }: PillProps) {
+const variantClasses: Record<PillVariant, string> = {
+  default: "text-primary bg-primary-light/5 border border-border-subtle",
+  white: "text-primary-dark bg-bg-primary/70 border border-border-default",
+  light: "bg-white/[0.08] border border-white/[0.16] text-white",
+};
+
+const iconClasses: Record<PillVariant, string> = {
+  default: "text-primary",
+  white: "text-primary",
+  light: "text-primary-light",
+};
+
+export default function Pill({ text, variant = "default", className = "" }: PillProps) {
   return (
-    <div
-      className={`inline-flex items-center rounded-full bg-${color} px-4 py-2 mx-1 my-2 text-sm sm:text-base md:text-lg font-semibold text-text-primary`}
+    <span
+      className={`inline-flex items-center gap-2 px-[14px] py-[6px] rounded-full text-[13px] font-medium tracking-[0.01em] ${variantClasses[variant]} ${className}`}
     >
-      <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full text-primary text-2xl">
+      <span
+        className={`inline-flex items-center justify-center rounded-full flex-shrink-0 ${iconClasses[variant]}`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="size-6"
+          className="size-[14px]"
         >
           <path
             fillRule="evenodd"
@@ -23,6 +40,6 @@ export default function Pill({ text, color }: PillProps) {
         </svg>
       </span>
       {text}
-    </div>
+    </span>
   );
 }

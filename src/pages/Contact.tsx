@@ -132,7 +132,7 @@ export default function Contact() {
 
       <div className="w-full mx-auto">
         {/* Hero */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-gradient-to-b from-secondary to-primary">
+        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-hero-gradient">
           <div className="xl:max-w-[1920px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 80 }}
@@ -145,7 +145,7 @@ export default function Contact() {
               }}
               className="pt-12 sm:pt-16 gap-8 content-center text-center"
             >
-              <Pill text="Get in touch" color="bg-primary" />
+              <Pill text="Get in touch" variant="light" />
 
               <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                 We're here to help

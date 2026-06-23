@@ -9,9 +9,10 @@ export type Faq = {
 
 type FaqSectionProps = {
   faqs: Faq[];
+  white?: boolean;
 };
 
-export default function FAQSection({ faqs }: FaqSectionProps) {
+export default function FAQSection({ faqs, white = false }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqsWithIndex = faqs.map((faq, index) => ({ ...faq, index }));
@@ -24,7 +25,7 @@ export default function FAQSection({ faqs }: FaqSectionProps) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
       {/* Left column */}
       <div className="flex flex-col gap-4 md:gap-8">
         {leftFaqs.map((faq) => (
@@ -34,6 +35,7 @@ export default function FAQSection({ faqs }: FaqSectionProps) {
             answer={faq.answer}
             isOpen={openIndex === faq.index}
             onToggle={() => handleToggle(faq.index)}
+            white={white}
           />
         ))}
       </div>
@@ -47,6 +49,7 @@ export default function FAQSection({ faqs }: FaqSectionProps) {
             answer={faq.answer}
             isOpen={openIndex === faq.index}
             onToggle={() => handleToggle(faq.index)}
+            white={white}
           />
         ))}
       </div>

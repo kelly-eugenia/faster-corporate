@@ -10,12 +10,21 @@
   --color-primary: #1c41e6;
   --color-secondary: #161630;
   --color-accent: #33a7e9;
+  --color-primary-light: #005dde;
 
   --color-text-primary: #161630;
   --color-text-muted-primary: #434363;
 
+  --color-muted-primary: #434363;
+  --color-muted-secondary: #5a6079;
+  --color-ink-light: #8e93a8;
+
   --color-bg-primary: #fcfdff;
   --color-bg-secondary: #eaedf5;
+
+  --color-border-default: #d6dae6;
+  --color-border-subtle: #e7eaf3;
+  --color-trustpilot: #00b67a;
 
   color-scheme: light;
   color: var(--color-text-primary);
@@ -80,26 +89,34 @@ button,
   border-radius: 8px;
   border: 1.5px solid transparent;
   padding: 0.6em 1.4em;
-  margin: 1.5em 0.1em;
-  font-size: 1.1em;
+  margin: 0.6em 0.1em;
+  font-size: 16px;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.2s;
-  text-decoration: none;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+  white-space: nowrap;
 }
-
 .btn-primary {
-  background-color: var(--color-primary);
+  background: var(--color-primary);
   color: var(--color-bg-primary);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 4px 14px -6px rgba(29, 62, 255, 0.55);
 }
 .btn-primary:hover {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary-light);
 }
 
 .btn-primary-light {
   background-color: var(--color-secondary);
   color: var(--color-bg-primary);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 4px 14px -6px rgba(29, 62, 255, 0.55);
 }
 .btn-primary-light:hover {
   background-color: var(--color-accent);
@@ -114,9 +131,79 @@ button,
 }
 
 .btn-secondary-light {
-  border: 1.5px solid var(--color-bg-primary);
+  border: 1.5px solid var(--color-border-default);
   color: var(--color-bg-primary);
 }
 .btn-secondary-light:hover {
-  background-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  background-color: color-mix(in srgb, var(--color-ink-light) 40%, transparent);
+}
+
+.btn-ghost-light {
+  border: 1.5px solid var(--color-border-default);
+  color: var(--color-muted-primary);
+  background: transparent;
+}
+.btn-ghost-light:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary-light) 10%,
+    transparent
+  );
+}
+
+.section-padding {
+  padding: 3.2em 0.8em;
+}
+@media (min-width: 640px) {
+  .section-padding {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+  }
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 6em 4em;
+  }
+}
+@media (min-width: 1280px) {
+  .section-padding {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+.hero-padding {
+  padding: 3.4em 0.8em;
+  padding-top: 7em;
+}
+@media (min-width: 640px) {
+  .hero-padding {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    padding-top: 7.8em;
+  }
+}
+@media (min-width: 768px) {
+  .hero-padding {
+    padding-top: 8rem;
+    padding-bottom: 4.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-padding {
+    padding: 7em 4em;
+    padding-top: 10.5em;
+  }
+}
+@media (min-width: 1280px) {
+  .hero-padding {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
 }
