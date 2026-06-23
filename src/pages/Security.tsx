@@ -343,7 +343,7 @@ export default function Security() {
             >
               {/* Left */}
               <div className="pt-12 sm:pt-16 md:pt-16 lg:text-left sm:text-center">
-                <Pill text="Advanced security" color="bg-primary" />
+                <Pill text="Advanced security" variant="white" />
                 <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
                   Security you can trust, tech you can rely on
                 </h1>
@@ -389,7 +389,7 @@ export default function Security() {
 
             {/* Trustpilot */}
             <section className="rounded-2xl px-6 py-8 md:py-12 mb-6 bg-bg-secondary text-xl text-center text-bg-primary">
-              <Pill text="What the people say" color="bg-primary" />
+              <Pill text="What the people say" variant="white" />
               <Reviews />
             </section>
 
