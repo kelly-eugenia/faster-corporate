@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { fadeUp } from "../utils/animations";
 
 import React, { type ReactNode } from "react";
 
@@ -222,14 +223,10 @@ export default function Fees() {
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
           >
             <div className="max-w-[880px]">
@@ -271,8 +268,14 @@ export default function Fees() {
               </p>
             </div>
 
-            <div className="max-w-[680px] mx-auto">
-              <div className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[32px_32px_28px] flex flex-col">
+            <div className="max-w-[880px] mx-auto">
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[32px_32px_28px] flex flex-col"
+              >
                 <div className="flex items-start justify-between gap-4 pb-[22px] border-b border-border-subtle mb-6">
                   <div>
                     <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-semibold mb-3.5">
@@ -370,13 +373,17 @@ export default function Fees() {
                     smaller than the last.
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* ── Worked example ── */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="worked"
           className="section-padding relative overflow-hidden bg-fees-gradient text-bg-primary"
         >
@@ -524,10 +531,17 @@ export default function Fees() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Complete fee list ── */}
-        <section id="all" className="section-padding bg-bg-secondary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          id="all"
+          className="section-padding bg-bg-secondary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="max-w-[760px] mb-14">
               <Pill
@@ -721,10 +735,16 @@ export default function Fees() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Reviews ── */}
-        <section className="section-padding bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="section-padding bg-bg-primary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="text-center mb-4">
               <Pill
@@ -734,14 +754,21 @@ export default function Fees() {
               <Reviews />
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Final CTA ── */}
-        <CTA
-          text="Now you've seen the costs."
-          desc="You'll see the same fees again in your credit contract before
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <CTA
+            text="Now you've seen the costs."
+            desc="You'll see the same fees again in your credit contract before
                   you commit — no hidden terms, no after-the-fact changes."
-        />
+          />
+        </motion.section>
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">

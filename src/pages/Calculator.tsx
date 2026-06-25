@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { fadeUp } from "../utils/animations";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -76,14 +77,10 @@ export default function Calculator() {
         {/* ── Calculator workbench ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="z-10 w-full max-w-[1440px] text-center lg:text-left mx-auto px-8"
           >
             {/* Header row */}
@@ -123,7 +120,13 @@ export default function Calculator() {
         </section>
 
         {/* ── Comparison honesty ── */}
-        <section className="section-padding bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="section-padding bg-bg-primary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="text-center max-w-[600px] mx-auto mb-10">
               <Pill
@@ -224,14 +227,21 @@ export default function Calculator() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── CTA ── */}
-        <CTA
-          text="Now you've seen the costs."
-          desc="You'll see the same fees again in your credit contract before
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <CTA
+            text="Now you've seen the costs."
+            desc="You'll see the same fees again in your credit contract before
                   you commit — no hidden terms, no after-the-fact changes."
-        />
+          />
+        </motion.section>
 
         <Footer />
       </div>

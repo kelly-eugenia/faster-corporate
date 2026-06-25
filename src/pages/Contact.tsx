@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { motion } from "framer-motion";
+import { fadeUp } from "../utils/animations";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -133,14 +134,10 @@ export default function Contact() {
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient text-center">
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative z-10 w-full max-w-[760px] mx-auto px-8"
           >
             <Pill text="Get in touch" variant="light" className="mb-[22px]" />
@@ -229,7 +226,13 @@ export default function Contact() {
         </section>
 
         {/* ── What to expect + contact details ── */}
-        <section className="section-padding pt-24 bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="section-padding pt-24 bg-bg-primary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
               <div>
@@ -374,10 +377,16 @@ export default function Contact() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── FAQ cross-link CTA ── */}
-        <section className="section-padding relative overflow-hidden bg-final-gradient">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="section-padding relative overflow-hidden bg-final-gradient"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 lg:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 items-center">
               <div>
@@ -416,7 +425,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         <Footer />
       </div>

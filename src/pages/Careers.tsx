@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { fadeUp } from "../utils/animations";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -160,14 +161,10 @@ export default function Careers() {
         {/* Hero */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient text-center">
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative z-10 w-full max-w-[760px] mx-auto px-8"
           >
             <Pill
@@ -189,7 +186,7 @@ export default function Careers() {
               If you care about technology and responsible, fast lending, we'd
               love to meet you.
             </p>
-            <Link to="/careers#openroles" className="btn btn-primary group">
+            <Link to="/careers#open-roles" className="btn btn-primary group">
               View open roles
               <svg
                 width="16"
@@ -232,7 +229,13 @@ export default function Careers() {
               </div>
 
               {/* Right */}
-              <div className="order-1 lg:order-2 rounded-2xl p-0 lg:px-10 lg:py-10 content-center lg:text-left text-center">
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="order-1 lg:order-2 rounded-2xl p-0 lg:px-10 lg:py-10 content-center lg:text-left text-center"
+              >
                 <Pill text="About the team" />
                 <h1 className="text-[clamp(30px,3.6vw,44px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
                   Who we are
@@ -266,11 +269,17 @@ export default function Careers() {
                     <path d="M5 12h14M13 5l7 7-7 7" />
                   </svg>
                 </Link>
-              </div>
+              </motion.div>
             </section>
 
             {/* Values — numbered ledger */}
-            <section className="pt-8 md:pt-12">
+            <motion.section
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="pt-8 md:pt-12"
+            >
               <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-10 items-end mb-8 lg:mb-12 lg:text-left text-center">
                 <div>
                   <Pill text="Our values" />
@@ -298,12 +307,16 @@ export default function Careers() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
           </div>
         </section>
 
         {/* Why work here */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           className="section-padding content-center bg-cover bg-top"
           style={{ backgroundImage: `url(${BgPhoto})` }}
         >
@@ -367,10 +380,14 @@ export default function Careers() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Open roles */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="open-roles"
           className="bg-bg-secondary section-padding gap-8 content-center"
         >
@@ -401,7 +418,7 @@ export default function Careers() {
               })}
             </section>
           </div>
-        </section>
+        </motion.section>
       </div>
       <Footer />
     </>

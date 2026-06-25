@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { fadeUp } from "../utils/animations";
 import React from "react";
 
 import SEO from "../components/SEO";
@@ -311,7 +312,7 @@ const PROTECT_CARDS: {
     title: "Hardship arrangements — at no extra cost",
     body: "If your situation changes and you can't make a payment, contact us before it's due. We'll work with you on a revised arrangement, and reduce or pause payments where appropriate.",
     linkLabel: "Apply for hardship",
-    href: "#",
+    href: "/hardship",
     arrowKind: "right",
   },
   {
@@ -425,14 +426,10 @@ export default function HowItWorks() {
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
           >
             <div className="max-w-[880px]">
@@ -487,7 +484,11 @@ export default function HowItWorks() {
               />
 
               {TIMELINE.map((step) => (
-                <div
+                <motion.div
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
                   key={step.num}
                   className="grid grid-cols-[48px_1fr] lg:grid-cols-[96px_1fr] gap-3.5 lg:gap-6 items-start py-[22px] relative"
                 >
@@ -551,12 +552,16 @@ export default function HowItWorks() {
                       </div>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Ongoing band */}
-            <div
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               className="mt-[60px] p-[38px_36px] border border-bg-secondary rounded-card-lg"
               style={{
                 background: "linear-gradient(135deg, #EAEDF5 0%, #FCFDFF 100%)",
@@ -596,12 +601,19 @@ export default function HowItWorks() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* ── What we check ── */}
-        <section id="check" className="section-padding bg-bg-secondary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          id="check"
+          className="section-padding bg-bg-secondary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-16 items-start">
               {/* Photo */}
@@ -694,10 +706,14 @@ export default function HowItWorks() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Fees teaser ── */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="fees-teaser"
           className="section-padding relative overflow-hidden bg-fees-gradient text-bg-primary"
         >
@@ -764,10 +780,17 @@ export default function HowItWorks() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Your protections ── */}
-        <section id="protect" className="section-padding bg-bg-secondary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          id="protect"
+          className="section-padding bg-bg-secondary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="text-center max-w-[760px] mx-auto mb-14">
               <Pill
@@ -851,10 +874,17 @@ export default function HowItWorks() {
               })}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Eligibility ── */}
-        <section id="eligibility" className="section-padding bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          id="eligibility"
+          className="section-padding bg-bg-primary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-center">
               <div>
@@ -922,14 +952,21 @@ export default function HowItWorks() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Final CTA ── */}
-        <CTA
-          text="Now you've seen the steps."
-          desc="You'll see the same flow — and the same fees — again in your
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <CTA
+            text="Now you've seen the steps."
+            desc="You'll see the same flow — and the same fees — again in your
                   credit contract before you commit."
-        />
+          />
+        </motion.section>
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">

@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import Fees from "./pages/Fees";
-import Security from "./pages/Security";
 
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
@@ -40,7 +39,6 @@ export default function App() {
         <Route path="/how-it-works" element={<HowItWorks />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/fees" element={<Fees />}></Route>
-        <Route path="/security" element={<Security />}></Route>
         <Route path="/careers" element={<Careers />}></Route>
         <Route path="/careers/:jobId" element={<JobDesc />} />
 

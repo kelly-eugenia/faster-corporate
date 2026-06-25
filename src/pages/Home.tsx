@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import React from "react";
+import { fadeUp, pulse } from "../utils/animations";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -173,14 +173,10 @@ export default function Home() {
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
           <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
             <motion.div
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 80,
-                damping: 20,
-                delay: 0.05,
-              }}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               className="py-4 lg:pb-0 grid grid-cols-1 lg:grid-cols-[1.2fr_0.95fr] lg:text-left text-center justify-center content-center gap-14 items-center"
             >
               {/* Left */}
@@ -214,15 +210,9 @@ export default function Home() {
                   <motion.button
                     className="my-6 mb-4 inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold bg-primary text-bg-primary border border-transparent py-[15px] text-xl shadow-btn-primary hover:bg-primary-light group cursor-pointer"
                     onClick={() => navigate("/apply")}
-                    initial={{ scale: 1 }}
-                    animate={{ scale: [1, 1.04, 1] }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      repeatType: "loop",
-                      ease: "easeInOut",
-                      delay: 0.4,
-                    }}
+                    variants={pulse}
+                    initial="initial"
+                    animate="animate"
                   >
                     Apply Now
                     <svg
@@ -378,7 +368,13 @@ export default function Home() {
         </section>
 
         {/* ── How It Works ── */}
-        <section className="section-padding bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="section-padding bg-bg-primary"
+        >
           <div className="text-center w-full max-w-[1440px] mx-auto px-8">
             <div className=" max-w-[720px] mx-auto mb-14">
               <Pill text="How it works" className="mb-[18px]" />
@@ -429,10 +425,14 @@ export default function Home() {
               Learn More
             </Link>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Why / About ── */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="about"
           className="py-[110px] bg-bg-secondary section-padding"
         >
@@ -543,10 +543,14 @@ export default function Home() {
               <Reviews />
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Fees + Calculator ── */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="fees"
           className="section-padding relative overflow-hidden bg-fees-gradient"
         >
@@ -654,10 +658,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── CTA ── */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="apply"
           className="section-padding bg-bg-primary overflow-hidden"
         >
@@ -741,7 +749,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { motion } from "framer-motion";
+import { fadeUp } from "../utils/animations";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -246,14 +247,10 @@ export default function About() {
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
           <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 80,
-              damping: 20,
-              delay: 0.05,
-            }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
           >
             <div className="max-w-[880px]">
@@ -295,7 +292,12 @@ export default function About() {
         <section id="what" className="section-padding bg-bg-primary">
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
-              <div>
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+              >
                 <Pill text="What we do" className="mb-[18px]" />
                 <h2
                   className="text-[clamp(30px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary"
@@ -348,7 +350,7 @@ export default function About() {
                     </React.Fragment>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Photo */}
               <div className="relative max-w-[460px] lg:max-w-none">
@@ -380,7 +382,14 @@ export default function About() {
         </section>
 
         {/* ── Our promise ── */}
-        <section id="promise" className="section-padding bg-bg-secondary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          id="promise"
+          className="section-padding bg-bg-secondary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="text-center max-w-[720px] mx-auto mb-14">
               <Pill text="Our promise" variant="white" className="mb-[18px]" />
@@ -422,10 +431,17 @@ export default function About() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Registered & responsible ── */}
-        <section id="registered" className="section-padding bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          id="registered"
+          className="section-padding bg-bg-primary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
               <div>
@@ -494,10 +510,14 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Security ── */}
-        <section
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
           id="security"
           className="section-padding relative overflow-hidden bg-fees-gradient text-bg-primary"
         >
@@ -585,10 +605,16 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Support + cross-link ── */}
-        <section className="section-padding bg-bg-primary">
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="section-padding bg-bg-primary"
+        >
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {/* Contact card */}
@@ -678,14 +704,21 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ── Final CTA ── */}
-        <CTA
-          text="Now you've seen who we are."
-          desc="One product, fully disclosed before you commit with a
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <CTA
+            text="Now you've seen who we are."
+            desc="One product, fully disclosed before you commit with a
                   same-day decision in most cases."
-        />
+          />
+        </motion.section>
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">
