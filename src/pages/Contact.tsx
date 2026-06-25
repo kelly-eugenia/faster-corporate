@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
@@ -7,102 +8,105 @@ import { useSEO } from "../utils/useSEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
-import FAQSection from "../components/FAQSection";
 
 import "../App.css";
 
-const homeFaqs = [
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
+const CHANNELS: {
+  icon: React.ReactNode;
+  title: string;
+  body: string;
+  linkLabel: string;
+  href: string;
+  internal?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}[] = [
   {
-    question: "What is Faster?",
-    answer: (
+    icon: (
       <>
-        Faster offers a flexible Line of Credit you can draw from, repay, and
-        reuse up to your approved limit. It’s designed to help manage short-term
-        cashflow, not as a long-term loan.
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
       </>
+    ),
+    title: "Send us an email",
+    body: "Reach our support team for account questions, fee enquiries, or anything else.",
+    linkLabel: "support@faster.com.au",
+    href: "mailto:support@faster.com.au",
+  },
+  {
+    icon: (
+      <path d="M21 11.5a8.38 8.38 0 0 1-9 8.4 9.5 9.5 0 0 1-3.9-.8L3 21l1.9-4.6A8.38 8.38 0 0 1 3.6 11 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5z" />
+    ),
+    title: "Chat with us live",
+    body: "Speak to our support team directly for quick answers while you're applying or logged in.",
+    linkLabel: "Start a chat",
+    href: "#",
+    onClick: (e) => {
+      e.preventDefault();
+      if ((window as any).tidioChatApi) {
+        (window as any).tidioChatApi.open();
+      }
+    },
+  },
+  {
+    icon: (
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+      />
+    ),
+    title: "Browse the FAQs",
+    body: "Most questions about how Faster works, what it costs, and getting approved are answered here.",
+    linkLabel: "Read the FAQs",
+    href: "/faq",
+    internal: true,
+  },
+];
+
+const DETAIL_ROWS: {
+  icon: React.ReactNode;
+  label: string;
+  value: React.ReactNode;
+}[] = [
+  {
+    icon: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </>
+    ),
+    label: "Email support",
+    value: (
+      <a
+        href="mailto:support@faster.com.au"
+        className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
+      >
+        support@faster.com.au
+      </a>
     ),
   },
   {
-    question: "Do I need an account with Faster to use the service?",
-    answer: (
+    icon: (
       <>
-        Yes. You’ll need a Faster account to apply for our Line of Credit and
-        manage your repayments. Your account gives you secure access to your
-        application, contract, transaction history and support.
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 6v6l4 2" />
       </>
     ),
-  },
-  {
-    question: "How much can I borrow with Faster?",
-    answer: (
+    label: "Support hours",
+    value: (
       <>
-        Eligible customers may be approved for a Line of Credit of up to
-        $10,000, subject to our lending criteria and your financial situation.
-      </>
-    ),
-  },
-  {
-    question: "Are there any fees for using Faster?",
-    answer: (
-      <>
-        Yes — as a credit provider, our Line of Credit includes:
-        <ul className="mt-3 space-y-1">
-          <li>• a one-off drawdown fee (20% of your approved limit)</li>
-          <li>• interest at 47% p.a. on your outstanding balance</li>
-        </ul>
-        <p className="my-3 text-base md:text-xl">
-          All fees are shown clearly before you sign your contract.
-        </p>
-        <Link
-          to="/fees"
-          className="btn btn-primary text-base md:text-lg mt-4 font-medium"
-        >
-          See Our Fees
-        </Link>
-      </>
-    ),
-  },
-  {
-    question: "Is Faster safe to use?",
-    answer: (
-      <>
-        Yes. We use secure, industry-standard technology to protect your data,
-        including encryption and strict access controls. We also comply with
-        Australian credit and privacy laws and apply responsible-lending
-        practices.
-        <div className="mt-2">
-          <Link
-            to="/security"
-            className="btn btn-primary text-base md:text-lg font-medium"
-          >
-            See Our Security
-          </Link>
-        </div>
-      </>
-    ),
-  },
-  {
-    question: "How can I contact Faster for support or enquiries?",
-    answer: (
-      <>
-        You can reach our team anytime at{" "}
-        <a href="mailto:support@faster.com.au" className="hover:underline">
-          support@faster.com.au
-        </a>
-        . We’re here to help with account access, repayments, fee questions, or
-        anything else you’re unsure about.
-        <div className="mt-2">
-          <Link
-            to="/contact"
-            className="btn btn-primary text-base md:text-lg font-medium"
-          >
-            Contact Us
-          </Link>
-        </div>
+        Available 24/7{" "}
+        <span className="text-muted-secondary font-medium">
+          · email anytime
+        </span>
       </>
     ),
   },
 ];
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Contact() {
   const seo = useSEO("contact");
@@ -110,160 +114,312 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Us | Faster.com.au"
-        description="Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
-      />
-
-      <SEO
-        title={seo?.title || "Contact Us | Faster.com.au"}
+        title={seo?.title || "Contact — we're here to help | Faster.com.au"}
         description={
           seo?.description ||
-          "Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
+          "Whether you're looking for more information about our fees or need support with your account, we're just a message away."
         }
-        ogTitle={seo?.ogTitle || "Contact Us | Faster.com.au"}
+        ogTitle={seo?.ogTitle || "Get in touch | Faster.com.au"}
         ogDescription={
           seo?.ogDescription ||
-          "Get in touch with the Faster team for support, questions, or general enquiries. We’re here to help with your account or application."
+          "Email, live chat, or browse the FAQs. Real people, clear answers, within one business day — built and operated in Australia."
         }
         canonicalUrl={seo?.canonicalUrl}
       />
 
-      <NavBar />
+      <div className="font-sans antialiased text-text-primary bg-bg-primary">
+        <NavBar />
 
-      <div className="w-full mx-auto">
-        {/* Hero */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 md:pt-20 lg:pt-24 mb-10 bg-hero-gradient">
-          <div className="xl:max-w-[1920px] mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 80,
-                damping: 20,
-                delay: 0.05,
-              }}
-              className="pt-12 sm:pt-16 gap-8 content-center text-center"
+        {/* ── Hero ── */}
+        <section className="relative overflow-hidden hero-padding bg-hero-gradient text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="relative z-10 w-full max-w-[760px] mx-auto px-8"
+          >
+            <Pill text="Get in touch" variant="light" className="mb-[22px]" />
+            <h1
+              className="text-[clamp(38px,5vw,62px)] leading-[1.02] tracking-[-0.025em] font-bold mb-5 text-bg-primary"
+              style={{ textWrap: "balance" } as React.CSSProperties}
             >
-              <Pill text="Get in touch" variant="light" />
-
-              <h1 className="mt-8 sm:mt-8 lg:mt-12 my-4 md:my-8 text-4xl md:text-5xl lg:text-6xl text-bg-primary">
-                We're here to help
-              </h1>
-              <p className="my-4 md:my-8 px-6 sm:px-12 md:px-24 text-bg-secondary text-lg md:text-2xl font-medium">
-                Whether you're looking for more information about our fees or
-                need support with your account, we're just a message away.
-              </p>
-            </motion.div>
-
-            <div className="pt-8 pb-12 sm:pb-16 max-w-sm sm:max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mx-auto items-stretch">
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
-                <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-8"
-                  >
-                    <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
-                    <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-                  </svg>
-                </div>
-                <h2 className="text-2xl md:text-3xl">Send us an email</h2>
-                <p>Reach out to our support email.</p>
-                <div className="mt-6 md:mt-8">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-6 inline mr-2 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <a
-                    href="mailto:support@faster.com.au"
-                    className="text-xl text-primary hover:underline"
-                  >
-                    support@faster.com.au
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-bg-secondary rounded-2xl p-8 content-center text-center sm:text-left">
-                <div className="bg-bg-primary rounded-xl grid place-items-center size-14 mb-6 text-primary mx-auto sm:mx-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-8"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.804 21.644A6.707 6.707 0 0 0 6 21.75a6.721 6.721 0 0 0 3.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 0 1-.814 1.686.75.75 0 0 0 .44 1.223ZM8.25 10.875a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <h2 className="text-2xl md:text-3xl">Chat with us live</h2>
-                <p>Speak to our support team directly.</p>
-                <div className="mt-6 md:mt-8">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-6 inline mr-2 text-primary"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (window.tidioChatApi) {
-                        window.tidioChatApi.open();
-                      }
-                    }}
-                    className="text-xl text-primary hover:underline"
-                  >
-                    Start chat
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 py-8 md:py-12 mb-12 content-center">
-          <div className="xl:max-w-[1920px] mx-auto">
-            <h1 className="mb-8 md:mb-12 text-4xl sm:text-5xl lg:text-6xl text-center">
-              Customers frequently ask
+              We&apos;re here to{" "}
+              <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
+                help
+              </em>
+              .
             </h1>
-            <FAQSection faqs={homeFaqs} />
-            <div className="mt-4 text-center">
-              <Link
-                to="/faq"
-                className="btn btn-primary text-base md:text-lg font-medium"
-              >
-                View More
-              </Link>
+            <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[56ch] mx-auto mb-12 sm:mb-8 lg:mb-0 leading-[1.6]">
+              Whether you&apos;re looking for more information about our fees or
+              need support with your account, we&apos;re just a message away.
+            </p>
+          </motion.div>
+        </section>
+
+        {/* ── Contact channels ── */}
+        <section className="bg-bg-primary">
+          <div className="w-full max-w-[1440px] mx-auto px-8 -mt-14 relative z-[5]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px]">
+              {CHANNELS.map((ch) => (
+                <div className="bg-bg-primary border border-border-subtle rounded-card-lg p-[30px_30px_28px] flex flex-col shadow-card">
+                  <div className="w-[46px] h-[46px] rounded-[12px] bg-bg-secondary text-primary border border-bg-secondary inline-flex items-center justify-center mb-5">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="w-[22px] h-[22px]"
+                    >
+                      {ch.icon}
+                    </svg>
+                  </div>
+                  <h3 className="text-[20px] font-bold m-0 mb-2 text-text-primary tracking-[-0.015em]">
+                    {ch.title}
+                  </h3>
+                  <p className="text-[14.5px] text-muted-secondary m-0 mb-[22px] leading-[1.55]">
+                    {ch.body}
+                  </p>
+                  {ch.internal ? (
+                    <Link
+                      key={ch.title}
+                      to={ch.href}
+                      className="group mt-auto inline-flex items-center gap-1 text-[15px] font-semibold text-primary border-b border-bg-secondary hover:border-primary transition-all w-fit"
+                    >
+                      {ch.linkLabel}
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                      >
+                        <path d="M5 12h14M13 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <a
+                      key={ch.title}
+                      href={ch.href}
+                      className="group mt-auto inline-flex items-center gap-1 text-[15px] font-semibold text-primary border-b border-bg-secondary hover:border-primary transition-all w-fit"
+                      {...(ch.onClick ? { onClick: ch.onClick } : {})}
+                    >
+                      {ch.linkLabel}
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                      >
+                        <path d="M5 12h14M13 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* ── What to expect + contact details ── */}
+        <section className="section-padding pt-24 bg-bg-primary">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+              <div>
+                <Pill text="What to expect" className="mb-[18px]" />
+                <h2
+                  className="text-[clamp(28px,3.4vw,40px)] leading-[1.06] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
+                  style={{ textWrap: "balance" } as React.CSSProperties}
+                >
+                  Real people, clear answers, no run-around.
+                </h2>
+                <p className="text-[16px] text-muted-primary leading-[1.7] mb-4">
+                  Faster is built and operated in Australia, and our support
+                  team is too. Email us anytime and we&apos;ll get back to you
+                  within one business day — usually much sooner. For
+                  account-specific questions, the fastest route is a secure
+                  message once you&apos;re{" "}
+                  <a
+                    href="/login"
+                    className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                  >
+                    logged in
+                  </a>
+                  .
+                </p>
+                <p className="text-[16px] text-muted-primary leading-[1.7] m-0">
+                  Already a customer? Have your account email handy so we can
+                  verify it&apos;s really you before discussing your account.
+                </p>
+              </div>
+
+              <div>
+                <div className="flex flex-col gap-3">
+                  {DETAIL_ROWS.map((row) => (
+                    <div
+                      key={row.label}
+                      className="grid grid-cols-[48px_1fr] gap-4 p-[22px_24px] bg-bg-secondary border border-border-subtle rounded-card items-center"
+                    >
+                      <div className="w-11 h-11 rounded-[12px] bg-bg-primary text-primary border border-bg-secondary inline-flex items-center justify-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          className="w-[21px] h-[21px]"
+                        >
+                          {row.icon}
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-[10.5px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-1.5">
+                          {row.label}
+                        </div>
+                        <div className="text-[15.5px] text-text-primary font-semibold leading-[1.4]">
+                          {row.value}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Never-ask band */}
+                <div className="mt-4 bg-bg-secondary border border-border-subtle rounded-card-lg p-[26px_28px] grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-4 items-start">
+                  <div className="w-11 h-11 rounded-[12px] bg-bg-primary border border-bg-secondary text-primary inline-flex items-center justify-center flex-shrink-0">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="w-[22px] h-[22px]"
+                    >
+                      <rect x="3" y="11" width="18" height="11" rx="2" />
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-[16px] font-bold m-0 mb-1.5 text-text-primary tracking-[-0.01em]">
+                      How we&apos;ll contact you
+                    </h4>
+                    <p className="text-[13.5px] text-muted-primary m-0 leading-[1.6]">
+                      We&apos;ll only ever email the address on your account.{" "}
+                      <strong className="text-text-primary">
+                        We&apos;ll never ask for your full banking password,
+                        card PIN, or one-time codes.
+                      </strong>{" "}
+                      If a message claiming to be Faster asks for those, it
+                      isn&apos;t us — forward it to{" "}
+                      <a
+                        href="mailto:support@faster.com.au"
+                        className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
+                      >
+                        support@faster.com.au
+                      </a>
+                      .
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Hardship ── */}
+          <div className="pt-10 sm:pt-12 md:pt-16 w-full max-w-[1440px] mx-auto px-8">
+            <div className="rounded-card-lg p-8 lg:p-[40px_44px] grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-7 items-center border border-primary/30 bg-gradient-to-br from-accent/5 to-primary/15">
+              <div className="w-14 h-14 rounded-[14px] bg-primary-light/10 border border-primary-light/40 text-primary inline-flex items-center justify-center flex-shrink-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  className="size-7"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-[23px] font-bold m-0 mb-2 text-text-primary tracking-[-0.015em]">
+                  Struggling with a repayment?
+                </h3>
+                <p className="text-[14.5px] text-muted-primary m-0 leading-[1.6] max-w-[64ch]">
+                  Contact us{" "}
+                  <strong className="text-primary">
+                    before your payment is due
+                  </strong>{" "}
+                  and we&apos;ll work through a hardship plan with you — and
+                  waive late and dishonour fees while we sort it out. You can
+                  also get free, independent and confidential advice from the
+                  National Debt Helpline.
+                </p>
+              </div>
+              <div className="text-left lg:text-right">
+                <div className="text-[10.5px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-1.5">
+                  National Debt Helpline
+                </div>
+                <div className="text-[22px] font-semibold text-text-primary tracking-[-0.01em] whitespace-nowrap">
+                  1800 007 007
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── FAQ cross-link CTA ── */}
+        <section className="section-padding relative overflow-hidden bg-final-gradient">
+          <div className="w-full max-w-[1440px] mx-auto px-8">
+            <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 lg:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 items-center">
+              <div>
+                <Pill
+                  text="Before you write"
+                  variant="light"
+                  className="mb-4"
+                />
+                <h2
+                  className="text-[clamp(28px,3.4vw,40px)] leading-[1.06] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
+                  style={{ textWrap: "balance" } as React.CSSProperties}
+                >
+                  Your question may already be answered.
+                </h2>
+                <p className="text-[16px] text-bg-secondary/80 max-w-[48ch] leading-[1.6]">
+                  Our FAQ covers how the Line of Credit works, exactly what it
+                  costs, getting approved, and how we keep your data safe.
+                </p>
+              </div>
+              <div className="text-left lg:text-right">
+                <Link to="/faq" className="btn btn-primary group">
+                  Browse FAQs
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    className="transition-transform group-hover:translate-x-0.5"
+                  >
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 }

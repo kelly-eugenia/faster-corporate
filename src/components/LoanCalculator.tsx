@@ -15,7 +15,6 @@ const FIXED_REPAYMENT = {
 };
 
 const ANNUAL_RATE = 0.47;
-const DRAWDOWN_FEE_PCT = 0.2;
 
 const fmtAUD = (n: number) =>
   "$" +
@@ -25,10 +24,9 @@ const fmtAUD = (n: number) =>
   });
 
 function calcRepayment(drawn: number, frequency: Frequency) {
-  const fee = drawn * DRAWDOWN_FEE_PCT;
   const f = FIXED_REPAYMENT[frequency];
   const dailyRate = ANNUAL_RATE / 365;
-  let balance = drawn + fee;
+  let balance = drawn;
   let periods = 0;
   let totalInterest = 0;
   const maxPeriods =
@@ -43,9 +41,8 @@ function calcRepayment(drawn: number, frequency: Frequency) {
   }
 
   return {
-    fee,
     totalInterest,
-    totalRepaid: drawn + fee + totalInterest,
+    totalRepaid: drawn + totalInterest,
     periods,
     maxPeriods,
     f,
@@ -62,7 +59,7 @@ export default function LoanCalculator() {
   const [drawAmount, setDrawAmount] = useState(450);
   const [frequency, setFrequency] = useState<Frequency>("weekly");
 
-  const { fee, totalInterest, totalRepaid, periods, maxPeriods, f } = useMemo(
+  const { totalInterest, totalRepaid, periods, maxPeriods, f } = useMemo(
     () => calcRepayment(drawAmount, frequency),
     [drawAmount, frequency],
   );
@@ -74,7 +71,7 @@ export default function LoanCalculator() {
       : `${periods} ${periods === 1 ? f.per : f.unit}`;
 
   return (
-    <div className="w-full rounded-card-lg border-4 border-secondary bg-bg-primary p-6 sm:p-10 text-left shadow-sm overflow-hidden">
+    <div className="w-full rounded-card-lg border-2 border-border-default bg-bg-primary p-6 sm:p-10 text-left shadow-card overflow-hidden">
       {/* Draw amount */}
       <div className="mt-4 mb-8">
         <h2 className="text-[17px] font-semibold text-text-primary mb-3">
@@ -148,10 +145,9 @@ export default function LoanCalculator() {
           about <strong className="text-primary font-bold">{termLabel}</strong>.
         </p>
 
-        {/* 3-cell grid */}
-        <div className="grid grid-cols-3 border border-border-default rounded-xl overflow-hidden bg-bg-primary mb-4">
+        {/* Results */}
+        <div className="grid grid-cols-2 border border-border-default rounded-xl overflow-hidden bg-bg-primary mb-4">
           {[
-            { lbl: "Drawdown fee", val: fmtAUD(fee), sub: "20% · once" },
             {
               lbl: "Total interest",
               val: fmtAUD(totalInterest),
@@ -176,14 +172,6 @@ export default function LoanCalculator() {
               )}
             </div>
           ))}
-        </div>
-
-        {/* APR note */}
-        <div className="border border-accent/20 bg-accent/5 p-[10px_14px] rounded-[10px] flex justify-between items-center gap-4 text-[12.5px] text-muted-primary mb-4">
-          <span>Representative APR ($450 / $55 per week example)</span>
-          <strong className="text-accent text-[13px] font-bold shrink-0">
-            225.5% p.a.
-          </strong>
         </div>
 
         <p className="text-xs leading-snug text-muted-primary text-center sm:text-left">

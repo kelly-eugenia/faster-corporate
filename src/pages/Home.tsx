@@ -13,8 +13,11 @@ import Reviews from "../components/Reviews";
 import LoanCalculator from "../components/LoanCalculator";
 import FAQSection from "../components/FAQSection";
 
-import HeroPhoto from "../assets/hero-sect.webp";
+import { HOME_FAQS } from "../utils/faqs";
+
+import HeroPhoto from "../assets/hero-sect.svg";
 import TeamPhoto from "../assets/faster-team-values.jpg";
+import CTAPhoto from "../assets/app.png";
 
 import "../App.css";
 
@@ -94,7 +97,7 @@ const TRUST_ROWS: {
         difficulty, we won't lend — and we'll point you to the{" "}
         <a
           href="https://ndh.org.au"
-          className="text-primary-light font-semibold border-b border-bg-secondary/30 hover:border-primary-light transition-colors"
+          className="text-primary-light font-semibold border-b border-border-default hover:border-primary-light transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -122,96 +125,6 @@ const APP_FEATURES = [
   {
     strong: "Repay early, anytime.",
     text: " Extra repayments lower your interest — no penalty, no friction.",
-  },
-];
-
-const HOME_FAQS = [
-  {
-    question: "What is Faster?",
-    answer: (
-      <>
-        Faster offers a flexible Line of Credit you can draw from, repay, and
-        reuse up to your approved limit. It's designed to help manage short-term
-        cashflow, not as a long-term loan.
-      </>
-    ),
-  },
-  {
-    question: "Do I need an account with Faster to use the service?",
-    answer: (
-      <>
-        Yes. You'll need a Faster account to apply for our Line of Credit and
-        manage your repayments. Your account gives you secure access to your
-        application, contract, transaction history and support.
-      </>
-    ),
-  },
-  {
-    question: "How much can I borrow with Faster?",
-    answer: (
-      <>
-        Eligible customers may be approved for a Line of Credit of up to
-        $10,000, subject to our lending criteria and your financial situation.
-      </>
-    ),
-  },
-  {
-    question: "Are there any fees for using Faster?",
-    answer: (
-      <>
-        Yes — as a credit provider, our Line of Credit includes:
-        <ul className="mt-3 space-y-1">
-          <li>• a one-off drawdown fee (20% of your approved limit)</li>
-          <li>• interest at 47% p.a. on your outstanding balance</li>
-        </ul>
-        <p className="my-3">
-          All fees are shown clearly before you sign your contract.
-        </p>
-        <Link to="/fees" className="btn btn-primary text-base font-medium">
-          See Our Fees
-        </Link>
-      </>
-    ),
-  },
-  {
-    question: "Is Faster safe to use?",
-    answer: (
-      <>
-        Yes. We use secure, industry-standard technology to protect your data,
-        including encryption and strict access controls. We also comply with
-        Australian credit and privacy laws and apply responsible-lending
-        practices.
-        <div className="mt-2">
-          <Link
-            to="/security"
-            className="btn btn-primary text-base font-medium"
-          >
-            See Our Security
-          </Link>
-        </div>
-      </>
-    ),
-  },
-  {
-    question: "How can I contact Faster for support or enquiries?",
-    answer: (
-      <>
-        You can reach our team anytime at{" "}
-        <a
-          href="mailto:support@faster.com.au"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          support@faster.com.au
-        </a>
-        . We're here to help with account access, repayments, fee questions, or
-        anything else you're unsure about.
-        <div className="mt-2">
-          <Link to="/contact" className="btn btn-primary text-base font-medium">
-            Contact Us
-          </Link>
-        </div>
-      </>
-    ),
   },
 ];
 
@@ -257,15 +170,25 @@ export default function Home() {
         <NavBar />
 
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden section-padding py-[8em] sm:py-[10em] lg:py-[11em] lg:pb-[8em] bg-hero-gradient">
+        <section className="relative overflow-hidden hero-padding bg-hero-gradient">
           <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 20,
+                delay: 0.05,
+              }}
+              className="py-4 lg:pb-0 grid grid-cols-1 lg:grid-cols-[1.2fr_0.95fr] lg:text-left text-center justify-center content-center gap-14 items-center"
+            >
               {/* Left */}
               <div>
                 <Pill text="Credit, made clearer" variant="light" />
 
                 <h1
-                  className="text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] tracking-[-0.02em] font-bold mt-[22px] mb-[18px] text-bg-primary"
+                  className="text-[clamp(40px,5.2vw,68px)] leading-[1.05] tracking-[-0.02em] font-bold mt-[22px] mb-[18px] text-bg-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   Access up to{" "}
@@ -280,14 +203,14 @@ export default function Home() {
                   </span>
                 </h1>
 
-                <p className="text-[18px] text-bg-secondary/80 max-w-[52ch] mb-4">
-                  A revolving line of credit you don't have to reapply for. One
-                  drawdown fee when you first access your limit. Interest only
-                  on what you've actually drawn — calculated daily.
+                <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[52ch] mx-auto lg:mx-0 mb-4">
+                  A revolving line of credit you don't have to reapply for.
+                  Interest only on what you've actually drawn, calculated daily
+                  on your outstanding balance.
                 </p>
 
                 {/* CTA */}
-                <div className="flex flex-col max-w-sm mb-9">
+                <div className="flex flex-col max-w-sm mx-auto lg:mx-0 mb-9">
                   <motion.button
                     className="my-6 mb-4 inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold bg-primary text-bg-primary border border-transparent py-[15px] text-xl shadow-btn-primary hover:bg-primary-light group cursor-pointer"
                     onClick={() => navigate("/apply")}
@@ -322,7 +245,7 @@ export default function Home() {
 
                 {/* Trust strip */}
                 <div
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap gap-3 justify-center lg:justify-start"
                   role="region"
                   aria-label="Trust signals"
                 >
@@ -433,17 +356,24 @@ export default function Home() {
               </div>
 
               {/* Right: hero photo */}
-              <div
-                className="relative flex justify-center items-end min-h-[480px] lg:min-h-[580px]"
+              <motion.div
+                animate={{ y: [-10, 10] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                }}
+                className="relative flex justify-center"
                 aria-hidden="true"
               >
                 <img
                   src={HeroPhoto}
                   alt="Smiling customer enjoying Faster"
-                  className="block w-auto h-full max-h-[580px] object-bottom"
+                  className="block w-auto h-full max-h-[580px]"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
@@ -590,7 +520,7 @@ export default function Home() {
               {/* Right: team photo */}
               <div className="relative">
                 <div
-                  className="w-full aspect-[4/5] rounded-card-lg overflow-hidden"
+                  className="w-full aspect-[4/3] lg:aspect-[4/5] rounded-card-lg overflow-hidden"
                   style={{ boxShadow: "0 20px 50px -16px rgba(11,16,36,0.3)" }}
                 >
                   <img
@@ -603,22 +533,15 @@ export default function Home() {
             </div>
 
             {/* Reviews sub-section */}
-            <div className="relative mt-24 text-center pb-2">
-              <div className="absolute top-[14px] left-0 right-0 h-px bg-border-default -mx-16 sm:-mx-20 lg:-mx-24 xl:-mx-40 z-0" />
+            <div className="relative mt-24 text-center">
+              <div className="absolute top-[14px] left-1/2 h-px w-screen -translate-x-1/2 bg-border-default z-0" />
               <Pill
                 text="What customers say"
                 variant="white"
-                className="relative z-10"
+                className="relative mb-[18px] z-10"
               />
-              <div
-                className="mt-[1em] text-[26px] font-bold text-text-primary tracking-[-0.015em]"
-                style={{ textWrap: "balance" } as React.CSSProperties}
-              >
-                Rated 4.4 / 5 by 1,500+ Australian borrowers.
-              </div>
+              <Reviews />
             </div>
-
-            <Reviews />
           </div>
         </section>
 
@@ -631,7 +554,7 @@ export default function Home() {
             {/* Section head */}
             <div className="text-center max-w-[720px] mx-auto mb-14">
               <Pill
-                text="Two fees · Nothing else"
+                text="One simple cost"
                 variant="light"
                 className="mb-[18px]"
               />
@@ -639,12 +562,12 @@ export default function Home() {
                 className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                Two numbers. See what you'd pay.
+                Interest only on what you owe.
               </h2>
               <p className="text-[18px] text-bg-secondary/70 m-0 leading-[1.55]">
-                Every cost is set out before you borrow. The drawdown fee is
-                charged once. Interest only accrues on what you've actually
-                drawn.
+                Interest at 47% p.a. on your outstanding balance is the only
+                cost while you're borrowing. Everything is set out before you
+                borrow.
               </p>
             </div>
 
@@ -652,20 +575,20 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
               {[
                 {
-                  label: "Fee 01",
-                  when: "Charged once",
-                  big: "20%",
-                  bigSub: "of your limit",
-                  title: "One-time drawdown fee",
-                  desc: "A single fee when you first access your line of credit. Never charged again — no matter how many times you draw or repay.",
-                },
-                {
-                  label: "Fee 02",
+                  label: "Interest",
                   when: "Calculated daily",
                   big: "47%",
                   bigSub: "p.a. on balance",
                   title: "Interest while in use",
                   desc: "Charged only on the amount you've drawn, for the days it's outstanding. Interest doesn't compound. Repay sooner, pay less.",
+                },
+                {
+                  label: "Nothing else",
+                  when: "No surprises",
+                  big: "$0",
+                  bigSub: "ongoing",
+                  title: "No establishment, account, or redraw fees",
+                  desc: "No monthly fee, no redraw fee, no early-repayment penalty. The only other fees are late-payment and dishonour fees if a payment fails — set out in your contract.",
                 },
               ].map((card) => (
                 <div
@@ -673,10 +596,10 @@ export default function Home() {
                   className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[36px] backdrop-blur-lg"
                 >
                   <div className="flex items-center justify-between mb-[18px]">
-                    <span className="text-[11px] uppercase tracking-[0.12em] text-accent px-[10px] py-1 bg-primary-light/20 border border-primary-light/40 rounded-[6px]">
+                    <span className="font-medium text-[11px] uppercase tracking-[0.12em] text-accent px-[10px] py-1 bg-primary-light/20 border border-primary-light/40 rounded-[6px]">
                       {card.label}
                     </span>
-                    <span className="text-[12px] text-ink-light">
+                    <span className="text-[12px] font-bold text-ink-light">
                       {card.when}
                     </span>
                   </div>
@@ -711,43 +634,12 @@ export default function Home() {
               ))}
             </div>
 
-            {/* APR bar */}
-            <div
-              className="border border-accent/40 bg-accent/15 rounded-card p-[22px_28px] grid grid-cols-1 md:grid-cols-[auto_auto_1fr] items-center gap-7 mb-6"
-              role="region"
-              aria-label="Representative APR disclosure"
-            >
-              <div>
-                <div className="text-[13px] font-semibold text-bg-secondary/50 uppercase tracking-[0.12em] mb-1">
-                  Representative APR
-                </div>
-                <div className="text-[36px] font-bold tracking-[-0.02em] text-accent leading-none tabular-nums">
-                  225.5%
-                  <small className="text-[14px] text-accent/70 font-semibold ml-1.5">
-                    p.a.
-                  </small>
-                </div>
-              </div>
-              <div className="hidden md:block h-14 w-px bg-accent/30" />
-              <p className="text-[14.5px] text-bg-secondary/85 leading-[1.5] m-0">
-                <strong className="text-bg-primary">
-                  Based on a $450 limit drawn in full and repaid at $55/week
-                  (about 11 weeks).
-                </strong>{" "}
-                Cost of credit: $118.02 ($90 one-time drawdown fee + $28.02
-                interest). Total you repay (incl. the $450 you drew): $568.02.
-                Your actual APR varies with how much you draw, how long it's
-                outstanding, and your repayment behaviour.
-              </p>
-            </div>
-
             {/* Calculator */}
             <div id="calculator" className="relative text-center mt-[4em] mb-7">
-              <div className="absolute top-[14px] left-0 right-0 h-px bg-bg-secondary/20 -mx-16 sm:-mx-20 lg:-mx-24 xl:-mx-40 z-0" />
+              <div className="absolute top-[14px] left-1/2 h-px w-screen -translate-x-1/2 bg-bg-secondary/20 z-0" />
               <Pill
                 text="Try it on your numbers"
-                variant="light"
-                className="mb-4 relative z-10"
+                className="bg-[#1b2457] border border-white/[0.16] text-white mb-4 relative z-10"
               />
 
               <h2
@@ -770,19 +662,9 @@ export default function Home() {
           className="section-padding bg-bg-primary overflow-hidden"
         >
           <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center rounded-card-lg p-8 md:p-16 relative overflow-hidden bg-cta-gradient">
-              {/* Glow */}
-              <div
-                className="absolute w-80 h-80 right-[12%] top-1/2 -translate-y-1/2 z-0 pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(125,155,255,0.4) 0%, transparent 60%)",
-                  filter: "blur(40px)",
-                }}
-              />
-
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-2 lg:gap-14 items-center rounded-card-lg px-12 md:px-16 relative overflow-hidden bg-hero-gradient">
               {/* Left */}
-              <div className="relative z-10">
+              <div className="relative z-10 pt-12 md:py-16 text-center lg:text-left mx-auto lg:mx-0">
                 <Pill
                   text="Get started in 5 minutes"
                   variant="light"
@@ -838,7 +720,7 @@ export default function Home() {
                   </svg>
                 </Link>
 
-                <div className="mt-[16px] pt-[22px] border-t border-bg-primary/10 text-[13.5px] text-bg-secondary/70 leading-[1.55]">
+                <div className="mt-[16px] pt-[22px] border-t border-bg-primary/10 max-w-[72ch] text-[13.5px] text-bg-secondary/70 leading-[1.55]">
                   <p className="mt-2 text-[13px] text-bg-secondary tracking-[0.01em]">
                     You'll need:{" "}
                     <strong>
@@ -850,15 +732,12 @@ export default function Home() {
               </div>
 
               {/* Right: app UI mockup */}
-              <div className="relative z-10 flex items-center justify-center min-h-[400px] lg:min-h-[540px]">
-                <div
-                  className="w-full max-w-[360px] aspect-[3/4] rounded-card-lg bg-secondary/50 border border-bg-primary/10 flex items-center justify-center relative"
-                  style={{ boxShadow: "0 20px 50px -16px rgba(0,0,0,0.5)" }}
-                >
-                  <span className="text-ink-light text-sm">
-                    App photo placeholder
-                  </span>
-                </div>
+              <div className="relative z-10 flex items-end justify-center">
+                <img
+                  src={CTAPhoto}
+                  alt="Smiling customer enjoying Faster"
+                  className="block w-auto h-full max-h-[600px] object-bottom"
+                />
               </div>
             </div>
           </div>
@@ -876,14 +755,21 @@ export default function Home() {
                 Customers frequently ask
               </h2>
               <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
-                If you don't see your question here, ask{" "}
+                If you don't see your question here,{" "}
+                <Link
+                  to="/faq"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
+                >
+                  read more FAQs
+                </Link>{" "}
+                or ask{" "}
                 <a
                   href="mailto:support@faster.com.au"
-                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                 >
                   support@faster.com.au
-                </a>{" "}
-                — we'll add it.
+                </a>
+                .
               </p>
             </div>
             <FAQSection faqs={HOME_FAQS} white />

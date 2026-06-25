@@ -100,6 +100,12 @@ button,
     background 0.2s ease;
   white-space: nowrap;
 }
+@media (max-width: 768px) {
+  button,
+  .btn {
+    font-size: 14px;
+  }
+}
 .btn-primary {
   background: var(--color-primary);
   color: var(--color-bg-primary);
@@ -151,6 +157,15 @@ button,
   );
 }
 
+.btn-ghost-dark {
+  border: 1.5px solid rgba(252, 253, 255, 0.22);
+  color: var(--color-bg-primary);
+  background: transparent;
+}
+.btn-ghost-dark:hover {
+  background-color: rgba(252, 253, 255, 0.08);
+}
+
 .section-padding {
   padding: 3.2em 0.8em;
 }
@@ -198,7 +213,7 @@ button,
 @media (min-width: 1024px) {
   .hero-padding {
     padding: 7em 4em;
-    padding-top: 10.5em;
+    padding-top: 12em;
   }
 }
 @media (min-width: 1280px) {

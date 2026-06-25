@@ -167,20 +167,20 @@ export default function NavBar() {
           </NavLink>
         </div>
 
-        <div className="px-6 sm:px-12 flex flex-col">
-          <Link
-            to="/login"
-            className="w-full btn btn-secondary-light text-base md:text-lg font-medium"
-            onClick={handleMobileLinkClick}
-          >
-            Log In
-          </Link>
+        <div className="px-6 sm:px-12 pb-6 flex flex-col">
           <Link
             to="/apply"
-            className="w-full mb-12 -mt-2 rounded-[8px] text-center py-3 btn-primary text-base md:text-lg font-medium"
+            className="w-full btn btn-primary font-medium"
             onClick={handleMobileLinkClick}
           >
             Apply Now
+          </Link>
+          <Link
+            to="/login"
+            className="w-full btn btn-secondary-light font-medium"
+            onClick={handleMobileLinkClick}
+          >
+            Log In
           </Link>
         </div>
       </div>

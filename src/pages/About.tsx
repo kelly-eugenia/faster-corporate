@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -8,6 +9,9 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import FAQSection from "../components/FAQSection";
+import CTA from "../components/CTA";
+
+import { ABOUT_FAQS } from "../utils/faqs";
 
 import AboutPhoto from "../assets/about-faster.jpg";
 
@@ -29,20 +33,23 @@ const PROMISE_CARDS: {
   body: React.ReactNode;
 }[] = [
   {
-    fig: "2",
-    figSub: " fees",
+    fig: "1",
+    figSub: " cost",
     title: "Simple, by design",
     body: (
       <>
-        A 20% one-time drawdown fee and 47% p.a. interest while you have a
-        balance. No establishment fee, no monthly account fee, no redraw fee, no
-        early-repayment penalty.{" "}
-        <Link
-          to="/fees"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          See every fee →
-        </Link>
+        While you're borrowing, interest at 47% p.a. on your outstanding balance
+        is the only cost. No establishment fee, no monthly account fee, no
+        redraw fee, no early-repayment penalty. A 20% fee applies only if a
+        manual reassessment of your account is needed, never on your first loan.
+        <div className="mt-2">
+          <Link
+            to="/fees"
+            className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+          >
+            See the fees →
+          </Link>
+        </div>
       </>
     ),
   },
@@ -52,9 +59,9 @@ const PROMISE_CARDS: {
     title: "Upfront, in writing",
     body: (
       <>
-        Every cost, including the 225.5% representative APR, is shown before you
-        commit and set out in your credit contract. There&apos;s no
-        &ldquo;additional charges may apply&rdquo; small print.
+        Every cost is shown before you commit and set out in full in your credit
+        contract. There&apos;s no &ldquo;additional charges may apply&rdquo;
+        small print.
       </>
     ),
   },
@@ -65,13 +72,15 @@ const PROMISE_CARDS: {
       <>
         Every application is individually assessed against your financial
         situation and our lending criteria. If a repayment wouldn&apos;t fit
-        without hardship, we don&apos;t lend.{" "}
-        <Link
-          to="/how-it-works#check"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          What we check →
-        </Link>
+        without hardship, we don&apos;t lend.
+        <div className="mt-2">
+          <Link
+            to="/how-it-works#check"
+            className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+          >
+            What we check →
+          </Link>
+        </div>
       </>
     ),
   },
@@ -114,7 +123,7 @@ const REG_ROWS: {
 
     title: "Clear, fair, accurate advertising",
     num: "ASIC RG 234",
-    body: "We follow ASIC's Regulatory Guide 234 — including showing our 225.5% representative APR at equal prominence to our 47% p.a. rate, on every page that mentions either.",
+    body: "We follow ASIC's Regulatory Guide 234 on advertising credit clearly and accurately, so the costs you see are presented in a way that's not misleading.",
   },
   {
     icon: (
@@ -207,112 +216,6 @@ const SEC_CARDS: {
   },
 ];
 
-const ABOUT_FAQS = [
-  {
-    question: "Is Faster safe to use?",
-    answer: (
-      <>
-        Yes. Faster is a registered Australian credit provider (
-        <strong className="text-text-primary">ACL 569825</strong>), bound by the
-        National Consumer Credit Protection Act and the Australian Privacy
-        Principles. Our information security is independently certified to{" "}
-        <strong className="text-text-primary">ISO 27001</strong> by Lloyd&apos;s
-        Register, and we follow ASIC&apos;s RG 234 guidance on clear, fair
-        advertising.
-      </>
-    ),
-  },
-  {
-    question: "Can Faster move money from my bank account?",
-    answer: (
-      <>
-        <strong className="text-text-primary">No.</strong> The bank connection
-        used to assess your application is{" "}
-        <strong className="text-text-primary">read-only</strong> — we can view
-        transaction history, but we can never withdraw or transfer funds.
-        Repayments happen only through the direct-debit arrangement you
-        authorise separately, on the schedule set out in your contract.
-      </>
-    ),
-  },
-  {
-    question: "How is my personal and financial information used?",
-    answer: (
-      <>
-        Only to assess your application and operate your account, under the
-        Australian Privacy Principles. We collect what we need — identity,
-        income and expense history, credit information — and nothing we
-        don&apos;t.{" "}
-        <strong className="text-text-primary">
-          We never sell or rent your data
-        </strong>{" "}
-        to marketers, affiliates or other lenders. Full detail is in our{" "}
-        <a
-          href="#"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          Privacy Policy
-        </a>
-        .
-      </>
-    ),
-  },
-  {
-    question: "How will Faster contact me about security or account issues?",
-    answer: (
-      <>
-        By email to the address on your account, and through secure messages
-        once you&apos;re logged in.{" "}
-        <strong className="text-text-primary">
-          We&apos;ll never ask for your full banking password, card PIN, or
-          one-time codes
-        </strong>{" "}
-        — by email, phone or text. If a message asking for those claims to be
-        from Faster, it isn&apos;t us; forward it to{" "}
-        <a
-          href="mailto:support@faster.com.au"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          support@faster.com.au
-        </a>
-        .
-      </>
-    ),
-  },
-  {
-    question: 'What does "responsible lending" actually mean here?',
-    answer: (
-      <>
-        Before we lend, we have to be reasonably satisfied the repayments fit
-        your situation without causing substantial hardship. That means looking
-        at your income regularity and existing commitments — and declining if
-        the numbers don&apos;t support it.{" "}
-        <a
-          href="/how-it-works#check"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          See exactly what we check →
-        </a>
-      </>
-    ),
-  },
-  {
-    question: "What if I can't make a repayment?",
-    answer: (
-      <>
-        Contact us before your payment is due. We can arrange a hardship plan
-        and waive late/dishonour fees while we sort it out. You can also call
-        the{" "}
-        <strong className="text-text-primary">
-          National Debt Helpline on 1800 007 007
-        </strong>{" "}
-        for free, independent, confidential advice that has nothing to do with
-        us.
-      </>
-    ),
-  },
-];
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function About() {
@@ -342,11 +245,21 @@ export default function About() {
 
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
-          <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
+          >
             <div className="max-w-[880px]">
               <Pill text="About Faster" variant="light" className="mb-[22px]" />
               <h1
-                className="text-[clamp(40px,5.4vw,70px)] leading-[1.0] tracking-[-0.025em] font-bold mb-[22px] text-bg-primary"
+                className="text-[clamp(40px,5.2vw,68px)] leading-[1.0] tracking-[-0.025em] font-bold mb-[22px] text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Borrowing that&apos;s clear, fair, and{" "}
@@ -355,14 +268,14 @@ export default function About() {
                 </em>
                 .
               </h1>
-              <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[62ch] leading-[1.6] mb-[26px]">
+              <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[62ch] leading-[1.6] mb-[26px] mx-auto lg:mx-0">
                 Faster is an Australian digital credit provider with one product
                 — a short-term line of credit you draw from when you need it.
                 This page is who we are, the obligations we&apos;re held to, and
                 exactly how we protect the data you share with us.
               </p>
 
-              <div className="flex flex-wrap gap-7 mt-8 pt-[26px] border-t border-bg-primary/12">
+              <div className="flex flex-wrap gap-7 mt-8 pt-[26px] border-t border-bg-primary/12 text-center lg:text-left justify-center lg:justify-start">
                 {HERO_META.map((item) => (
                   <div key={item.l}>
                     <span className="block text-[11px] uppercase tracking-[0.14em] text-[#b8c4ff]/70 mb-1.5 font-semibold">
@@ -375,7 +288,7 @@ export default function About() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* ── What we do ── */}
@@ -440,7 +353,7 @@ export default function About() {
               {/* Photo */}
               <div className="relative max-w-[460px] lg:max-w-none">
                 <div
-                  className="w-full aspect-[4/5] rounded-card-lg overflow-hidden"
+                  className="w-full aspect-[1/1] rounded-card-lg overflow-hidden"
                   style={{ boxShadow: "0 20px 50px -16px rgba(11,16,36,0.3)" }}
                 >
                   <img
@@ -478,7 +391,7 @@ export default function About() {
                 We built Faster because we were tired of credit that felt
                 confusing.
               </h2>
-              <p className="text-[17px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[17px] text-muted-secondary m-0 leading-[1.65]">
                 So instead of telling you we&apos;re &ldquo;simple, upfront and
                 responsible&rdquo;, here&apos;s the specific thing behind each
                 promise — the figure does the talking.
@@ -523,7 +436,7 @@ export default function About() {
                 >
                   Trust is what you can verify yourself.
                 </h2>
-                <p className="text-[16px] text-muted-primary leading-[1.7] mb-4">
+                <p className="text-[17px] text-muted-primary leading-[1.65] mb-4">
                   Faster is operated by{" "}
                   <strong className="text-text-primary font-semibold">
                     Faster Financial Pty Ltd
@@ -597,7 +510,7 @@ export default function About() {
               >
                 Security you can trust, tech you can rely on.
               </h2>
-              <p className="text-[17px] text-bg-secondary/70 m-0 leading-[1.55]">
+              <p className="text-[17px] text-bg-secondary/70 m-0 leading-[1.65]">
                 As a digital-first credit provider, Faster is built on secure,
                 industry-standard technology to protect your personal
                 information, bank data, and account activity — at every step.
@@ -621,10 +534,10 @@ export default function About() {
                       {card.icon}
                     </svg>
                   </div>
-                  <h4 className="text-[16.5px] font-bold mb-2 text-bg-primary tracking-[-0.01em] leading-[1.3]">
+                  <h4 className="text-[17px] font-bold mb-2 text-bg-primary tracking-[-0.01em] leading-[1.3]">
                     {card.title}
                   </h4>
-                  <p className="text-[13.5px] text-bg-secondary/70 m-0 leading-[1.55]">
+                  <p className="text-[14px] text-bg-secondary/70 m-0 leading-[1.65]">
                     {card.body}
                   </p>
                   {card.tags && (
@@ -660,7 +573,7 @@ export default function About() {
                 <h3 className="text-[21px] font-bold m-0 mb-1.5 text-bg-primary tracking-[-0.015em]">
                   We can read your statements. We can never move your money.
                 </h3>
-                <p className="text-[14.5px] text-bg-secondary/75 m-0 leading-[1.6]">
+                <p className="text-[14.5px] text-bg-secondary/75 m-0 leading-[1.65]">
                   When you connect your bank account, access is{" "}
                   <strong className="text-bg-primary">read-only</strong> — we
                   can see the transaction history we need to assess your
@@ -679,7 +592,7 @@ export default function About() {
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {/* Contact card */}
-              <div className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[36px_38px] flex flex-col">
+              <div className="bg-bg-secondary/80 border border-border-subtle rounded-card-lg p-[36px_38px] flex flex-col">
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-3.5">
                   Need support?
                 </div>
@@ -690,7 +603,7 @@ export default function About() {
                   Email us anytime at{" "}
                   <a
                     href="mailto:support@faster.com.au"
-                    className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                    className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                   >
                     support@faster.com.au
                   </a>{" "}
@@ -716,7 +629,7 @@ export default function About() {
                     Start a chat
                   </a>
                 </div>
-                <div className="mt-[18px] pt-[18px] border-t border-border-subtle text-[13px] text-muted-secondary leading-[1.55]">
+                <div className="mt-[18px] pt-[18px] border-t border-border-default text-[13px] text-muted-secondary leading-[1.55]">
                   In financial difficulty? Call the National Debt Helpline on{" "}
                   <strong className="text-accent">1800 007 007</strong> — free,
                   independent and confidential.
@@ -768,103 +681,41 @@ export default function About() {
         </section>
 
         {/* ── Final CTA ── */}
-        <section
-          id="apply"
-          className="section-padding relative overflow-hidden bg-final-gradient"
-        >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 md:p-[56px_64px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
-              <div>
-                <Pill
-                  text="Ready when you are"
-                  variant="light"
-                  className="mb-[18px]"
-                />
-                <h2
-                  className="text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
-                  style={{ textWrap: "balance" } as React.CSSProperties}
-                >
-                  Now you've seen who we are. Apply in about five minutes.
-                </h2>
-                <p className="text-[17px] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.55]">
-                  One product, fully disclosed before you commit — with a
-                  same-day decision in most cases.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-[22px]">
-                  {[
-                    "Australian resident, 18+",
-                    "Government-issued ID",
-                    "90+ days of regular income",
-                    "Bank account in your name",
-                  ].map((req) => (
-                    <div
-                      key={req}
-                      className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/80"
-                    >
-                      <span className="w-[22px] h-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          className="w-3 h-3"
-                        >
-                          <path d="M5 12l5 5L20 7" />
-                        </svg>
-                      </span>
-                      {req}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="text-left lg:text-right">
-                <Link to="/apply" className="btn btn-primary text-2xl group">
-                  Apply Now
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    className="ml-1 transition-transform group-hover:translate-x-0.5"
-                  >
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <div className="mt-3.5 text-[12.5px] text-bg-secondary/55">
-                  Takes 5 minutes · No impact on credit score for pre-qual
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CTA
+          text="Now you've seen who we are."
+          desc="One product, fully disclosed before you commit with a
+                  same-day decision in most cases."
+        />
 
         {/* ── FAQ ── */}
-        <section id="faq" className="section-padding bg-bg-secondary">
+        <section className="section-padding bg-bg-secondary">
           <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12 max-w-[720px] mx-auto">
+            <div className="text-center mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
               <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
-                If you don't see your question here, ask{" "}
+                If you don't see your question here,{" "}
+                <Link
+                  to="/faq"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
+                >
+                  read more FAQs
+                </Link>{" "}
+                or ask{" "}
                 <a
                   href="mailto:support@faster.com.au"
-                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                 >
                   support@faster.com.au
-                </a>{" "}
-                — we'll add it.
+                </a>
+                .
               </p>
             </div>
-
             <FAQSection faqs={ABOUT_FAQS} white />
           </div>
         </section>

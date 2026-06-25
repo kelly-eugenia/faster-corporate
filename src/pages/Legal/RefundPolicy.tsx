@@ -25,9 +25,9 @@ export default function RefundPolicy() {
 
       <NavBar />
 
-      <div className="w-full max-w-[1800px] mx-auto py-8">
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 mx-auto">
-          <header className="bg-gradient-to-b from-secondary to-primary rounded-2xl py-12 p-6 sm:p-12 lg:p-16 mb-12">
+      <div className="w-full max-w-[1440px] mx-auto p-8">
+        <section className="section-padding">
+          <header className="bg-final-gradient rounded-2xl py-12 p-6 sm:p-12 lg:p-16 mb-12">
             <h1 className="my-6 md:my-8 text-5xl lg:text-6xl font-bold text-center text-bg-primary">
               Refund Policy
             </h1>

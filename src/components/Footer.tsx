@@ -120,31 +120,46 @@ export default function Footer() {
           </div>
           <div className="text-[12px] text-border-default">
             Need help with repayments? Call National Debt Helpline{" "}
-            <strong className="text-[#ffd066]">1800 007 007</strong> (free,
+            <strong className="text-accent">1800 007 007</strong> (free,
             confidential).
           </div>
         </div>
 
         {/* Legal disclaimer */}
         <div className="pt-6 text-[11.5px] leading-[1.7] tracking-[0.02em]">
-          <p className="m-0 mb-2 text-border-default/80">
-            <strong className="text-bg-secondary/90">
-              Comparison rate warning:
-            </strong>{" "}
-            The representative APR of 225.5% p.a. is based on a $450 limit drawn
-            in full and repaid at $55/week (about 11 weeks), comprising the 20%
-            one-time drawdown fee ($90) and 47% p.a. interest ($28.02). Total
-            you repay (incl. $450 drawn): $568.02. Different amounts and terms
-            may result in different comparison rates. WARNING: This comparison
-            rate applies only to the example given. Costs such as redraw fees
-            and cost savings such as fee waivers are not included in the
-            comparison rate but may influence the cost of the loan.
-          </p>
-          <p className="m-0 text-border-default/80">
+          <p className="text-border-default/80">
             All Rights Reserved © 2026 Faster Financial Pty Ltd (ABN 47 651 975
             932). Lightspeed CashFaster Ventures Pty Ltd, Australian Credit
             Licence 569825. Faster Financial Pty Ltd is ISO 27001 Certified by
             Lloyd's Register for Information Security Management.
+          </p>
+          <p className="mt-4 text-border-default/80">
+            <strong className="text-bg-secondary/90">Important:</strong>{" "}
+            Borrowing money costs money. Other options may be available. Free
+            financial counselling is available from the National Debt Helpline
+            at{" "}
+            <a
+              href="ndh.org.au"
+              className="text-bg-secondary underline hover:no-underline"
+            >
+              ndh.org.au
+            </a>{" "}
+            or by calling 1800 007 007. Visit{" "}
+            <a
+              href="moneysmart.gov.au"
+              className="text-bg-secondary underline hover:no-underline"
+            >
+              moneysmart.gov.au
+            </a>{" "}
+            for free guidance on managing money. For Faster.com.au support, chat
+            with us on-site or email{" "}
+            <a
+              href="mailto:support@faster.com.au"
+              className="text-bg-secondary underline hover:no-underline"
+            >
+              support@faster.com.au
+            </a>
+            .
           </p>
         </div>
       </div>

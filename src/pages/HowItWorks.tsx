@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import React from "react";
 
 import SEO from "../components/SEO";
@@ -8,8 +9,11 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Pill from "../components/Pill";
 import FAQSection from "../components/FAQSection";
+import CTA from "../components/CTA";
 
-import HiwCheckPhoto from "../assets/responsible.png";
+import { HIW_FAQS } from "../utils/faqs";
+
+import HiwCheckPhoto from "../assets/responsible-check.png";
 
 import "../App.css";
 
@@ -91,7 +95,7 @@ const TIMELINE: TimelineStep[] = [
           href="https://connectonline.asic.gov.au/RegistrySearch/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+          className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
         >
           ACL 569825
         </a>
@@ -141,11 +145,11 @@ const TIMELINE: TimelineStep[] = [
     lede: (
       <>
         Before you accept, you see the full credit contract with the exact
-        amounts: drawdown fee, daily interest rate, late fee, dishonour fee, and
-        the representative APR for your limit. The same numbers from the{" "}
+        amounts for your limit: the daily interest rate, any default fees, and
+        the repayment schedule. The same numbers from the{" "}
         <Link
           to="/fees"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+          className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
         >
           Fees page
         </Link>{" "}
@@ -168,7 +172,7 @@ const TIMELINE: TimelineStep[] = [
     who: "you",
     title: "Your first drawdown",
     time: "Funds usually arrive the same business day",
-    lede: "You choose how much to draw (any amount, up to your limit) and which bank account to send it to. The 20% one-time drawdown fee, calculated on your approved limit rather than your draw amount, is added to your balance at this moment.",
+    lede: "You choose how much to draw (any amount, up to your limit) and which bank account to send it to. There's no fee to draw down — interest simply starts accruing on the amount you've drawn from this moment.",
     rows: [
       {
         k: "Cut-off",
@@ -190,13 +194,12 @@ const TIMELINE: TimelineStep[] = [
     ],
     foot: (
       <>
-        The 20% drawdown fee applies once per account, lifetime — not every time
-        you draw. See the{" "}
+        Interest is charged daily on your outstanding balance only, at 47% p.a.{" "}
         <Link
-          to="/fees#anatomy"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+          to="/fees"
+          className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
         >
-          anatomy of each fee
+          See the fees
         </Link>
         .
       </>
@@ -206,14 +209,20 @@ const TIMELINE: TimelineStep[] = [
 
 const ONGOING_CARDS = [
   {
-    icon: <path d="M21 12a9 9 0 1 1-9-9M21 3v6h-6" />,
+    icon: (
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+      />
+    ),
     title: "Repay on your schedule",
     body: "Weekly, fortnightly or monthly direct debit from your nominated account. Your per-period amount is fixed — drawing more extends the term, not the payment.",
   },
   {
     icon: <path d="M12 5v14M5 12h14" />,
     title: "Re-draw without re-applying",
-    body: "Once you've repaid against your limit, you can draw again — instantly, against the same limit, with no further 20% drawdown fee.",
+    body: "Once you've repaid against your limit, you can draw again — instantly, against the same limit, with no new application and no drawdown fee.",
   },
   {
     icon: <path d="M5 12l5 5L20 7" />,
@@ -235,7 +244,7 @@ const CHECK_ITEMS = [
   },
   {
     title: "No active hardship indicators",
-    body: "Dishonour fees, gambling spikes, payday-loan rollovers, or a recent default. Any of these and we'll decline — and point you to free financial counselling.",
+    body: "Dishonoured or missed payments, gambling spikes, payday-loan rollovers, or a recent default. Any of these and we'll decline — and point you to free financial counselling.",
     source: "Bank read",
   },
   {
@@ -247,16 +256,16 @@ const CHECK_ITEMS = [
 
 const FEE_SUMMARY_ROWS = [
   {
-    k: "One-time drawdown fee",
-    sub: "Charged once · first drawdown ever",
-    v: "20%",
-    vSub: "of limit",
-  },
-  {
     k: "Interest while in use",
     sub: "Daily, on outstanding balance · no compounding",
     v: "47%",
     vSub: "p.a.",
+  },
+  {
+    k: "Nothing ongoing",
+    sub: "No establishment, monthly, redraw or early-repayment fees",
+    v: "$0",
+    vSub: "",
   },
 ];
 
@@ -300,17 +309,17 @@ const PROTECT_CARDS: {
   {
     badge: "Hardship",
     title: "Hardship arrangements — at no extra cost",
-    body: "If your situation changes and you can't make a payment, contact us before it's due. Late and dishonour fees are waived while we agree a revised arrangement, and we'll reduce or pause payments where appropriate.",
+    body: "If your situation changes and you can't make a payment, contact us before it's due. We'll work with you on a revised arrangement, and reduce or pause payments where appropriate.",
     linkLabel: "Apply for hardship",
     href: "#",
     arrowKind: "right",
   },
   {
     badge: "RG 234",
-    title: "Advertising at equal prominence",
-    body: "Every page that shows our 47% p.a. interest rate also shows the 225.5% representative APR at the same prominence. No big-number-small-disclaimer. ASIC's advertising guidance, in practice.",
-    linkLabel: "See the working",
-    href: "/fees#apr",
+    title: "Clear, fair advertising",
+    body: "We follow ASIC's Regulatory Guide 234 on advertising credit clearly and accurately, so the cost you see is presented in a way that's not misleading.",
+    linkLabel: "See the fees",
+    href: "/fees",
     internal: true,
     arrowKind: "right",
   },
@@ -386,108 +395,6 @@ const ELIG_ITEMS: { body: React.ReactNode; source: string }[] = [
   },
 ];
 
-const HIW_FAQS = [
-  {
-    question: "How long does the whole thing actually take?",
-    answer: (
-      <>
-        Most applications complete the same business day. The form itself takes
-        about 5 minutes; credit assessment is usually done within a couple of
-        hours during business hours. Weekend and evening applications are slower
-        because human review waits for the next business morning.
-      </>
-    ),
-  },
-  {
-    question: "Why do you need to read my bank statements?",
-    answer: (
-      <>
-        To meet our responsible-lending obligations under the NCCP Act. We have
-        to be reasonably confident the repayment fits your situation — that
-        means seeing income regularity and existing commitments. We use a
-        CDR-accredited open-banking partner with{" "}
-        <strong className="text-text-primary">read-only</strong> access. We can
-        never move money out of your account.
-      </>
-    ),
-  },
-  {
-    question: "Does applying hurt my credit score?",
-    answer: (
-      <>
-        No. We don't run a credit check at any point in our process, so applying
-        with us never leaves a footprint on your credit file and never affects
-        your credit score.
-      </>
-    ),
-  },
-  {
-    question: "Can I have more than one drawdown at once?",
-    answer: (
-      <>
-        Yes — that's the point of a line of credit. As long as your outstanding
-        balance plus the new draw stays within your approved limit, you can draw
-        additional amounts whenever you need. Each subsequent draw doesn't
-        trigger a new 20% drawdown fee (that's a once-per-account fee), only
-        daily interest on the larger balance.
-      </>
-    ),
-  },
-  {
-    question: "What if my income drops after I'm approved?",
-    answer: (
-      <>
-        Contact us{" "}
-        <strong className="text-text-primary">
-          before your next payment is due
-        </strong>
-        . We can pause, reduce, or restructure payments under a hardship
-        arrangement — and waive late/dishonour fees while we sort it out. You
-        can also call the National Debt Helpline on{" "}
-        <strong className="text-text-primary">1800 007 007</strong> for free,
-        independent advice that has nothing to do with us.
-      </>
-    ),
-  },
-  {
-    question: "Can I close my line of credit and walk away?",
-    answer: (
-      <>
-        Yes, anytime — repay your outstanding balance in full, then ask us to
-        close the account. No closeout fee, no exit fee, no minimum interest
-        period. We retain your records for the period required by law (typically
-        7 years for credit data) and that's it.
-      </>
-    ),
-  },
-  {
-    question: "What if I'm declined — can I reapply?",
-    answer: (
-      <>
-        You can reapply after{" "}
-        <strong className="text-text-primary">90 days</strong>, which is also
-        the window across which we'd see a meaningful change in your
-        bank-statement history. Reapplying inside 90 days is unlikely to change
-        the outcome. If hardship is the underlying reason, please use the NDH
-        first.
-      </>
-    ),
-  },
-  {
-    question:
-      "Why does the same limit produce different repayment terms for different people?",
-    answer: (
-      <>
-        The per-period repayment amount ($55 / $110 / $238.33 for weekly /
-        fortnightly / monthly) is fixed for the product. What changes is the{" "}
-        <strong className="text-text-primary">term</strong> — how many periods
-        you'll be paying. Drawing more means a longer term, not a higher
-        payment. You can always shorten it by paying extra.
-      </>
-    ),
-  },
-];
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function HowItWorks() {
@@ -517,33 +424,36 @@ export default function HowItWorks() {
 
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
-          <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
-              {/* Left */}
-              <div>
-                <Pill
-                  text="How it works"
-                  variant="light"
-                  className="mb-[22px]"
-                />
-                <h1
-                  className="text-[clamp(40px,5.2vw,68px)] leading-[1.0] tracking-[-0.025em] font-bold mb-[22px] text-bg-primary"
-                  style={{ textWrap: "balance" } as React.CSSProperties}
-                >
-                  From apply to{" "}
-                  <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
-                    cash in your bank
-                  </em>
-                  , step by step.
-                </h1>
-                <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[60ch] leading-[1.6]">
-                  Every stage of a Faster Line of Credit — what you do, what we
-                  do, and how long each part actually takes. Real timing,
-                  including the slow bits.
-                </p>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
+          >
+            <div className="max-w-[880px]">
+              <Pill text="How it works" variant="light" className="mb-[22px]" />
+              <h1
+                className="text-[clamp(40px,5.2vw,68px)] leading-[1.0] tracking-[-0.025em] font-bold mb-[22px] text-bg-primary"
+                style={{ textWrap: "balance" } as React.CSSProperties}
+              >
+                From apply to{" "}
+                <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
+                  cash in your bank
+                </em>
+                , step by step.
+              </h1>
+              <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[60ch] leading-[1.6] mx-auto lg:mx-0">
+                Every stage of a Faster Line of Credit — what you do, what we
+                do, and how long each part actually takes. Real timing,
+                including the slow bits.
+              </p>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* ── The flow timeline ── */}
@@ -587,7 +497,7 @@ export default function HowItWorks() {
                       className={`w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center font-bold text-[16px]
                         ${step.who === "you" ? "bg-primary text-bg-primary" : "bg-bg-primary text-primary"}`}
                       style={{
-                        boxShadow: "0 0 0 6px #FCFDFF, 0 0 0 7px #EAEDF5",
+                        boxShadow: "0 0 0 6px #FCFDFF, 0 0 0 7px #d6dae6",
                       }}
                     >
                       {step.num}
@@ -600,7 +510,7 @@ export default function HowItWorks() {
                       <h3 className="text-[22px] font-bold tracking-[-0.015em] m-0 text-text-primary leading-[1.2]">
                         {step.title}
                       </h3>
-                      <span className="text-[11.5px] tracking-[0.04em] text-accent font-semibold bg-accent/[0.08] px-2.5 py-[5px] rounded-md whitespace-nowrap">
+                      <span className="text-[11.5px] tracking-[0.04em] text-accent font-semibold bg-accent/[0.08] px-2.5 py-[5px] rounded-lg whitespace-nowrap">
                         {step.time}
                       </span>
                     </div>
@@ -666,13 +576,13 @@ export default function HowItWorks() {
                     key={card.title}
                     className="bg-bg-primary border border-bg-secondary rounded-card p-[22px]"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-bg-primary text-primary inline-flex items-center justify-center mb-3 border border-bg-secondary">
+                    <div className="size-10 rounded-lg bg-bg-secondary/30 text-primary inline-flex items-center justify-center mb-3 border border-bg-secondary">
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
-                        className="w-4 h-4"
+                        className="size-5"
                       >
                         {card.icon}
                       </svg>
@@ -695,9 +605,9 @@ export default function HowItWorks() {
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-16 items-start">
               {/* Photo */}
-              <div className="relative">
+              <div className="relative mb-4">
                 <div
-                  className="w-full bg-gradient-to-b from-transparent to-white aspect-[5/6] rounded-card-lg overflow-hidden"
+                  className="w-full bg-gradient-to-b from-transparent to-white aspect-[3/2] lg:aspect-[5/6] rounded-card-lg overflow-hidden"
                   style={{
                     boxShadow:
                       "0 1px 2px rgba(11,16,36,0.04), 0 8px 24px -8px rgba(11,16,36,0.08)",
@@ -800,7 +710,8 @@ export default function HowItWorks() {
                   className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
-                  Two fees, one APR. Everything in writing before you commit.
+                  One cost while you borrow. Everything in writing before you
+                  commit.
                 </h2>
                 <p className="text-[16px] text-bg-secondary/70 mb-6 leading-[1.55] max-w-[44ch]">
                   You see these on the Fees page, and again — in dollar amounts
@@ -825,11 +736,11 @@ export default function HowItWorks() {
               </div>
 
               {/* Summary card */}
-              <div className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[28px] backdrop-blur-lg">
+              <div className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg pt-[14px] pb-[28px] px-[28px] backdrop-blur-lg">
                 {FEE_SUMMARY_ROWS.map((row) => (
                   <div
                     key={row.k}
-                    className="grid grid-cols-[1fr_auto] gap-4 items-baseline py-4 border-b border-bg-primary/[0.08] last:border-b-0"
+                    className="grid grid-cols-[1fr_auto] gap-4 items-center py-4 border-b border-bg-primary/[0.08] last:border-b-0"
                   >
                     <div className="text-[14.5px] text-bg-secondary/85">
                       {row.k}
@@ -846,22 +757,9 @@ export default function HowItWorks() {
                   </div>
                 ))}
 
-                <div className="mt-4 p-[16px_18px] bg-accent/[0.08] border border-accent/20 rounded-[10px] flex justify-between items-baseline gap-4">
-                  <span className="text-[11px] uppercase tracking-[0.12em] text-accent font-semibold">
-                    Representative APR
-                  </span>
-                  <span className="text-[22px] font-bold text-accent tabular-nums tracking-[-0.01em]">
-                    225.5%
-                    <small className="text-[12px] text-accent/70 font-semibold ml-1">
-                      p.a.
-                    </small>
-                  </span>
-                </div>
                 <div className="mt-[18px] text-[12.5px] text-bg-secondary/55 leading-[1.6]">
-                  Based on a $450 limit drawn in full and repaid at $55/week
-                  (about 11 weeks): $90 drawdown + $28.02 interest = $118.02
-                  cost of credit. Total you repay (incl. $450 drawn): $568.02.
-                  Different amounts and terms produce different APRs.
+                  Interest at 47% p.a. is the only cost while you're borrowing.
+                  All costs are set out in your credit contract before you sign.
                 </div>
               </div>
             </div>
@@ -922,10 +820,10 @@ export default function HowItWorks() {
                     key={card.badge}
                     className="bg-bg-primary border border-border-subtle rounded-card p-[26px_24px] flex flex-col gap-3"
                   >
-                    <span className="self-start text-[10.5px] uppercase tracking-[0.14em] font-semibold text-primary bg-bg-secondary border border-bg-secondary px-2.5 py-[5px] rounded-md">
+                    <span className="self-start text-[10.5px] uppercase tracking-[0.14em] font-semibold text-primary bg-primary-light/[0.06] px-2.5 py-[7px] rounded-lg">
                       {card.badge}
                     </span>
-                    <h4 className="text-[17px] font-bold m-0 text-text-primary tracking-[-0.005em] leading-[1.3]">
+                    <h4 className="text-[17px] font-bold mt-3 text-text-primary tracking-[-0.005em] leading-[1.3]">
                       {card.title}
                     </h4>
                     <p className="text-[13.5px] text-muted-secondary m-0 leading-[1.55]">
@@ -975,11 +873,11 @@ export default function HowItWorks() {
               </div>
 
               <div>
-                <div className="bg-bg-secondary border border-border-subtle rounded-card-lg px-7">
+                <div className="bg-bg-secondary/50 border border-border-subtle rounded-card-lg px-7 py-3">
                   {ELIG_ITEMS.map((item, i) => (
                     <div
                       key={i}
-                      className="grid grid-cols-[32px_1fr_auto] gap-4 items-center py-[18px] border-b border-border-subtle last:border-b-0"
+                      className="grid grid-cols-[32px_1fr_auto] gap-4 items-center py-[15px] border-b border-border-subtle last:border-b-0"
                     >
                       <span className="w-6 h-6 rounded-full bg-primary-light/[0.08] text-primary-light inline-flex items-center justify-center">
                         <svg
@@ -995,14 +893,14 @@ export default function HowItWorks() {
                       <span className="text-[15px] text-muted-primary leading-[1.45]">
                         {item.body}
                       </span>
-                      <span className="text-[11px] text-ink-light tracking-[0.04em] whitespace-nowrap hidden sm:inline">
+                      <span className="text-[11px] text-muted-secondary/80 tracking-[0.04em] whitespace-nowrap hidden sm:inline">
                         {item.source}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-[22px] p-[18px_22px] bg-bg-secondary border border-dashed border-border-default rounded-card text-[13.5px] text-muted-primary leading-[1.55]">
+                <div className="mt-[22px] p-[18px_22px] bg-bg-secondary/50 border border-dashed border-border-default rounded-card text-[13.5px] text-muted-primary leading-[1.55]">
                   <strong className="text-text-primary">
                     Who we can't lend to right now:
                   </strong>{" "}
@@ -1015,7 +913,7 @@ export default function HowItWorks() {
                     href="https://ndh.org.au"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                    className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                   >
                     National Debt Helpline on 1800 007 007
                   </a>{" "}
@@ -1027,103 +925,41 @@ export default function HowItWorks() {
         </section>
 
         {/* ── Final CTA ── */}
-        <section
-          id="apply"
-          className="section-padding relative overflow-hidden bg-final-gradient"
-        >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 md:p-[56px_64px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center relative overflow-hidden">
-              <div>
-                <Pill
-                  text="Ready when you are"
-                  variant="light"
-                  className="mb-[18px]"
-                />
-                <h2
-                  className="text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
-                  style={{ textWrap: "balance" } as React.CSSProperties}
-                >
-                  Now you've seen the steps. Apply in about five minutes.
-                </h2>
-                <p className="text-[17px] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.55]">
-                  You'll see the same flow — and the same fees — again in your
-                  credit contract before you commit.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-[22px]">
-                  {[
-                    "Australian resident, 18+",
-                    "Government-issued ID",
-                    "90+ days of regular income",
-                    "Bank account in your name",
-                  ].map((req) => (
-                    <div
-                      key={req}
-                      className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/80"
-                    >
-                      <span className="w-[22px] h-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          className="w-3 h-3"
-                        >
-                          <path d="M5 12l5 5L20 7" />
-                        </svg>
-                      </span>
-                      {req}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="text-left lg:text-right">
-                <Link to="/apply" className="btn btn-primary text-2xl group">
-                  Apply Now
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    className="ml-1 transition-transform group-hover:translate-x-0.5"
-                  >
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <div className="mt-3.5 text-[12.5px] text-bg-secondary/55">
-                  Takes 5 minutes · No impact on credit score for pre-qual
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CTA
+          text="Now you've seen the steps."
+          desc="You'll see the same flow — and the same fees — again in your
+                  credit contract before you commit."
+        />
 
         {/* ── FAQ ── */}
-        <section id="faq" className="section-padding bg-bg-secondary">
+        <section className="section-padding bg-bg-secondary">
           <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12 max-w-[760px] mx-auto">
+            <div className="text-center mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
               <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
-                If you don't see your question here, ask{" "}
+                If you don't see your question here,{" "}
+                <Link
+                  to="/faq"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
+                >
+                  read more FAQs
+                </Link>{" "}
+                or ask{" "}
                 <a
                   href="mailto:support@faster.com.au"
-                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                 >
                   support@faster.com.au
-                </a>{" "}
-                — we'll add it.
+                </a>
+                .
               </p>
             </div>
-
             <FAQSection faqs={HIW_FAQS} white />
           </div>
         </section>

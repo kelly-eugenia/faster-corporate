@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import { motion } from "framer-motion";
+
+import React, { type ReactNode } from "react";
 
 import SEO from "../components/SEO";
 import { useSEO } from "../utils/useSEO";
@@ -10,220 +12,12 @@ import Pill from "../components/Pill";
 import FAQSection from "../components/FAQSection";
 import Reviews from "../components/Reviews";
 
+import { FEES_FAQS } from "../utils/faqs";
+import CTA from "../components/CTA";
+
 import "../App.css";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
-
-const ANATOMY_CARDS = [
-  {
-    tag: "FEE 01",
-    name: "One-time drawdown fee",
-    rate: "20%",
-    rateSub: "%",
-    rateUnit: "of your approved limit",
-    rows: [
-      {
-        k: "Triggered",
-        v: (
-          <>
-            The first time you draw funds from your line of credit, ever. Not
-            when you're approved — when you actually move money.
-          </>
-        ),
-      },
-      {
-        k: "Calculated",
-        v: (
-          <>
-            <strong className="text-text-primary font-semibold">
-              Limit × 20%
-            </strong>
-            . Based on your <em>approved limit</em>, not the amount you choose
-            to draw on that first transaction.
-          </>
-        ),
-      },
-      {
-        k: "Charged to",
-        v: (
-          <>
-            Added to your outstanding balance at the moment of your first
-            drawdown. You don't pay it from your bank account separately.
-          </>
-        ),
-      },
-      {
-        k: "Recurs?",
-        v: (
-          <>
-            <strong className="text-text-primary font-semibold">No.</strong>{" "}
-            Once paid, you can draw and repay against your limit as many times
-            as you want with no further drawdown fee.
-          </>
-        ),
-      },
-    ],
-    exCalc: (
-      <>
-        <span className="text-muted-secondary">$450 limit </span>× 20%{" "}
-        <span className="text-primary font-bold bg-bg-primary px-2 py-0.5 rounded ml-1">
-          = $90.00 fee
-        </span>
-      </>
-    ),
-    exNote:
-      "If you're later approved for a higher limit, no additional drawdown fee is charged on the existing portion — only 20% × the increase.",
-  },
-  {
-    tag: "FEE 02",
-    name: "Daily interest while in use",
-    rate: "47%",
-    rateSub: "p.a.",
-    rateUnit: "on outstanding balance",
-    rows: [
-      {
-        k: "Triggered",
-        v: (
-          <>
-            Each day you have an outstanding balance. If your balance reaches
-            $0, no interest accrues — even if your limit stays open.
-          </>
-        ),
-      },
-      {
-        k: "Calculated",
-        v: (
-          <>
-            <strong className="text-text-primary font-semibold">
-              Outstanding balance × (47% ÷ 365)
-            </strong>
-            , applied daily. Charged against your balance once per repayment
-            period.
-          </>
-        ),
-      },
-      {
-        k: "Compounds?",
-        v: (
-          <>
-            <strong className="text-text-primary font-semibold">No.</strong>{" "}
-            Interest does not capitalise — accrued interest doesn't earn further
-            interest of its own.
-          </>
-        ),
-      },
-      {
-        k: "Reduce it by",
-        v: (
-          <>
-            Repaying sooner, or making extra repayments. There's{" "}
-            <strong className="text-text-primary font-semibold">
-              no early-repayment fee
-            </strong>{" "}
-            — every extra dollar comes off your balance.
-          </>
-        ),
-      },
-    ],
-    exCalc: (
-      <>
-        <span className="text-muted-secondary">$540 balance </span>× (47% ÷ 365){" "}
-        <span className="text-primary font-bold bg-bg-primary px-2 py-0.5 rounded ml-1">
-          = about $4.87 across week one
-        </span>
-      </>
-    ),
-    exNote:
-      "Balance shrinks as you repay, so each week's interest is smaller than the last. The schedule below shows it week-by-week.",
-  },
-];
-
-const WORKED_SUMMARY_ROWS: {
-  label: React.ReactNode;
-  amount: string;
-  total?: boolean;
-}[] = [
-  { label: "Limit drawn", amount: "$450.00" },
-  {
-    label: (
-      <>
-        Drawdown fee{" "}
-        <span className="text-[12px] text-bg-secondary/50">· 20% × $450</span>
-      </>
-    ),
-    amount: "$90.00",
-  },
-  {
-    label: (
-      <>
-        Total interest{" "}
-        <span className="text-[12px] text-bg-secondary/50">
-          · 47% p.a. over ~11 weeks
-        </span>
-      </>
-    ),
-    amount: "$28.02",
-  },
-  {
-    label: "Total to repay",
-    amount: "$568.02",
-    total: true,
-  },
-];
-
-interface SchedRow {
-  week: string;
-  opening: string;
-  interest: string;
-  repayment: React.ReactNode;
-  closing: string;
-}
-
-const SCHEDULE_ROWS: SchedRow[] = [
-  {
-    week: "Draw",
-    opening: "$0.00",
-    interest: "—",
-    repayment: (
-      <>
-        +$450.00 drawn
-        <br />
-        <span className="text-bg-secondary/60 text-[12px]">
-          +$90.00 drawdown fee
-        </span>
-      </>
-    ),
-    closing: "$540.00",
-  },
-  {
-    week: "W1",
-    opening: "$540.00",
-    interest: "$4.87",
-    repayment: "− $55.00",
-    closing: "$489.87",
-  },
-  {
-    week: "W2",
-    opening: "$489.87",
-    interest: "$4.42",
-    repayment: "− $55.00",
-    closing: "$439.29",
-  },
-  {
-    week: "W3",
-    opening: "$439.29",
-    interest: "$3.96",
-    repayment: "− $55.00",
-    closing: "$388.25",
-  },
-  {
-    week: "W4",
-    opening: "$388.25",
-    interest: "$3.50",
-    repayment: "− $55.00",
-    closing: "$336.75",
-  },
-];
 
 interface FeeTableRow {
   scope?: string;
@@ -237,202 +31,166 @@ interface FeeTableRow {
 }
 
 const FEE_TABLE: FeeTableRow[] = [
-  { scope: "Costs of borrowing" },
-  {
-    title: "One-time drawdown fee",
-    desc: (
-      <>
-        Charged once at your first drawdown.{" "}
-        <a
-          href="#anatomy"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          See anatomy ↑
-        </a>
-      </>
-    ),
-    when: "First drawdown only.",
-    whenSub: "Once per account, lifetime",
-    amount: "20%",
-    amountSub: "of your approved limit",
-    amountKind: "charged",
-  },
+  { scope: "Cost of borrowing" },
   {
     title: "Interest",
-    desc: (
-      <>
-        Calculated daily on outstanding balance, no compounding.{" "}
-        <a
-          href="#anatomy"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
-        >
-          See anatomy ↑
-        </a>
-      </>
-    ),
+    desc: "Calculated daily on outstanding balance. No compounding — accrued interest doesn't earn further interest.",
     when: "Daily, on any outstanding balance.",
     whenSub: "Stops when balance = $0",
     amount: "47%",
     amountSub: "p.a.",
     amountKind: "charged",
   },
-  { scope: "If a payment fails" },
+  { scope: "Only in specific circumstances" },
   {
-    title: "Late payment fee",
-    desc: "Charged if a scheduled repayment isn't received by the due date. Charged once per missed payment, not per day overdue.",
-    when: "When a scheduled payment is overdue.",
-    whenSub: "Max once per missed payment",
-    amount: "$35.00",
-    amountSub: "per missed payment",
-    amountKind: "penalty",
-  },
-  {
-    title: "Dishonour fee",
-    desc: "Charged if a direct debit fails (e.g. insufficient funds in your nominated account). Reimburses the bank's chargeback to us.",
-    when: "When a direct debit is returned.",
-    whenSub: "Per failed debit",
-    amount: "$15.00",
-    amountSub: "per failed debit",
+    title: "Manual reassessment fee",
+    desc: (
+      <>
+        20% of your drawdown amount. Charged only if we need to manually
+        reassess your account — for example, if your circumstances have changed
+        significantly since your original approval.{" "}
+        <strong className="text-text-primary">
+          Never charged on your first loan.
+        </strong>
+      </>
+    ),
+    when: "Only if a manual reassessment is required.",
+    whenSub: "Never on your first loan.",
+    amount: "20%",
+    amountSub: "of drawdown amount",
     amountKind: "penalty",
   },
   { scope: "Things we don't charge" },
   {
     title: "Establishment fee",
-    desc: "To set up your account or assess your application.",
+    desc: "To set up your account or assess your application for the first time.",
     when: "—",
     amount: "$0",
     amountKind: "zero",
   },
   {
-    title: "Monthly account-keeping fee",
-    desc: "To keep your line of credit open.",
-    when: "—",
-    amount: "$0",
-    amountKind: "zero",
-  },
-  {
-    title: "Redraw fee",
-    desc: "For any subsequent drawdown after your first.",
-    when: "—",
-    amount: "$0",
-    amountKind: "zero",
-  },
-  {
-    title: "Early-repayment penalty",
+    title: "Early-repayment fee",
     desc: "For paying off your balance ahead of schedule.",
     when: "—",
     amount: "$0",
     amountKind: "zero",
   },
+];
+
+interface SchedRow {
+  period: string;
+  open: string;
+  interest: string;
+  repaid: string;
+  close: string;
+  isDraw?: boolean;
+  isDone?: boolean;
+  doneText?: ReactNode;
+}
+
+const WORKED_SUMMARY_ROWS: {
+  label: string;
+  value: string;
+  total?: boolean;
+  zero?: boolean;
+}[] = [
+  { label: "Limit drawn", value: "$450.00" },
+  { label: "Drawdown / establishment fee", value: "$0.00", zero: true },
+  { label: "Total interest · 47% p.a. over ~9 weeks", value: "$19.62" },
+  { label: "Total you repay", value: "$469.62", total: true },
+];
+
+const SCHEDULE_ROWS: SchedRow[] = [
   {
-    title: "Annual fee",
-    desc: "For having an open line of credit.",
-    when: "—",
-    amount: "$0",
-    amountKind: "zero",
+    period: "Draw",
+    open: "$0.00",
+    interest: "—",
+    repaid: "+$450.00",
+    close: "$450.00",
+    isDraw: true,
   },
   {
-    title: "Statement fee",
-    desc: "For paper or PDF statements.",
-    when: "—",
-    amount: "$0",
-    amountKind: "zero",
+    period: "W1",
+    open: "$450.00",
+    interest: "+$4.06",
+    repaid: "−$55.00",
+    close: "$399.06",
+  },
+  {
+    period: "W2",
+    open: "$399.06",
+    interest: "+$3.60",
+    repaid: "−$55.00",
+    close: "$347.66",
+  },
+  {
+    period: "W3",
+    open: "$347.66",
+    interest: "+$3.13",
+    repaid: "−$55.00",
+    close: "$295.79",
+  },
+  {
+    period: "W4",
+    open: "$295.79",
+    interest: "+$2.67",
+    repaid: "−$55.00",
+    close: "$243.46",
+  },
+  {
+    period: "W5",
+    open: "$243.46",
+    interest: "+$2.19",
+    repaid: "−$55.00",
+    close: "$190.65",
+  },
+  {
+    period: "W6",
+    open: "$190.65",
+    interest: "+$1.72",
+    repaid: "−$55.00",
+    close: "$137.37",
+  },
+  {
+    period: "W7",
+    open: "$137.37",
+    interest: "+$1.24",
+    repaid: "−$55.00",
+    close: "$83.61",
+  },
+  {
+    period: "W8",
+    open: "$83.61",
+    interest: "+$0.75",
+    repaid: "−$55.00",
+    close: "$29.36",
+  },
+  {
+    period: "W9",
+    open: "$29.36",
+    interest: "+$0.26",
+    repaid: "−$29.62",
+    close: "$0.00",
+  },
+  {
+    period: "Done",
+    open: "",
+    interest: "",
+    repaid: "",
+    close: "",
+    isDone: true,
+    doneText: (
+      <>
+        Total repaid: <span className="text-primary font-bold">$469.62</span>{" "}
+        ($450 drawn + $19.62 interest)
+      </>
+    ),
   },
 ];
 
 const CT_MINI_ROWS = [
-  { label: "Drawdown fee · once", value: "$90.00" },
   { label: "Repayment · weekly", value: "$55.00" },
-  { label: "Total interest · est.", value: "$28.02" },
-];
-
-const FEES_FAQS = [
-  {
-    question: "How is interest calculated, day-by-day?",
-    answer: (
-      <>
-        Each day, we take your outstanding balance, multiply by{" "}
-        <code className="font-mono text-[13px] bg-bg-secondary px-1.5 py-0.5 rounded text-primary">
-          47% ÷ 365
-        </code>{" "}
-        (≈ 0.1288% per day), and add that as accrued interest. We charge it
-        against your balance once per repayment period. Interest stops the day
-        your balance reaches $0 — so paying anything extra immediately reduces
-        the next day's interest charge.
-      </>
-    ),
-  },
-  {
-    question:
-      "What's the 225.5% representative APR and why is it so different from 47%?",
-    answer: (
-      <>
-        The 47% is just the interest rate. The{" "}
-        <strong className="text-text-primary">representative APR</strong>{" "}
-        includes the 20% drawdown fee, annualised over the example term. Because
-        the drawdown fee is paid once but spread across a short repayment
-        period, the equivalent annualised rate is high. On a longer-term draw,
-        the same fee structure produces a lower APR. We use the $450 example
-        repaid at $55/week (about 11 weeks) as our representative scenario.
-      </>
-    ),
-  },
-  {
-    question:
-      "If I draw, repay, and then draw again — do I pay another 20% drawdown fee?",
-    answer: (
-      <>
-        <strong className="text-text-primary">No.</strong> The 20% fee is
-        charged once, on the first drawdown against your limit, ever. After that
-        you can repay and re-draw against the same limit as many times as you
-        want — only interest applies to subsequent draws. If your limit is later
-        increased, the 20% applies only to the increase, not the original
-        amount.
-      </>
-    ),
-  },
-  {
-    question: "Are there any fees if I repay early or in full?",
-    answer: (
-      <>
-        <strong className="text-text-primary">None.</strong> No early-repayment
-        fee, no balance closeout fee, no minimum interest period. Pay any
-        amount, any time, with no penalty — and you only pay interest for the
-        days the balance was outstanding.
-      </>
-    ),
-  },
-  {
-    question: "Why is my weekly repayment $55 regardless of how much I draw?",
-    answer: (
-      <>
-        We use a fixed-amount repayment schedule so your per-period commitment
-        stays predictable. Drawing more <em>extends</em> the time you'll spend
-        repaying — it doesn't raise the weekly amount. You can always make extra
-        repayments to clear it sooner.
-      </>
-    ),
-  },
-  {
-    question: "What happens to the interest I'd have paid if I repay early?",
-    answer: (
-      <>
-        You simply don't pay it. Interest only accrues on days you have an
-        outstanding balance — repay early and the future days never happen.
-        There's nothing to refund because we never charged it.
-      </>
-    ),
-  },
-  {
-    question: "Where can I see all of this in writing before I commit?",
-    answer: (
-      <>
-        Every fee disclosed on this page is also set out in your Credit
-        Contract, with the exact amounts and timings for your specific limit.
-        You see the contract before you accept — never after.
-      </>
-    ),
-  },
+  { label: "Total interest · est.", value: "$19.62" },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -444,16 +202,16 @@ export default function Fees() {
     <>
       <SEO
         title={
-          seo?.title || "Our Fees — Clear, Simple, and Upfront | Faster.com.au"
+          seo?.title || "Fees — one simple cost, in writing | Faster.com.au"
         }
         description={
           seo?.description ||
-          "Every cost that can apply to a Faster Line of Credit — what triggers each fee, how it's calculated, the worked example behind our representative APR, and what we don't charge."
+          "One cost while you borrow: interest at 47% p.a. on your outstanding balance. Nothing else. Set out in full in your credit contract before you commit."
         }
-        ogTitle={seo?.ogTitle || "Our Fees, Clear and Upfront | Faster.com.au"}
+        ogTitle={seo?.ogTitle || "One cost, clear and upfront | Faster.com.au"}
         ogDescription={
           seo?.ogDescription ||
-          "Two charged fees, two penalty fees, and a full list of the things we don't charge. The same content that appears in your credit contract."
+          "Interest at 47% p.a. on your outstanding balance is the only cost while you're borrowing. No drawdown fee, no establishment fee, no monthly fee."
         }
         canonicalUrl={seo?.canonicalUrl}
       />
@@ -463,8 +221,18 @@ export default function Fees() {
 
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
-          <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
-            <div className="max-w-[780px]">
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: 0.05,
+            }}
+            className="z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
+          >
+            <div className="max-w-[880px]">
               <Pill text="Fees" variant="light" className="mb-[22px]" />
               <h1
                 className="text-[clamp(40px,5.2vw,68px)] leading-[1.0] tracking-[-0.025em] font-bold mb-[22px] text-bg-primary"
@@ -476,133 +244,134 @@ export default function Fees() {
                 </em>
                 .
               </h1>
-              <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[64ch] leading-[1.6] m-0">
-                Every cost of your Faster Line of Credit is set out before you
-                borrow, so you always know what you’ll pay and why. Our fees are
-                straightforward and easy to understand. You’ll see a full
-                breakdown in your credit contract before you decide to go ahead.
+              <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[64ch] leading-[1.6] mx-auto lg:mx-0">
+                Interest at 47% p.a. on your outstanding balance, calculated
+                daily and only on what you’ve actually drawn. There’s nothing
+                ongoing and no early-repayment penalty. You’ll see the exact
+                figures in your credit contract before you commit.
               </p>
             </div>
-          </div>
+          </motion.div>
         </section>
 
-        {/* ── Anatomy of each fee ── */}
-        <section id="anatomy" className="section-padding bg-bg-primary">
+        {/* ── How interest works ── */}
+        <section id="interest" className="section-padding bg-bg-primary">
           <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[740px] mx-auto mb-14">
-              <Pill text="Anatomy of each fee" className="mb-[18px]" />
+            <div className="text-center max-w-[800px] mx-auto mb-14">
+              <Pill text="What we charge" className="mb-[18px]" />
               <h2
                 className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                What triggers each fee, how it's calculated, what it costs.
+                One cost. Calculated daily on what you owe.
               </h2>
               <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
-                Two boxes. Every input, every formula, every example — laid out
-                the same way the credit contract sets them out.
+                Interest accrues each day you have a balance. It stops the
+                moment your balance reaches $0.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {ANATOMY_CARDS.map((card) => (
-                <div
-                  key={card.tag}
-                  className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[32px_32px_28px] flex flex-col"
-                >
-                  <div className="flex items-start justify-between gap-4 pb-[22px] border-b border-border-subtle mb-6">
-                    <div>
-                      <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-semibold mb-3.5">
-                        <span className="bg-bg-primary border border-border-subtle text-primary px-2 py-0.5 rounded-md">
-                          {card.tag}
-                        </span>
-                      </div>
-                      <h3 className="text-[22px] font-bold tracking-[-0.015em] text-text-primary m-0 leading-[1.2]">
-                        {card.name}
-                      </h3>
+            <div className="max-w-[680px] mx-auto">
+              <div className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[32px_32px_28px] flex flex-col">
+                <div className="flex items-start justify-between gap-4 pb-[22px] border-b border-border-subtle mb-6">
+                  <div>
+                    <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-semibold mb-3.5">
+                      <span className="bg-bg-primary border border-border-subtle text-primary px-2 py-0.5 rounded-md">
+                        The only cost
+                      </span>
                     </div>
-                    <div className="text-right flex-shrink-0">
-                      <div className="text-[38px] font-bold tracking-[-0.025em] text-primary leading-none tabular-nums">
-                        {card.rate}
-                        <small className="text-[14px] text-muted-secondary font-semibold ml-0.5">
-                          {card.rateSub}
-                        </small>
-                      </div>
-                      <div className="text-[12px] text-muted-secondary mt-1">
-                        {card.rateUnit}
-                      </div>
-                    </div>
+                    <h3 className="text-[22px] font-bold tracking-[-0.015em] text-text-primary m-0 leading-[1.2]">
+                      Daily interest while in use
+                    </h3>
                   </div>
-
-                  <div className="flex flex-col gap-3.5 mb-6">
-                    {card.rows.map((row) => (
-                      <div
-                        key={row.k}
-                        className="grid grid-cols-[90px_1fr] sm:grid-cols-[110px_1fr] gap-4 items-start text-[14.5px]"
-                      >
-                        <span className="text-[11px] uppercase tracking-[0.12em] text-muted-secondary font-semibold pt-0.5">
-                          {row.k}
-                        </span>
-                        <span className="text-muted-primary leading-[1.5]">
-                          {row.v}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-auto bg-bg-primary border border-border-subtle rounded-[12px] p-[18px_20px]">
-                    <div className="text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-2.5">
-                      Example
+                  <div className="text-right flex-shrink-0">
+                    <div className="text-[38px] font-bold tracking-[-0.025em] text-primary leading-none tabular-nums">
+                      47%
+                      <small className="text-[14px] text-muted-secondary font-semibold ml-0.5">
+                        p.a.
+                      </small>
                     </div>
-                    <div className="text-[14.5px] text-muted-primary leading-[1.6]">
-                      {card.exCalc}
-                    </div>
-                    <div className="text-[12px] text-ink-light mt-2.5 leading-[1.45]">
-                      {card.exNote}
+                    <div className="text-[12px] text-muted-secondary mt-1">
+                      on outstanding balance
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* ── APR strip ── */}
-        <section
-          id="apr"
-          role="region"
-          aria-label="Representative APR disclosure"
-          className="section-padding bg-[#0a1140] text-bg-primary border-y border-accent/20"
-          style={{ paddingTop: 0, paddingBottom: 0 }}
-        >
-          <div className="w-full max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-[auto_auto_1fr_auto] gap-4 md:gap-8 items-center py-[26px]">
-            <div className="flex flex-col gap-1">
-              <div className="text-[11px] uppercase tracking-[0.14em] text-accent font-semibold">
-                Representative APR
-              </div>
-              <div className="text-[clamp(36px,5vw,44px)] font-bold tracking-[-0.025em] text-accent leading-none tabular-nums">
-                225.5%
-                <small className="text-[16px] text-accent/70 font-semibold ml-1.5">
-                  p.a.
-                </small>
+                <div className="flex flex-col gap-3.5 mb-6">
+                  {[
+                    {
+                      k: "Triggered",
+                      v: "Each day you have an outstanding balance. If your balance reaches $0, no interest accrues — even if your limit stays open.",
+                    },
+                    {
+                      k: "Calculated",
+                      v: (
+                        <>
+                          <strong className="text-text-primary font-semibold">
+                            Outstanding balance × (47% ÷ 365)
+                          </strong>
+                          , applied daily. Charged against your balance once per
+                          repayment period.
+                        </>
+                      ),
+                    },
+                    {
+                      k: "Compounds?",
+                      v: (
+                        <>
+                          <strong className="text-text-primary font-semibold">
+                            No.
+                          </strong>{" "}
+                          Interest does not capitalise — accrued interest
+                          doesn't earn further interest of its own.
+                        </>
+                      ),
+                    },
+                    {
+                      k: "Reduce it by",
+                      v: (
+                        <>
+                          Repaying sooner, or making extra repayments. There's{" "}
+                          <strong className="text-text-primary font-semibold">
+                            no early-repayment fee
+                          </strong>{" "}
+                          — every extra dollar comes off your balance.
+                        </>
+                      ),
+                    },
+                  ].map((row) => (
+                    <div
+                      key={row.k}
+                      className="grid grid-cols-[90px_1fr] sm:grid-cols-[110px_1fr] gap-4 items-start text-[14.5px]"
+                    >
+                      <span className="text-[11px] uppercase tracking-[0.12em] text-muted-secondary font-semibold pt-0.5">
+                        {row.k}
+                      </span>
+                      <span className="text-muted-primary leading-[1.5]">
+                        {row.v}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-auto bg-bg-primary border border-border-subtle rounded-[12px] p-[18px_20px]">
+                  <div className="text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-2.5">
+                    Example
+                  </div>
+                  <div className="text-[14.5px] text-muted-primary leading-[1.6]">
+                    <span className="text-muted-secondary">$450 balance</span> ×
+                    (47% ÷ 365){" "}
+                    <span className="text-primary font-bold ml-1">
+                      = about $4.06 across week one
+                    </span>
+                  </div>
+                  <div className="text-[12px] text-ink-light mt-2.5 leading-[1.45]">
+                    Balance shrinks as you repay, so each week's interest is
+                    smaller than the last.
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="hidden md:block w-px h-14 bg-accent/20" />
-            <p className="text-[14.5px] text-bg-primary/85 leading-[1.55] max-w-[78ch] m-0">
-              <strong className="text-bg-primary">
-                This is what 20% upfront + 47% p.a. interest costs once you
-                express it as a single annualised comparison rate.
-              </strong>{" "}
-              Calculated on a $450 limit drawn in full and repaid at $55/week
-              (about 11 weeks). Cost of credit: $118.02 ($90 drawdown + $28.02
-              interest). Total you repay (incl. $450 drawn): $568.02. Different
-              amounts and repayment periods will produce different rates.
-            </p>
-            <a
-              href="#worked"
-              className="inline-flex items-center gap-1.5 text-[13px] text-accent border border-accent/35 px-3.5 py-2 rounded-lg hover:bg-accent/[0.08] transition-colors whitespace-nowrap justify-self-start md:justify-self-auto"
-            >
-              See the working →
-            </a>
           </div>
         </section>
 
@@ -614,7 +383,7 @@ export default function Fees() {
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="text-center max-w-[740px] mx-auto mb-14">
               <Pill
-                text="Worked example"
+                text="Example in practice"
                 variant="light"
                 className="mb-[18px]"
               />
@@ -622,16 +391,16 @@ export default function Fees() {
                 className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                $450 drawn in full. Repaid weekly.
+                What does this look like on a $450 limit?
               </h2>
               <p className="text-[18px] text-bg-secondary/70 m-0 leading-[1.55]">
-                This is the canonical example we use for the representative APR.
-                Every figure shown, and every weekly repayment, comes from the
-                formulas on the cards above.
+                This is a first-loan example — interest only on the drawn
+                amount, weekly $55 repayments, no drawdown or establishment fee.
+                Your balance shrinks each week; so does the interest.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-9 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.15fr] gap-12 items-start">
               {/* Summary */}
               <aside className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[32px_32px_28px] backdrop-blur-lg lg:sticky lg:top-[92px]">
                 <div className="text-[13px] uppercase tracking-[0.14em] text-[#b8c4ff] mb-4 font-semibold">
@@ -646,7 +415,7 @@ export default function Fees() {
                   <strong className="text-bg-primary font-semibold">
                     $55/week
                   </strong>{" "}
-                  over the next 11 weeks.
+                  over the next 9 weeks.
                 </p>
 
                 <table className="w-full border-collapse text-[14.5px]">
@@ -669,143 +438,86 @@ export default function Fees() {
                               : ""
                           }`}
                         >
-                          {row.amount}
+                          {row.value}
                         </td>
                       </tr>
                     ))}
-                    <tr>
-                      <td
-                        colSpan={2}
-                        className="pt-1.5 pb-3.5 text-bg-secondary/55 text-[12.5px]"
-                      >
-                        Representative APR · 225.5% p.a.
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
 
-                <div className="mt-[22px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 leading-[1.6]">
-                  Repaying sooner reduces interest. Repaying later (within your
-                  contract terms) increases it. Late and dishonour fees are not
-                  part of this example.
+                <div className="mt-[8px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 leading-[1.6]">
+                  Repay sooner and you'll pay less — no penalty for clearing
+                  early.
                 </div>
               </aside>
 
-              {/* Schedule */}
-              <div className="bg-bg-primary/[0.04] border border-bg-primary/[0.08] rounded-card-lg p-[28px_8px_18px]">
-                <div className="flex items-center justify-between px-[22px] pb-[18px] border-b border-bg-primary/[0.08]">
-                  <div className="text-[18px] font-bold text-bg-primary tracking-[-0.01em]">
+              {/* Schedule table */}
+              <div className="bg-bg-primary border border-border-subtle rounded-card-lg overflow-hidden">
+                <div className="flex items-center justify-between px-[22px] py-[18px] border-b border-bg-primary/[0.08]">
+                  <div className="text-[18px] font-bold text-muted-primary tracking-[-0.01em]">
                     Repayment schedule
                   </div>
                 </div>
-
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse">
                     <thead>
                       <tr>
                         {[
-                          "Week",
-                          "Opening balance",
-                          "Interest accrued",
+                          "Period",
+                          "Opening",
+                          "Interest",
                           "Repayment",
-                        ].map((h) => (
+                          "Closing",
+                        ].map((h, hi) => (
                           <th
                             key={h}
-                            className="text-left px-[22px] py-3 text-[11px] text-bg-secondary/50 font-semibold uppercase tracking-[0.12em] bg-bg-primary/[0.02]"
+                            className={`px-[22px] py-3 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle ${hi === 0 ? "text-left" : hi === 4 ? "text-right" : "text-left"}`}
                           >
                             {h}
                           </th>
                         ))}
-                        <th className="text-right px-[22px] py-3 text-[11px] text-bg-secondary/50 font-semibold uppercase tracking-[0.12em] bg-bg-primary/[0.02]">
-                          Closing balance
-                        </th>
                       </tr>
                     </thead>
                     <tbody>
-                      {SCHEDULE_ROWS.map((row, i) => (
-                        <tr key={i}>
-                          <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05]">
-                            <span className="inline-block px-[7px] py-0.5 bg-[rgba(184,196,255,0.12)] text-[#b8c4ff] rounded text-[11px] font-semibold">
-                              {row.week}
-                            </span>
-                          </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                            {row.opening}
-                          </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                            {row.interest}
-                          </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums leading-[1.4]">
-                            {row.repayment}
-                          </td>
-                          <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums text-right">
-                            {row.closing}
-                          </td>
-                        </tr>
-                      ))}
-                      <tr>
-                        <td
-                          colSpan={5}
-                          className="text-center text-bg-secondary/40 py-2 text-[11px]"
-                        >
-                          … continues through …
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05]">
-                          <span className="inline-block px-[7px] py-0.5 bg-[rgba(184,196,255,0.12)] text-[#b8c4ff] rounded text-[11px] font-semibold">
-                            W10
-                          </span>
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $72.21
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $0.65
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          − $55.00
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums text-right">
-                          $17.86
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="px-[22px] py-3 text-[13.5px] border-b border-bg-primary/[0.05]">
-                          <span className="inline-block px-[7px] py-0.5 bg-[rgba(184,196,255,0.12)] text-[#b8c4ff] rounded text-[11px] font-semibold">
-                            W11
-                          </span>
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $17.86
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          $0.16
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums">
-                          − $18.02
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] text-bg-secondary/85 border-b border-bg-primary/[0.05] tabular-nums text-right">
-                          $0.00
-                        </td>
-                      </tr>
-                      <tr className="bg-primary-light/[0.05] text-primary-light/80">
-                        <td className="px-[22px] py-3 text-[13.5px]">
-                          <span className="inline-block px-[7px] py-0.5 bg-primary-light/15 text-primary-light rounded text-[11px] font-semibold">
-                            Done
-                          </span>
-                        </td>
-                        <td
-                          colSpan={3}
-                          className="px-[22px] py-3 text-[13.5px]"
-                        >
-                          Total repaid: <strong>$568.02</strong> ($450 drawn +
-                          $90 fee + $28.02 interest)
-                        </td>
-                        <td className="px-[22px] py-3 text-[13.5px] tabular-nums text-right">
-                          $0.00
-                        </td>
-                      </tr>
+                      {SCHEDULE_ROWS.map((row, i) =>
+                        row.isDone ? (
+                          <tr key={i} className="bg-[#eef1f8]">
+                            <td
+                              colSpan={5}
+                              className="p-5 text-[13.5px] text-muted-secondary font-semibold text-center border-t border-border-subtle"
+                            >
+                              {row.doneText}
+                            </td>
+                          </tr>
+                        ) : (
+                          <tr
+                            key={i}
+                            className={
+                              row.isDraw
+                                ? "bg-bg-secondary"
+                                : "hover:bg-bg-secondary/40 transition-colors"
+                            }
+                          >
+                            <td className="px-[22px] py-[12px] text-[13px] font-semibold text-text-primary border-b border-border-subtle">
+                              {row.period}
+                            </td>
+                            <td className="px-[22px] py-[12px] text-[13px] text-muted-primary border-b border-border-subtle tabular-nums">
+                              {row.open}
+                            </td>
+                            <td className="px-[22px] py-[12px] text-[13px] text-muted-primary border-b border-border-subtle tabular-nums">
+                              {row.interest}
+                            </td>
+                            <td
+                              className={`px-[22px] py-[12px] text-[13px] border-b border-border-subtle tabular-nums ${row.isDraw ? "text-primary font-semibold" : "text-muted-primary"}`}
+                            >
+                              {row.repaid}
+                            </td>
+                            <td className="px-[22px] py-[12px] text-[13px] text-right border-b border-border-subtle tabular-nums font-semibold text-text-primary">
+                              {row.close}
+                            </td>
+                          </tr>
+                        ),
+                      )}
                     </tbody>
                   </table>
                 </div>
@@ -819,7 +531,7 @@ export default function Fees() {
           <div className="w-full max-w-[1440px] mx-auto px-8">
             <div className="max-w-[760px] mb-14">
               <Pill
-                text="The complete fee list"
+                text="Every fee, in one place"
                 variant="white"
                 className="mb-[18px]"
               />
@@ -827,12 +539,12 @@ export default function Fees() {
                 className="text-[clamp(30px,3.4vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                Everything that can be charged — in one table.
+                Everything that can be charged.
               </h2>
               <p className="text-[16px] text-muted-secondary m-0 leading-[1.55]">
-                The two charged fees are detailed above. This is the canonical
-                reference: every fee, every $0 row that says what we don't
-                charge.
+                Interest is the only regular cost. The fees in the second group
+                apply only in specific circumstances — most customers never pay
+                them. The $0 rows confirm what we don't charge.
               </p>
             </div>
 
@@ -865,13 +577,19 @@ export default function Fees() {
                         </tr>
                       ) : (
                         <tr key={i}>
-                          <td className="px-6 py-[22px] border-b border-border-subtle align-top text-muted-primary text-[14.5px] leading-[1.5]">
+                          <td
+                            className={`px-6 py-[22px] align-top text-muted-primary text-[14.5px] leading-[1.5] 
+                              ${i == FEE_TABLE.length - 1 ? "" : "border-b border-border-subtle"}`}
+                          >
                             <span className="font-bold text-text-primary text-[16px] tracking-[-0.005em] mb-1 block">
                               {row.title}
                             </span>
                             {row.desc}
                           </td>
-                          <td className="px-6 py-[22px] border-b border-border-subtle align-top text-muted-primary text-[14.5px] leading-[1.5]">
+                          <td
+                            className={`px-6 py-[22px] align-top text-muted-primary text-[14.5px] leading-[1.5] 
+                              ${i == FEE_TABLE.length - 1 ? "" : "border-b border-border-subtle"}`}
+                          >
                             {row.when}
                             {row.whenSub && (
                               <div className="text-[12.5px] text-muted-secondary tracking-[0.02em] mt-1">
@@ -879,7 +597,10 @@ export default function Fees() {
                               </div>
                             )}
                           </td>
-                          <td className="px-6 py-[22px] border-b border-border-subtle align-top text-right">
+                          <td
+                            className={`px-6 py-[22px] align-top text-right 
+                              ${i == FEE_TABLE.length - 1 ? "" : "border-b border-border-subtle"}`}
+                          >
                             <span
                               className={`tabular-nums font-bold tracking-[-0.015em] leading-none ${
                                 row.amountKind === "zero"
@@ -913,10 +634,10 @@ export default function Fees() {
                 <strong className="text-muted-primary">
                   In financial difficulty?
                 </strong>{" "}
-                Late and dishonour fees are waived if you contact us before a
-                payment is due and we agree a hardship arrangement. Call the
-                National Debt Helpline <strong>1800&nbsp;007&nbsp;007</strong>{" "}
-                for free, independent advice — or{" "}
+                Contact us before a payment is due and we can discuss a hardship
+                arrangement. Call the National Debt Helpline{" "}
+                <strong>1800&nbsp;007&nbsp;007</strong> for free, independent
+                advice — or{" "}
                 <Link
                   to="/contact"
                   className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -995,7 +716,7 @@ export default function Fees() {
                 ))}
                 <div className="flex justify-between text-[12px] py-1 mt-2 pt-2.5 border-t border-border-subtle">
                   <span className="text-text-primary">Total to repay</span>
-                  <strong className="text-primary text-[14px]">$568.02</strong>
+                  <strong className="text-primary text-[14px]">$469.62</strong>
                 </div>
               </div>
             </div>
@@ -1010,91 +731,17 @@ export default function Fees() {
                 text="What customers say about the fees"
                 className="mb-[18px]"
               />
-              <h2
-                className="text-[clamp(28px,3vw,38px)] leading-[1.05] tracking-[-0.02em] font-bold text-text-primary"
-                style={{ textWrap: "balance" } as React.CSSProperties}
-              >
-                Rated 4.4 / 5 by 1,500+ Australian borrowers.
-              </h2>
+              <Reviews />
             </div>
-            <Reviews />
           </div>
         </section>
 
         {/* ── Final CTA ── */}
-        <section
-          id="apply"
-          className="section-padding relative overflow-hidden bg-final-gradient"
-        >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 md:p-[56px_64px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center relative overflow-hidden">
-              <div>
-                <Pill
-                  text="Ready when you are"
-                  variant="light"
-                  className="mb-[18px]"
-                />
-                <h2
-                  className="text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
-                  style={{ textWrap: "balance" } as React.CSSProperties}
-                >
-                  Now you've seen the receipt. Apply in about five minutes.
-                </h2>
-                <p className="text-[17px] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.55]">
-                  You'll see the same fees again in your credit contract before
-                  you commit — no hidden terms, no after-the-fact changes.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-[22px]">
-                  {[
-                    "Australian resident, 18+",
-                    "Government-issued ID",
-                    "90+ days of regular income",
-                    "Bank account in your name",
-                  ].map((req) => (
-                    <div
-                      key={req}
-                      className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/80"
-                    >
-                      <span className="w-[22px] h-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          className="w-3 h-3"
-                        >
-                          <path d="M5 12l5 5L20 7" />
-                        </svg>
-                      </span>
-                      {req}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="text-left lg:text-right">
-                <Link to="/apply" className="btn btn-primary text-2xl group">
-                  Apply Now
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    className="ml-1 transition-transform group-hover:translate-x-0.5"
-                  >
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <div className="mt-3.5 text-[12.5px] text-bg-secondary/55">
-                  Takes 5 minutes · No impact on credit score for pre-qual
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CTA
+          text="Now you've seen the costs."
+          desc="You'll see the same fees again in your credit contract before
+                  you commit — no hidden terms, no after-the-fact changes."
+        />
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">
@@ -1102,20 +749,27 @@ export default function Fees() {
             <div className="text-center mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
               <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
-                If you don't see your question here, ask{" "}
+                If you don't see your question here,{" "}
+                <Link
+                  to="/faq"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
+                >
+                  read more FAQs
+                </Link>{" "}
+                or ask{" "}
                 <a
                   href="mailto:support@faster.com.au"
-                  className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+                  className="px-1 text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                 >
                   support@faster.com.au
-                </a>{" "}
-                — we'll add it.
+                </a>
+                .
               </p>
             </div>
             <FAQSection faqs={FEES_FAQS} white />

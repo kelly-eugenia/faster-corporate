@@ -1,58 +1,79 @@
 import { Link } from "react-router-dom";
-import Phone from "../assets/dashboard-mobile.png";
-import Background from "../assets/animated-background.webp";
 import Pill from "../components/Pill";
 import "../App.css";
 
-export default function CTA() {
-  return (
-    <section className="px-8 sm:px-12 lg:px-16 xl:px-40">
-      <div className="grid grid-cols-1 lg:grid-cols-2 bg-cta-gradient rounded-2xl mb-12 gap-8 content-center lg:text-left sm:text-center">
-        <div className="px-6 md:px-10 lg:px-16 py-12 md:py-24 content-center text-center lg:text-left">
-          <Pill text="Join us and get faster" variant="light" />
-          <h1 className="mt-10 md:mt-16 text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-bg-primary">
-            Ready to get started with Faster?
-          </h1>
-          <div className="items-center flex flex-wrap gap-x-2 gap-y-1 mt-6 sm:mt-10 justify-center lg:justify-start text-sm md:text-lg">
-            <Link to="/contact" className="btn btn-secondary-light font-medium">
-              Contact Us
-            </Link>
-            <Link
-              to="/apply"
-              className="btn bg-primary lg:bg-secondary hover:bg-secondary lg:hover:bg-accent text-bg-primary font-medium"
-            >
-              Apply Now
-            </Link>
-          </div>
-        </div>
-        <div className="pl-6 lg:pl-0 -mt-20 lg:-mt-0 rounded-2xl flex items-end justify-center lg:justify-end overflow-hidden">
-          <div className="relative w-full lg:w-auto lg:max-h-[560px] 2xl:max-h-[640px] flex items-end lg:items-center">
-            {/* Phone */}
-            <img
-              src={Phone}
-              alt="Register for Faster"
-              className="
-                relative z-10
-                w-full h-full
-                object-contain 
-                lg:scale-[1.05] origin-bottom
-                2xl:scale-[0.92] 2xl:origin-center
-              "
-            />
+type CTAProps = {
+  text?: string;
+  desc: string;
+};
 
-            {/* Background */}
-            <img
-              src={Background}
-              alt="Animated background"
-              className="
-                absolute inset-0
-                w-full h-full
-                object-contain lg:object-cover
-                lg:scale-[1.05]
-                origin-bottom
-                pointer-events-none
-              "
+export default function CTA({ text, desc }: CTAProps) {
+  return (
+    <section className="section-padding relative overflow-hidden bg-final-gradient">
+      <div className="w-full max-w-[1440px] mx-auto px-8">
+        <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 md:p-[56px_64px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center relative overflow-hidden">
+          <div>
+            <Pill
+              text="Ready when you are"
+              variant="light"
+              className="mb-[18px]"
             />
+            <h2
+              className="text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
+              style={{ textWrap: "balance" } as React.CSSProperties}
+            >
+              {text} Apply in about five minutes.
+            </h2>
+            <p className="text-[17px] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.55]">
+              {desc}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-[22px]">
+              {[
+                "Australian resident, 18+",
+                "Government-issued ID",
+                "90+ days of regular income",
+                "Bank account in your name",
+              ].map((req) => (
+                <div
+                  key={req}
+                  className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/80"
+                >
+                  <span className="w-[22px] h-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      className="w-3 h-3"
+                    >
+                      <path d="M5 12l5 5L20 7" />
+                    </svg>
+                  </span>
+                  {req}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-left lg:text-right">
+            <Link to="/apply" className="btn btn-primary text-2xl group">
+              Apply Now
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                className="ml-1 transition-transform group-hover:translate-x-0.5"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </Link>
+            <div className="mt-3.5 text-[12.5px] text-bg-secondary/55">
+              Takes 5 minutes · No impact on credit score for pre-qual
+            </div>
           </div>
         </div>
       </div>

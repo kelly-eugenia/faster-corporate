@@ -72,7 +72,7 @@ export default function JobDesc() {
 
         <NavBar />
 
-        <div className="w-full lg:px-40 sm:px-12 mx-auto">
+        <div className="w-full max-w-[1440px] px-8 mx-auto">
           <section className="py-24">
             <div className="py-6">
               <Link
@@ -101,9 +101,9 @@ export default function JobDesc() {
 
       <NavBar />
 
-      <div className="w-full mx-auto">
-        <section className="px-8 sm:px-12 lg:px-16 xl:px-40 pt-16 sm:pt-24 xl:max-w-[1920px] lg:max-w-6xl md:max-w-full mx-auto">
-          <div className="py-6">
+      <div className="w-full max-w-[1440px] px-8 mx-auto">
+        <section className="section-padding">
+          <div className="pt-12 py-6">
             <Link
               to="/careers#open-roles"
               className="text-lg font-medium text-text-primary/70 hover:text-primary"
