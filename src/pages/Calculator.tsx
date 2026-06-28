@@ -81,7 +81,7 @@ export default function Calculator() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="z-10 w-full max-w-[1440px] text-center lg:text-left mx-auto px-8"
+            className="z-10 w-full max-w-[1440px] text-center lg:text-left mx-auto px-6"
           >
             {/* Header row */}
             <div className="flex items-end justify-center lg:justify-between gap-6 mb-12 flex-wrap">
@@ -127,19 +127,19 @@ export default function Calculator() {
           viewport={{ once: true, amount: 0.2 }}
           className="section-padding bg-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[600px] mx-auto mb-10">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[600px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill
                 text="So you know exactly what it is"
                 className="mb-[18px]"
               />
               <h2
-                className="text-[clamp(26px,3.2vw,38px)] leading-[1.06] tracking-[-0.025em] font-bold mb-3 text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 A line of credit — not a credit card, not a payday loan.
               </h2>
-              <p className="text-[16px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 The repayment is fixed and predictable. Drawing more extends
                 your term, it doesn&apos;t raise your weekly cost.
               </p>

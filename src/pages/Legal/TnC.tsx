@@ -25,18 +25,20 @@ export default function TnC() {
 
       <NavBar />
 
-      <div className="w-full max-w-[1440px] mx-auto p-8">
+      <div className="w-full max-w-[1440px] mx-auto py-4 px-6 sm:p-6 md:p-8">
         <section className="section-padding">
-          <header className="bg-final-gradient rounded-2xl py-12 p-6 sm:p-12 lg:p-16 mb-12">
-            <h1 className="my-6 md:my-8 text-5xl lg:text-6xl font-bold text-center text-bg-primary">
+          <header className="bg-final-gradient rounded-2xl p-8 sm:p-12 lg:p-16 mt-8 sm:mt-12 md:mt-0 mb-12">
+            <h1 className="my-6 md:my-8 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-bg-primary">
               Terms & Conditions
             </h1>
           </header>
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-4xl">Faster.com.au Terms and Conditions</h1>
-              <h2 className="mt-2 text-3xl text-muted-primary">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+                Faster.com.au Terms and Conditions
+              </h1>
+              <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
             </div>
@@ -45,7 +47,9 @@ export default function TnC() {
               Services.
             </p>
 
-            <h1 className="text-4xl">1. Binding Agreement</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              1. Binding Agreement
+            </h1>
             <div className="space-y-4">
               <p>
                 By signing up to our Web Application and accessing or using our
@@ -66,7 +70,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">2. Our Products & Services</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              2. Our Products & Services
+            </h1>
             <div className="space-y-4">
               <p>
                 We aggregate financial and related information from one or more
@@ -112,7 +118,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">3. Paid Services</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              3. Paid Services
+            </h1>
             <p>
               We provide some of our Products & Services free of charge.
               However, where indicated either at registration or within the
@@ -122,7 +130,9 @@ export default function TnC() {
               agreement with you to do so.
             </p>
 
-            <h1 className="text-4xl">4. Your Information</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              4. Your Information
+            </h1>
             <div className="space-y-4">
               <p>
                 We will handle your Personal Information in accordance with our
@@ -137,7 +147,7 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">5. Your Rights</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">5. Your Rights</h1>
             <div className="space-y-4">
               <p>
                 You may use the main functionality of our Products & Services
@@ -164,10 +174,12 @@ export default function TnC() {
               <p>You can delete your account on our WebApp at any time.</p>
             </div>
 
-            <h1 className="text-4xl">6. Your Reponsibilities</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              6. Your Reponsibilities
+            </h1>
             <div className="space-y-4">
               <p>You agree to:</p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>only use our Products & Services for lawful purposes;</li>
                 <li>
                   ensure your registration details are true and accurate, and
@@ -198,7 +210,7 @@ export default function TnC() {
                 </li>
               </ul>
               <p>You agree that you will not:</p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>
                   do anything that interferes with or infringes our (or our
                   licensors’, affiliates’ or partners’) intellectual property
@@ -234,7 +246,7 @@ export default function TnC() {
               </ul>
             </div>
 
-            <h1 className="text-4xl">7. Our Rights</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">7. Our Rights</h1>
             <div className="space-y-4">
               <p>
                 We may communicate with you using your registered email address,
@@ -256,7 +268,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">8. Intellectual Property</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              8. Intellectual Property
+            </h1>
             <div className="space-y-4">
               <p>
                 Unless otherwise indicated, we own or licence all rights, title
@@ -273,7 +287,7 @@ export default function TnC() {
                 You must not whether directly or indirectly, without our prior
                 written consent:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>
                   copy or use, in whole or in part, any of our Intellectual
                   Property;
@@ -320,7 +334,7 @@ export default function TnC() {
               </ul>
             </div>
 
-            <h1 className="text-4xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
               9. Suspension of Use of Products & Services and Termination of
               Account
             </h1>
@@ -329,7 +343,7 @@ export default function TnC() {
                 We may suspend your use of our Products & Services, or cancel
                 your account if we determine that:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>you have breached these Terms;</li>
                 <li>
                   in using our Products &amp; Services, you have contravened any
@@ -364,13 +378,15 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">10. Service Outage</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              10. Service Outage
+            </h1>
             <div className="space-y-4">
               <p>
                 From time to time, our Products & Services may experience
                 interruptions for a variety of reasons, including:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>periodic updates, maintenance or repair;</li>
                 <li>system failure or network failure;</li>
                 <li>software or hardware malfunction; or</li>
@@ -387,7 +403,7 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">11. Liability</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">11. Liability</h1>
             <div className="space-y-4">
               <p>
                 To the fullest extent permitted by law, we exclude all liability
@@ -404,7 +420,7 @@ export default function TnC() {
                 liabilities, costs, and expenses (including reasonable legal
                 fees) suffered or incurred from or in connection with:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>
                   your use of our Products & Services (including any third party
                   that accesses our Products & Services using your account);
@@ -426,7 +442,7 @@ export default function TnC() {
                 We do not make any representations or warranties of any kind in
                 relation to:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>
                   the availability, accuracy or completeness of our Products &
                   Services;
@@ -441,7 +457,9 @@ export default function TnC() {
               </ul>
             </div>
 
-            <h1 className="text-4xl">12. Australian Consumer Law</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              12. Australian Consumer Law
+            </h1>
             <div className="space-y-4">
               <p>
                 Certain legislation, including the Australian Consumer Law, and
@@ -472,7 +490,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">13. Governing Law & Jurisdiction</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              13. Governing Law & Jurisdiction
+            </h1>
             <p>
               These Terms and all aspects of your use of our Products & Services
               are governed by the laws of the state of New South Wales
@@ -481,7 +501,7 @@ export default function TnC() {
               or our Products & Services.
             </p>
 
-            <h1 className="text-4xl">14. Contact Us</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">14. Contact Us</h1>
             <div className="space-y-4">
               <p>
                 If you would like to contact us, you can email us at{" "}
@@ -501,7 +521,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-4xl">15. Defined Terms</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              15. Defined Terms
+            </h1>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-200 divide-y divide-gray-200">
                 <thead className="bg-bg-secondary">

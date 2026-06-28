@@ -72,7 +72,7 @@ export default function JobDesc() {
 
         <NavBar />
 
-        <div className="w-full max-w-[1440px] px-8 mx-auto">
+        <div className="w-full max-w-[1440px] px-6 mx-auto">
           <section className="py-24">
             <div className="py-6">
               <Link
@@ -101,7 +101,7 @@ export default function JobDesc() {
 
       <NavBar />
 
-      <div className="w-full max-w-[1440px] px-8 mx-auto">
+      <div className="w-full max-w-[1440px] px-6 mx-auto">
         <section className="section-padding">
           <div className="pt-12 py-6">
             <Link
@@ -112,11 +112,11 @@ export default function JobDesc() {
             </Link>
           </div>
           <header className="bg-bg-secondary rounded-2xl p-6 sm:p-12 lg:p-16 mb-12">
-            <div className="mt-6 mb-8 sm:mt-8 sm:mb-12">
+            <div className="my-6 sm:mt-8">
               <h1 className="my-6 md:my-8 text-4xl sm:text-5xl lg:text-6xl font-semibold text-text-primary">
                 {job.role}
               </h1>
-              <div className="space-y-4 mt-8">
+              <div className="space-y-2 sm:space-y-4 mt-8">
                 <div className="flex flex-wrap gap-4">
                   <span>
                     <svg
@@ -159,12 +159,12 @@ export default function JobDesc() {
               </div>
             </div>
 
-            <div className="pt-2 lg:pt-4 pb-4 lg:pb-2">
+            <div className="pb-4 lg:pb-2">
               <a
                 href={job.applyUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-[8px] text-center py-4 px-7 btn-primary text-base md:text-lg font-medium"
+                className="btn btn-primary"
               >
                 Apply for this role
               </a>
@@ -175,16 +175,14 @@ export default function JobDesc() {
             {job.desc}
           </section>
 
-          <div className="mt-16 mb-24">
-            <a
-              href={job.applyUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-[8px] text-center py-4 px-7 btn-primary text-lg md:text-xl font-medium"
-            >
-              Apply for this role
-            </a>
-          </div>
+          <a
+            href={job.applyUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary"
+          >
+            Apply for this role
+          </a>
         </section>
       </div>
       <Footer />

@@ -25,18 +25,20 @@ export default function CreditGuide() {
 
       <NavBar />
 
-      <div className="w-full max-w-[1440px] mx-auto p-8">
+      <div className="w-full max-w-[1440px] mx-auto py-4 px-6 sm:p-6 md:p-8">
         <section className="section-padding">
-          <header className="bg-final-gradient rounded-2xl py-12 p-6 sm:p-12 lg:p-16 mb-12">
-            <h1 className="my-6 md:my-8 text-5xl lg:text-6xl font-bold text-center text-bg-primary">
+          <header className="bg-final-gradient rounded-2xl p-8 sm:p-12 lg:p-16 mt-8 sm:mt-12 md:mt-0 mb-12">
+            <h1 className="my-6 md:my-8 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-bg-primary">
               Credit Guide
             </h1>
           </header>
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-4xl">Faster.com.au Credit Guide</h1>
-              <h2 className="mt-2 text-3xl text-muted-primary">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+                Faster.com.au Credit Guide
+              </h1>
+              <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
             </div>
@@ -45,7 +47,7 @@ export default function CreditGuide() {
                 The following are essential details covered in this Credit
                 Guide:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>
                   Our identity and contact information for easy communication.
                 </li>
@@ -60,7 +62,7 @@ export default function CreditGuide() {
               </ul>
             </div>
 
-            <h1 className="text-4xl">About Us</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">About Us</h1>
             <div className="space-y-4">
               <p>
                 We are a licensed credit provider under the National Consumer
@@ -94,7 +96,9 @@ export default function CreditGuide() {
               </p>
             </div>
 
-            <h1 className="text-4xl">Our Obligations and Your Rights</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              Our Obligations and Your Rights
+            </h1>
             <div className="space-y-4">
               <h1 className="text-2xl">
                 Assessment of Unsuitability for a Credit Contract
@@ -216,7 +220,7 @@ export default function CreditGuide() {
                   provider is the Australian Financial Complaints Authority,
                   which you can contact through the following details:
                 </p>
-                <ul className="ml-8 text-lg text-text-primary list-disc">
+                <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                   <li>Phone number: 1800 931 678</li>
                   <li>
                     Website:{" "}
@@ -241,7 +245,7 @@ export default function CreditGuide() {
               </div>
             </div>
 
-            <h1 className="text-4xl">Privacy</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">Privacy</h1>
             <div className="space-y-4">
               <p>
                 In order to provide our services, we will need to collect your
@@ -268,13 +272,13 @@ export default function CreditGuide() {
               </p>
             </div>
 
-            <h1 className="text-4xl">Payments</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl">Payments</h1>
             <div className="space-y-4">
               <p>
                 We ONLY accept the following payment methods for repayment of
                 our loans:
               </p>
-              <ul className="ml-8 text-lg text-text-primary list-disc">
+              <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
                 <li>Debit Card</li>
                 <li>PayID</li>
                 <li>Direct Debit</li>

@@ -43,14 +43,14 @@ const PROMISE_CARDS: {
         is the only cost. No establishment fee, no monthly account fee, no
         redraw fee, no early-repayment penalty. A 20% fee applies only if a
         manual reassessment of your account is needed, never on your first loan.
-        <div className="mt-2">
+        <span className="block mt-2">
           <Link
             to="/fees"
             className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
           >
             See the fees →
           </Link>
-        </div>
+        </span>
       </>
     ),
   },
@@ -74,14 +74,14 @@ const PROMISE_CARDS: {
         Every application is individually assessed against your financial
         situation and our lending criteria. If a repayment wouldn&apos;t fit
         without hardship, we don&apos;t lend.
-        <div className="mt-2">
+        <span className="block mt-2">
           <Link
             to="/how-it-works#check"
             className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
           >
             What we check →
           </Link>
-        </div>
+        </span>
       </>
     ),
   },
@@ -106,7 +106,7 @@ const REG_ROWS: {
           href="https://connectonline.asic.gov.au/RegistrySearch/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
+          className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
         >
           Verify on ASIC →
         </a>
@@ -186,8 +186,8 @@ const SEC_CARDS: {
   {
     icon: (
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"
       />
     ),
@@ -207,8 +207,8 @@ const SEC_CARDS: {
   {
     icon: (
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
       />
     ),
@@ -251,7 +251,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
+            className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-6"
           >
             <div className="max-w-[880px]">
               <Pill text="About Faster" variant="light" className="mb-[22px]" />
@@ -260,7 +260,7 @@ export default function About() {
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Borrowing that&apos;s clear, fair, and{" "}
-                <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
+                <em className="italic font-[700] bg-text-gradient bg-clip-text text-transparent">
                   makes sense
                 </em>
                 .
@@ -290,17 +290,18 @@ export default function About() {
 
         {/* ── What we do ── */}
         <section id="what" className="section-padding bg-bg-primary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
               <motion.div
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
+                className="text-center lg:text-left"
               >
                 <Pill text="What we do" className="mb-[18px]" />
                 <h2
-                  className="text-[clamp(30px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary"
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   A credit limit you control,{" "}
@@ -309,7 +310,7 @@ export default function About() {
                   </span>
                   .
                 </h2>
-                <p className="text-[17px] text-muted-primary leading-[1.65] mb-4 max-w-[54ch]">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] mb-4 max-w-[54ch] mx-auto lg:mx-0">
                   A Faster Line of Credit gives you an approved limit you can
                   draw from whenever you need to, up to $10,000.{" "}
                   <strong className="text-text-primary font-semibold">
@@ -317,14 +318,14 @@ export default function About() {
                     it isn&apos;t the open-ended habit-loop of a credit card.
                   </strong>
                 </p>
-                <p className="text-[17px] text-muted-primary leading-[1.65] mb-4 max-w-[54ch]">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] mb-4 max-w-[54ch] mx-auto lg:mx-0">
                   Repay what you&apos;ve drawn and the balance is ready to use
                   again — no new application every time. You only pay interest
                   on the amount you&apos;ve actually drawn, for the days
                   it&apos;s outstanding.
                 </p>
 
-                <div className="flex flex-wrap gap-2.5 mt-6">
+                <div className="flex flex-wrap gap-2.5 mt-6 justify-center lg:justify-start">
                   {["Draw", "Repay", "Reuse"].map((label, i) => (
                     <React.Fragment key={label}>
                       <span className="inline-flex items-center gap-2 px-4 py-2.5 bg-bg-secondary border border-border-subtle rounded-[10px] text-[14px] font-semibold text-muted-primary">
@@ -353,9 +354,9 @@ export default function About() {
               </motion.div>
 
               {/* Photo */}
-              <div className="relative max-w-[460px] lg:max-w-none">
+              <div className="relative max-w-[780px] lg:max-w-none mx-auto lg:mx-0">
                 <div
-                  className="w-full aspect-[1/1] rounded-card-lg overflow-hidden"
+                  className="w-full aspect[3/4] lg:aspect-[1/1] rounded-card-lg overflow-hidden"
                   style={{ boxShadow: "0 20px 50px -16px rgba(11,16,36,0.3)" }}
                 >
                   <img
@@ -365,7 +366,7 @@ export default function About() {
                   />
                 </div>
                 <div
-                  className="absolute bottom-[-22px] left-[-22px] bg-bg-primary border border-border-subtle rounded-card p-[16px_20px] max-w-[240px]"
+                  className="absolute bottom-[-10px] md:bottom-[-22px] left-[-10px] md:left-[-22px] bg-bg-primary border border-border-subtle rounded-card p-[16px_20px] max-w-[240px]"
                   style={{ boxShadow: "0 12px 30px -8px rgba(11,16,36,0.18)" }}
                 >
                   <div className="text-[10px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-1.5">
@@ -390,17 +391,17 @@ export default function About() {
           id="promise"
           className="section-padding bg-bg-secondary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[720px] mx-auto mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[720px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill text="Our promise" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(30px,3.6vw,44px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 We built Faster because we were tired of credit that felt
                 confusing.
               </h2>
-              <p className="text-[17px] text-muted-secondary m-0 leading-[1.65]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                 So instead of telling you we&apos;re &ldquo;simple, upfront and
                 responsible&rdquo;, here&apos;s the specific thing behind each
                 promise — the figure does the talking.
@@ -442,17 +443,17 @@ export default function About() {
           id="registered"
           className="section-padding bg-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-              <div>
+              <div className="text-center lg:text-left">
                 <Pill text="Registered & responsible" className="mb-[18px]" />
                 <h2
-                  className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary"
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   Trust is what you can verify yourself.
                 </h2>
-                <p className="text-[17px] text-muted-primary leading-[1.65] mb-4">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.65] mb-4">
                   Faster is operated by{" "}
                   <strong className="text-text-primary font-semibold">
                     Faster Financial Pty Ltd
@@ -463,7 +464,7 @@ export default function About() {
                   obligations that apply across Australian credit — and each one
                   is independently verifiable, not just a claim on a page.
                 </p>
-                <p className="text-[16px] text-muted-primary leading-[1.7] m-0">
+                <p className="text-[clamp(14px,3.5vw,16px)] text-muted-primary leading-[1.7] m-0">
                   If you want to confirm any of it,{" "}
                   <a
                     href="https://connectonline.asic.gov.au/RegistrySearch/"
@@ -481,7 +482,7 @@ export default function About() {
                 {REG_ROWS.map((row) => (
                   <div
                     key={row.title}
-                    className="grid grid-cols-[52px_1fr] gap-4 p-[22px_24px] bg-bg-secondary border border-border-subtle rounded-card items-start"
+                    className="grid grid-cols-[36px_1fr] sm:grid-cols-[40px_1fr] gap-4 p-[22px_18px] sm:p-[22px_24px] bg-bg-secondary border border-border-subtle rounded-card items-start"
                   >
                     <div className="w-11 h-11 rounded-[12px] bg-bg-primary text-primary border border-bg-secondary inline-flex items-center justify-center">
                       <svg
@@ -495,9 +496,9 @@ export default function About() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="m-0 mb-1 text-[15.5px] font-bold text-text-primary tracking-[-0.005em] flex items-baseline flex-wrap gap-2.5">
+                      <h4 className="m-0 mb-2 text-[15.5px] font-bold text-text-primary tracking-[-0.005em] flex items-baseline flex-wrap gap-x-2.5 gap-y-1">
                         {row.title}
-                        <span className="text-[11px] text-primary bg-bg-primary px-2 py-0.5 rounded tracking-[0.04em] font-semibold border border-border-subtle">
+                        <span className="w-fit block sm:inline-block text-[11px] text-primary bg-bg-primary px-2 py-0.5 rounded-md tracking-[0.04em] font-semibold border border-border-subtle">
                           {row.num}
                         </span>
                       </h4>
@@ -521,23 +522,64 @@ export default function About() {
           id="security"
           className="section-padding relative overflow-hidden bg-fees-gradient text-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[720px] mx-auto mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[720px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill text="Security" variant="light" className="mb-[18px]" />
               <h2
-                className="text-[clamp(30px,3.6vw,44px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Security you can trust, tech you can rely on.
               </h2>
-              <p className="text-[17px] text-bg-secondary/70 m-0 leading-[1.65]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.6]">
                 As a digital-first credit provider, Faster is built on secure,
                 industry-standard technology to protect your personal
                 information, bank data, and account activity — at every step.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+            {/* Mobile: swipeable carousel */}
+            <div className="md:hidden flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory mb-6">
+              {SEC_CARDS.map((card) => (
+                <div
+                  key={card.title}
+                  className="snap-start shrink-0 w-[80%] bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[22px_20px] backdrop-blur-lg"
+                >
+                  <div className="w-10 h-10 rounded-[10px] bg-[rgba(184,196,255,0.12)] border border-[rgba(184,196,255,0.2)] text-[#b8c4ff] inline-flex items-center justify-center mb-4">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="w-[19px] h-[19px]"
+                    >
+                      {card.icon}
+                    </svg>
+                  </div>
+                  <h4 className="text-[17px] font-bold mb-2 text-bg-primary tracking-[-0.01em] leading-[1.3]">
+                    {card.title}
+                  </h4>
+                  <p className="text-[14px] text-bg-secondary/70 m-0 leading-[1.65]">
+                    {card.body}
+                  </p>
+                  {card.tags && (
+                    <div className="flex flex-wrap gap-1.5 mt-3.5">
+                      {card.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[10.5px] tracking-[0.04em] text-[#b8c4ff] bg-[rgba(184,196,255,0.08)] border border-[rgba(184,196,255,0.18)] px-2 py-[3px] rounded-[5px]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
               {SEC_CARDS.map((card) => (
                 <div
                   key={card.title}
@@ -577,7 +619,7 @@ export default function About() {
             </div>
 
             {/* Read-only band */}
-            <div className="mt-6 bg-primary-light/[0.06] border border-primary-light/20 rounded-card-lg p-[32px_36px] grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-10 items-center">
+            <div className="mt-6 bg-primary-light/[0.06] border border-primary-light/20 rounded-card-lg p-[28px_26px] sm:p-[32px_36px] grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 md:gap-10 items-center">
               <div className="w-[52px] h-[52px] rounded-[14px] bg-primary-light/10 border border-primary-light/25 text-primary-light inline-flex items-center justify-center flex-shrink-0">
                 <svg
                   viewBox="0 0 24 24"
@@ -615,17 +657,17 @@ export default function About() {
           viewport={{ once: true, amount: 0.2 }}
           className="section-padding bg-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* Contact card */}
-              <div className="bg-bg-secondary/80 border border-border-subtle rounded-card-lg p-[36px_38px] flex flex-col">
+              <div className="bg-bg-secondary/80 border border-border-subtle rounded-card-lg p-[28px_26px] sm:p-[36px_38px] flex flex-col">
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold mb-3.5">
                   Need support?
                 </div>
                 <h3 className="text-[23px] font-bold tracking-[-0.015em] m-0 mb-2.5 text-text-primary">
                   Questions about your account? We&apos;re here to help.
                 </h3>
-                <p className="text-[15px] text-muted-secondary m-0 mb-[22px] leading-[1.55] max-w-[44ch]">
+                <p className="text-[15px] text-muted-secondary m-0 mb-[22px] leading-[1.55] md:max-w-[44ch]">
                   Email us anytime at{" "}
                   <a
                     href="mailto:support@faster.com.au"
@@ -635,7 +677,7 @@ export default function About() {
                   </a>{" "}
                   — or start a chat with us during business hours.
                 </p>
-                <div className="mt-auto flex gap-3 flex-wrap">
+                <div className="mt-auto flex gap-x-3 gap-y-0 flex-wrap">
                   <a
                     href="mailto:support@faster.com.au"
                     className="btn btn-ghost-light"
@@ -664,7 +706,7 @@ export default function About() {
 
               {/* Cross-link card */}
               <div
-                className="border border-bg-secondary rounded-card-lg p-[36px_38px] flex flex-col"
+                className="border border-bg-secondary rounded-card-lg p-[28px_26px] sm:p-[36px_38px] flex flex-col"
                 style={{
                   background:
                     "linear-gradient(135deg, #FCFDFF 0%, #EAEDF5 100%)",
@@ -676,12 +718,12 @@ export default function About() {
                 <h3 className="text-[23px] font-bold tracking-[-0.015em] m-0 mb-2.5 text-text-primary">
                   See exactly how the product works.
                 </h3>
-                <p className="text-[15px] text-muted-secondary m-0 mb-[22px] leading-[1.55] max-w-[44ch]">
+                <p className="text-[15px] text-muted-secondary m-0 mb-[22px] leading-[1.55] md:max-w-[44ch]">
                   Every step from &ldquo;Apply Now&rdquo; to money in your
                   account — who reviews what, how long each part takes, and what
                   we check before we lend.
                 </p>
-                <div className="mt-auto flex gap-3 flex-wrap">
+                <div className="mt-auto flex gap-x-3 gap-y-0 flex-wrap">
                   <Link to="/how-it-works" className="btn btn-primary group">
                     How it works
                     <svg
@@ -722,16 +764,16 @@ export default function About() {
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 If you don't see your question here,{" "}
                 <Link
                   to="/faq"

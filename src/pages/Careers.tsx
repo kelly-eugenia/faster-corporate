@@ -177,7 +177,7 @@ export default function Careers() {
               style={{ textWrap: "balance" } as React.CSSProperties}
             >
               Let's build the future of{" "}
-              <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
+              <em className="italic font-[700] bg-text-gradient bg-clip-text text-transparent">
                 fair, fast
               </em>{" "}
               credit
@@ -205,7 +205,7 @@ export default function Careers() {
         </section>
 
         <section className="section-padding">
-          <div className="w-full max-w-[1440px] px-8 mx-auto">
+          <div className="w-full max-w-[1440px] px-6 mx-auto">
             {/* About Faster */}
             <section className="grid lg:grid-cols-2 gap-8 mb-2 lg:mb-6 items-stretch">
               {/* Left */}
@@ -236,18 +236,18 @@ export default function Careers() {
                 viewport={{ once: true, amount: 0.2 }}
                 className="order-1 lg:order-2 rounded-2xl p-0 lg:px-10 lg:py-10 content-center lg:text-left text-center"
               >
-                <Pill text="About the team" />
-                <h1 className="text-[clamp(30px,3.6vw,44px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
+                <Pill text="About the team" className="mb-[18px]" />
+                <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary">
                   Who we are
                 </h1>
-                <p className="text-[16px] sm:text-[18px] text-muted-primary mb-4 leading-[1.65]">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary mb-4 leading-[1.65]">
                   Faster is a forward-thinking financial technology company
                   dedicated to advancing credit inclusion – giving more people{" "}
                   <span className="text-primary font-bold">
                     fair, swift, and transparent access to credit.
                   </span>
-                  <br />
-                  <br />
+                </p>
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary mb-4 leading-[1.65]">
                   We help thousands of Australians manage short-term cashflow
                   with a personal line of credit that's built to be clear, not
                   confusing. We're a small, multi-disciplinary team that ships
@@ -283,7 +283,7 @@ export default function Careers() {
               <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-10 items-end mb-8 lg:mb-12 lg:text-left text-center">
                 <div>
                   <Pill text="Our values" />
-                  <h1 className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mt-6 text-text-primary">
+                  <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-6 text-text-primary">
                     What we believe in
                   </h1>
                 </div>
@@ -293,7 +293,7 @@ export default function Careers() {
                 {values.map((v) => (
                   <div
                     key={v.num}
-                    className="grid grid-cols-[70px_1fr] lg:grid-cols-[140px_1fr_1.1fr] gap-x-5 gap-y-3 lg:gap-4 pt-8 py-7 border-b border-bg-secondary items-center transition-colors hover:bg-bg-secondary"
+                    className="grid grid-cols-[44px_1fr] sm:grid-cols-[70px_1fr] lg:grid-cols-[140px_1fr_1.1fr] gap-x-5 gap-y-3 lg:gap-4 pt-8 py-7 border-b border-bg-secondary items-center transition-colors hover:bg-bg-secondary"
                   >
                     <div className="text-4xl lg:text-5xl font-medium ml-2 text-primary tracking-tight leading-none">
                       {v.num}
@@ -301,7 +301,7 @@ export default function Careers() {
                     <h3 className="text-2xl lg:text-[27px] font-bold tracking-tight text-text-primary">
                       {v.title}
                     </h3>
-                    <p className="col-start-2 lg:col-start-3 text-base md:text-xl text-muted-primary leading-relaxed">
+                    <p className="col-start-2 lg:col-start-3 text-[clamp(14px,3.5vw,16px)] md:text-xl text-muted-primary leading-relaxed">
                       {v.desc}
                     </p>
                   </div>
@@ -320,12 +320,12 @@ export default function Careers() {
           className="section-padding content-center bg-cover bg-top"
           style={{ backgroundImage: `url(${BgPhoto})` }}
         >
-          <div className="mb-10 md:mb-16 content-center text-center">
+          <div className="mb-8 sm:mb-12 md:mb-14 content-center text-center">
             <Pill text="So..." />
-            <h1 className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
+            <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
               Why work here?
             </h1>
-            <p className="text-[17px] text-muted-primary leading-[1.65]">
+            <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.65]">
               Joining Faster means growing your career in a data-driven fintech
               shaping how people access credit.
             </p>
@@ -333,7 +333,7 @@ export default function Careers() {
 
           <div className="max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto">
             {/* MOBILE: swipeable carousel */}
-            <div className="md:hidden px-8">
+            <div className="md:hidden px-6">
               <div className="flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
                 {perks.map((perk) => (
                   <div
@@ -391,13 +391,13 @@ export default function Careers() {
           id="open-roles"
           className="bg-bg-secondary section-padding gap-8 content-center"
         >
-          <div className="w-full max-w-[1440px] px-8 mx-auto">
-            <div className="text-center md:px-6 mb-12">
+          <div className="w-full max-w-[1440px] px-6 mx-auto">
+            <div className="text-center md:px-6 mb-8 sm:mb-12 md:mb-14">
               <Pill text="We're hiring" variant="white" />
-              <h1 className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
+              <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
                 Open Roles
               </h1>
-              <p className="text-[17px] text-muted-primary leading-[1.65] mb-4">
+              <p className="text-[clamp(16px,3.5vw,18px)] max-w-[64ch] mx-auto text-muted-primary leading-[1.65] mb-4">
                 We’re growing across multiple disciplines and are interested in
                 people who care about fintech and doing credit the right way.
               </p>

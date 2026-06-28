@@ -171,7 +171,7 @@ export default function Home() {
 
         {/* ── Hero ── */}
         <section className="relative overflow-hidden hero-padding bg-hero-gradient">
-          <div className="relative z-10 w-full max-w-[1440px] mx-auto px-8">
+          <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6">
             <motion.div
               variants={fadeUp}
               initial="hidden"
@@ -208,7 +208,7 @@ export default function Home() {
                 {/* CTA */}
                 <div className="flex flex-col max-w-sm mx-auto lg:mx-0 mb-9">
                   <motion.button
-                    className="my-6 mb-4 inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold bg-primary text-bg-primary border border-transparent py-[15px] text-xl shadow-btn-primary hover:bg-primary-light group cursor-pointer"
+                    className="my-6 mb-4 inline-flex items-center justify-center gap-2 rounded-[10px] font-semibold bg-primary text-bg-primary border border-transparent py-[11px] sm:py-[15px] text-base sm:text-xl shadow-btn-primary hover:bg-primary-light group cursor-pointer"
                     onClick={() => navigate("/apply")}
                     variants={pulse}
                     initial="initial"
@@ -375,16 +375,16 @@ export default function Home() {
           viewport={{ once: true, amount: 0.2 }}
           className="section-padding bg-bg-primary"
         >
-          <div className="text-center w-full max-w-[1440px] mx-auto px-8">
-            <div className=" max-w-[720px] mx-auto mb-14">
+          <div className="text-center w-full max-w-[1440px] mx-auto px-6">
+            <div className="max-w-[720px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill text="How it works" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Not a loan. A credit limit you control.
               </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                 A Faster Line of Credit gives you an approved limit you can draw
                 from when you need it. Repay, and the balance is ready to use
                 again. No reapplying every time.
@@ -436,10 +436,10 @@ export default function Home() {
           id="about"
           className="py-[110px] bg-bg-secondary section-padding"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-center">
               {/* Left */}
-              <div>
+              <div className="text-center lg:text-left">
                 <Pill
                   text="About Faster.com.au · Why trust us"
                   variant="white"
@@ -451,7 +451,7 @@ export default function Home() {
                 >
                   Trust is what you can verify yourself.
                 </h2>
-                <p className="text-[17px] text-muted-primary leading-[1.6] max-w-[52ch]">
+                <p className="mx-auto lg:mx-0 text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] lg:max-w-[52ch]">
                   Faster.com.au is an Australian digital credit provider. We
                   provide a{" "}
                   <strong className="text-text-primary font-semibold">
@@ -464,11 +464,11 @@ export default function Home() {
                 </p>
 
                 {/* Trust ledger */}
-                <div className="mt-7 border-t border-border-subtle">
+                <div className="text-left mt-7 border-t border-border-subtle">
                   {TRUST_ROWS.map((row, i) => (
                     <div
                       key={i}
-                      className="grid grid-cols-[28px_1fr] gap-4 py-[18px] border-b border-border-subtle items-start"
+                      className="grid grid-cols-[28px_1fr] gap-3 sm:gap-4 py-[18px] border-b border-border-subtle items-start"
                     >
                       <span className="size-[24px] rounded-full bg-bg-primary border border-border-default text-primary inline-flex items-center justify-center mt-0.5 flex-shrink-0">
                         <svg
@@ -482,15 +482,15 @@ export default function Home() {
                         </svg>
                       </span>
                       <div>
-                        <h4 className="m-0 mb-1 text-[15px] font-bold text-text-primary tracking-[-0.005em]">
+                        <h4 className="m-0 mb-1 text-[16px] font-bold text-text-primary tracking-[-0.005em]">
                           {row.title}
                           {row.badge && (
-                            <span className="inline-block ml-3 text-[11px] font-semibold text-primary bg-bg-primary px-[7px] py-[2px] rounded-md tracking-[0.04em] align-[1px]">
+                            <span className="w-fit block sm:inline-block ml-0 mt-1 mb-2 sm:ml-3 sm:mt-0 text-[11px] font-semibold text-primary bg-bg-primary px-[7px] py-[2px] rounded-md tracking-[0.04em] align-[1px]">
                               {row.badge}
                             </span>
                           )}
                         </h4>
-                        <p className="m-0 text-[13.5px] text-muted-secondary leading-[1.5]">
+                        <p className="m-0 text-[14px] text-muted-secondary leading-[1.5]">
                           {row.body}
                         </p>
                       </div>
@@ -554,21 +554,21 @@ export default function Home() {
           id="fees"
           className="section-padding relative overflow-hidden bg-fees-gradient"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             {/* Section head */}
-            <div className="text-center max-w-[720px] mx-auto mb-14">
+            <div className="text-center max-w-[720px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill
                 text="One simple cost"
                 variant="light"
                 className="mb-[18px]"
               />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Interest only on what you owe.
               </h2>
-              <p className="text-[18px] text-bg-secondary/70 m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.6]">
                 Interest at 47% p.a. on your outstanding balance is the only
                 cost while you're borrowing. Everything is set out before you
                 borrow.
@@ -597,9 +597,9 @@ export default function Home() {
               ].map((card) => (
                 <div
                   key={card.label}
-                  className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[36px] backdrop-blur-lg"
+                  className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[28px] md:p-[36px] backdrop-blur-lg"
                 >
-                  <div className="flex items-center justify-between mb-[18px]">
+                  <div className="flex items-center gap-4 justify-between mb-[18px]">
                     <span className="font-medium text-[11px] uppercase tracking-[0.12em] text-accent px-[10px] py-1 bg-primary-light/20 border border-primary-light/40 rounded-[6px]">
                       {card.label}
                     </span>
@@ -608,7 +608,7 @@ export default function Home() {
                     </span>
                   </div>
                   <div
-                    className="text-[clamp(56px,7vw,72px)] font-bold leading-[0.95] mb-1"
+                    className="text-[clamp(48px,7vw,72px)] font-bold leading-[0.75] mb-1"
                     style={{
                       background:
                         "linear-gradient(180deg, #FCFDFF 30%, #b8c4ff 100%)",
@@ -619,7 +619,7 @@ export default function Home() {
                   >
                     {card.big}
                     <small
-                      className="text-[22px] font-semibold ml-1"
+                      className="text-[clamp(18px,3vw,22px)] font-semibold ml-1"
                       style={{
                         WebkitTextFillColor: "rgba(234,237,245,0.7)",
                         color: "rgba(234,237,245,0.7)",
@@ -628,10 +628,10 @@ export default function Home() {
                       {card.bigSub}
                     </small>
                   </div>
-                  <h3 className="text-[20px] font-bold mt-3.5 mb-2 text-bg-primary">
+                  <h3 className="text-[20px] leading-tight font-bold mt-3.5 mb-2 text-bg-primary">
                     {card.title}
                   </h3>
-                  <p className="text-[14.5px] text-bg-secondary/70 leading-[1.55] m-0">
+                  <p className="text-[14px] text-bg-secondary/70 leading-[1.55] m-0">
                     {card.desc}
                   </p>
                 </div>
@@ -647,7 +647,7 @@ export default function Home() {
               />
 
               <h2
-                className="text-center text-bg-primary text-[24px]md:text-[32px] lg:text-[40px] leading-[1.05] tracking-[-0.02em] font-bold my-6"
+                className="text-center text-bg-primary text-[24px] md:text-[32px] lg:text-[40px] leading-[1.05] tracking-[-0.02em] font-bold my-6"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 What it'd look like for you
@@ -669,8 +669,8 @@ export default function Home() {
           id="apply"
           className="section-padding bg-bg-primary overflow-hidden"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-2 lg:gap-14 items-center rounded-card-lg px-12 md:px-16 relative overflow-hidden bg-hero-gradient">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-2 lg:gap-14 items-center rounded-card-lg px-8 sm:px-12 md:px-16 relative overflow-hidden bg-hero-gradient">
               {/* Left */}
               <div className="relative z-10 pt-12 md:py-16 text-center lg:text-left mx-auto lg:mx-0">
                 <Pill
@@ -685,7 +685,7 @@ export default function Home() {
                   Ready to get started?
                 </h2>
 
-                <div className="grid gap-3 mt-8 mb-6">
+                <div className="text-left grid gap-3 mt-8 mb-6">
                   {APP_FEATURES.map((feat, i) => (
                     <div
                       key={i}
@@ -753,16 +753,16 @@ export default function Home() {
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                 If you don't see your question here,{" "}
                 <Link
                   to="/faq"

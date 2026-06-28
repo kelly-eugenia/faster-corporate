@@ -102,7 +102,7 @@ export default function Footer() {
 
         {/* Mid row */}
         <div className="py-7 border-b border-white/[0.07] flex justify-between items-center flex-wrap gap-5">
-          <div className="flex gap-6 flex-wrap">
+          <div className="flex gap-y-2 gap-x-6 flex-wrap">
             {[
               { to: "/terms-and-conditions", label: "Terms & Conditions" },
               { to: "/privacy-policy", label: "Privacy Policy" },

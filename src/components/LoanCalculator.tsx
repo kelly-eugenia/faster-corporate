@@ -114,7 +114,7 @@ export default function LoanCalculator() {
               key={key}
               type="button"
               onClick={() => setFrequency(key)}
-              className={`grid py-3 px-2 rounded-[10px] border font-semibold text-[14px] cursor-pointer transition-all text-center
+              className={`grid py-3 px-1 sm:px-2 rounded-[10px] border font-semibold text-[12px] sm:text-[14px] cursor-pointer transition-all text-center
                 ${
                   frequency === key
                     ? "bg-primary border-primary text-bg-primary"
@@ -122,7 +122,7 @@ export default function LoanCalculator() {
                 }`}
             >
               {label}
-              <small className="block text-[11px] font-medium mt-0.5 opacity-75">
+              <small className="text-wrap block text-[10px] sm:text-[11px] leading-tight font-medium mt-0.5 opacity-75">
                 {sub}
               </small>
             </button>
@@ -132,7 +132,7 @@ export default function LoanCalculator() {
 
       {/* Result */}
       <div className="bg-bg-secondary rounded-2xl px-4 py-6 sm:px-6 sm:py-8">
-        <p className="text-[18px] leading-[1.45] text-text-primary font-medium tracking-[-0.005em] mb-5">
+        <p className="text-[18px] leading-[1.45] text-text-primary font-medium tracking-[-0.005em] mb-4 sm:mb-5">
           You'd draw{" "}
           <strong className="text-primary font-bold tabular-nums">
             ${drawAmount.toLocaleString("en-AU")}
@@ -174,7 +174,7 @@ export default function LoanCalculator() {
           ))}
         </div>
 
-        <p className="text-xs leading-snug text-muted-primary text-center sm:text-left">
+        <p className="text-xs leading-snug text-muted-primary text-left">
           This Line of Credit calculator provides{" "}
           <strong>estimates only</strong>. Actual results may vary based on how
           and when funds are drawn, repaid, or re-drawn, and may be affected by

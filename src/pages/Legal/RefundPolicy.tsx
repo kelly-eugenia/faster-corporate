@@ -25,22 +25,24 @@ export default function RefundPolicy() {
 
       <NavBar />
 
-      <div className="w-full max-w-[1440px] mx-auto p-8">
+      <div className="w-full max-w-[1440px] mx-auto py-4 px-6 sm:p-6 md:p-8">
         <section className="section-padding">
-          <header className="bg-final-gradient rounded-2xl py-12 p-6 sm:p-12 lg:p-16 mb-12">
-            <h1 className="my-6 md:my-8 text-5xl lg:text-6xl font-bold text-center text-bg-primary">
+          <header className="bg-final-gradient rounded-2xl p-8 sm:p-12 lg:p-16 mt-8 sm:mt-12 md:mt-0 mb-12">
+            <h1 className="my-6 md:my-8 text-4xl md:text-5xl lg:text-6xl font-bold text-center text-bg-primary">
               Refund Policy
             </h1>
           </header>
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-4xl">Faster.com.au Refund Policy</h1>
-              <h2 className="mt-2 text-3xl text-muted-primary">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+                Faster.com.au Refund Policy
+              </h1>
+              <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
             </div>
-            <ul className="ml-8 text-lg text-text-primary list-disc space-y-6">
+            <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc space-y-6">
               <li>
                 All payments made towards your loan with Faster Financial Group
                 Pty Ltd are non-refundable under all circumstances, except in

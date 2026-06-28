@@ -146,7 +146,7 @@ export default function Contact() {
               style={{ textWrap: "balance" } as React.CSSProperties}
             >
               We&apos;re here to{" "}
-              <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
+              <em className="italic font-[700] bg-text-gradient bg-clip-text text-transparent">
                 help
               </em>
               .
@@ -159,8 +159,8 @@ export default function Contact() {
         </section>
 
         {/* ── Contact channels ── */}
-        <section className="bg-bg-primary">
-          <div className="w-full max-w-[1440px] mx-auto px-8 -mt-14 relative z-[5]">
+        <section className="mb-4 md:mb-0 bg-bg-primary">
+          <div className="w-full max-w-[1440px] mx-auto px-6 -mt-14 relative z-[5]">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[18px]">
               {CHANNELS.map((ch) => (
                 <div className="bg-bg-primary border border-border-subtle rounded-card-lg p-[30px_30px_28px] flex flex-col shadow-card">
@@ -233,17 +233,17 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.2 }}
           className="section-padding pt-24 bg-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-              <div>
+              <div className="text-center lg:text-left">
                 <Pill text="What to expect" className="mb-[18px]" />
                 <h2
-                  className="text-[clamp(28px,3.4vw,40px)] leading-[1.06] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   Real people, clear answers, no run-around.
                 </h2>
-                <p className="text-[16px] text-muted-primary leading-[1.7] mb-4">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] mb-4">
                   Faster is built and operated in Australia, and our support
                   team is too. Email us anytime and we&apos;ll get back to you
                   within one business day — usually much sooner. For
@@ -257,18 +257,18 @@ export default function Contact() {
                   </a>
                   .
                 </p>
-                <p className="text-[16px] text-muted-primary leading-[1.7] m-0">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] m-0">
                   Already a customer? Have your account email handy so we can
                   verify it&apos;s really you before discussing your account.
                 </p>
               </div>
 
               <div>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                   {DETAIL_ROWS.map((row) => (
                     <div
                       key={row.label}
-                      className="grid grid-cols-[48px_1fr] gap-4 p-[22px_24px] bg-bg-secondary border border-border-subtle rounded-card items-center"
+                      className="w-full grid grid-cols-[48px_1fr] gap-4 p-[22px_24px] bg-bg-secondary border border-border-subtle rounded-card items-center"
                     >
                       <div className="w-11 h-11 rounded-[12px] bg-bg-primary text-primary border border-bg-secondary inline-flex items-center justify-center">
                         <svg
@@ -334,7 +334,7 @@ export default function Contact() {
           </div>
 
           {/* ── Hardship ── */}
-          <div className="pt-10 sm:pt-12 md:pt-16 w-full max-w-[1440px] mx-auto px-8">
+          <div className="pt-10 sm:pt-12 md:pt-16 w-full max-w-[1440px] mx-auto px-6">
             <div className="rounded-card-lg p-8 lg:p-[40px_44px] grid grid-cols-1 lg:grid-cols-[auto_1fr_auto] gap-7 items-center border border-primary/30 bg-gradient-to-br from-accent/5 to-primary/15">
               <div className="w-14 h-14 rounded-[14px] bg-primary-light/10 border border-primary-light/40 text-primary inline-flex items-center justify-center flex-shrink-0">
                 <svg
@@ -387,26 +387,26 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.2 }}
           className="section-padding relative overflow-hidden bg-final-gradient"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 lg:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 items-center">
-              <div>
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 lg:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 lg:gap-10 items-center">
+              <div className="text-center lg:text-left">
                 <Pill
                   text="Before you write"
                   variant="light"
-                  className="mb-4"
+                  className="mb-[18px]"
                 />
                 <h2
-                  className="text-[clamp(28px,3.4vw,40px)] leading-[1.06] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   Your question may already be answered.
                 </h2>
-                <p className="text-[16px] text-bg-secondary/80 max-w-[48ch] leading-[1.6]">
+                <p className="text-[clamp(16px,3.5vw,18px)] mx-auto lg:mx-0 text-bg-secondary/80 max-w-[48ch] leading-[1.6]">
                   Our FAQ covers how the Line of Credit works, exactly what it
                   costs, getting approved, and how we keep your data safe.
                 </p>
               </div>
-              <div className="text-left lg:text-right">
+              <div className="text-center lg:text-right">
                 <Link to="/faq" className="btn btn-primary group">
                   Browse FAQs
                   <svg

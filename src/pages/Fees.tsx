@@ -227,7 +227,7 @@ export default function Fees() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
+            className="z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-6"
           >
             <div className="max-w-[880px]">
               <Pill text="Fees" variant="light" className="mb-[22px]" />
@@ -236,7 +236,7 @@ export default function Fees() {
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Our fees,{" "}
-                <em className="bg-text-gradient bg-clip-text text-transparent font-medium italic">
+                <em className="bg-text-gradient bg-clip-text text-transparent font-[700] italic">
                   clear and upfront
                 </em>
                 .
@@ -253,16 +253,16 @@ export default function Fees() {
 
         {/* ── How interest works ── */}
         <section id="interest" className="section-padding bg-bg-primary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[800px] mx-auto mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[800px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill text="What we charge" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 One cost. Calculated daily on what you owe.
               </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                 Interest accrues each day you have a balance. It stops the
                 moment your balance reaches $0.
               </p>
@@ -274,12 +274,12 @@ export default function Fees() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[32px_32px_28px] flex flex-col"
+                className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[30px_24px_28px] sm:p-[32px_32px_28px] flex flex-col"
               >
-                <div className="flex items-start justify-between gap-4 pb-[22px] border-b border-border-subtle mb-6">
+                <div className="flex flex-col sm:flex-row items-start justify-center sm:justify-between text-center sm:text-left mx-auto sm:mx-0 gap-5 sm:gap-4 pb-[22px] border-b border-border-subtle sm:mb-6">
                   <div>
-                    <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-semibold mb-3.5">
-                      <span className="bg-bg-primary border border-border-subtle text-primary px-2 py-0.5 rounded-md">
+                    <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] mb-3.5">
+                      <span className="bg-bg-primary border border-border-subtle text-primary font-[400] px-2 py-0.5 rounded-md">
                         The only cost
                       </span>
                     </div>
@@ -287,14 +287,14 @@ export default function Fees() {
                       Daily interest while in use
                     </h3>
                   </div>
-                  <div className="text-right flex-shrink-0">
-                    <div className="text-[38px] font-bold tracking-[-0.025em] text-primary leading-none tabular-nums">
+                  <div className="text-center sm:text-right mx-auto sm:mx-0 flex-shrink-0">
+                    <div className="text-[44px] sm:text-[38px] font-bold tracking-[-0.025em] text-primary leading-none tabular-nums">
                       47%
-                      <small className="text-[14px] text-muted-secondary font-semibold ml-0.5">
+                      <small className="text-[16px] sm:text-[14px] text-muted-secondary font-semibold ml-0.5">
                         p.a.
                       </small>
                     </div>
-                    <div className="text-[12px] text-muted-secondary mt-1">
+                    <div className="text-[14px] sm:text-[12px] text-muted-secondary mt-1">
                       on outstanding balance
                     </div>
                   </div>
@@ -387,29 +387,29 @@ export default function Fees() {
           id="worked"
           className="section-padding relative overflow-hidden bg-fees-gradient text-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[740px] mx-auto mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[740px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill
                 text="Example in practice"
                 variant="light"
                 className="mb-[18px]"
               />
               <h2
-                className="text-[clamp(34px,4vw,50px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 What does this look like on a $450 limit?
               </h2>
-              <p className="text-[18px] text-bg-secondary/70 m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.55]">
                 This is a first-loan example — interest only on the drawn
                 amount, weekly $55 repayments, no drawdown or establishment fee.
                 Your balance shrinks each week; so does the interest.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.15fr] gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.15fr] gap-8 md:gap-12 items-start">
               {/* Summary */}
-              <aside className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[32px_32px_28px] backdrop-blur-lg lg:sticky lg:top-[92px]">
+              <aside className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[30px_24px_28px] sm:p-[32px_32px_28px] backdrop-blur-lg lg:sticky lg:top-[92px]">
                 <div className="text-[13px] uppercase tracking-[0.14em] text-[#b8c4ff] mb-4 font-semibold">
                   Summary
                 </div>
@@ -542,27 +542,78 @@ export default function Fees() {
           id="all"
           className="section-padding bg-bg-secondary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="max-w-[760px] mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="max-w-[760px] mb-8 sm:mb-12 md:mb-14 mx-auto text-center">
               <Pill
                 text="Every fee, in one place"
                 variant="white"
                 className="mb-[18px]"
               />
               <h2
-                className="text-[clamp(30px,3.4vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Everything that can be charged.
               </h2>
-              <p className="text-[16px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 Interest is the only regular cost. The fees in the second group
                 apply only in specific circumstances — most customers never pay
                 them. The $0 rows confirm what we don't charge.
               </p>
             </div>
 
-            <div className="bg-bg-primary border border-border-subtle rounded-card-lg overflow-hidden shadow-card">
+            {/* Mobile: card layout */}
+            <div className="sm:hidden bg-bg-primary border border-border-subtle rounded-card-lg overflow-hidden shadow-card">
+              {FEE_TABLE.map((row, i) =>
+                row.scope ? (
+                  <div
+                    key={i}
+                    className="bg-[#e3e7f1] px-4 py-2 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold border-b border-border-subtle"
+                  >
+                    {row.scope}
+                  </div>
+                ) : (
+                  <div
+                    key={i}
+                    className={`flex justify-between items-start gap-4 px-4 py-[18px] ${i === FEE_TABLE.length - 1 ? "" : "border-b border-border-subtle"}`}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-text-primary text-[clamp(14px,3.8vw,16px)] tracking-[-0.005em] mb-1">
+                        {row.title}
+                      </div>
+                      {row.desc && (
+                        <div className="text-[clamp(12px,3.2vw,14px)] text-muted-primary leading-[1.5] mb-1">
+                          {row.desc}
+                        </div>
+                      )}
+                      {row.amountKind !== "zero" && (
+                        <div className="text-[11.5px] text-muted-secondary leading-[1.45] mt-3">
+                          {row.when}
+                          {row.whenSub && (
+                            <span className="block">{row.whenSub}</span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <span
+                        className={`tabular-nums font-bold tracking-[-0.015em] leading-none ${row.amountKind === "zero" ? "text-accent text-[17px]" : row.amountKind === "penalty" ? "text-primary-light text-[clamp(20px,3.8vw,24px)]" : "text-primary text-[clamp(20px,3.8vw,24px)]"}`}
+                      >
+                        {row.amount}
+                        {row.amountSub && (
+                          <small className="block text-[10px] text-muted-secondary font-medium mt-0.5 tracking-[0.02em]">
+                            {row.amountSub}
+                          </small>
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                ),
+              )}
+            </div>
+
+            {/* Desktop: table */}
+            <div className="hidden sm:block bg-bg-primary border border-border-subtle rounded-card-lg overflow-hidden shadow-card">
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
@@ -584,7 +635,7 @@ export default function Fees() {
                         <tr key={i}>
                           <td
                             colSpan={3}
-                            className="bg-[#eef1f8] px-6 py-3 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold border-b border-border-subtle"
+                            className="bg-[#e3e7f1] px-6 py-3 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold border-b border-border-subtle"
                           >
                             {row.scope}
                           </td>
@@ -641,7 +692,7 @@ export default function Fees() {
             </div>
 
             <div className="mt-[18px] p-[18px_22px] bg-bg-primary border border-dashed border-border-default rounded-[12px] text-[13px] text-muted-secondary leading-[1.6] flex gap-3 items-start">
-              <span className="w-[22px] h-[22px] flex-shrink-0 rounded-full bg-primary text-bg-primary inline-flex items-center justify-center font-bold text-[12px] mt-px">
+              <span className="size-[18px] sm:size-[22px] flex-shrink-0 rounded-full bg-primary text-bg-primary inline-flex items-center justify-center font-bold text-[12px] mt-px">
                 i
               </span>
               <div>
@@ -664,23 +715,22 @@ export default function Fees() {
           </div>
 
           {/* ── Calculator ── */}
-          <div className="w-full max-w-[1440px] mt-12 md:mt-20 mx-auto px-8">
+          <div className="w-full max-w-[1440px] mt-12 md:mt-20 mx-auto px-6">
             <div
-              className="border border-bg-secondary rounded-card-lg p-8 md:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-center shadow-card"
+              className="border border-bg-secondary rounded-card-lg p-[32px] md:p-[48px_56px] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-center shadow-card"
               style={{
                 background: "linear-gradient(135deg, #FCFDFF 0%, #EAEDF5 100%)",
               }}
             >
-              <div>
+              <div className="text-center lg:text-left">
                 <Pill text="Run your own numbers" className="mb-6" />
                 <h3
-                  className="text-[30px] font-bold tracking-[-0.02em] mb-3 text-text-primary"
+                  className="text-[clamp(28px,3.8vw,40px)] leading-[1.05] font-bold tracking-[-0.02em] mb-3 text-text-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   Try the calculator with your scenario.
                 </h3>
-                <p className="text-[16px] text-muted-secondary mb-6 leading-[1.55] max-w-[44ch]">
-                  The figures above all use our canonical $450 worked example.
+                <p className="text-[clamp(14px,3.5vw,16px)] text-muted-secondary mb-6 leading-[1.55] max-w-[48ch] mx-auto lg:mx-0">
                   The calculator lets you slide in any draw amount from $100 to
                   $10,000 against weekly, fortnightly or monthly repayments —
                   and shows the same fee structure applied to your numbers.
@@ -745,7 +795,7 @@ export default function Fees() {
           viewport={{ once: true, amount: 0.2 }}
           className="section-padding bg-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="text-center mb-4">
               <Pill
                 text="What customers say about the fees"
@@ -772,16 +822,16 @@ export default function Fees() {
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center  mb-8 sm:mb-10 md:mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 If you don't see your question here,{" "}
                 <Link
                   to="/faq"

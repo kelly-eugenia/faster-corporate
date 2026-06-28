@@ -212,8 +212,8 @@ const ONGOING_CARDS = [
   {
     icon: (
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
       />
     ),
@@ -236,22 +236,18 @@ const CHECK_ITEMS = [
   {
     title: "Regular income, 90 days minimum",
     body: "Salary, wages, government payments, contracting income — we accept all of it, but it has to be a pattern, not a one-off.",
-    source: "Bank read",
   },
   {
     title: "Committed expenses fit alongside the repayment",
     body: "Rent / mortgage, utilities, insurances, school fees, existing loan repayments. If the Faster repayment wouldn't leave room for those, we won't lend.",
-    source: "Bank read",
   },
   {
     title: "No active hardship indicators",
     body: "Dishonoured or missed payments, gambling spikes, payday-loan rollovers, or a recent default. Any of these and we'll decline — and point you to free financial counselling.",
-    source: "Bank read",
   },
   {
     title: "Identity matches government records",
     body: "Driver's licence, passport or Medicare card — checked against ASIC's Document Verification Service. Confirms you're you, prevents fraud against you.",
-    source: "DVS",
   },
 ];
 
@@ -430,7 +426,7 @@ export default function HowItWorks() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-8"
+            className="relative z-10 w-full max-w-[1440px] grid text-center lg:text-left justify-center lg:justify-start mx-auto px-6"
           >
             <div className="max-w-[880px]">
               <Pill text="How it works" variant="light" className="mb-[22px]" />
@@ -439,7 +435,7 @@ export default function HowItWorks() {
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 From apply to{" "}
-                <em className="italic font-medium bg-text-gradient bg-clip-text text-transparent">
+                <em className="italic font-[700] bg-text-gradient bg-clip-text text-transparent">
                   cash in your bank
                 </em>
                 , step by step.
@@ -455,8 +451,8 @@ export default function HowItWorks() {
 
         {/* ── The flow timeline ── */}
         <section id="flow" className="section-padding bg-bg-primary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[760px] mx-auto mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[760px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill text="The end-to-end flow" className="mb-[18px]" />
               <h2
                 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
@@ -464,7 +460,7 @@ export default function HowItWorks() {
               >
                 Six steps to your first drawdown, then it keeps working.
               </h2>
-              <p className="text-[17px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 Each step shows how long it takes and what happens behind the
                 scenes. The first six steps get you to your first drawdown.
                 After that, three ongoing things keep working for as long as you
@@ -476,7 +472,7 @@ export default function HowItWorks() {
             <div className="relative">
               {/* Vertical line */}
               <div
-                className="absolute top-[26px] bottom-[26px] w-0.5 left-[23px] lg:left-[47px]"
+                className="absolute top-[26px] bottom-[26px] w-0.5 left-[17px] sm:left-[23px] lg:left-[47px]"
                 style={{
                   background:
                     "linear-gradient(180deg, #EAEDF5 0%, #EAEDF5 92%, transparent 100%)",
@@ -490,12 +486,12 @@ export default function HowItWorks() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                   key={step.num}
-                  className="grid grid-cols-[48px_1fr] lg:grid-cols-[96px_1fr] gap-3.5 lg:gap-6 items-start py-[22px] relative"
+                  className="grid grid-cols-[36px_1fr] sm:grid-cols-[48px_1fr] lg:grid-cols-[96px_1fr] gap-3.5 lg:gap-6 items-start py-[22px] relative"
                 >
                   {/* Marker */}
                   <div className="relative flex flex-col items-center gap-1 lg:gap-2 z-10">
                     <div
-                      className={`w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center font-bold text-[16px]
+                      className={`w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-primary flex items-center justify-center font-bold text-[13px] sm:text-[16px]
                         ${step.who === "you" ? "bg-primary text-bg-primary" : "bg-bg-primary text-primary"}`}
                       style={{
                         boxShadow: "0 0 0 6px #FCFDFF, 0 0 0 7px #d6dae6",
@@ -506,19 +502,19 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Card */}
-                  <div className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[28px_30px] hover:border-bg-secondary transition-colors">
-                    <div className="flex justify-between items-baseline gap-[18px] flex-wrap mb-3">
+                  <div className="bg-bg-secondary border border-border-subtle rounded-card-lg p-[24px_20px] md:p-[24px_30px] hover:border-border-default transition-colors">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1.5 sm:gap-[18px] mb-3">
                       <h3 className="text-[22px] font-bold tracking-[-0.015em] m-0 text-text-primary leading-[1.2]">
                         {step.title}
                       </h3>
-                      <span className="text-[11.5px] tracking-[0.04em] text-accent font-semibold bg-accent/[0.08] px-2.5 py-[5px] rounded-lg whitespace-nowrap">
+                      <span className="text-[11.5px] leading-tight tracking-[0.04em] text-accent font-semibold bg-accent/[0.08] px-2.5 py-[5px] rounded-lg text-wrap self-start sm:self-auto">
                         {step.time}
                       </span>
                     </div>
-                    <p className="text-[15.5px] text-muted-primary leading-[1.55] m-0 mb-[18px] max-w-[64ch]">
+                    <p className="text-[15px] text-muted-primary leading-[1.55] m-0 mb-[18px] max-w-[64ch]">
                       {step.lede}
                     </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-x-7 p-[18px_22px] bg-bg-primary border border-border-subtle rounded-card">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-x-7 p-[18px_22px] bg-bg-primary border border-border-subtle rounded-card">
                       {step.rows.map((row) => (
                         <div key={row.k} className="flex flex-col gap-1">
                           <span className="text-[10px] uppercase tracking-[0.12em] text-muted-secondary font-semibold">
@@ -531,19 +527,19 @@ export default function HowItWorks() {
                       ))}
                     </div>
                     {step.foot && (
-                      <div className="mt-3.5 flex items-center gap-2 text-[13px] text-muted-secondary leading-[1.5]">
+                      <div className="mt-3.5 flex items-start gap-2 text-[13px] text-muted-secondary leading-[1.5]">
                         <span className="w-[18px] h-[18px] flex-shrink-0 text-primary">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            stroke-width="1.5"
+                            strokeWidth="1.5"
                             stroke="currentColor"
                             className="size-6"
                           >
                             <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
                             />
                           </svg>
@@ -562,7 +558,7 @@ export default function HowItWorks() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="mt-[60px] p-[38px_36px] border border-bg-secondary rounded-card-lg"
+              className="mt-[32px] sm:mt-[40px] md:mt-[48px] p-[28px_24px] md:p-[38px_36px] border border-bg-secondary rounded-card-lg"
               style={{
                 background: "linear-gradient(135deg, #EAEDF5 0%, #FCFDFF 100%)",
               }}
@@ -614,7 +610,7 @@ export default function HowItWorks() {
           id="check"
           className="section-padding bg-bg-secondary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-16 items-start">
               {/* Photo */}
               <div className="relative mb-4">
@@ -635,19 +631,19 @@ export default function HowItWorks() {
 
               {/* List */}
               <div>
-                <div className="mb-9">
+                <div className="mb-9 text-center lg:text-left">
                   <Pill
                     text="What we check"
                     variant="white"
                     className="mb-[18px]"
                   />
                   <h2
-                    className="text-[clamp(28px,3.4vw,38px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
+                    className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-text-primary"
                     style={{ textWrap: "balance" } as React.CSSProperties}
                   >
                     Responsible lending, the way it's meant to work.
                   </h2>
-                  <p className="text-[17px] text-muted-secondary m-0 leading-[1.55]">
+                  <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                     The same checks every bank is obliged to make under the
                     National Consumer Credit Protection Act — but completed
                     inside hours, not weeks.
@@ -658,7 +654,7 @@ export default function HowItWorks() {
                   {CHECK_ITEMS.map((item) => (
                     <div
                       key={item.title}
-                      className="grid grid-cols-[32px_1fr_auto] gap-4 bg-bg-primary border border-border-subtle rounded-card p-[20px_22px] items-start"
+                      className="grid grid-cols-[32px_1fr] gap-2 sm:gap-4 bg-bg-primary border border-border-subtle rounded-card p-[20px_22px] items-start"
                     >
                       <span className="w-7 h-7 rounded-full bg-primary-light/[0.08] text-primary-light inline-flex items-center justify-center mt-0.5">
                         <svg
@@ -672,16 +668,13 @@ export default function HowItWorks() {
                         </svg>
                       </span>
                       <div>
-                        <h4 className="m-0 mb-1 text-[15.5px] font-bold text-text-primary tracking-[-0.005em]">
+                        <h4 className="m-0 mb-1 text-[16px] font-bold text-text-primary tracking-[-0.005em]">
                           {item.title}
                         </h4>
-                        <p className="m-0 text-[13.5px] text-muted-secondary leading-[1.5]">
+                        <p className="m-0 text-[14px] text-muted-secondary leading-[1.5]">
                           {item.body}
                         </p>
                       </div>
-                      <span className="text-[10.5px] tracking-[0.08em] text-ink-light font-semibold uppercase self-center whitespace-nowrap">
-                        {item.source}
-                      </span>
                     </div>
                   ))}
                 </div>
@@ -717,19 +710,19 @@ export default function HowItWorks() {
           id="fees-teaser"
           className="section-padding relative overflow-hidden bg-fees-gradient text-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-center">
               {/* Left */}
-              <div>
+              <div className="text-center lg:text-left">
                 <Pill text="The cost" variant="light" className="mb-[18px]" />
                 <h2
-                  className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   One cost while you borrow. Everything in writing before you
                   commit.
                 </h2>
-                <p className="text-[16px] text-bg-secondary/70 mb-6 leading-[1.55] max-w-[44ch]">
+                <p className="mx-auto lg:mx-0 text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 mb-6 leading-[1.55] max-w-[52ch] lg:max-w-[44ch]">
                   You see these on the Fees page, and again — in dollar amounts
                   for your specific limit — in your credit contract before you
                   sign.
@@ -791,8 +784,8 @@ export default function HowItWorks() {
           id="protect"
           className="section-padding bg-bg-secondary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center max-w-[760px] mx-auto mb-14">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[760px] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill
                 text="Your protections"
                 variant="white"
@@ -804,13 +797,77 @@ export default function HowItWorks() {
               >
                 What you can rely on, in writing.
               </h2>
-              <p className="text-[17px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                 Every Faster customer is covered by these — they're not
                 promises, they're regulated obligations we're bound by.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+            {/* Mobile: swipeable carousel */}
+            <div className="md:hidden flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory">
+              {PROTECT_CARDS.map((card) => {
+                const arrow =
+                  card.arrowKind === "external" ? (
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      className="w-[11px] h-[11px]"
+                    >
+                      <path d="M7 17L17 7M9 7h8v8" />
+                    </svg>
+                  ) : (
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      className="w-[11px] h-[11px]"
+                    >
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  );
+                const linkClass =
+                  "text-primary font-semibold text-[13.5px] mt-auto inline-flex items-center gap-1 border-b border-bg-secondary self-start hover:border-primary transition-colors";
+                return (
+                  <div
+                    key={card.badge}
+                    className="snap-start shrink-0 w-[80%] bg-bg-primary border border-border-subtle rounded-card p-[22px_20px] sm:p-[26px_24px] flex flex-col gap-3"
+                  >
+                    <span className="self-start text-[10.5px] uppercase tracking-[0.14em] font-semibold text-primary bg-primary-light/[0.06] px-2.5 py-[7px] rounded-lg">
+                      {card.badge}
+                    </span>
+                    <h4 className="text-[17px] font-bold mt-3 text-text-primary tracking-[-0.005em] leading-[1.3]">
+                      {card.title}
+                    </h4>
+                    <p className="text-[13.5px] text-muted-secondary m-0 leading-[1.55]">
+                      {card.body}
+                    </p>
+                    {card.internal ? (
+                      <Link to={card.href} className={linkClass}>
+                        {card.linkLabel}
+                        {arrow}
+                      </Link>
+                    ) : (
+                      <a
+                        href={card.href}
+                        className={linkClass}
+                        {...(card.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {card.linkLabel}
+                        {arrow}
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop: grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {PROTECT_CARDS.map((card) => {
                 const arrow =
                   card.arrowKind === "external" ? (
@@ -885,17 +942,17 @@ export default function HowItWorks() {
           id="eligibility"
           className="section-padding bg-bg-primary"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-8">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-center">
-              <div>
+              <div className="text-center lg:text-left mx-auto">
                 <Pill text="Eligibility" className="mb-[18px]" />
                 <h2
-                  className="text-[clamp(30px,3.6vw,42px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-text-primary"
+                  className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-text-primary"
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   What you need before you start.
                 </h2>
-                <p className="text-[16px] text-muted-secondary m-0 max-w-[44ch] leading-[1.55]">
+                <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 max-w-[44ch] leading-[1.55]">
                   Eligibility doesn't guarantee approval — that depends on the
                   responsible-lending assessment. But if you don't meet these,
                   the application won't proceed.
@@ -907,7 +964,7 @@ export default function HowItWorks() {
                   {ELIG_ITEMS.map((item, i) => (
                     <div
                       key={i}
-                      className="grid grid-cols-[32px_1fr_auto] gap-4 items-center py-[15px] border-b border-border-subtle last:border-b-0"
+                      className="grid grid-cols-[32px_1fr_auto] gap-2 sm:gap-4 items-center py-[15px] border-b border-border-subtle last:border-b-0"
                     >
                       <span className="w-6 h-6 rounded-full bg-primary-light/[0.08] text-primary-light inline-flex items-center justify-center">
                         <svg
@@ -970,16 +1027,16 @@ export default function HowItWorks() {
 
         {/* ── FAQ ── */}
         <section className="section-padding bg-bg-secondary">
-          <div className="w-full max-w-[1440px] mx-auto px-8">
-            <div className="text-center mb-12">
+          <div className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
               <Pill text="FAQ" variant="white" className="mb-[18px]" />
               <h2
-                className="text-[clamp(34px,4vw,52px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
+                className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
                 Customers frequently ask
               </h2>
-              <p className="text-[18px] text-muted-secondary m-0 leading-[1.55]">
+              <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 If you don't see your question here,{" "}
                 <Link
                   to="/faq"

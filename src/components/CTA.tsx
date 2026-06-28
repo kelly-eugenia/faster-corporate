@@ -10,24 +10,24 @@ type CTAProps = {
 export default function CTA({ text, desc }: CTAProps) {
   return (
     <section className="section-padding relative overflow-hidden bg-final-gradient">
-      <div className="w-full max-w-[1440px] mx-auto px-8">
-        <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 md:p-[56px_64px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center relative overflow-hidden">
-          <div>
+      <div className="w-full max-w-[1440px] mx-auto px-6">
+        <div className="bg-bg-primary/[0.04] border border-bg-primary/10 rounded-card-lg p-8 md:p-[56px_64px] grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-7 lg:gap-10 items-center relative overflow-hidden">
+          <div className="text-center lg:text-left">
             <Pill
               text="Ready when you are"
               variant="light"
               className="mb-[18px]"
             />
             <h2
-              className="text-[clamp(34px,4vw,48px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
+              className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-4 text-bg-primary"
               style={{ textWrap: "balance" } as React.CSSProperties}
             >
               {text} Apply in about five minutes.
             </h2>
-            <p className="text-[17px] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.55]">
+            <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/80 mb-7 max-w-[46ch] leading-[1.6] mx-auto lg:mx-0">
               {desc}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-[22px]">
+            <div className="mx-auto lg:mx-0 w-fit text-left grid grid-cols-2 gap-x-4 gap-y-3.5 md:gap-x-12 mt-[22px]">
               {[
                 "Australian resident, 18+",
                 "Government-issued ID",
@@ -36,9 +36,9 @@ export default function CTA({ text, desc }: CTAProps) {
               ].map((req) => (
                 <div
                   key={req}
-                  className="flex items-center gap-2.5 text-[13.5px] text-bg-secondary/80"
+                  className="flex items-start sm:items-center gap-2.5 text-[12px] sm:text-[13.5px] text-bg-secondary/80"
                 >
-                  <span className="w-[22px] h-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
+                  <span className="size-[16px] sm:size-[22px] rounded-full bg-primary-light/15 text-primary-light inline-flex items-center justify-center flex-shrink-0">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -55,7 +55,7 @@ export default function CTA({ text, desc }: CTAProps) {
             </div>
           </div>
 
-          <div className="text-left lg:text-right">
+          <div className="text-center lg:text-right">
             <Link to="/apply" className="btn btn-primary text-2xl group">
               Apply Now
               <svg
