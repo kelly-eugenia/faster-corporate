@@ -15,7 +15,7 @@ import FAQSection from "../components/FAQSection";
 
 import { HOME_FAQS } from "../utils/faqs";
 
-import HeroPhoto from "../assets/hero-sect.svg";
+import HeroPhoto from "../assets/hero-sect.webp";
 import TeamPhoto from "../assets/faster-team-values.jpg";
 import CTAPhoto from "../assets/app.png";
 

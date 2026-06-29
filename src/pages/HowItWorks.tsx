@@ -14,7 +14,7 @@ import CTA from "../components/CTA";
 
 import { HIW_FAQS } from "../utils/faqs";
 
-import HiwCheckPhoto from "../assets/responsible-check.png";
+import HiwCheckPhoto from "../assets/responsible-check.jpg";
 
 import "../App.css";
 
