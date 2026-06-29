@@ -153,7 +153,7 @@ export default function Home() {
         }
         description={
           seo?.description ||
-          "Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+          "A revolving line of credit up to $10,000 you don't reapply for. Pay interest only on what you draw, at 47% p.a. on the outstanding balance. Apply in minutes."
         }
         ogTitle={
           seo?.ogTitle ||
@@ -161,7 +161,7 @@ export default function Home() {
         }
         ogDescription={
           seo?.ogDescription ||
-          "Access a flexible Line of Credit designed for short-term cashflow needs. Clear fees, fast decisions, and technology built to work for you."
+          "A revolving line of credit up to $10,000 you don't reapply for. Pay interest only on what you draw, at 47% p.a. on the outstanding balance. Apply in minutes."
         }
         canonicalUrl={seo?.canonicalUrl}
       />
