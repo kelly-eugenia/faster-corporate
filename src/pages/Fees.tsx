@@ -70,6 +70,20 @@ const FEE_TABLE: FeeTableRow[] = [
     amountKind: "zero",
   },
   {
+    title: "Monthly account-keeping fee",
+    desc: "To keep your account open and active each month.",
+    when: "—",
+    amount: "$0",
+    amountKind: "zero",
+  },
+  {
+    title: "Redraw fee",
+    desc: "To draw against your available limit again after repaying.",
+    when: "—",
+    amount: "$0",
+    amountKind: "zero",
+  },
+  {
     title: "Early-repayment fee",
     desc: "For paying off your balance ahead of schedule.",
     when: "—",
@@ -97,7 +111,7 @@ const WORKED_SUMMARY_ROWS: {
 }[] = [
   { label: "Limit drawn", value: "$450.00" },
   { label: "Drawdown / establishment fee", value: "$0.00", zero: true },
-  { label: "Total interest · 47% p.a. over ~9 weeks", value: "$19.62" },
+  { label: "Total interest · 47% p.a. over ~8-9 weeks", value: "$19.62" },
   { label: "Total you repay", value: "$469.62", total: true },
 ];
 
@@ -406,53 +420,69 @@ export default function Fees() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[0.75fr_1.15fr] gap-8 md:gap-12 items-start">
-              {/* Summary */}
-              <aside className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[30px_24px_28px] sm:p-[32px_32px_28px] backdrop-blur-lg lg:sticky lg:top-[92px]">
-                <div className="text-[13px] uppercase tracking-[0.14em] text-[#b8c4ff] mb-4 font-semibold">
-                  Summary
+              <aside>
+                {/* Summary */}
+                <div className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[30px_24px_28px] sm:p-[32px_32px_28px] backdrop-blur-lg lg:sticky lg:top-[92px]">
+                  <div className="text-[13px] uppercase tracking-[0.14em] text-[#b8c4ff] mb-4 font-semibold">
+                    Summary
+                  </div>
+                  <p className="text-[17px] leading-[1.45] text-bg-secondary/85 mb-[22px]">
+                    You're approved for a{" "}
+                    <strong className="text-bg-primary font-semibold">
+                      $450 limit
+                    </strong>
+                    , draw the full amount, and repay{" "}
+                    <strong className="text-bg-primary font-semibold">
+                      $55/week
+                    </strong>{" "}
+                    over the next ~8-9 weeks.
+                  </p>
+
+                  <table className="w-full border-collapse text-[14.5px]">
+                    <tbody>
+                      {WORKED_SUMMARY_ROWS.map((row, i) => (
+                        <tr key={i}>
+                          <td
+                            className={`py-3.5 border-b border-bg-primary/10 text-bg-secondary/80 ${
+                              row.total
+                                ? "font-bold text-bg-primary text-[17px] border-b-0 pt-[18px]"
+                                : ""
+                            }`}
+                          >
+                            {row.label}
+                          </td>
+                          <td
+                            className={`py-3.5 text-right tabular-nums text-bg-primary font-medium border-b border-bg-primary/10 ${
+                              row.total
+                                ? "font-bold text-[21px] border-b-0 pt-[18px]"
+                                : ""
+                            }`}
+                          >
+                            {row.value}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+
+                  <div className="mt-[8px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 leading-[1.6]">
+                    Repay sooner and you'll pay less — no penalty for clearing
+                    early.
+                  </div>
                 </div>
-                <p className="text-[17px] leading-[1.45] text-bg-secondary/85 mb-[22px]">
-                  You're approved for a{" "}
-                  <strong className="text-bg-primary font-semibold">
-                    $450 limit
-                  </strong>
-                  , draw the full amount, and repay{" "}
-                  <strong className="text-bg-primary font-semibold">
-                    $55/week
-                  </strong>{" "}
-                  over the next 9 weeks.
-                </p>
-
-                <table className="w-full border-collapse text-[14.5px]">
-                  <tbody>
-                    {WORKED_SUMMARY_ROWS.map((row, i) => (
-                      <tr key={i}>
-                        <td
-                          className={`py-3.5 border-b border-bg-primary/10 text-bg-secondary/80 ${
-                            row.total
-                              ? "font-bold text-bg-primary text-[17px] border-b-0 pt-[18px]"
-                              : ""
-                          }`}
-                        >
-                          {row.label}
-                        </td>
-                        <td
-                          className={`py-3.5 text-right tabular-nums text-bg-primary font-medium border-b border-bg-primary/10 ${
-                            row.total
-                              ? "font-bold text-[21px] border-b-0 pt-[18px]"
-                              : ""
-                          }`}
-                        >
-                          {row.value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-
-                <div className="mt-[8px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 leading-[1.6]">
-                  Repay sooner and you'll pay less — no penalty for clearing
-                  early.
+                {/* Disclaimer (desktop) */}
+                <div className="hidden lg:block mt-[18px] p-[18px_22px] bg-bg-primary/10 backdrop-blur-lg border border-dashed border-bg-primary/20 rounded-card-lg">
+                  <div className="flex gap-3 items-start text-[13px] text-bg-secondary/55 leading-[1.6]">
+                    <span className="size-[18px] sm:size-[22px] flex-shrink-0 rounded-full bg-primary-light/50 text-bg-primary inline-flex items-center justify-center font-bold text-[12px] mt-px">
+                      i
+                    </span>
+                    <div>
+                      This is an estimate only, not a quote. Actual costs vary
+                      with how much you draw and how quickly you repay.
+                      Additional fees and charges may apply and are set out in
+                      your credit contract.
+                    </div>
+                  </div>
                 </div>
               </aside>
 
@@ -525,6 +555,21 @@ export default function Fees() {
                       )}
                     </tbody>
                   </table>
+                </div>
+              </div>
+
+              {/* Disclaimer (mobile) */}
+              <div className="lg:hidden block p-[18px_22px] bg-bg-primary/10 backdrop-blur-lg border border-dashed border-bg-primary/20 rounded-card-lg">
+                <div className="flex gap-3 items-start text-[13px] text-bg-secondary/55 leading-[1.6]">
+                  <span className="size-[18px] sm:size-[22px] flex-shrink-0 rounded-full bg-primary-light/50 text-bg-primary inline-flex items-center justify-center font-bold text-[12px] mt-px">
+                    i
+                  </span>
+                  <div>
+                    This is an estimate only, not a quote. Actual costs vary
+                    with how much you draw and how quickly you repay. Additional
+                    fees and charges may apply and are set out in your credit
+                    contract.
+                  </div>
                 </div>
               </div>
             </div>

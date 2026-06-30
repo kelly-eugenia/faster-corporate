@@ -194,11 +194,11 @@ export default function Home() {
                   style={{ textWrap: "balance" } as React.CSSProperties}
                 >
                   Access up to{" "}
-                  <span className="inline-block w-[7.2ch] align-baseline text-center">
+                  <span className="inline-block w-[7.2ch] align-baseline text-left">
                     <motion.span className="bg-text-gradient bg-clip-text text-transparent font-[800] tabular-nums whitespace-nowrap">
                       {amountFormatted}
                     </motion.span>
-                  </span>{" "}
+                  </span>
                   with a flexible{" "}
                   <span className="bg-text-gradient bg-clip-text text-transparent italic font-[700]">
                     Line of Credit
@@ -551,7 +551,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* ── Fees + Calculator ── */}
+        {/* ── Calculator ── */}
         <motion.section
           variants={fadeUp}
           initial="hidden"
@@ -560,11 +560,10 @@ export default function Home() {
           id="fees"
           className="section-padding relative overflow-hidden bg-fees-gradient"
         >
-          <div className="w-full max-w-[1440px] mx-auto px-6">
-            {/* Section head */}
-            <div className="text-center max-w-[720px] mx-auto mb-8 sm:mb-12 md:mb-14">
+          <div id="calculator" className="w-full max-w-[1440px] mx-auto px-6">
+            <div className="text-center max-w-[88ch] mx-auto mb-8 sm:mb-12 md:mb-14">
               <Pill
-                text="One simple cost"
+                text="Try it on your numbers"
                 variant="light"
                 className="mb-[18px]"
               />
@@ -572,7 +571,7 @@ export default function Home() {
                 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                Interest only on what you owe.
+                What it'd look like for you
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.6]">
                 Interest at 47% p.a. on your outstanding balance is the only
@@ -581,87 +580,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Fee cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
-              {[
-                {
-                  label: "Interest",
-                  when: "Calculated daily",
-                  big: "47%",
-                  bigSub: "p.a. on balance",
-                  title: "Interest while in use",
-                  desc: "Charged only on the amount you've drawn, for the days it's outstanding. Interest doesn't compound. Repay sooner, pay less.",
-                },
-                {
-                  label: "Nothing else",
-                  when: "No surprises",
-                  big: "$0",
-                  bigSub: "ongoing",
-                  title: "No establishment, account, or redraw fees",
-                  desc: "No monthly fee, no redraw fee, no early-repayment penalty. The only other fees are late-payment and dishonour fees if a payment fails — set out in your contract.",
-                },
-              ].map((card) => (
-                <div
-                  key={card.label}
-                  className="bg-bg-primary/5 border border-bg-primary/10 rounded-card-lg p-[28px] md:p-[36px] backdrop-blur-lg"
-                >
-                  <div className="flex items-center gap-4 justify-between mb-[18px]">
-                    <span className="font-medium text-[11px] uppercase tracking-[0.12em] text-accent px-[10px] py-1 bg-primary-light/20 border border-primary-light/40 rounded-[6px]">
-                      {card.label}
-                    </span>
-                    <span className="text-[12px] font-bold text-ink-light">
-                      {card.when}
-                    </span>
-                  </div>
-                  <div
-                    className="text-[clamp(48px,7vw,72px)] font-bold leading-[0.75] mb-1"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, #FCFDFF 30%, #b8c4ff 100%)",
-                      WebkitBackgroundClip: "text",
-                      backgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                    }}
-                  >
-                    {card.big}
-                    <small
-                      className="text-[clamp(18px,3vw,22px)] font-semibold ml-1"
-                      style={{
-                        WebkitTextFillColor: "rgba(234,237,245,0.7)",
-                        color: "rgba(234,237,245,0.7)",
-                      }}
-                    >
-                      {card.bigSub}
-                    </small>
-                  </div>
-                  <h3 className="text-[20px] leading-tight font-bold mt-3.5 mb-2 text-bg-primary">
-                    {card.title}
-                  </h3>
-                  <p className="text-[14px] text-bg-secondary/70 leading-[1.55] m-0">
-                    {card.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Calculator */}
-            <div id="calculator" className="relative text-center mt-[4em] mb-7">
-              <div className="absolute top-[14px] left-1/2 h-px w-screen -translate-x-1/2 bg-bg-secondary/20 z-0" />
-              <Pill
-                text="Try it on your numbers"
-                className="bg-[#1b2457] border border-white/[0.16] text-white mb-4 relative z-10"
-              />
-
-              <h2
-                className="text-center text-bg-primary text-[24px] md:text-[32px] lg:text-[40px] leading-[1.05] tracking-[-0.02em] font-bold my-6"
-                style={{ textWrap: "balance" } as React.CSSProperties}
-              >
-                What it'd look like for you
-              </h2>
-
-              <div className="mt-8 max-w-[880px] mx-auto">
-                <LoanCalculator />
-              </div>
+            <div className="max-w-[880px] mx-auto">
+              <LoanCalculator />
             </div>
           </div>
         </motion.section>
