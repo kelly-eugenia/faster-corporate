@@ -115,15 +115,21 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title={seo?.title || "Contact — we're here to help | Faster.com.au"}
+        title={
+          seo?.title ||
+          "Contact Us — Support For Your Line of Credit | Faster.com.au"
+        }
         description={
           seo?.description ||
-          "Whether you're looking for more information about our fees or need support with your account, we're just a message away."
+          "Get help with your Faster account, repayments or fees. Email support@faster.com.au or live chat, available anytime for any enquiries."
         }
-        ogTitle={seo?.ogTitle || "Get in touch | Faster.com.au"}
+        ogTitle={
+          seo?.ogTitle ||
+          "Contact Us — Support For Your Line of Credit | Faster.com.au"
+        }
         ogDescription={
           seo?.ogDescription ||
-          "Email, live chat, or browse the FAQs. Real people, clear answers, within one business day — built and operated in Australia."
+          "Email, live chat, or browse the FAQs. Real people, clear answers, within one business day — get in touch with our Faster team for any enquiries."
         }
         canonicalUrl={seo?.canonicalUrl}
       />

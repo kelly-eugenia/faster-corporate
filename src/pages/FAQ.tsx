@@ -46,16 +46,19 @@ export default function FAQ() {
       <SEO
         title={
           seo?.title ||
-          "Faster.com.au | FAQ — clear answers on how Faster works"
+          "FAQs — Your Line of Credit Questions, Answered | Faster.com.au"
         }
         description={
           seo?.description ||
-          "Clear answers on how Faster works, what it costs, getting approved, and how we keep your information safe."
+          "Answers about applying and approval, your Faster credit, fees and security — how much you can borrow, how interest works, and whether applying affects your credit score."
         }
-        ogTitle={seo?.ogTitle || "Faster.com.au | Frequently asked questions"}
+        ogTitle={
+          seo?.ogTitle ||
+          "FAQs — Your Line of Credit Questions, Answered | Faster.com.au"
+        }
         ogDescription={
           seo?.ogDescription ||
-          "Top questions, applying & approval, your Faster credit, and security & privacy — answered in one place."
+          "Applying and approval, your line of credit, costs, and security and privacy — the things customers most often ask, in one place."
         }
         canonicalUrl={seo?.canonicalUrl}
       />

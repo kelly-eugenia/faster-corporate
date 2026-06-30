@@ -59,7 +59,13 @@ const HOW_STEPS = [
   },
   {
     num: "04",
-    icon: <path d="M21 12a9 9 0 1 1-9-9M21 3v6h-6" />,
+    icon: (
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+      />
+    ),
     title: "Repay & reuse",
     desc: "As you repay, your available balance refreshes. Draw again up to your limit — without a new application.",
   },
@@ -149,19 +155,19 @@ export default function Home() {
       <SEO
         title={
           seo?.title ||
-          "Faster.com.au | Fast, Flexible Line of Credit in Australia"
+          "Faster.com.au | Flexible Line of Credit Up to $10,000 in Australia"
         }
         description={
           seo?.description ||
-          "A revolving line of credit up to $10,000 you don't reapply for. Pay interest only on what you draw, at 47% p.a. on the outstanding balance. Apply in minutes."
+          "A revolving line of credit up to $10,000 you don't reapply for. Pay interest only on what you draw, calculated daily on the outstanding balance. Apply in minutes."
         }
         ogTitle={
           seo?.ogTitle ||
-          "Faster.com.au | Fast, Flexible Line of Credit in Australia"
+          "Faster.com.au | Flexible Line of Credit Up to $10,000 in Australia"
         }
         ogDescription={
           seo?.ogDescription ||
-          "A revolving line of credit up to $10,000 you don't reapply for. Pay interest only on what you draw, at 47% p.a. on the outstanding balance. Apply in minutes."
+          "Draw, repay and reuse up to $10,000 — no reapplying. Interest only on what you've actually drawn. See if you're eligible."
         }
         canonicalUrl={seo?.canonicalUrl}
       />

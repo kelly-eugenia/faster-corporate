@@ -202,14 +202,12 @@ export default function Fees() {
   return (
     <>
       <SEO
-        title={
-          seo?.title || "Fees — one simple cost, in writing | Faster.com.au"
-        }
+        title={seo?.title || "Our Fees — Clear and Upfront | Faster.com.au"}
         description={
           seo?.description ||
-          "One cost while you borrow: interest at 47% p.a. on your outstanding balance. Nothing else. Set out in full in your credit contract before you commit."
+          "The cost of a Faster Line of Credit is simple: interest only on your outstanding balance, calculated daily. No upfront fee on your first loan, no hidden charges."
         }
-        ogTitle={seo?.ogTitle || "One cost, clear and upfront | Faster.com.au"}
+        ogTitle={seo?.ogTitle || "Our Fees — Clear and Upfront | Faster.com.au"}
         ogDescription={
           seo?.ogDescription ||
           "Interest at 47% p.a. on your outstanding balance is the only cost while you're borrowing. No drawdown fee, no establishment fee, no monthly fee."

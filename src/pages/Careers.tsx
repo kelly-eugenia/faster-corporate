@@ -138,11 +138,11 @@ export default function Careers() {
       <SEO
         title={
           seo?.title ||
-          "Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
+          "Careers at Faster — Build Fair, Fast Credit in Australia | Faster.com.au"
         }
         description={
           seo?.description ||
-          "Work with Faster and help shape how people access credit. We’re a data-driven fintech offering real impact, growth opportunities, and flexibility."
+          "Join Faster and help build fair, fast credit for Australians. See open roles across tech, marketing and operations."
         }
         ogTitle={
           seo?.ogTitle ||
@@ -150,7 +150,7 @@ export default function Careers() {
         }
         ogDescription={
           seo?.ogDescription ||
-          "Work with Faster and help shape how people access credit. We’re a data-driven fintech offering real impact, growth opportunities, and flexibility."
+          "A data-driven Australian fintech shaping how people access credit. Flexible, hybrid work and meaningful impact. See open roles."
         }
         canonicalUrl={seo?.canonicalUrl}
       />

@@ -227,13 +227,16 @@ export default function About() {
       <SEO
         title={
           seo?.title ||
-          "About Faster — Clear, Fair, and Flexible Credit for Australians | Faster.com.au"
+          "About Us — Clear, Fair, and Flexible Credit for Australians | Faster.com.au"
         }
         description={
           seo?.description ||
-          "Who Faster is, the regulatory obligations we're held to, and exactly how we protect the data you share with us. One product, fully disclosed."
+          "Faster is an Australian digital credit provider with one product — a clear, flexible line of credit. See who we are and how we protect your data."
         }
-        ogTitle={seo?.ogTitle || "About Faster | Faster.com.au"}
+        ogTitle={
+          seo?.ogTitle ||
+          "About Us — Clear, Fair, and Flexible Credit for Australians | Faster.com.au"
+        }
         ogDescription={
           seo?.ogDescription ||
           "An Australian digital credit provider with one product — a short-term line of credit. Registered, responsible and independently security-certified."

@@ -402,16 +402,19 @@ export default function HowItWorks() {
       <SEO
         title={
           seo?.title ||
-          "How it works — apply to cash, step by step | Faster.com.au"
+          "How It Works — Apply to Cash, Step By Step | Faster.com.au"
         }
         description={
           seo?.description ||
-          "Every stage of a Faster Line of Credit — what you do, what we do, who reviews it, and how long each part actually takes. Real timing, including the slow bits."
+          "Every stage of a Faster Line of Credit — apply in about 5 minutes, get a decision the same business day, draw funds, then repay and reuse. No reapplying."
         }
-        ogTitle={seo?.ogTitle || "How it works | Faster.com.au"}
+        ogTitle={
+          seo?.ogTitle ||
+          "How It Works — Apply to Cash, Step By Step | Faster.com.au"
+        }
         ogDescription={
           seo?.ogDescription ||
-          "From applying to repaid, see what we check, what happens when, your protections, and the fees, all in one place."
+          "From applying to repaid — what we check, what happens when, your protections, and the fees, all in one place."
         }
         canonicalUrl={seo?.canonicalUrl}
       />

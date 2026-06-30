@@ -18,7 +18,7 @@ export default function ComingSoon() {
     <>
       <SEO
         title="Applications Opening Soon | Faster.com.au"
-        description="Faster.com.au applications are launching soon. Get notified to access our flexible Line of Credit designed for transparency, speed, and control."
+        description="Faster.com.au applications are launching soon. Get notified to access our flexible Line of Credit designed for transparency and control."
       />
 
       <NavBar />

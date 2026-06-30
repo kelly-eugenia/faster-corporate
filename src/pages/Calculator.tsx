@@ -58,15 +58,19 @@ export default function Calculator() {
   return (
     <>
       <SEO
-        title={seo?.title || "Line of Credit Calculator | Faster.com.au"}
+        title={
+          seo?.title || "Line of Credit Repayment Calculator | Faster.com.au"
+        }
         description={
           seo?.description ||
-          "Estimate your repayment schedule against our 47% p.a. interest in under 30 seconds, with nothing hidden."
+          "Estimate your repayments on a Faster Line of Credit. Choose your draw amount and frequency to see the interest and total repayments before you apply."
         }
-        ogTitle={seo?.ogTitle || "Line of Credit Calculator | Faster.com.au"}
+        ogTitle={
+          seo?.ogTitle || "Line of Credit Repayment Calculator | Faster.com.au"
+        }
         ogDescription={
           seo?.ogDescription ||
-          "Estimate your repayment schedule against our 47% p.a. interest in under 30 seconds, with nothing hidden."
+          "Slide in any amount from $100 to $10,000 and see weekly, fortnightly or monthly repayments — before you apply."
         }
         canonicalUrl={seo?.canonicalUrl}
       />
