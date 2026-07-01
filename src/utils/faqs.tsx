@@ -171,7 +171,7 @@ export const FEES_FAQS: FaqEntry[] = [
       <>
         We use a fixed-amount repayment schedule so your per-period commitment
         stays predictable. Drawing more <em>extends</em> the time you'll spend
-        repaying — it doesn't raise the weekly amount. You can always make extra
+        repaying — it doesn't raise the repayment amount. You can always make extra
         repayments to clear it sooner.
       </>
     ),
@@ -289,7 +289,7 @@ export const HIW_FAQS: FaqEntry[] = [
       "Why does the same limit produce different repayment terms for different people?",
     answer: (
       <>
-        The per-period repayment amount ($55 / $110 / $238.33 for weekly /
+        The per-period repayment amount ($55 / $110 / $220 for weekly /
         fortnightly / monthly) is fixed for the product. What changes is the{" "}
         <strong className="text-text-primary">term</strong> — how many periods
         you'll be paying. Drawing more means a longer term, not a higher

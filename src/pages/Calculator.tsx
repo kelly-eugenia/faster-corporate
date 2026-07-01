@@ -145,7 +145,7 @@ export default function Calculator() {
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 The repayment is fixed and predictable. Drawing more extends
-                your term, it doesn&apos;t raise your weekly cost.
+                your term, it doesn&apos;t raise your repayment cost.
               </p>
             </div>
 

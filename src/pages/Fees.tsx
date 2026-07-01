@@ -99,6 +99,7 @@ interface SchedRow {
   repaid: string;
   close: string;
   isDraw?: boolean;
+  isBreak?: boolean;
   isDone?: boolean;
   doneText?: ReactNode;
 }
@@ -109,10 +110,10 @@ const WORKED_SUMMARY_ROWS: {
   total?: boolean;
   zero?: boolean;
 }[] = [
-  { label: "Limit drawn", value: "$450.00" },
+  { label: "Limit drawn", value: "$1,000.00" },
   { label: "Drawdown / establishment fee", value: "$0.00", zero: true },
-  { label: "Total interest · 47% p.a. over ~8-9 weeks", value: "$19.62" },
-  { label: "Total you repay", value: "$469.62", total: true },
+  { label: "Total interest · 47% p.a. over ~19-20 weeks", value: "$97.09" },
+  { label: "Total you repay", value: "$1,097.09", total: true },
 ];
 
 const SCHEDULE_ROWS: SchedRow[] = [
@@ -120,71 +121,91 @@ const SCHEDULE_ROWS: SchedRow[] = [
     period: "Draw",
     open: "$0.00",
     interest: "—",
-    repaid: "+$450.00",
-    close: "$450.00",
+    repaid: "+$1,000.00",
+    close: "$1,000.00",
     isDraw: true,
   },
   {
     period: "W1",
-    open: "$450.00",
-    interest: "+$4.06",
+    open: "$1,000.00",
+    interest: "+$9.01",
     repaid: "−$55.00",
-    close: "$399.06",
+    close: "$954.01",
   },
   {
     period: "W2",
-    open: "$399.06",
-    interest: "+$3.60",
+    open: "$954.01",
+    interest: "+$8.60",
     repaid: "−$55.00",
-    close: "$347.66",
+    close: "$907.61",
   },
   {
     period: "W3",
-    open: "$347.66",
-    interest: "+$3.13",
+    open: "$907.61",
+    interest: "+$8.18",
     repaid: "−$55.00",
-    close: "$295.79",
+    close: "$860.79",
   },
   {
     period: "W4",
-    open: "$295.79",
-    interest: "+$2.67",
+    open: "$860.79",
+    interest: "+$7.76",
     repaid: "−$55.00",
-    close: "$243.46",
+    close: "$813.55",
   },
   {
     period: "W5",
-    open: "$243.46",
-    interest: "+$2.19",
+    open: "$813.55",
+    interest: "+$7.33",
     repaid: "−$55.00",
-    close: "$190.65",
+    close: "$765.88",
   },
   {
     period: "W6",
-    open: "$190.65",
-    interest: "+$1.72",
+    open: "$765.88",
+    interest: "+$6.90",
     repaid: "−$55.00",
-    close: "$137.37",
+    close: "$717.78",
   },
   {
     period: "W7",
-    open: "$137.37",
-    interest: "+$1.24",
+    open: "$717.78",
+    interest: "+$6.47",
     repaid: "−$55.00",
-    close: "$83.61",
+    close: "$669.25",
   },
   {
     period: "W8",
-    open: "$83.61",
-    interest: "+$0.75",
+    open: "$669.25",
+    interest: "+$6.03",
     repaid: "−$55.00",
-    close: "$29.36",
+    close: "$620.28",
   },
   {
-    period: "W9",
-    open: "$29.36",
-    interest: "+$0.26",
-    repaid: "−$29.62",
+    period: "",
+    open: "",
+    interest: "",
+    repaid: "",
+    close: "",
+    isBreak: true,
+    doneText: (
+      <>
+        ...continues weekly...
+      </>
+    ),
+  },
+  {
+    period: "W19",
+    open: "$105.67",
+    interest: "+$0.95",
+    repaid: "−$55.00",
+    close: "$51.62",
+  },
+  {
+    period: "W20",
+    open: "$51.62",
+    interest: "+$0.47",
+    repaid: "−$52.09",
     close: "$0.00",
   },
   {
@@ -196,8 +217,8 @@ const SCHEDULE_ROWS: SchedRow[] = [
     isDone: true,
     doneText: (
       <>
-        Total repaid: <span className="text-primary font-bold">$469.62</span>{" "}
-        ($450 drawn + $19.62 interest)
+        Total repaid: <span className="text-primary font-bold">$1,097.09</span>{" "}
+        ($1,000 drawn + $97.09 interest)
       </>
     ),
   },
@@ -205,7 +226,7 @@ const SCHEDULE_ROWS: SchedRow[] = [
 
 const CT_MINI_ROWS = [
   { label: "Repayment · weekly", value: "$55.00" },
-  { label: "Total interest · est.", value: "$19.62" },
+  { label: "Total interest · est. over ~20 weeks", value: "$97.09" },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -374,10 +395,10 @@ export default function Fees() {
                     Example
                   </div>
                   <div className="text-[14.5px] text-muted-primary leading-[1.6]">
-                    <span className="text-muted-secondary">$450 balance</span> ×
-                    (47% ÷ 365){" "}
+                    <span className="text-muted-secondary">$1,000 balance</span> ×
+                    (47% ÷ 365) × 7 days{" "}
                     <span className="text-primary font-bold ml-1">
-                      = about $4.06 across week one
+                      = about $9.01 across week one.
                     </span>
                   </div>
                   <div className="text-[12px] text-ink-light mt-2.5 leading-[1.45]">
@@ -410,7 +431,7 @@ export default function Fees() {
                 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-3.5 text-bg-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                What does this look like on a $450 limit?
+                What does this look like on a $1,000 limit?
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.55]">
                 This is a first-loan example — interest only on the drawn
@@ -429,13 +450,13 @@ export default function Fees() {
                   <p className="text-[17px] leading-[1.45] text-bg-secondary/85 mb-[22px]">
                     You're approved for a{" "}
                     <strong className="text-bg-primary font-semibold">
-                      $450 limit
+                      $1,000 limit
                     </strong>
                     , draw the full amount, and repay{" "}
                     <strong className="text-bg-primary font-semibold">
                       $55/week
                     </strong>{" "}
-                    over the next ~8-9 weeks.
+                    over the next ~19-20 weeks.
                   </p>
 
                   <table className="w-full border-collapse text-[14.5px]">
@@ -520,6 +541,15 @@ export default function Fees() {
                             <td
                               colSpan={5}
                               className="p-5 text-[13.5px] text-muted-secondary font-semibold text-center border-t border-border-subtle"
+                            >
+                              {row.doneText}
+                            </td>
+                          </tr>
+                        ) : row.isBreak ? (
+                          <tr key={i} className="bg-gradient-to-br from-bg-secondary/50 to-bg-primary">
+                            <td
+                              colSpan={5}
+                              className="p-[12px] text-[12px] text-muted-secondary text-center border-b border-border-subtle"
                             >
                               {row.doneText}
                             </td>
@@ -774,7 +804,7 @@ export default function Fees() {
                   Try the calculator with your scenario.
                 </h3>
                 <p className="text-[clamp(14px,3.5vw,16px)] text-muted-secondary mb-6 leading-[1.55] max-w-[48ch] mx-auto lg:mx-0">
-                  The calculator lets you slide in any draw amount from $100 to
+                  The calculator lets you slide in any draw amount up to
                   $10,000 against weekly, fortnightly or monthly repayments —
                   and shows the same fee structure applied to your numbers.
                 </p>
@@ -805,7 +835,7 @@ export default function Fees() {
                   If you drew
                 </div>
                 <div className="text-[28px] font-bold text-primary tracking-[-0.02em] tabular-nums mb-3">
-                  $450
+                  $1,000
                 </div>
                 <div className="h-1.5 bg-border-subtle rounded-full mb-3.5 overflow-hidden">
                   <div className="w-[25%] h-full bg-primary rounded-full" />
@@ -823,7 +853,7 @@ export default function Fees() {
                 ))}
                 <div className="flex justify-between text-[12px] py-1 mt-2 pt-2.5 border-t border-border-subtle">
                   <span className="text-text-primary">Total to repay</span>
-                  <strong className="text-primary text-[14px]">$469.62</strong>
+                  <strong className="text-primary text-[14px]">$1,097.09</strong>
                 </div>
               </div>
             </div>

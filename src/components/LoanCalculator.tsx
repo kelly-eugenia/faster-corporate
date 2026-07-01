@@ -11,7 +11,7 @@ const FIXED_REPAYMENT = {
     unit: "fortnights",
     daysPerPeriod: 14,
   },
-  monthly: { amount: 238.33, per: "month", unit: "months", daysPerPeriod: 30 },
+  monthly: { amount: 220.0, per: "month", unit: "months", daysPerPeriod: 30 },
 };
 
 const ANNUAL_RATE = 0.47;
@@ -52,11 +52,11 @@ function calcRepayment(drawn: number, frequency: Frequency) {
 const freqOptions: { key: Frequency; label: string; sub: string }[] = [
   { key: "weekly", label: "Weekly", sub: "$55.00 / week" },
   { key: "fortnightly", label: "Fortnightly", sub: "$110.00 / fortnight" },
-  { key: "monthly", label: "Monthly", sub: "$238.33 / month" },
+  { key: "monthly", label: "Monthly", sub: "$220.00 / month" },
 ];
 
 export default function LoanCalculator() {
-  const [drawAmount, setDrawAmount] = useState(450);
+  const [drawAmount, setDrawAmount] = useState(1000);
   const [frequency, setFrequency] = useState<Frequency>("weekly");
 
   const { totalInterest, totalRepaid, periods, maxPeriods, f } = useMemo(
@@ -104,7 +104,7 @@ export default function LoanCalculator() {
       </div>
 
       {/* Frequency */}
-      <div className="mb-5">
+      <div className="mb-8 md:mb-6">
         <h2 className="text-[17px] font-semibold text-text-primary mb-3">
           How often will you repay?
         </h2>
@@ -174,7 +174,7 @@ export default function LoanCalculator() {
           ))}
         </div>
 
-        <p className="text-xs leading-snug text-muted-primary text-left">
+        <p className="text-[10px] leading-snug text-muted-primary text-left">
           This Line of Credit calculator provides{" "}
           <strong>estimates only</strong>. Actual results may vary based on how
           and when funds are drawn, repaid, or re-drawn, and may be affected by
