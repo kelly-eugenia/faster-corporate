@@ -175,13 +175,6 @@ const SCHEDULE_ROWS: SchedRow[] = [
     close: "$669.25",
   },
   {
-    period: "W8",
-    open: "$669.25",
-    interest: "+$6.03",
-    repaid: "−$55.00",
-    close: "$620.28",
-  },
-  {
     period: "",
     open: "",
     interest: "",
@@ -509,7 +502,7 @@ export default function Fees() {
 
               {/* Schedule table */}
               <div className="bg-bg-primary border border-border-subtle rounded-card-lg overflow-hidden">
-                <div className="flex items-center justify-between px-[22px] py-[18px] border-b border-bg-primary/[0.08]">
+                <div className="flex items-center justify-between px-[22px] pt-[22px] pb-[18px] border-b border-bg-primary/[0.08]">
                   <div className="text-[18px] font-bold text-muted-primary tracking-[-0.01em]">
                     Repayment schedule
                   </div>
@@ -527,7 +520,7 @@ export default function Fees() {
                         ].map((h, hi) => (
                           <th
                             key={h}
-                            className={`px-[22px] py-3 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle ${hi === 0 ? "text-left" : hi === 4 ? "text-right" : "text-left"}`}
+                            className={`px-[28px] py-3 text-[11px] uppercase tracking-[0.14em] text-muted-secondary font-semibold bg-[#eef1f8] border-b border-border-subtle ${hi === 0 ? "text-left" : hi === 4 ? "text-right" : "text-left"}`}
                           >
                             {h}
                           </th>
@@ -563,21 +556,21 @@ export default function Fees() {
                                 : "hover:bg-bg-secondary/40 transition-colors"
                             }
                           >
-                            <td className="px-[22px] py-[12px] text-[13px] font-semibold text-text-primary border-b border-border-subtle">
+                            <td className="px-[28px] py-[12px] text-[13px] font-semibold text-text-primary border-b border-border-subtle">
                               {row.period}
                             </td>
-                            <td className="px-[22px] py-[12px] text-[13px] text-muted-primary border-b border-border-subtle tabular-nums">
+                            <td className="px-[28px] py-[12px] text-[13px] text-muted-primary border-b border-border-subtle tabular-nums">
                               {row.open}
                             </td>
-                            <td className="px-[22px] py-[12px] text-[13px] text-muted-primary border-b border-border-subtle tabular-nums">
+                            <td className="px-[28px] py-[12px] text-[13px] text-muted-primary border-b border-border-subtle tabular-nums">
                               {row.interest}
                             </td>
                             <td
-                              className={`px-[22px] py-[12px] text-[13px] border-b border-border-subtle tabular-nums ${row.isDraw ? "text-primary font-semibold" : "text-muted-primary"}`}
+                              className={`px-[28px] py-[12px] text-[13px] border-b border-border-subtle tabular-nums ${row.isDraw ? "text-primary font-semibold" : "text-muted-primary"}`}
                             >
                               {row.repaid}
                             </td>
-                            <td className="px-[22px] py-[12px] text-[13px] text-right border-b border-border-subtle tabular-nums font-semibold text-text-primary">
+                            <td className="px-[28px] py-[12px] text-[13px] text-right border-b border-border-subtle tabular-nums font-semibold text-text-primary">
                               {row.close}
                             </td>
                           </tr>
