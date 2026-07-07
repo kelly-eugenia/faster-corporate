@@ -52,7 +52,7 @@ export default function NavBar() {
           <img
             className="h-6 sm:h-8 object-contain"
             src={LogoWhite}
-            alt="Faster Logo"
+            alt="Faster.com.au Logo"
           />
         </NavLink>
 

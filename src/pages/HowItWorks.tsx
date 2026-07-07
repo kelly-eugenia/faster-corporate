@@ -626,7 +626,7 @@ export default function HowItWorks() {
                 >
                   <img
                     src={HiwCheckPhoto}
-                    alt="A Faster credit assessor reviewing an application in Melbourne"
+                    alt="People discussing lending information with an advisor, with the Faster.com.au dashboard and responsible lending details shown on a display."
                     className="w-full h-full object-cover"
                   />
                 </div>

@@ -40,7 +40,7 @@ export default function ComingSoon() {
               <img
                 className="block size-24 md:size-28"
                 src={Logo}
-                alt="Faster logo"
+                alt="Faster.com.au logo"
               />
             </div>
             <motion.div

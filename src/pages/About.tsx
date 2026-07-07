@@ -364,7 +364,7 @@ export default function About() {
                 >
                   <img
                     src={AboutPhoto}
-                    alt="The Faster team"
+                    alt="People in a meeting celebrating with smiles and high fives."
                     className="w-full h-full object-cover"
                   />
                 </div>

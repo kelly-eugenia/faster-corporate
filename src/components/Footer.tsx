@@ -42,7 +42,7 @@ export default function Footer() {
             <Link to="/" className="inline-block">
               <img
                 src={Logo}
-                alt="Faster Logo"
+                alt="Faster.com.au Logo"
                 className="h-8 w-auto object-contain"
               />
             </Link>

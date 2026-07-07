@@ -213,7 +213,7 @@ export default function Careers() {
                 <div className="relative w-full rounded-2xl overflow-hidden h-[240px] sm:h-[320px] md:h-[400px] lg:h-[520px]">
                   <img
                     src={TeamPhoto}
-                    alt="The Faster team"
+                    alt="People collaborating in a bright office and sharing a high five."
                     className="w-full h-full object-cover rounded-2xl"
                   />
                   {/* Where-we-work stamp */}

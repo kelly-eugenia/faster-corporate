@@ -365,7 +365,7 @@ export default function Home() {
               >
                 <img
                   src={HeroPhoto}
-                  alt="Smiling customer enjoying Faster"
+                  alt="Phone mockup of the Faster.com.au app dashboard"
                   className="block w-auto h-full max-h-[580px]"
                 />
               </motion.div>
@@ -531,7 +531,7 @@ export default function Home() {
                 >
                   <img
                     src={TeamPhoto}
-                    alt="Faster is deeply invested in our customers"
+                    alt="A group of people smiling while looking at a phone, with Faster.com.au-style digital icons overlaid."
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -669,7 +669,7 @@ export default function Home() {
               <div className="relative z-10 flex items-end justify-center">
                 <img
                   src={CTAPhoto}
-                  alt="Smiling customer enjoying Faster"
+                  alt="A hand holding a smartphone showing the Faster.com.au application form"
                   className="block w-auto h-full max-h-[600px] object-bottom"
                 />
               </div>
