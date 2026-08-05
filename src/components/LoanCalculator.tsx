@@ -26,18 +26,33 @@ const fmtAUD = (n: number) =>
 function calcRepayment(drawn: number, frequency: Frequency) {
   const f = FIXED_REPAYMENT[frequency];
   const dailyRate = ANNUAL_RATE / 365;
-  let balance = drawn;
+  // Reducing-balance, NON-compounding
+  // Interest is only ever charged on outstanding PRINCIPAL. Any interest that a
+  // payment doesn't cover accumulates in a separate `unpaidInterest` bucket that
+  // itself never earns interest — so interest can never be charged on interest.
+  // Each payment is applied to outstanding interest first, then to principal.
+  let principal = drawn;
+  let unpaidInterest = 0;
   let periods = 0;
   let totalInterest = 0;
   const maxPeriods =
     frequency === "monthly" ? 120 : frequency === "fortnightly" ? 260 : 520;
 
-  while (balance > 0 && periods < maxPeriods) {
-    const interestThisPeriod = balance * dailyRate * f.daysPerPeriod;
+  while ((principal > 0 || unpaidInterest > 0) && periods < maxPeriods) {
+    // Interest accrues on principal only.
+    const interestThisPeriod = principal * dailyRate * f.daysPerPeriod;
     totalInterest += interestThisPeriod;
-    balance = balance + interestThisPeriod - f.amount;
+    unpaidInterest += interestThisPeriod;
+
+    // Apply this period's payment: interest first, then principal.
+    let payment = f.amount;
+    const toInterest = Math.min(payment, unpaidInterest);
+    unpaidInterest -= toInterest;
+    payment -= toInterest;
+    const toPrincipal = Math.min(payment, principal);
+    principal -= toPrincipal;
+
     periods++;
-    if (balance < 0) balance = 0;
   }
 
   return {
