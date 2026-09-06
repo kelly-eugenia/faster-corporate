@@ -35,7 +35,7 @@ const FEE_TABLE: FeeTableRow[] = [
   { scope: "Cost of borrowing" },
   {
     title: "Interest",
-    desc: "Calculated daily on outstanding balance. No compounding — accrued interest doesn't earn further interest.",
+    desc: "Calculated daily on outstanding balance. No compounding: accrued interest doesn't earn further interest.",
     when: "Daily, on any outstanding balance.",
     whenSub: "Stops when balance = $0",
     amount: "47%",
@@ -48,7 +48,7 @@ const FEE_TABLE: FeeTableRow[] = [
     desc: (
       <>
         20% of your drawdown amount. Charged only if we need to manually
-        reassess your account — for example, if your circumstances have changed
+        reassess your account, for example, if your circumstances have changed
         significantly since your original approval.{" "}
         <strong className="text-text-primary">
           Never charged on your first loan.
@@ -65,28 +65,28 @@ const FEE_TABLE: FeeTableRow[] = [
   {
     title: "Establishment fee",
     desc: "To set up your account or assess your application for the first time.",
-    when: "—",
+    when: "-",
     amount: "$0",
     amountKind: "zero",
   },
   {
     title: "Monthly account-keeping fee",
     desc: "To keep your account open and active each month.",
-    when: "—",
+    when: "-",
     amount: "$0",
     amountKind: "zero",
   },
   {
     title: "Redraw fee",
     desc: "To draw against your available limit again after repaying.",
-    when: "—",
+    when: "-",
     amount: "$0",
     amountKind: "zero",
   },
   {
     title: "Early-repayment fee",
     desc: "For paying off your balance ahead of schedule.",
-    when: "—",
+    when: "-",
     amount: "$0",
     amountKind: "zero",
   },
@@ -120,7 +120,7 @@ const SCHEDULE_ROWS: SchedRow[] = [
   {
     period: "Draw",
     open: "$0.00",
-    interest: "—",
+    interest: "-",
     repaid: "+$1,000.00",
     close: "$1,000.00",
     isDraw: true,
@@ -181,11 +181,7 @@ const SCHEDULE_ROWS: SchedRow[] = [
     repaid: "",
     close: "",
     isBreak: true,
-    doneText: (
-      <>
-        ...continues weekly...
-      </>
-    ),
+    doneText: <>...continues weekly...</>,
   },
   {
     period: "W19",
@@ -330,7 +326,7 @@ export default function Fees() {
                   {[
                     {
                       k: "Triggered",
-                      v: "Each day you have an outstanding balance. If your balance reaches $0, no interest accrues — even if your limit stays open.",
+                      v: "Each day you have an outstanding balance. If your balance reaches $0, no interest accrues, even if your limit stays open.",
                     },
                     {
                       k: "Calculated",
@@ -351,8 +347,8 @@ export default function Fees() {
                           <strong className="text-text-primary font-semibold">
                             No.
                           </strong>{" "}
-                          Interest does not capitalise — accrued interest
-                          doesn't earn further interest of its own.
+                          Interest does not capitalise. Accrued interest doesn't
+                          earn further interest of its own.
                         </>
                       ),
                     },
@@ -363,8 +359,8 @@ export default function Fees() {
                           Repaying sooner, or making extra repayments. There's{" "}
                           <strong className="text-text-primary font-semibold">
                             no early-repayment fee
-                          </strong>{" "}
-                          — every extra dollar comes off your balance.
+                          </strong>
+                          . Every extra dollar comes off your balance.
                         </>
                       ),
                     },
@@ -388,8 +384,8 @@ export default function Fees() {
                     Example
                   </div>
                   <div className="text-[14.5px] text-muted-primary leading-[1.6]">
-                    <span className="text-muted-secondary">$1,000 balance</span> ×
-                    (47% ÷ 365) × 7 days{" "}
+                    <span className="text-muted-secondary">$1,000 balance</span>{" "}
+                    × (47% ÷ 365) × 7 days{" "}
                     <span className="text-primary font-bold ml-1">
                       = about $9.01 across week one.
                     </span>
@@ -427,9 +423,9 @@ export default function Fees() {
                 What does this look like on a $1,000 limit?
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.55]">
-                This is a first-loan example — interest only on the drawn
-                amount, weekly $55 repayments, no drawdown or establishment fee.
-                Your balance shrinks each week; so does the interest.
+                This is a first-loan example: interest only on the drawn amount,
+                weekly $55 repayments, no drawdown or establishment fee. Your
+                balance shrinks each week; so does the interest.
               </p>
             </div>
 
@@ -480,7 +476,7 @@ export default function Fees() {
                   </table>
 
                   <div className="mt-[8px] pt-[22px] border-t border-bg-primary/10 text-[12.5px] text-bg-secondary/55 leading-[1.6]">
-                    Repay sooner and you'll pay less — no penalty for clearing
+                    Repay sooner and you'll pay less. No penalty for clearing
                     early.
                   </div>
                 </div>
@@ -539,7 +535,10 @@ export default function Fees() {
                             </td>
                           </tr>
                         ) : row.isBreak ? (
-                          <tr key={i} className="bg-gradient-to-br from-bg-secondary/50 to-bg-primary">
+                          <tr
+                            key={i}
+                            className="bg-gradient-to-br from-bg-secondary/50 to-bg-primary"
+                          >
                             <td
                               colSpan={5}
                               className="p-[12px] text-[12px] text-muted-secondary text-center border-b border-border-subtle"
@@ -623,7 +622,7 @@ export default function Fees() {
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 Interest is the only regular cost. The fees in the second group
-                apply only in specific circumstances — most customers never pay
+                apply only in specific circumstances; most customers never pay
                 them. The $0 rows confirm what we don't charge.
               </p>
             </div>
@@ -768,7 +767,7 @@ export default function Fees() {
                 Contact us before a payment is due and we can discuss a hardship
                 arrangement. Call the National Debt Helpline{" "}
                 <strong>1800&nbsp;007&nbsp;007</strong> for free, independent
-                advice — or{" "}
+                advice, or{" "}
                 <Link
                   to="/contact"
                   className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -797,9 +796,9 @@ export default function Fees() {
                   Try the calculator with your scenario.
                 </h3>
                 <p className="text-[clamp(14px,3.5vw,16px)] text-muted-secondary mb-6 leading-[1.55] max-w-[48ch] mx-auto lg:mx-0">
-                  The calculator lets you slide in any draw amount up to
-                  $10,000 against weekly, fortnightly or monthly repayments —
-                  and shows the same fee structure applied to your numbers.
+                  The calculator lets you slide in any draw amount up to $10,000
+                  against weekly, fortnightly or monthly repayments, and shows
+                  the same fee structure applied to your numbers.
                 </p>
                 <Link to="/home#calculator" className="btn btn-primary group">
                   Open the calculator
@@ -846,7 +845,9 @@ export default function Fees() {
                 ))}
                 <div className="flex justify-between text-[12px] py-1 mt-2 pt-2.5 border-t border-border-subtle">
                   <span className="text-text-primary">Total to repay</span>
-                  <strong className="text-primary text-[14px]">$1,097.09</strong>
+                  <strong className="text-primary text-[14px]">
+                    $1,097.09
+                  </strong>
                 </div>
               </div>
             </div>
@@ -882,7 +883,7 @@ export default function Fees() {
           <CTA
             text="Now you've seen the costs."
             desc="You'll see the same fees again in your credit contract before
-                  you commit — no hidden terms, no after-the-fact changes."
+                  you commit. No hidden terms, no after-the-fact changes."
           />
         </motion.section>
 

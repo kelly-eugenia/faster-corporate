@@ -24,7 +24,7 @@ export default function Reviews() {
         className="mt-3 text-[clamp(24px,3vw,32px)] leading-[1.05] tracking-[-0.02em] font-bold text-text-primary"
         style={{ textWrap: "balance" } as React.CSSProperties}
       >
-        Rated 4.4 / 5 by 1,500+ Australian borrowers.
+        Rated 4.3 / 5 by 1,600+ Australian borrowers.
       </h2>
       <div
         ref={containerRef}

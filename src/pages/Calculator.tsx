@@ -23,7 +23,7 @@ const BENCH_CHIPS = [
 const IS_POINTS = [
   {
     strong: "Revolving.",
-    text: " Repay what you draw and the limit is ready to use again — no reapplying.",
+    text: " Repay what you draw and the limit is ready to use again, with no need to reapply.",
   },
   {
     strong: "A fixed schedule.",
@@ -70,7 +70,7 @@ export default function Calculator() {
         }
         ogDescription={
           seo?.ogDescription ||
-          "Slide in any amount from $100 to $10,000 and see weekly, fortnightly or monthly repayments — before you apply."
+          "Slide in any amount from $100 to $10,000 and see weekly, fortnightly or monthly repayments before you apply."
         }
         canonicalUrl={seo?.canonicalUrl}
       />
@@ -102,8 +102,8 @@ export default function Calculator() {
                   Drag the dials. Watch what you&apos;d repay.
                 </h1>
                 <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 m-0 max-w-[50ch] leading-[1.55] mx-auto lg:mx-0">
-                  Estimate your repayment schedule against our two real fees —
-                  in under 30 seconds, with nothing hidden.
+                  Estimate your repayment schedule against our two real fees, in
+                  under 30 seconds, with nothing hidden.
                 </p>
               </div>
               <div className="flex gap-2.5 flex-wrap">
@@ -141,7 +141,7 @@ export default function Calculator() {
                 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-[18px] text-text-primary"
                 style={{ textWrap: "balance" } as React.CSSProperties}
               >
-                A line of credit — not a credit card, not a payday loan.
+                A line of credit: not a credit card, not a payday loan.
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.55]">
                 The repayment is fixed and predictable. Drawing more extends
@@ -243,7 +243,7 @@ export default function Calculator() {
           <CTA
             text="Now you've seen the costs."
             desc="You'll see the same fees again in your credit contract before
-                  you commit — no hidden terms, no after-the-fact changes."
+                  you commit. No hidden terms, no after-the-fact changes."
           />
         </motion.section>
 

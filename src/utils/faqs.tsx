@@ -96,7 +96,7 @@ export const HOME_FAQS: FaqEntry[] = [
         >
           support@faster.com.au
         </a>{" "}
-        anytime — we reply within one business day — or start a live chat on our
+        anytime (we reply within one business day), or start a live chat on our
         website or the platform when you're logged in. We're here to help with
         account access, repayments, fee questions, or anything else you're
         unsure about.{" "}
@@ -123,7 +123,7 @@ export const FEES_FAQS: FaqEntry[] = [
         </code>{" "}
         (≈ 0.1288% per day), and add that as accrued interest. We charge it
         against your balance once per repayment period. Interest stops the day
-        your balance reaches $0 — so paying anything extra immediately reduces
+        your balance reaches $0, so paying anything extra immediately reduces
         the next day's interest charge.
       </>
     ),
@@ -133,7 +133,7 @@ export const FEES_FAQS: FaqEntry[] = [
     answer: (
       <>
         <strong className="text-text-primary">No.</strong> Interest on the drawn
-        amount starts accruing from the moment you draw — there's no drawdown
+        amount starts accruing from the moment you draw; there's no drawdown
         fee, establishment fee, or setup charge.
       </>
     ),
@@ -146,7 +146,7 @@ export const FEES_FAQS: FaqEntry[] = [
         In most cases, nothing changes and you simply keep borrowing and
         repaying as normal. In specific circumstances set out in your credit
         contract, we may need to carry out a manual reassessment of your
-        account. If that happens, a fee of 20% of your used limit applies.{" "}
+        account. If that happens, a fee of 20% of your drawdown amount applies.{" "}
         <strong className="text-text-primary">
           It never applies to your first loan
         </strong>
@@ -160,7 +160,7 @@ export const FEES_FAQS: FaqEntry[] = [
       <>
         <strong className="text-text-primary">None.</strong> No early-repayment
         fee, no balance closeout fee, no minimum interest period. Pay any
-        amount, any time, with no penalty — and you only pay interest for the
+        amount, any time, with no penalty, and you only pay interest for the
         days the balance was outstanding.
       </>
     ),
@@ -171,8 +171,8 @@ export const FEES_FAQS: FaqEntry[] = [
       <>
         We use a fixed-amount repayment schedule so your per-period commitment
         stays predictable. Drawing more <em>extends</em> the time you'll spend
-        repaying — it doesn't raise the repayment amount. You can always make extra
-        repayments to clear it sooner.
+        repaying. It doesn't raise the repayment amount. You can always make
+        extra repayments to clear it sooner.
       </>
     ),
   },
@@ -181,7 +181,7 @@ export const FEES_FAQS: FaqEntry[] = [
     answer: (
       <>
         You simply don't pay it. Interest only accrues on days you have an
-        outstanding balance — repay early and the future days never happen.
+        outstanding balance: repay early and the future days never happen.
         There's nothing to refund because we never charged it.
       </>
     ),
@@ -192,7 +192,7 @@ export const FEES_FAQS: FaqEntry[] = [
       <>
         Your full terms are set out in your Credit Contract, with the exact
         amounts and timings for your specific limit. You'll see the contract
-        before you accept — never after.
+        before you accept, never after.
       </>
     ),
   },
@@ -215,8 +215,8 @@ export const HIW_FAQS: FaqEntry[] = [
     answer: (
       <>
         To meet our responsible-lending obligations under the NCCP Act. We have
-        to be reasonably confident the repayment fits your situation — that
-        means seeing income regularity and existing commitments. We use a
+        to be reasonably confident the repayment fits your situation: that means
+        seeing income regularity and existing commitments. We use a
         CDR-accredited open-banking partner with{" "}
         <strong className="text-text-primary">read-only</strong> access. We can
         never move money out of your account.
@@ -227,9 +227,8 @@ export const HIW_FAQS: FaqEntry[] = [
     question: "Does applying hurt my credit score?",
     answer: (
       <>
-        No. We don't run a credit check at any point in our process, so applying
-        with us never leaves a footprint on your credit file and never affects
-        your credit score.
+        No. Applying with us never leaves a footprint on your credit file and
+        never affects your credit score.
       </>
     ),
   },
@@ -237,7 +236,7 @@ export const HIW_FAQS: FaqEntry[] = [
     question: "Can I have more than one drawdown at once?",
     answer: (
       <>
-        Yes — that's the point of a line of credit. As long as your outstanding
+        Yes, that's the point of a line of credit. As long as your outstanding
         balance plus the new draw stays within your approved limit, you can draw
         additional amounts whenever you need. There's no fee to draw, only daily
         interest on the outstanding balance.
@@ -263,7 +262,7 @@ export const HIW_FAQS: FaqEntry[] = [
     question: "Can I close my line of credit and walk away?",
     answer: (
       <>
-        Yes, anytime — repay your outstanding balance in full, then ask us to
+        Yes, anytime. Repay your outstanding balance in full, then ask us to
         close the account. No closeout fee, no exit fee, no minimum interest
         period. We retain your records for the period required by law (typically
         7 years for credit data) and that's it.
@@ -291,7 +290,7 @@ export const HIW_FAQS: FaqEntry[] = [
       <>
         The per-period repayment amount ($55 / $110 / $220 for weekly /
         fortnightly / monthly) is fixed for the product. What changes is the{" "}
-        <strong className="text-text-primary">term</strong> — how many periods
+        <strong className="text-text-primary">term</strong>: how many periods
         you'll be paying. Drawing more means a longer term, not a higher
         payment. You can always shorten it by paying extra.
       </>
@@ -320,7 +319,7 @@ export const ABOUT_FAQS: FaqEntry[] = [
       <>
         <strong className="text-text-primary">No.</strong> The bank connection
         used to assess your application is{" "}
-        <strong className="text-text-primary">read-only</strong> — we can view
+        <strong className="text-text-primary">read-only</strong>. We can view
         transaction history, but we can never withdraw or transfer funds.
         Repayments happen only through the direct-debit arrangement you
         authorise separately, on the schedule set out in your contract.
@@ -332,9 +331,8 @@ export const ABOUT_FAQS: FaqEntry[] = [
     answer: (
       <>
         Only to assess your application and operate your account, under the
-        Australian Privacy Principles. We collect what we need — identity,
-        income and expense history, credit information — and nothing we
-        don&apos;t.{" "}
+        Australian Privacy Principles. We collect what we need (identity, income
+        and expense history, credit information) and nothing we don&apos;t.{" "}
         <strong className="text-text-primary">
           We never sell or rent your data
         </strong>{" "}
@@ -359,8 +357,8 @@ export const ABOUT_FAQS: FaqEntry[] = [
           We&apos;ll never ask for your full banking password, card PIN, or
           one-time codes
         </strong>{" "}
-        — by email, phone or text. If a message asking for those claims to be
-        from Faster, it isn&apos;t us; forward it to{" "}
+        whether by email, phone or text. If a message asking for those claims to
+        be from Faster, it isn&apos;t us; forward it to{" "}
         <a
           href="mailto:support@faster.com.au"
           className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -377,8 +375,8 @@ export const ABOUT_FAQS: FaqEntry[] = [
       <>
         Before we lend, we have to be reasonably satisfied the repayments fit
         your situation without causing substantial hardship. That means looking
-        at your income regularity and existing commitments — and declining if
-        the numbers don&apos;t support it.{" "}
+        at your income regularity and existing commitments, and declining if the
+        numbers don&apos;t support it.{" "}
         <a
           href="/how-it-works#check"
           className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -411,7 +409,7 @@ export const TOP_FAQS: FaqEntry[] = [
       "australian digital credit provider one product revolving line of credit draw up to 10000 repay reuse without reapplying short-term cashflow",
     answer: (
       <>
-        Faster is an Australian digital credit provider with one product — a{" "}
+        Faster is an Australian digital credit provider with one product: a{" "}
         <strong className="text-text-primary">revolving line of credit</strong>{" "}
         you can draw from when you need it, up to $10,000. Repay what you've
         drawn and the balance is ready to use again, without reapplying each
@@ -429,7 +427,7 @@ export const TOP_FAQS: FaqEntry[] = [
         Approved limits range up to{" "}
         <strong className="text-text-primary">$10,000</strong>. The limit you're
         offered depends on your individual circumstances and our
-        responsible-lending assessment. You only ever draw — and pay for — what
+        responsible-lending assessment. You only ever draw (and pay for) what
         you actually need.
       </>
     ),
@@ -437,7 +435,7 @@ export const TOP_FAQS: FaqEntry[] = [
   {
     question: "Are there any fees for using Faster?",
     keywords:
-      "interest 47 percent outstanding balance daily no establishment monthly redraw early-repayment fee 20% manual reassessment used limit never first loan credit contract",
+      "interest 47 percent outstanding balance daily no establishment monthly redraw early-repayment fee 20% manual reassessment drawdown amount never first loan credit contract",
     answer: (
       <>
         While you're borrowing, the only cost is{" "}
@@ -446,7 +444,7 @@ export const TOP_FAQS: FaqEntry[] = [
         </strong>
         , calculated daily. There's no establishment fee, monthly fee, redraw
         fee or early-repayment penalty. A 20% fee applies only if a manual
-        reassessment of your account is ever needed — never on your first loan.
+        reassessment of your account is ever needed, never on your first loan.
         Every cost is set out in your credit contract before you commit.{" "}
         <Link
           to="/fees"
@@ -498,7 +496,7 @@ export const TOP_FAQS: FaqEntry[] = [
         >
           support@faster.com.au
         </a>{" "}
-        anytime — we reply within one business day — or start a live chat on our
+        anytime (we reply within one business day), or start a live chat on our
         website or the platform when you're logged in. We're here to help with
         account access, repayments, fee questions, or anything else you're
         unsure about.{" "}
@@ -568,7 +566,7 @@ export const APPLY_FAQS: FaqEntry[] = [
   {
     question: "Does applying hurt my credit score?",
     keywords:
-      "no credit check at any point never leaves footprint credit file never affects credit score eligibility apply",
+      "never leaves footprint credit file never affects credit score eligibility apply",
     answer: (
       <>
         <strong className="text-text-primary">No.</strong> We don't run a credit
@@ -584,8 +582,8 @@ export const APPLY_FAQS: FaqEntry[] = [
     answer: (
       <>
         To meet our responsible-lending obligations under the NCCP Act. We have
-        to be reasonably confident the repayment fits your situation — that
-        means seeing income regularity and existing commitments. We use a
+        to be reasonably confident the repayment fits your situation: that means
+        seeing income regularity and existing commitments. We use a
         CDR-accredited open-banking partner with{" "}
         <strong className="text-text-primary">read-only</strong> access. We can
         never move money out of your account.
@@ -604,7 +602,7 @@ export const APPLY_FAQS: FaqEntry[] = [
     keywords:
       "responsible lending repayments fit situation substantial hardship verify identity income obligation declined",
     answer:
-      "We're required to lend responsibly. If the repayments wouldn't fit your situation without causing substantial hardship, we won't approve the application — even if you ask. We may also decline if we can't verify your identity or income. It isn't personal; it's the obligation we're held to.",
+      "We're required to lend responsibly. If the repayments wouldn't fit your situation without causing substantial hardship, we won't approve the application, even if you ask. We may also decline if we can't verify your identity or income. It isn't personal; it's the obligation we're held to.",
   },
   {
     question: 'What does "responsible lending" actually mean here?',
@@ -614,8 +612,8 @@ export const APPLY_FAQS: FaqEntry[] = [
       <>
         Before we lend, we have to be reasonably satisfied the repayments fit
         your situation without causing substantial hardship. That means looking
-        at your income regularity and existing commitments — and declining if
-        the numbers don't support it.{" "}
+        at your income regularity and existing commitments, and declining if the
+        numbers don't support it.{" "}
         <a
           href="/how-it-works#check"
           className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -652,24 +650,23 @@ export const CREDIT_FAQS: FaqEntry[] = [
       <>
         You're approved for a limit, then{" "}
         <strong className="text-text-primary">draw, repay, and reuse</strong> as
-        you need — no new application each time. It isn't a one-off lump sum
-        like a personal loan, and it isn't an open-ended credit card. You only
-        pay interest on what you've actually drawn, for the days it's
-        outstanding.
+        you need, no new application each time. It isn't a one-off lump sum like
+        a personal loan, and it isn't an open-ended credit card. You only pay
+        interest on what you've actually drawn, for the days it's outstanding.
       </>
     ),
   },
   {
     question: "What does it cost?",
     keywords:
-      "47 percent interest daily outstanding balance only cost no establishment monthly redraw early-repayment fee 20% manual reassessment used limit never first loan credit contract",
+      "47 percent interest daily outstanding balance only cost no establishment monthly redraw early-repayment fee 20% manual reassessment drawdown amount never first loan credit contract",
     answer: (
       <>
         While you're borrowing, the only cost is{" "}
         <strong className="text-text-primary">47% p.a. interest</strong>{" "}
         calculated daily on your outstanding balance. There's no establishment,
         monthly, redraw or early-repayment fee. A 20% fee applies only if a
-        manual reassessment of your account is ever needed — never on your first
+        manual reassessment of your account is ever needed, never on your first
         loan. Every cost is set out in your credit contract before you commit.{" "}
         <Link
           to="/fees"
@@ -692,7 +689,7 @@ export const CREDIT_FAQS: FaqEntry[] = [
         </code>{" "}
         (≈ 0.1288% per day), and add that as accrued interest. We charge it
         against your balance once per repayment period. Interest stops the day
-        your balance reaches $0 — so paying anything extra immediately reduces
+        your balance reaches $0, so paying anything extra immediately reduces
         the next day's interest charge.
       </>
     ),
@@ -704,7 +701,7 @@ export const CREDIT_FAQS: FaqEntry[] = [
     answer: (
       <>
         <strong className="text-text-primary">No.</strong> Interest on the drawn
-        amount starts accruing from the moment you draw — there's no drawdown
+        amount starts accruing from the moment you draw; there's no drawdown
         fee, establishment fee, or setup charge on your first loan.
       </>
     ),
@@ -713,13 +710,13 @@ export const CREDIT_FAQS: FaqEntry[] = [
     question:
       "What happens if my circumstances change and you need to reassess my account?",
     keywords:
-      "most cases nothing changes keep borrowing repaying specific circumstances credit contract manual reassessment 20% used limit never first loan",
+      "most cases nothing changes keep borrowing repaying specific circumstances credit contract manual reassessment 20% drawdown amount never first loan",
     answer: (
       <>
         In most cases, nothing changes and you simply keep borrowing and
         repaying as normal. In specific circumstances set out in your credit
         contract, we may need to carry out a manual reassessment of your
-        account. If that happens, a fee of 20% of your used limit applies.{" "}
+        account. If that happens, a fee of 20% of your drawdown amount applies.{" "}
         <strong className="text-text-primary">
           It never applies to your first loan
         </strong>
@@ -739,8 +736,8 @@ export const CREDIT_FAQS: FaqEntry[] = [
         </strong>
         , no balance closeout fee and no minimum interest period. Because
         interest is calculated daily on what's outstanding, repaying early
-        reduces what you pay — you only pay interest for the days the balance
-        was outstanding. Repaid funds free up your limit to draw again later.
+        reduces what you pay. You only pay interest for the days the balance was
+        outstanding. Repaid funds free up your limit to draw again later.
       </>
     ),
   },
@@ -770,7 +767,7 @@ export const CREDIT_FAQS: FaqEntry[] = [
       <>
         We use a fixed-amount repayment schedule so your per-period commitment
         stays predictable. Drawing more <em>extends</em> the time you'll spend
-        repaying — it doesn't raise the repayment amount. You can always make
+        repaying. It doesn't raise the repayment amount. You can always make
         extra repayments to clear it sooner.
       </>
     ),
@@ -781,7 +778,7 @@ export const CREDIT_FAQS: FaqEntry[] = [
       "yes point of line of credit outstanding balance plus new draw within approved limit additional amounts no fee to draw daily interest",
     answer: (
       <>
-        Yes — that's the point of a line of credit. As long as your outstanding
+        Yes, that's the point of a line of credit. As long as your outstanding
         balance plus the new draw stays within your approved limit, you can draw
         additional amounts whenever you need. There's no fee to draw, only daily
         interest on the outstanding balance.
@@ -834,7 +831,7 @@ export const CREDIT_FAQS: FaqEntry[] = [
       "yes anytime repay outstanding balance full close account no closeout exit fee minimum interest period records retained 7 years credit data",
     answer: (
       <>
-        Yes, anytime — repay your outstanding balance in full, then ask us to
+        Yes, anytime. Repay your outstanding balance in full, then ask us to
         close the account. No closeout fee, no exit fee, no minimum interest
         period. We retain your records for the period required by law (typically
         7 years for credit data) and that's it.
@@ -849,7 +846,7 @@ export const CREDIT_FAQS: FaqEntry[] = [
       <>
         Your full terms are set out in your Credit Contract, with the exact
         amounts and timings for your specific limit. You'll see the contract
-        before you accept — never after.
+        before you accept, never after.
       </>
     ),
   },
@@ -864,7 +861,7 @@ export const SECURITY_FAQS: FaqEntry[] = [
       <>
         <strong className="text-text-primary">No.</strong> The bank connection
         used to assess your application is{" "}
-        <strong className="text-text-primary">read-only</strong> — we can view
+        <strong className="text-text-primary">read-only</strong>. We can view
         transaction history, but we can never withdraw or transfer funds.
         Repayments happen only through the direct-debit arrangement you
         authorise separately, on the schedule set out in your contract.
@@ -878,8 +875,8 @@ export const SECURITY_FAQS: FaqEntry[] = [
     answer: (
       <>
         Only to assess your application and operate your account, under the
-        Australian Privacy Principles. We collect what we need — identity,
-        income and expense history, credit information — and nothing we don't.{" "}
+        Australian Privacy Principles. We collect what we need (identity, income
+        and expense history, credit information) and nothing we don't.{" "}
         <strong className="text-text-primary">
           We never sell or rent your data
         </strong>{" "}
@@ -901,7 +898,7 @@ export const SECURITY_FAQS: FaqEntry[] = [
     answer: (
       <>
         With encryption in transit and at rest, layered access controls, and
-        continuous monitoring — all audited under our{" "}
+        continuous monitoring, all audited under our{" "}
         <strong className="text-text-primary">ISO 27001</strong> certification
         by Lloyd's Register.{" "}
         <Link
@@ -925,8 +922,8 @@ export const SECURITY_FAQS: FaqEntry[] = [
           We'll never ask for your full banking password, card PIN, or one-time
           codes
         </strong>{" "}
-        — by email, phone or text. If a message asking for those claims to be
-        from Faster, it isn't us; forward it to{" "}
+        whether by email, phone or text. If a message asking for those claims to
+        be from Faster, it isn't us; forward it to{" "}
         <a
           href="mailto:support@faster.com.au"
           className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -1002,7 +999,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
   {
     id: "security",
     label: "Security & privacy",
-    blurb: "How we protect your data — and what we can and can't do with it.",
+    blurb: "How we protect your data, and what we can and can't do with it.",
     icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
     faqs: SECURITY_FAQS,
   },

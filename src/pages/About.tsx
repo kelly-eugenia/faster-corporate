@@ -99,7 +99,7 @@ const REG_ROWS: {
     num: "ACL 569825",
     body: (
       <>
-        Bound by the National Consumer Credit Protection Act 2009 — the
+        Bound by the National Consumer Credit Protection Act 2009, the
         responsible-lending regime that requires us to assess every application
         against your individual circumstances.{" "}
         <a
@@ -143,7 +143,7 @@ const REG_ROWS: {
     ),
     title: "Compliant with Australian privacy law",
     num: "Privacy Act",
-    body: "Your personal and financial information is handled under the Australian Privacy Principles. We collect only what we need to assess and operate your account — and never sell it.",
+    body: "Your personal and financial information is handled under the Australian Privacy Principles. We collect only what we need to assess and operate your account, and never sell it.",
   },
 ];
 
@@ -202,7 +202,7 @@ const SEC_CARDS: {
       </>
     ),
     title: "Secure cloud infrastructure",
-    body: "We run on hardened, industry-standard cloud infrastructure designed to process applications safely and accurately — without trading off speed for security.",
+    body: "We run on hardened, industry-standard cloud infrastructure designed to process applications safely and accurately, without trading off speed for security.",
   },
   {
     icon: (
@@ -213,7 +213,7 @@ const SEC_CARDS: {
       />
     ),
     title: "Customer safety & education",
-    body: "We tell you how we'll contact you and what we'll never ask for — so you can spot anyone impersonating us. We'll never ask for your full banking password.",
+    body: "We tell you how we'll contact you and what we'll never ask for, so you can spot anyone impersonating us. We'll never ask for your full banking password.",
   },
 ];
 
@@ -269,10 +269,10 @@ export default function About() {
                 .
               </h1>
               <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[62ch] leading-[1.6] mb-[26px] mx-auto lg:mx-0">
-                Faster is an Australian digital credit provider with one product
-                — a short-term line of credit you draw from when you need it.
-                This page is who we are, the obligations we&apos;re held to, and
-                exactly how we protect the data you share with us.
+                Faster is an Australian digital credit provider with one
+                product: a short-term line of credit you draw from when you need
+                it. This page is who we are, the obligations we&apos;re held to,
+                and exactly how we protect the data you share with us.
               </p>
 
               <div className="flex flex-wrap gap-7 mt-8 pt-[26px] border-t border-bg-primary/12 text-center lg:text-left justify-center lg:justify-start">
@@ -323,9 +323,9 @@ export default function About() {
                 </p>
                 <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] mb-4 max-w-[54ch] mx-auto lg:mx-0">
                   Repay what you&apos;ve drawn and the balance is ready to use
-                  again — no new application every time. You only pay interest
-                  on the amount you&apos;ve actually drawn, for the days
-                  it&apos;s outstanding.
+                  again; no new application every time. You only pay interest on
+                  the amount you&apos;ve actually drawn, for the days it&apos;s
+                  outstanding.
                 </p>
 
                 <div className="flex flex-wrap gap-2.5 mt-6 justify-center lg:justify-start">
@@ -407,7 +407,7 @@ export default function About() {
               <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                 So instead of telling you we&apos;re &ldquo;simple, upfront and
                 responsible&rdquo;, here&apos;s the specific thing behind each
-                promise — the figure does the talking.
+                promise: the figure does the talking.
               </p>
             </div>
 
@@ -464,7 +464,7 @@ export default function About() {
                   (ABN 47 651 975 932), with credit provided under Australian
                   Credit Licence 569825 held by Lightspeed CashFaster Ventures
                   Pty Ltd. We&apos;re held to the responsible-lending
-                  obligations that apply across Australian credit — and each one
+                  obligations that apply across Australian credit, and each one
                   is independently verifiable, not just a claim on a page.
                 </p>
                 <p className="text-[clamp(14px,3.5vw,16px)] text-muted-primary leading-[1.7] m-0">
@@ -537,7 +537,7 @@ export default function About() {
               <p className="text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 m-0 leading-[1.6]">
                 As a digital-first credit provider, Faster is built on secure,
                 industry-standard technology to protect your personal
-                information, bank data, and account activity — at every step.
+                information, bank data, and account activity at every step.
               </p>
             </div>
 
@@ -640,8 +640,8 @@ export default function About() {
                 </h3>
                 <p className="text-[14.5px] text-bg-secondary/75 m-0 leading-[1.65]">
                   When you connect your bank account, access is{" "}
-                  <strong className="text-bg-primary">read-only</strong> — we
-                  can see the transaction history we need to assess your
+                  <strong className="text-bg-primary">read-only</strong>. We can
+                  see the transaction history we need to assess your
                   application, but we can never withdraw or move funds from your
                   account. Repayments only happen through the direct-debit
                   arrangement you authorise separately, on the schedule in your
@@ -677,8 +677,8 @@ export default function About() {
                     className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                   >
                     support@faster.com.au
-                  </a>{" "}
-                  — or start a chat with us during business hours.
+                  </a>
+                  , or start a chat with us during business hours.
                 </p>
                 <div className="mt-auto flex gap-x-3 gap-y-0 flex-wrap">
                   <a
@@ -702,8 +702,8 @@ export default function About() {
                 </div>
                 <div className="mt-[18px] pt-[18px] border-t border-border-default text-[13px] text-muted-secondary leading-[1.55]">
                   In financial difficulty? Call the National Debt Helpline on{" "}
-                  <strong className="text-accent">1800 007 007</strong> — free,
-                  independent and confidential.
+                  <strong className="text-accent">1800 007 007</strong> (free,
+                  independent and confidential).
                 </div>
               </div>
 
@@ -723,7 +723,7 @@ export default function About() {
                 </h3>
                 <p className="text-[15px] text-muted-secondary m-0 mb-[22px] leading-[1.55] md:max-w-[44ch]">
                   Every step from &ldquo;Apply Now&rdquo; to money in your
-                  account — who reviews what, how long each part takes, and what
+                  account: who reviews what, how long each part takes, and what
                   we check before we lend.
                 </p>
                 <div className="mt-auto flex gap-x-3 gap-y-0 flex-wrap">

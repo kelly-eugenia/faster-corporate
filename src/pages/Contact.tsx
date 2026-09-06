@@ -129,7 +129,7 @@ export default function Contact() {
         }
         ogDescription={
           seo?.ogDescription ||
-          "Email, live chat, or browse the FAQs. Real people, clear answers, within one business day — get in touch with our Faster team for any enquiries."
+          "Email, live chat, or browse the FAQs. Real people, clear answers, within one business day. Get in touch with our Faster team for any enquiries."
         }
         canonicalUrl={seo?.canonicalUrl}
       />
@@ -252,9 +252,8 @@ export default function Contact() {
                 <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.6] mb-4">
                   Faster is built and operated in Australia, and our support
                   team is too. Email us anytime and we&apos;ll get back to you
-                  within one business day — usually much sooner. For
-                  account-specific questions, the fastest route is a secure
-                  message once you&apos;re{" "}
+                  within one business day. For account-specific questions, the
+                  fastest route is a secure message once you&apos;re{" "}
                   <a
                     href="/login"
                     className="text-primary font-semibold border-b border-bg-secondary hover:border-primary transition-colors"
@@ -324,7 +323,7 @@ export default function Contact() {
                         card PIN, or one-time codes.
                       </strong>{" "}
                       If a message claiming to be Faster asks for those, it
-                      isn&apos;t us — forward it to{" "}
+                      isn&apos;t us. Forward it to{" "}
                       <a
                         href="mailto:support@faster.com.au"
                         className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
@@ -367,7 +366,7 @@ export default function Contact() {
                   <strong className="text-primary">
                     before your payment is due
                   </strong>{" "}
-                  and we&apos;ll work through a hardship plan with you — and
+                  and we&apos;ll work through a hardship plan with you, and
                   waive late and dishonour fees while we sort it out. You can
                   also get free, independent and confidential advice from the
                   National Debt Helpline.

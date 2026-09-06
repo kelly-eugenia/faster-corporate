@@ -49,13 +49,13 @@ const HOW_STEPS = [
       </>
     ),
     title: "Get your limit",
-    desc: "If approved, you'll receive a credit limit of up to $10,000 — the maximum you can draw at a time.",
+    desc: "If approved, you'll receive a credit limit of up to $10,000: the maximum you can draw at a time.",
   },
   {
     num: "03",
     icon: <path d="M12 5v14M5 12l7 7 7-7" />,
     title: "Draw when you need it",
-    desc: "Transfer funds from your limit to your bank account — same business day, with a clear repayment schedule.",
+    desc: "Transfer funds from your limit to your bank account (same business day), with a clear repayment schedule.",
   },
   {
     num: "04",
@@ -67,7 +67,7 @@ const HOW_STEPS = [
       />
     ),
     title: "Repay & reuse",
-    desc: "As you repay, your available balance refreshes. Draw again up to your limit — without a new application.",
+    desc: "As you repay, your available balance refreshes. Draw again up to your limit, without a new application.",
   },
 ];
 
@@ -100,7 +100,7 @@ const TRUST_ROWS: {
       <>
         Every application is reviewed against our lending criteria and your
         individual financial situation. If you're already in financial
-        difficulty, we won't lend — and we'll point you to the{" "}
+        difficulty, we won't lend, and we'll point you to the{" "}
         <a
           href="https://ndh.org.au"
           className="text-primary-light font-semibold border-b border-border-default hover:border-primary-light transition-colors"
@@ -130,7 +130,7 @@ const APP_FEATURES = [
   },
   {
     strong: "Repay early, anytime.",
-    text: " Extra repayments lower your interest — no penalty, no friction.",
+    text: " Extra repayments lower your interest. No penalty, no friction.",
   },
 ];
 
@@ -274,8 +274,8 @@ export default function Home() {
                       <svg viewBox="0 0 24 24" className="w-[16px] h-[16px]">
                         <defs>
                           <linearGradient id="halfstar">
-                            <stop offset="40%" stopColor="#00b67a" />
-                            <stop offset="40%" stopColor="#d6dae6" />
+                            <stop offset="35%" stopColor="#00b67a" />
+                            <stop offset="35%" stopColor="#d6dae6" />
                           </linearGradient>
                         </defs>
                         <path d="M0 0h24v24H0z" fill="url(#halfstar)" />
@@ -287,10 +287,10 @@ export default function Home() {
                     </div>
                     <div>
                       <div className="font-bold text-[13px] text-bg-primary leading-none">
-                        4.4 / 5
+                        4.3 / 5
                       </div>
                       <div className="text-[11px] text-border-default/60 mt-0.5">
-                        1,500+ Trustpilot reviews
+                        1,600+ Trustpilot reviews
                       </div>
                     </div>
                   </div>
@@ -462,8 +462,8 @@ export default function Home() {
                   provide a{" "}
                   <strong className="text-text-primary font-semibold">
                     flexible Line of Credit
-                  </strong>{" "}
-                  — a pre-approved limit you draw from when you need it. Repay,
+                  </strong>
+                  , a pre-approved limit you draw from when you need it. Repay,
                   and the balance is ready to use again. Most importantly, we
                   run it against specific obligations you can check, not just
                   claims.

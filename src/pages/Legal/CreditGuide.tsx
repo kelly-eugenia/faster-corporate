@@ -147,9 +147,12 @@ export default function CreditGuide() {
               <div className="space-y-4">
                 <p>
                   We will charge fees in relation to the provision of credit to
-                  you. The standard fee charged is an Establishment Fee (charged
-                  at the settlement of your loan). Along with a monthly account
-                  service fee. Additional fees may apply if you miss any
+                  you. The cost of your credit is interest, charged at 47% p.a.
+                  on your outstanding balance. We do not charge an establishment
+                  fee on your first loan. In specific circumstances, a fee of
+                  20% of your drawdown amount applies if we need to carry out a
+                  manual reassessment of your account. This never applies to
+                  your first loan. Additional fees may apply if you miss any
                   required loan repayments. Full details of these fees will be
                   disclosed in the credit contract issued to you on approval of
                   your loan application.

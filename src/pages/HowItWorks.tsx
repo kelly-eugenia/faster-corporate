@@ -36,7 +36,7 @@ const TIMELINE: TimelineStep[] = [
     who: "you",
     title: "Apply online",
     time: "~5 minutes",
-    lede: "A single online form covering who you are, how you earn, and what you're already paying out. No document uploads at this stage — just the form.",
+    lede: "A single online form covering who you are, how you earn, and what you're already paying out. No document uploads at this stage, just the form.",
     rows: [
       {
         k: "You'll need",
@@ -44,7 +44,7 @@ const TIMELINE: TimelineStep[] = [
       },
       {
         k: "No impact on",
-        v: "Your credit score — we don't run a credit check at any point, so applying with us never affects your credit score.",
+        v: "Your credit score: applying with us doesn't affect your credit score.",
       },
     ],
   },
@@ -52,8 +52,8 @@ const TIMELINE: TimelineStep[] = [
     num: "02",
     who: "us",
     title: "ID + bank verification",
-    time: "Instant — 2 minutes",
-    lede: "We match your ID to government records and connect securely to your bank account to read 90 days of statements. You authorise this with your normal banking login — we never see your password.",
+    time: "Instant (2 minutes)",
+    lede: "We match your ID to government records and connect securely to your bank account to read 90 days of statements. You authorise this with your normal banking login. We never see your password.",
     rows: [
       {
         k: "How",
@@ -62,14 +62,14 @@ const TIMELINE: TimelineStep[] = [
             <strong className="text-text-primary font-semibold">
               Open-banking partner (CDR-accredited).
             </strong>{" "}
-            Read-only access. We see incoming and outgoing transactions — never
+            Read-only access. We see incoming and outgoing transactions, never
             the ability to move money.
           </>
         ),
       },
       {
         k: "If something fails",
-        v: "You'll be asked to retry or upload a PDF statement — no automatic decline.",
+        v: "You'll be asked to retry or upload a PDF statement, no automatic decline.",
       },
     ],
   },
@@ -86,7 +86,7 @@ const TIMELINE: TimelineStep[] = [
       },
       {
         k: "When they might contact you",
-        v: "If something looks inconsistent — they'd rather ask for more verification through email than a wrong decline.",
+        v: "If something looks inconsistent, they'd rather ask for more verification through email than a wrong decline.",
       },
     ],
     foot: (
@@ -130,18 +130,18 @@ const TIMELINE: TimelineStep[] = [
       },
       {
         k: "Declined",
-        v: "We explain the reason and where to go next — including the National Debt Helpline if hardship is the issue.",
+        v: "We explain the reason and where to go next, including the National Debt Helpline if hardship is the issue.",
       },
       {
         k: "Limit smaller than asked",
-        v: "If $5k doesn't fit your situation but $2k does, you'll be offered $2k — never silently approved at a higher figure.",
+        v: "If $5k doesn't fit your situation but $2k does, you'll be offered $2k, never silently approved at a higher figure.",
       },
     ],
   },
   {
     num: "05",
     who: "you",
-    title: "Review the credit contract — every fee in writing",
+    title: "Review the credit contract, every fee in writing",
     time: "Your time · no deadline",
     lede: (
       <>
@@ -153,8 +153,8 @@ const TIMELINE: TimelineStep[] = [
           className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
         >
           Fees page
-        </Link>{" "}
-        — recomputed for you.
+        </Link>
+        , recomputed for you.
       </>
     ),
     rows: [
@@ -164,7 +164,7 @@ const TIMELINE: TimelineStep[] = [
       },
       {
         k: "If you accept",
-        v: "You sign electronically. The line of credit is then live — but no fees apply until you draw.",
+        v: "You sign electronically. The line of credit is then live, but no fees apply until you draw.",
       },
     ],
   },
@@ -173,7 +173,7 @@ const TIMELINE: TimelineStep[] = [
     who: "you",
     title: "Your first drawdown",
     time: "Funds usually arrive the same business day",
-    lede: "You choose how much to draw (any amount, up to your limit) and which bank account to send it to. There's no fee to draw down — interest simply starts accruing on the amount you've drawn from this moment.",
+    lede: "You choose how much to draw (any amount, up to your limit) and which bank account to send it to. There's no fee to draw down; interest simply starts accruing on the amount you've drawn from this moment.",
     rows: [
       {
         k: "Cut-off",
@@ -218,16 +218,16 @@ const ONGOING_CARDS = [
       />
     ),
     title: "Repay on your schedule",
-    body: "Weekly, fortnightly or monthly direct debit from your nominated account. Your per-period amount is fixed — drawing more extends the term, not the payment.",
+    body: "Weekly, fortnightly or monthly direct debit from your nominated account. Your per-period amount is fixed: drawing more extends the term, not the payment.",
   },
   {
     icon: <path d="M12 5v14M5 12h14" />,
     title: "Re-draw without re-applying",
-    body: "Once you've repaid against your limit, you can draw again — instantly, against the same limit, with no new application and no drawdown fee.",
+    body: "Once you've repaid against your limit, you can draw again: instantly, against the same limit, with no new application and no fee in most cases, unless a manual reassessment of your account is needed.",
   },
   {
     icon: <path d="M5 12l5 5L20 7" />,
-    title: "Repay early, anytime — no penalty",
+    title: "Repay early, anytime with no penalty",
     body: "Pay extra, pay it off, or close the line entirely. You only pay interest for the days your balance was outstanding. Nothing else.",
   },
 ];
@@ -235,7 +235,7 @@ const ONGOING_CARDS = [
 const CHECK_ITEMS = [
   {
     title: "Regular income, 90 days minimum",
-    body: "Salary, wages, government payments, contracting income — we accept all of it, but it has to be a pattern, not a one-off.",
+    body: "Salary, wages, government payments, contracting income: we accept all of it, but it has to be a pattern, not a one-off.",
   },
   {
     title: "Committed expenses fit alongside the repayment",
@@ -243,11 +243,11 @@ const CHECK_ITEMS = [
   },
   {
     title: "No active hardship indicators",
-    body: "Dishonoured or missed payments, gambling spikes, payday-loan rollovers, or a recent default. Any of these and we'll decline — and point you to free financial counselling.",
+    body: "Dishonoured or missed payments, gambling spikes, payday-loan rollovers, or a recent default. Any of these and we'll decline, and point you to free financial counselling.",
   },
   {
     title: "Identity matches government records",
-    body: "Driver's licence, passport or Medicare card — checked against ASIC's Document Verification Service. Confirms you're you, prevents fraud against you.",
+    body: "Driver's licence, passport or Medicare card, checked against ASIC's Document Verification Service. Confirms you're you, prevents fraud against you.",
   },
 ];
 
@@ -279,7 +279,7 @@ const PROTECT_CARDS: {
   {
     badge: "ACL 569825",
     title: "Responsible lending, every application",
-    body: "Bound by Chapter 3 of the National Consumer Credit Protection Act 2009 — the responsible-lending obligations that apply across Australian credit. Our credit team reviews applications before we lend.",
+    body: "Bound by Chapter 3 of the National Consumer Credit Protection Act 2009, the responsible-lending obligations that apply across Australian credit. Our credit team reviews applications before we lend.",
     linkLabel: "Verify on ASIC",
     href: "https://connectonline.asic.gov.au/RegistrySearch/",
     external: true,
@@ -297,7 +297,7 @@ const PROTECT_CARDS: {
   {
     badge: "AFCA member",
     title: "Independent dispute resolution",
-    body: "If something goes wrong and we can't resolve it together, you can escalate — free of charge — to the Australian Financial Complaints Authority. Their decisions are binding on us.",
+    body: "If something goes wrong and we can't resolve it together, you can escalate (free of charge) to the Australian Financial Complaints Authority. Their decisions are binding on us.",
     linkLabel: "Visit AFCA",
     href: "https://www.afca.org.au",
     external: true,
@@ -305,7 +305,7 @@ const PROTECT_CARDS: {
   },
   {
     badge: "Hardship",
-    title: "Hardship arrangements — at no extra cost",
+    title: "Hardship arrangements, at no extra cost",
     body: "If your situation changes and you can't make a payment, contact us before it's due. We'll work with you on a revised arrangement, and reduce or pause payments where appropriate.",
     linkLabel: "Apply for hardship",
     href: "/hardship",
@@ -322,7 +322,7 @@ const PROTECT_CARDS: {
   },
   {
     badge: "Free help",
-    title: "National Debt Helpline — 1800 007 007",
+    title: "National Debt Helpline (1800 007 007)",
     body: "If a Faster line of credit isn't right for you, or you're already struggling with other debt, the NDH offers free, independent, confidential financial counselling. We'll point you there ourselves where appropriate.",
     linkLabel: "Call NDH",
     href: "https://ndh.org.au",
@@ -348,9 +348,9 @@ const ELIG_ITEMS: { body: React.ReactNode; source: string }[] = [
       <>
         A current{" "}
         <strong className="text-text-primary font-semibold">
-          government-issued ID
+          government-issued ID:
         </strong>{" "}
-        — driver's licence, passport or Medicare card
+        driver's licence, passport or Medicare card
       </>
     ),
     source: "For DVS",
@@ -444,9 +444,9 @@ export default function HowItWorks() {
                 , step by step.
               </h1>
               <p className="text-[16px] sm:text-[18px] text-bg-secondary/80 max-w-[60ch] leading-[1.6] mx-auto lg:mx-0">
-                Every stage of a Faster Line of Credit — what you do, what we
-                do, and how long each part actually takes. Real timing,
-                including the slow bits.
+                Every stage of a Faster Line of Credit: what you do, what we do,
+                and how long each part actually takes. Real timing, including
+                the slow bits.
               </p>
             </div>
           </motion.div>
@@ -648,7 +648,7 @@ export default function HowItWorks() {
                   </h2>
                   <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
                     The same checks every bank is obliged to make under the
-                    National Consumer Credit Protection Act — but completed
+                    National Consumer Credit Protection Act, but completed
                     inside hours, not weeks.
                   </p>
                 </div>
@@ -687,7 +687,7 @@ export default function HowItWorks() {
                     If we lend, we have to be confident you can repay{" "}
                     <em>without substantial hardship</em>.
                   </strong>{" "}
-                  If the numbers don't support that, we decline — and recommend
+                  If the numbers don't support that, we decline, and recommend
                   the{" "}
                   <a
                     href="https://ndh.org.au"
@@ -726,8 +726,8 @@ export default function HowItWorks() {
                   commit.
                 </h2>
                 <p className="mx-auto lg:mx-0 text-[clamp(16px,3.5vw,18px)] text-bg-secondary/70 mb-6 leading-[1.55] max-w-[52ch] lg:max-w-[44ch]">
-                  You see these on the Fees page, and again — in dollar amounts
-                  for your specific limit — in your credit contract before you
+                  You see these on the Fees page, and again (in dollar amounts
+                  for your specific limit) in your credit contract before you
                   sign.
                 </p>
                 <Link to="/fees" className="btn btn-primary group">
@@ -801,8 +801,8 @@ export default function HowItWorks() {
                 What you can rely on, in writing.
               </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 leading-[1.6]">
-                Every Faster customer is covered by these — they're not
-                promises, they're regulated obligations we're bound by.
+                Every Faster customer is covered by these; they're not promises,
+                they're regulated obligations we're bound by.
               </p>
             </div>
 
@@ -946,7 +946,7 @@ export default function HowItWorks() {
           className="section-padding bg-bg-primary"
         >
           <div className="w-full max-w-[1440px] mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-14 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.18fr] gap-8 lg:gap-14 items-center">
               <div className="text-center lg:text-left mx-auto">
                 <Pill text="Eligibility" className="mb-[18px]" />
                 <h2
@@ -956,7 +956,7 @@ export default function HowItWorks() {
                   What you need before you start.
                 </h2>
                 <p className="text-[clamp(16px,3.5vw,18px)] text-muted-secondary m-0 max-w-[44ch] leading-[1.55]">
-                  Eligibility doesn't guarantee approval — that depends on the
+                  Eligibility doesn't guarantee approval; that depends on the
                   responsible-lending assessment. But if you don't meet these,
                   the application won't proceed.
                 </p>
@@ -1006,8 +1006,8 @@ export default function HowItWorks() {
                     className="text-primary font-semibold border-b border-border-default hover:border-primary transition-colors"
                   >
                     National Debt Helpline on 1800 007 007
-                  </a>{" "}
-                  — they're free, confidential, and not affiliated with us.
+                  </a>
+                  , they're free, confidential, and not affiliated with us.
                 </div>
               </div>
             </div>
@@ -1023,7 +1023,7 @@ export default function HowItWorks() {
         >
           <CTA
             text="Now you've seen the steps."
-            desc="You'll see the same flow — and the same fees — again in your
+            desc="You'll see the same flow (and the same fees) again in your
                   credit contract before you commit."
           />
         </motion.section>
