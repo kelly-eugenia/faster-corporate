@@ -6,21 +6,28 @@ type SeoProps = {
   ogTitle?: string;
   ogDescription?: string;
   canonicalUrl?: string;
+  /** When true, tells search engines not to index this page (e.g. soft-404s,
+   * loading/empty states). Links are still followed. Defaults to indexable. */
+  noindex?: boolean;
 };
 
-function setMeta(selector: string, attr: string, value: string) {
-  let el = document.querySelector(selector) as HTMLMetaElement | null;
+const BASE_URL = "https://faster.com.au";
+
+// Reused whenever a page/CMS entry doesn't supply its own description,
+// so we never write an empty description
+const DEFAULT_DESCRIPTION =
+  "Faster.com.au is your go-to fast, flexible Line-of-Credit in Australia";
+
+function setMeta(attr: "name" | "property", key: string, value: string) {
+  let el = document.querySelector(
+    `meta[${attr}="${key}"]`,
+  ) as HTMLMetaElement | null;
   if (!el) {
     el = document.createElement("meta");
-    const [attrName, attrVal] = selector
-      .replace("meta[", "")
-      .replace("]", "")
-      .split("=")
-      .map((s) => s.replace(/"/g, ""));
-    el.setAttribute(attrName, attrVal);
+    el.setAttribute(attr, key);
     document.head.appendChild(el);
   }
-  el.setAttribute(attr, value);
+  el.setAttribute("content", value);
 }
 
 function setCanonical(url: string) {
@@ -41,27 +48,40 @@ export default function SEO({
   ogTitle,
   ogDescription,
   canonicalUrl,
+  noindex = false,
 }: SeoProps) {
   useEffect(() => {
     // Title
     document.title = title;
 
-    // Meta description
-    if (description)
-      setMeta('meta[name="description"]', "content", description);
+    const desc = description ?? DEFAULT_DESCRIPTION;
+    setMeta("name", "description", desc);
+
+    // Canonical — always set, falling back to the current URL (without
+    // query string/hash, pinned to the real canonical domain rather than
+    // whatever host the visitor arrived on) when the caller/CMS doesn't
+    // supply one, so a canonical tag is never missing.
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    const canonical = canonicalUrl || `${BASE_URL}${path}`;
+    setCanonical(canonical);
 
     // OG tags
-    setMeta('meta[property="og:title"]', "content", ogTitle ?? title);
-    setMeta(
-      'meta[property="og:description"]',
-      "content",
-      ogDescription ?? description ?? "",
-    );
-    setMeta('meta[property="og:type"]', "content", "website");
+    setMeta("property", "og:title", ogTitle ?? title);
+    setMeta("property", "og:description", ogDescription ?? desc);
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:url", canonical);
+    setMeta("property", "og:site_name", "Faster");
+    setMeta("property", "og:locale", "en_AU");
 
-    // Canonical
-    if (canonicalUrl) setCanonical(canonicalUrl);
-  }, [title, description, ogTitle, ogDescription, canonicalUrl]);
+    // Twitter Card tags (image is left to the static fallback in index.html —
+    // there's no per-page image source yet)
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", ogTitle ?? title);
+    setMeta("name", "twitter:description", ogDescription ?? desc);
+
+    // Robots
+    setMeta("name", "robots", noindex ? "noindex, follow" : "index, follow");
+  }, [title, description, ogTitle, ogDescription, canonicalUrl, noindex]);
 
   return null;
 }

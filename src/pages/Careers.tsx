@@ -186,9 +186,9 @@ export default function Careers() {
                 className="order-1 lg:order-2 rounded-2xl p-0 lg:px-10 lg:py-10 content-center lg:text-left text-center"
               >
                 <Pill text="About the team" className="mb-[18px]" />
-                <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary">
+                <h2 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mb-5 text-text-primary">
                   Who we are
-                </h1>
+                </h2>
                 <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary mb-4 leading-[1.65]">
                   Faster is a forward-thinking financial technology company
                   dedicated to advancing credit inclusion – giving more people{" "}
@@ -232,9 +232,9 @@ export default function Careers() {
               <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-10 items-end mb-8 lg:mb-12 lg:text-left text-center">
                 <div>
                   <Pill text="Our values" />
-                  <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-6 text-text-primary">
+                  <h2 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-6 text-text-primary">
                     What we believe in
-                  </h1>
+                  </h2>
                 </div>
               </div>
 
@@ -271,9 +271,9 @@ export default function Careers() {
         >
           <div className="mb-8 sm:mb-12 md:mb-14 content-center text-center">
             <Pill text="So..." />
-            <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
+            <h2 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
               Why work here?
-            </h1>
+            </h2>
             <p className="text-[clamp(16px,3.5vw,18px)] text-muted-primary leading-[1.65]">
               Joining Faster means growing your career in a data-driven fintech
               shaping how people access credit.
@@ -299,7 +299,9 @@ export default function Careers() {
                         {perk.icon}
                       </svg>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl mb-2">{perk.title}</h2>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
+                      {perk.title}
+                    </h3>
                     <p>{perk.desc}</p>
                   </div>
                 ))}
@@ -323,7 +325,9 @@ export default function Careers() {
                       {perk.icon}
                     </svg>
                   </div>
-                  <h2 className="text-2xl sm:text-3xl">{perk.title}</h2>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
+                    {perk.title}
+                  </h3>
                   <p>{perk.desc}</p>
                 </div>
               ))}
@@ -343,9 +347,9 @@ export default function Careers() {
           <div className="w-full max-w-[1440px] px-6 mx-auto">
             <div className="text-center md:px-6 mb-8 sm:mb-12 md:mb-14">
               <Pill text="We're hiring" variant="white" />
-              <h1 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
+              <h2 className="text-[clamp(32px,3.8vw,46px)] leading-[1.05] tracking-[-0.025em] font-bold mt-[18px] mb-5 text-text-primary">
                 Open Roles
-              </h1>
+              </h2>
               <p className="text-[clamp(16px,3.5vw,18px)] max-w-[64ch] mx-auto text-muted-primary leading-[1.65] mb-4">
                 We’re growing across multiple disciplines and are interested in
                 people who care about fintech and doing credit the right way.

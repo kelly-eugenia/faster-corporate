@@ -10,21 +10,51 @@ export interface Job {
   roleDescription: string;
   qualifications: string[];
   status: "open" | "closed";
+  /** ISO timestamp the entry was created — used for JobPosting structured data. */
+  postedAt: string;
 }
 
-function toJob(fields: any): Job | null {
-  if (!fields?.jobId || !fields?.role) return null;
+// All of these are Short/Long Text fields in Contentful today, so the SDK
+// already hands back plain strings — but nothing here is type-checked at
+// compile time (fields/sys arrive as `any`), so a future field-type change,
+// a missing field, or a stray non-string entry in `qualifications` would
+// otherwise pass straight through. The last one isn't just a silent
+// meta-tag issue like in useSEO — rendering a non-string qualification as a
+// React child (JobDesc.tsx's `<li>{q}</li>`) would throw and take down the
+// whole page.
+function asString(value: unknown): string | undefined {
+  return typeof value === "string" && value.trim() ? value : undefined;
+}
+
+function asStringArray(value: unknown): string[] {
+  return Array.isArray(value)
+    ? value.filter((v): v is string => typeof v === "string")
+    : [];
+}
+
+function toJob(fields: unknown, sys?: unknown): Job | null {
+  if (typeof fields !== "object" || fields === null) return null;
+  const record = fields as Record<string, unknown>;
+
+  const jobId = asString(record.jobId);
+  const role = asString(record.role);
+  if (!jobId || !role) return null;
+
+  const createdAt =
+    typeof sys === "object" && sys !== null
+      ? asString((sys as Record<string, unknown>).createdAt)
+      : undefined;
+
   return {
-    jobId: fields.jobId,
-    role: fields.role,
-    type: fields.type ?? "",
-    location: fields.location ?? "",
-    applyUrl: fields.applyUrl ?? "",
-    roleDescription: fields.roleDescription ?? "",
-    qualifications: Array.isArray(fields.qualifications)
-      ? fields.qualifications
-      : [],
-    status: fields.status ?? "open",
+    jobId,
+    role,
+    type: asString(record.type) ?? "",
+    location: asString(record.location) ?? "",
+    applyUrl: asString(record.applyUrl) ?? "",
+    roleDescription: asString(record.roleDescription) ?? "",
+    qualifications: asStringArray(record.qualifications),
+    status: record.status === "closed" ? "closed" : "open",
+    postedAt: createdAt ?? new Date().toISOString(),
   };
 }
 
@@ -42,7 +72,9 @@ export function useJobs() {
       })
       .then((res) => {
         setJobs(
-          res.items.map((item) => toJob(item.fields)).filter(Boolean) as Job[],
+          res.items
+            .map((item) => toJob(item.fields, item.sys))
+            .filter(Boolean) as Job[],
         );
       })
       .catch(() => {
@@ -73,7 +105,7 @@ export function useJob(jobId: string) {
         limit: 1,
       })
       .then((res) => {
-        setJob(toJob(res.items[0]?.fields));
+        setJob(toJob(res.items[0]?.fields, res.items[0]?.sys));
       })
       .catch(() => {
         setJob(null);

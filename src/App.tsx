@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./utils/ScrollToTop";
 import ScrollToSection from "./utils/ScrollToSection";
@@ -21,6 +21,7 @@ import RefundPolicy from "./pages/Legal/RefundPolicy";
 import CreditGuide from "./pages/Legal/CreditGuide";
 
 import ComingSoon from "./pages/ComingSoon";
+import NotFound from "./pages/NotFound";
 
 import "./App.css";
 import "./index.css";
@@ -35,7 +36,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/home" element={<Home />}></Route>
+        <Route path="/home" element={<Navigate to="/" replace />}></Route>
         <Route path="/how-it-works" element={<HowItWorks />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/fees" element={<Fees />}></Route>
@@ -51,7 +52,10 @@ export default function App() {
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/credit-guide" element={<CreditGuide />} />
 
-        <Route path="*" element={<ComingSoon />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
+        <Route path="/apply" element={<Navigate to="/coming-soon" replace />} />
+        <Route path="/login" element={<Navigate to="/coming-soon" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

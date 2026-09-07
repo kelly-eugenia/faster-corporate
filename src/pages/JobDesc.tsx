@@ -3,7 +3,19 @@ import { useParams, Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import NotFound from "./NotFound";
 import { useJob } from "../hooks/useJobs";
+
+// Contentful's `type` field is itself a constrained enum with exactly these
+// values — mapped to schema.org's required JobPosting employmentType enum.
+// "OTHER" is a defensive fallback only, in case the field definition changes.
+const EMPLOYMENT_TYPE: Record<string, string> = {
+  "Full-time": "FULL_TIME",
+  "Part-time": "PART_TIME",
+  Contract: "CONTRACTOR",
+  Casual: "TEMPORARY",
+  Internship: "INTERN",
+};
 
 // Shared company boilerplate shown above every role's description
 const ABOUT_FASTER = `Faster is a forward-thinking financial technology company dedicated to
@@ -23,7 +35,7 @@ export default function JobDesc() {
   if (loading) {
     return (
       <>
-        <SEO title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au" />
+        <SEO title="Loading role... | Faster.com.au" />
         <NavBar />
         <div className="w-full max-w-[1440px] px-6 mx-auto">
           <section className="py-24">
@@ -37,41 +49,62 @@ export default function JobDesc() {
     );
   }
 
+  // Invalid jobId, or a real jobId that's closed/removed - treat like a broken link
   if (!job) {
-    return (
-      <>
-        <SEO
-          title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
-          description="Explore this role at Faster and see how you’ll help grow a fintech platform focused on fair credit, strong technology, and customer outcomes."
-        />
-
-        <NavBar />
-
-        <div className="w-full max-w-[1440px] px-6 mx-auto">
-          <section className="py-24">
-            <div className="py-6">
-              <Link
-                to="/careers#open-roles"
-                className="text-lg font-medium text-text-primary/70 hover:text-primary"
-              >
-                ← Back to open roles
-              </Link>
-            </div>
-            <p className="text-lg md:text-xl mt-12 text-text-primary">
-              Job not found.
-            </p>
-          </section>
-        </div>
-        <Footer />
-      </>
-    );
+    return <NotFound />;
   }
+
+  const jobTitle = `${job.role} | Careers at Faster`;
+  const jobDescription = job.roleDescription
+    ? job.roleDescription.slice(0, 155).trim() +
+      (job.roleDescription.length > 155 ? "…" : "")
+    : `Apply for the ${job.role} role at Faster, a fintech building fair, fast credit for Australians.`;
+  const jobCanonicalUrl = `https://faster.com.au/careers/${job.jobId}`;
+  const jobPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: job.role,
+    description: job.roleDescription || jobDescription,
+    datePosted: job.postedAt,
+    employmentType: EMPLOYMENT_TYPE[job.type] ?? "OTHER",
+    identifier: {
+      "@type": "PropertyValue",
+      name: "Faster",
+      value: job.jobId,
+    },
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Faster",
+      sameAs: "https://faster.com.au",
+      logo: "https://faster.com.au/logo-512.png",
+    },
+    ...(job.location
+      ? {
+          jobLocation: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: job.location,
+              addressCountry: "AU",
+            },
+          },
+        }
+      : {
+          jobLocationType: "TELECOMMUTE",
+          applicantLocationRequirements: { "@type": "Country", name: "AU" },
+        }),
+  };
 
   return (
     <>
       <SEO
-        title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au"
-        description="Explore this role at Faster and see how you’ll help grow a fintech platform focused on fair credit, strong technology, and customer outcomes."
+        title={jobTitle}
+        description={jobDescription}
+        canonicalUrl={jobCanonicalUrl}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
       />
 
       <NavBar />
@@ -151,19 +184,19 @@ export default function JobDesc() {
 
           <section className="xl:max-w-[1920px] max-w-6xl mb-6 md:mb-12">
             <div className="text-lg space-y-4">
-              <p className="font-bold text-2xl">About Faster</p>
+              <h2 className="font-bold text-2xl">About Faster</h2>
               {ABOUT_FASTER.split("\n\n").map((paragraph, i) => (
                 <p key={i}>{paragraph.replace(/\n/g, " ")}</p>
               ))}
               <br />
-              <p className="font-bold text-2xl">Role Description</p>
+              <h2 className="font-bold text-2xl">Role Description</h2>
               {job.roleDescription.split("\n\n").map((paragraph, i) => (
                 <p key={i}>{paragraph.replace(/\n/g, " ")}</p>
               ))}
               {job.qualifications.length > 0 && (
                 <>
                   <br />
-                  <p className="font-bold text-2xl">Qualifications</p>
+                  <h2 className="font-bold text-2xl">Qualifications</h2>
                   <ul className="text-text-primary list-disc list-inside">
                     {job.qualifications.map((q, i) => (
                       <li key={i}>{q}</li>

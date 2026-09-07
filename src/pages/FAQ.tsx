@@ -13,6 +13,39 @@ import { type FaqEntry, FAQ_GROUPS } from "../utils/faqs";
 
 import "../App.css";
 
+// ─── Structured data helpers ───────────────────────────────────────────────────
+
+// FAQ answers are JSX (they can contain <Link>s, etc.) — flatten to plain
+// text for JSON-LD without rendering (avoids needing a Router context).
+function nodeToText(node: React.ReactNode): string {
+  if (node === null || node === undefined || typeof node === "boolean")
+    return "";
+  if (typeof node === "string" || typeof node === "number")
+    return String(node);
+  if (Array.isArray(node)) return node.map(nodeToText).join(" ");
+  if (React.isValidElement(node)) {
+    const props = node.props as { children?: React.ReactNode };
+    return nodeToText(props.children);
+  }
+  return "";
+}
+
+function buildFaqPageJsonLd(faqs: FaqEntry[]) {
+  if (faqs.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: nodeToText(f.answer).replace(/\s+/g, " ").trim(),
+      },
+    })),
+  };
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function FAQ() {
@@ -41,6 +74,14 @@ export default function FAQ() {
 
   const totalMatches = searchResults.length;
 
+  // Mirror whatever FAQs are actually rendered on the page right now, so the
+  // structured data never claims content that isn't visible in the DOM.
+  const visibleFaqs = searching ? searchResults : activeGroup.faqs;
+  const faqPageJsonLd = useMemo(
+    () => buildFaqPageJsonLd(visibleFaqs),
+    [visibleFaqs],
+  );
+
   return (
     <>
       <SEO
@@ -50,7 +91,7 @@ export default function FAQ() {
         }
         description={
           seo?.description ||
-          "Answers about applying and approval, your Faster credit, fees and security — how much you can borrow, how interest works, and whether applying affects your credit score."
+          "Answers on applying and approval, how much you can borrow, interest and fees, keeping your data secure, and your credit score."
         }
         ogTitle={
           seo?.ogTitle ||
@@ -62,6 +103,12 @@ export default function FAQ() {
         }
         canonicalUrl={seo?.canonicalUrl}
       />
+      {faqPageJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd) }}
+        />
+      )}
 
       <div className="font-sans antialiased text-text-primary bg-bg-primary">
         <NavBar />

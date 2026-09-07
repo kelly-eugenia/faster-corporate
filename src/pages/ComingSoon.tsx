@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import SEO from "../components/SEO";
+import { useSEO } from "../hooks/useSEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -11,14 +12,21 @@ import Logo from "../assets/lettermark.svg";
 import "../App.css";
 
 export default function ComingSoon() {
+  const seo = useSEO("coming-soon");
   const hasSubmittedRef = useRef(false);
   const [submitted, setSubmitted] = useState(false);
 
   return (
     <>
       <SEO
-        title="Applications Opening Soon | Faster.com.au"
-        description="Faster.com.au applications are launching soon. Get notified to access our flexible Line of Credit designed for transparency and control."
+        title={seo?.title || "Applications Opening Soon | Faster.com.au"}
+        description={
+          seo?.description ||
+          "Faster.com.au applications are launching soon. Get notified to access our flexible Line of Credit designed for transparency and control."
+        }
+        ogTitle={seo?.ogTitle}
+        ogDescription={seo?.ogDescription}
+        canonicalUrl={seo?.canonicalUrl}
       />
 
       <NavBar />
@@ -111,7 +119,7 @@ export default function ComingSoon() {
             </div>
 
             <Link
-              to="/home"
+              to="/"
               className=" text-bg-secondary/70 text-lg font-medium hover:underline"
             >
               ← Back to Home

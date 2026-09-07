@@ -35,9 +35,9 @@ export default function PrivacyPolicy() {
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl">
                 Faster.com.au Privacy Policy
-              </h1>
+              </h2>
               <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
@@ -54,7 +54,7 @@ export default function PrivacyPolicy() {
             </div>
             <hr />
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">Introduction</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">Introduction</h2>
             <div className="space-y-4">
               <p className="font-bold">
                 Faster Financial Group Pty Ltd (T/A Faster.com.au)
@@ -75,7 +75,7 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">Pseudonyms</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">Pseudonyms</h2>
             <div className="space-y-4">
               <p>
                 You are not required to provide us with your name or any
@@ -87,9 +87,9 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               The kinds of personal information we collect
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 By accessing this website or otherwise dealing with us you agree
@@ -168,9 +168,9 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               How we collect your personal information
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We may collect personal information about you from your visit to
@@ -222,9 +222,9 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               How we hold your personal information
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We use our best endeavours and take all reasonable steps to
@@ -256,9 +256,9 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               Disclosure to Credit Reporting and Verification Services
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We may share your personal and credit-related information with
@@ -356,9 +356,9 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               Whether we supply your personal information to overseas recipients
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We supply your personal information to overseas recipients as
@@ -369,9 +369,9 @@ export default function PrivacyPolicy() {
               {/* ??? */}
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               How you may access your personal information held by us
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 You may request access to your personal, sensitive and credit
@@ -408,10 +408,10 @@ export default function PrivacyPolicy() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               How you may correct any personal information we hold about you
               which is incorrect
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 If you believe any personal information which we hold about you
@@ -424,10 +424,10 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               How you may complain about how we deal with your personal
               information
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 If you are not satisfied with the reasons referred to above or
@@ -465,9 +465,9 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               External Dispute Resolution
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We are a member of the Australian Financial Complaints Authority
@@ -505,9 +505,9 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               Changes to this Policy
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 From time to time, we may make changes to this Privacy Policy
@@ -526,9 +526,9 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               Acknowledgment and Consent
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p className="font-bold">
                 1. The Lender may use and exchange my customer data with other

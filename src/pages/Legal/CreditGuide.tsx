@@ -35,9 +35,9 @@ export default function CreditGuide() {
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl">
                 Faster.com.au Credit Guide
-              </h1>
+              </h2>
               <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
@@ -62,7 +62,7 @@ export default function CreditGuide() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">About Us</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">About Us</h2>
             <div className="space-y-4">
               <p>
                 We are a licensed credit provider under the National Consumer
@@ -96,13 +96,13 @@ export default function CreditGuide() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               Our Obligations and Your Rights
-            </h1>
+            </h2>
             <div className="space-y-4">
-              <h1 className="text-2xl">
+              <h3 className="text-2xl text-text-primary font-bold">
                 Assessment of Unsuitability for a Credit Contract
-              </h1>
+              </h3>
               <div className="space-y-4">
                 <p>
                   As Faster.com.au is a responsible lender, we have certain
@@ -129,7 +129,9 @@ export default function CreditGuide() {
                 </p>
               </div>
 
-              <h1 className="text-2xl">Requesting a Copy of Our Assessment</h1>
+              <h3 className="text-2xl text-text-primary font-bold">
+                Requesting a Copy of Our Assessment
+              </h3>
               <div className="space-y-4">
                 <p>
                   At any point before or within 7 years of the date of the
@@ -143,7 +145,9 @@ export default function CreditGuide() {
                 </p>
               </div>
 
-              <h1 className="text-2xl">Charges and Fees</h1>
+              <h3 className="text-2xl text-text-primary font-bold">
+                Charges and Fees
+              </h3>
               <div className="space-y-4">
                 <p>
                   We will charge fees in relation to the provision of credit to
@@ -159,7 +163,9 @@ export default function CreditGuide() {
                 </p>
               </div>
 
-              <h1 className="text-2xl">Complaints or Disputes</h1>
+              <h3 className="text-2xl text-text-primary font-bold">
+                Complaints or Disputes
+              </h3>
               <div className="space-y-4">
                 <p>
                   If you have any concerns or complaints about our services,
@@ -192,7 +198,9 @@ export default function CreditGuide() {
                 </ul>
               </div>
 
-              <h1 className="text-2xl">Keeping You Updated</h1>
+              <h3 className="text-2xl text-text-primary font-bold">
+                Keeping You Updated
+              </h3>
               <div className="space-y-4">
                 <p>
                   Upon receipt of your complaint, our complaints team will
@@ -209,7 +217,9 @@ export default function CreditGuide() {
                 </p>
               </div>
 
-              <h1 className="text-2xl">Still Not Happy</h1>
+              <h3 className="text-2xl text-text-primary font-bold">
+                Still Not Happy
+              </h3>
               <div className="space-y-4">
                 <p>
                   If you are not satisfied with the outcome of our complaint
@@ -248,7 +258,7 @@ export default function CreditGuide() {
               </div>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">Privacy</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">Privacy</h2>
             <div className="space-y-4">
               <p>
                 In order to provide our services, we will need to collect your
@@ -275,7 +285,7 @@ export default function CreditGuide() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">Payments</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">Payments</h2>
             <div className="space-y-4">
               <p>
                 We ONLY accept the following payment methods for repayment of

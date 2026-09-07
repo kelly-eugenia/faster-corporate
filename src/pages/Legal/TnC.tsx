@@ -35,9 +35,9 @@ export default function TnC() {
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl">
                 Faster.com.au Terms and Conditions
-              </h1>
+              </h2>
               <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
@@ -47,9 +47,9 @@ export default function TnC() {
               Services.
             </p>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               1. Binding Agreement
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 By signing up to our Web Application and accessing or using our
@@ -70,9 +70,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               2. Our Products & Services
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We aggregate financial and related information from one or more
@@ -118,9 +118,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               3. Paid Services
-            </h1>
+            </h2>
             <p>
               We provide some of our Products & Services free of charge.
               However, where indicated either at registration or within the
@@ -130,9 +130,9 @@ export default function TnC() {
               agreement with you to do so.
             </p>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               4. Your Information
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We will handle your Personal Information in accordance with our
@@ -147,7 +147,7 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">5. Your Rights</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">5. Your Rights</h2>
             <div className="space-y-4">
               <p>
                 You may use the main functionality of our Products & Services
@@ -174,9 +174,9 @@ export default function TnC() {
               <p>You can delete your account on our WebApp at any time.</p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               6. Your Reponsibilities
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>You agree to:</p>
               <ul className="ml-8 text-base sm:text-lg text-text-primary list-disc">
@@ -246,7 +246,7 @@ export default function TnC() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">7. Our Rights</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">7. Our Rights</h2>
             <div className="space-y-4">
               <p>
                 We may communicate with you using your registered email address,
@@ -268,9 +268,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               8. Intellectual Property
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 Unless otherwise indicated, we own or licence all rights, title
@@ -334,10 +334,10 @@ export default function TnC() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               9. Suspension of Use of Products & Services and Termination of
               Account
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 We may suspend your use of our Products & Services, or cancel
@@ -378,9 +378,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               10. Service Outage
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 From time to time, our Products & Services may experience
@@ -403,7 +403,7 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">11. Liability</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">11. Liability</h2>
             <div className="space-y-4">
               <p>
                 To the fullest extent permitted by law, we exclude all liability
@@ -457,9 +457,9 @@ export default function TnC() {
               </ul>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               12. Australian Consumer Law
-            </h1>
+            </h2>
             <div className="space-y-4">
               <p>
                 Certain legislation, including the Australian Consumer Law, and
@@ -490,9 +490,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               13. Governing Law & Jurisdiction
-            </h1>
+            </h2>
             <p>
               These Terms and all aspects of your use of our Products & Services
               are governed by the laws of the state of New South Wales
@@ -501,7 +501,7 @@ export default function TnC() {
               or our Products & Services.
             </p>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">14. Contact Us</h1>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">14. Contact Us</h2>
             <div className="space-y-4">
               <p>
                 If you would like to contact us, you can email us at{" "}
@@ -521,9 +521,9 @@ export default function TnC() {
               </p>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">
               15. Defined Terms
-            </h1>
+            </h2>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-gray-200 divide-y divide-gray-200">
                 <thead className="bg-bg-secondary">

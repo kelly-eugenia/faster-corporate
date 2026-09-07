@@ -35,9 +35,9 @@ export default function RefundPolicy() {
 
           <section className="xl:max-w-[1800px] max-w-6xl mx-auto mb-6 md:mb-12 space-y-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl">
                 Faster.com.au Refund Policy
-              </h1>
+              </h2>
               <h2 className="mt-2 text-xl sm:text-2xl md:text-3xl text-muted-primary">
                 (Faster Financial Group Pty Ltd)
               </h2>
