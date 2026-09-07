@@ -9,8 +9,8 @@ interface TrustpilotStats {
 // Fallback used until Contentful returns a value (or if the entry is
 // missing/unreachable) so the heading never breaks or goes blank.
 const FALLBACK_STATS: TrustpilotStats = {
-  rating: 2.1,
-  reviewCount: 1000,
+  rating: 4.3,
+  reviewCount: 1600,
 };
 
 export function useTrustpilotStats() {
