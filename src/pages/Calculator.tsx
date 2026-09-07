@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeUp } from "../utils/animations";
 
 import SEO from "../components/SEO";
-import { useSEO } from "../utils/useSEO";
+import { useSEO } from "../hooks/useSEO";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";

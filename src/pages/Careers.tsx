@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { fadeUp } from "../utils/animations";
 
 import SEO from "../components/SEO";
-import { useSEO } from "../utils/useSEO";
+import { useSEO } from "../hooks/useSEO";
+import { useJobs } from "../hooks/useJobs";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -14,59 +15,6 @@ import TeamPhoto from "../assets/career-team.jpg";
 import BgPhoto from "../assets/background.svg";
 
 import "../App.css";
-
-const jobDesc = [
-  {
-    jobId: "dm001",
-    role: "Digital Marketing Manager",
-    desc: (
-      <div className="text-lg space-y-4">
-        <p className="font-bold text-2xl">About Faster</p>
-        <p>
-          Faster is a forward-thinking financial technology company dedicated to
-          advancing credit inclusion by providing fair, swift, and transparent
-          access to credit through its innovative online lending platform.
-          Operating in Australia, New Zealand, the USA, Canada, and the United
-          Kingdom, Faster offers tailored credit solutions to meet diverse
-          consumer needs. With a deep understanding of consumer lending, the
-          company leverages artificial intelligence, sophisticated underwriting,
-          and a commitment to exceptional customer experience to efficiently
-          provide thousands of personal loans each month.
-        </p>
-        <br />
-        <p className="font-bold text-2xl">Role Description</p>
-        <p>
-          This is a full-time hybrid role for a Digital Marketing Manager
-          located in Melbourne, VIC, with some work from home acceptable. The
-          Digital Marketing Manager will be responsible for developing and
-          executing social media marketing campaigns, generating leads,
-          analysing web analytics, and driving overall digital marketing
-          strategies. Daily tasks include monitoring the performance of digital
-          marketing initiatives, optimising content for various platforms, and
-          collaborating with cross-functional teams to enhance digital presence
-          and effectiveness.
-        </p>
-        <br />
-        <p className="font-bold text-2xl">Qualifications</p>
-        <ul className="text-text-primary list-disc list-inside">
-          <li>Social Media Marketing and Lead Generation skills</li>
-          <li>
-            Expertise in Digital Marketing and Marketing strategies (Knows how
-            to execute and plan digital campaigns across Meta, Google & Tiktok)
-          </li>
-          <li>Proficiency in Web Analytics tools</li>
-          <li>Strong attention to detail and analytical skills</li>
-          <li>Excellent communication and teamwork abilities</li>
-          <li>Bachelor's degree in Marketing, Business, or related field</li>
-          <li>Experience in the financial technology industry is a plus</li>
-        </ul>
-      </div>
-    ),
-    type: "Full-time",
-    location: "Hybrid - Melbourne, VIC",
-    applyUrl: "https://www.linkedin.com/jobs/view/4324348669",
-  },
-];
 
 const values = [
   {
@@ -132,6 +80,7 @@ const perks = [
 
 export default function Careers() {
   const seo = useSEO("careers");
+  const { jobs, loading } = useJobs();
 
   return (
     <>
@@ -404,18 +353,21 @@ export default function Careers() {
             </div>
 
             <section className="space-y-4 mb-6">
-              {jobDesc.map((job) => {
-                return (
-                  <JobCard
-                    key={job.jobId}
-                    jobId={job.jobId}
-                    role={job.role}
-                    type={job.type}
-                    location={job.location}
-                    applyUrl={job.applyUrl}
-                  />
-                );
-              })}
+              {!loading && jobs.length === 0 && (
+                <p className="rounded-2xl border border-secondary/20 bg-bg-primary p-4 md:p-8 shadow-sm text-center text-muted-primary text-lg">
+                  No open roles right now — check back soon.
+                </p>
+              )}
+              {jobs.map((job) => (
+                <JobCard
+                  key={job.jobId}
+                  jobId={job.jobId}
+                  role={job.role}
+                  type={job.type}
+                  location={job.location}
+                  applyUrl={job.applyUrl}
+                />
+              ))}
             </section>
           </div>
         </motion.section>

@@ -3,64 +3,39 @@ import { useParams, Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { useJob } from "../hooks/useJobs";
 
-const jobDesc = [
-  {
-    jobId: "dm001",
-    role: "Digital Marketing Manager",
-    desc: (
-      <div className="text-lg space-y-4">
-        <p className="font-bold text-2xl">About Faster</p>
-        <p>
-          Faster is a forward-thinking financial technology company dedicated to
-          advancing credit inclusion by providing fair, swift, and transparent
-          access to credit through its innovative online lending platform.
-          Operating in Australia, New Zealand, the USA, Canada, and the United
-          Kingdom, Faster offers tailored credit solutions to meet diverse
-          consumer needs. With a deep understanding of consumer lending, the
-          company leverages artificial intelligence, sophisticated underwriting,
-          and a commitment to exceptional customer experience to efficiently
-          provide thousands of personal loans each month.
-        </p>
-        <br />
-        <p className="font-bold text-2xl">Role Description</p>
-        <p>
-          This is a full-time hybrid role for a Digital Marketing Manager
-          located in Melbourne, VIC, with some work from home acceptable. The
-          Digital Marketing Manager will be responsible for developing and
-          executing social media marketing campaigns, generating leads,
-          analysing web analytics, and driving overall digital marketing
-          strategies. Daily tasks include monitoring the performance of digital
-          marketing initiatives, optimising content for various platforms, and
-          collaborating with cross-functional teams to enhance digital presence
-          and effectiveness.
-        </p>
-        <br />
-        <p className="font-bold text-2xl">Qualifications</p>
-        <ul className="text-text-primary list-disc list-inside">
-          <li>Social Media Marketing and Lead Generation skills</li>
-          <li>
-            Expertise in Digital Marketing and Marketing strategies (Knows how
-            to execute and plan digital campaigns across Meta, Google & Tiktok)
-          </li>
-          <li>Proficiency in Web Analytics tools</li>
-          <li>Strong attention to detail and analytical skills</li>
-          <li>Excellent communication and teamwork abilities</li>
-          <li>Bachelor's degree in Marketing, Business, or related field</li>
-          <li>Experience in the financial technology industry is a plus</li>
-        </ul>
-      </div>
-    ),
-    type: "Full-time",
-    location: "Hybrid - Melbourne, VIC",
-    applyUrl: "https://www.linkedin.com/jobs/view/4324348669",
-  },
-];
+// Shared company boilerplate shown above every role's description
+const ABOUT_FASTER = `Faster is a forward-thinking financial technology company dedicated to
+advancing credit inclusion by providing fair, swift, and transparent
+access to credit through its innovative online lending platform.
+Operating in Australia, New Zealand, the USA, Canada, and the United
+Kingdom, Faster offers tailored credit solutions to meet diverse
+consumer needs. With a deep understanding of consumer lending, the
+company leverages artificial intelligence, sophisticated underwriting,
+and a commitment to exceptional customer experience to efficiently
+provide thousands of personal loans each month.`;
 
 export default function JobDesc() {
   const { jobId } = useParams<{ jobId: string }>();
+  const { job, loading } = useJob(jobId ?? "");
 
-  const job = jobId ? jobDesc.find((j) => j.jobId === jobId) : undefined;
+  if (loading) {
+    return (
+      <>
+        <SEO title="Careers at Faster — Build the Future of Fair, Fast Credit | Faster.com.au" />
+        <NavBar />
+        <div className="w-full max-w-[1440px] px-6 mx-auto">
+          <section className="py-24">
+            <p className="text-lg md:text-xl mt-12 text-text-primary">
+              Loading…
+            </p>
+          </section>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   if (!job) {
     return (
@@ -137,25 +112,28 @@ export default function JobDesc() {
                     {job.type}
                   </span>
                 </div>
-                <div className="flex flex-wrap gap-4">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-6 md:size-8"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <span className="inline-flex items-center text-xl md:text-2xl font-medium">
-                    {job.location}
-                  </span>
-                </div>
+                {job.location && (
+                  <div className="flex flex-wrap gap-4">
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="size-6 md:size-8"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+
+                    <span className="inline-flex items-center text-xl md:text-2xl font-medium">
+                      {job.location}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -172,7 +150,28 @@ export default function JobDesc() {
           </header>
 
           <section className="xl:max-w-[1920px] max-w-6xl mb-6 md:mb-12">
-            {job.desc}
+            <div className="text-lg space-y-4">
+              <p className="font-bold text-2xl">About Faster</p>
+              {ABOUT_FASTER.split("\n\n").map((paragraph, i) => (
+                <p key={i}>{paragraph.replace(/\n/g, " ")}</p>
+              ))}
+              <br />
+              <p className="font-bold text-2xl">Role Description</p>
+              {job.roleDescription.split("\n\n").map((paragraph, i) => (
+                <p key={i}>{paragraph.replace(/\n/g, " ")}</p>
+              ))}
+              {job.qualifications.length > 0 && (
+                <>
+                  <br />
+                  <p className="font-bold text-2xl">Qualifications</p>
+                  <ul className="text-text-primary list-disc list-inside">
+                    {job.qualifications.map((q, i) => (
+                      <li key={i}>{q}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
           </section>
 
           <a

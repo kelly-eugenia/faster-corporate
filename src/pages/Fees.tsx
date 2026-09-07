@@ -5,7 +5,7 @@ import { fadeUp } from "../utils/animations";
 import React, { type ReactNode } from "react";
 
 import SEO from "../components/SEO";
-import { useSEO } from "../utils/useSEO";
+import { useSEO } from "../hooks/useSEO";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";

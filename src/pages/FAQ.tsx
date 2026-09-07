@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useMemo, useState } from "react";
 
 import SEO from "../components/SEO";
-import { useSEO } from "../utils/useSEO";
+import { useSEO } from "../hooks/useSEO";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";

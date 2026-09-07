@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTrustpilotStats } from "../hooks/useTrustpilotStats";
 
 declare global {
   interface Window {
@@ -10,6 +11,7 @@ declare global {
 
 export default function Reviews() {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const { rating, reviewCount } = useTrustpilotStats();
 
   useEffect(() => {
     // If the script has loaded, tell it to (re)render this widget
@@ -24,7 +26,8 @@ export default function Reviews() {
         className="mt-3 text-[clamp(24px,3vw,32px)] leading-[1.05] tracking-[-0.02em] font-bold text-text-primary"
         style={{ textWrap: "balance" } as React.CSSProperties}
       >
-        Rated 4.3 / 5 by 1,600+ Australian borrowers.
+        Rated {rating.toFixed(1)} / 5 by {reviewCount.toLocaleString()}+
+        Australian borrowers.
       </h2>
       <div
         ref={containerRef}

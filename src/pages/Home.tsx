@@ -4,7 +4,8 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { fadeUp, pulse } from "../utils/animations";
 
 import SEO from "../components/SEO";
-import { useSEO } from "../utils/useSEO";
+import { useSEO } from "../hooks/useSEO";
+import { useTrustpilotStats } from "../hooks/useTrustpilotStats";
 
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -138,6 +139,15 @@ const APP_FEATURES = [
 
 export default function Home() {
   const seo = useSEO("home");
+  const { rating, reviewCount } = useTrustpilotStats();
+  // Dynamically calculate the number of full, partial and empty stars
+  // to render (in hero section) based on the real-time Trustpilot rating value.
+  const numericRating = Math.max(0, Math.min(5, rating || 0));
+  const fullStars = Math.floor(numericRating);
+  const partialStarPercent = Math.round((numericRating - fullStars) * 100);
+  const hasPartialStar = fullStars < 5 && partialStarPercent > 0;
+  const emptyStars = 5 - fullStars - (hasPartialStar ? 1 : 0);
+
   const navigate = useNavigate();
 
   const amount = useMotionValue(5000);
@@ -255,9 +265,9 @@ export default function Home() {
                   >
                     <div
                       className="inline-flex gap-px"
-                      aria-label="4.4 out of 5 stars"
+                      aria-label={`${numericRating.toFixed(1)} out of 5 stars`}
                     >
-                      {Array.from({ length: 4 }).map((_, i) => (
+                      {Array.from({ length: fullStars }).map((_, i) => (
                         <svg
                           key={i}
                           viewBox="0 0 24 24"
@@ -271,26 +281,48 @@ export default function Home() {
                           />
                         </svg>
                       ))}
-                      <svg viewBox="0 0 24 24" className="w-[16px] h-[16px]">
-                        <defs>
-                          <linearGradient id="halfstar">
-                            <stop offset="35%" stopColor="#00b67a" />
-                            <stop offset="35%" stopColor="#d6dae6" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M0 0h24v24H0z" fill="url(#halfstar)" />
-                        <path
-                          d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
-                          fill="#fff"
-                        />
-                      </svg>
+                      {hasPartialStar && (
+                        <svg viewBox="0 0 24 24" className="w-[16px] h-[16px]">
+                          <defs>
+                            <linearGradient id="halfstar">
+                              <stop
+                                offset={`${partialStarPercent}%`}
+                                stopColor="#00b67a"
+                              />
+                              <stop
+                                offset={`${partialStarPercent}%`}
+                                stopColor="#d6dae6"
+                              />
+                            </linearGradient>
+                          </defs>
+                          <path d="M0 0h24v24H0z" fill="url(#halfstar)" />
+                          <path
+                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                            fill="#fff"
+                          />
+                        </svg>
+                      )}
+                      {Array.from({ length: emptyStars }).map((_, i) => (
+                        <svg
+                          key={`empty-${i}`}
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-[16px] h-[16px]"
+                        >
+                          <path d="M0 0h24v24H0z" fill="#d6dae6" />
+                          <path
+                            d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"
+                            fill="#fff"
+                          />
+                        </svg>
+                      ))}
                     </div>
                     <div>
                       <div className="font-bold text-[13px] text-bg-primary leading-none">
-                        4.3 / 5
+                        {numericRating.toFixed(1)} / 5
                       </div>
                       <div className="text-[11px] text-border-default/60 mt-0.5">
-                        1,600+ Trustpilot reviews
+                        {reviewCount.toLocaleString()}+ Trustpilot reviews
                       </div>
                     </div>
                   </div>
